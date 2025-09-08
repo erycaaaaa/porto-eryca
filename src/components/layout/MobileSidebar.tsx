@@ -199,7 +199,7 @@ export default function MobileSidebar({
                     className="rounded-full border border-[#e8dcb8] bg-white/90 p-1.5 shadow dark:border-[#3b3526] dark:bg-[#18160f]"
                   >
                     <Image
-                      src="/assets/eryca.gif"
+                      src="/eryca.gif"
                       alt="Logo"
                       width={24}
                       height={24}
@@ -266,7 +266,7 @@ export default function MobileSidebar({
                 {/* CTA */}
                 <div className="mt-4 grid gap-2">
                   <a
-                    href="/assets/Curriculum Vitae  - Eryca Dhamma Shanty.pdf"
+                    href="/Curriculum Vitae  - Eryca Dhamma Shanty.pdf"
                     download="Eryca-Dhamma-Shanty-CV.pdf"
                     className="
                       inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
@@ -380,7 +380,7 @@ export default function MobileSidebar({
                   {/* GIF → pakai <Image /> biar lint bersih */}
                   <div className="flex justify-center mt-5">
                     <Image
-                      src="/assets/girl.gif"
+                      src="/girl.gif"
                       alt="Inspiration GIF"
                       width={240}
                       height={128}

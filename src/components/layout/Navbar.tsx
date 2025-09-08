@@ -96,7 +96,7 @@ export default function Navbar() {
             className="justify-self-center hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           >
             <Image
-              src="/assets/eryca.gif"
+              src="/eryca.gif"
               alt="Logo"
               width={48}
               height={48}
@@ -142,7 +142,7 @@ export default function Navbar() {
             className="hover:opacity-90"
           >
             <Image
-              src="/assets/eryca.gif"
+              src="/eryca.gif"
               alt="Logo"
               width={36}
               height={36}

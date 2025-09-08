@@ -36,21 +36,21 @@ export default function ApproachVisual() {
         {/* CARD 1 */}
         <ArticleCard
           title="Acrylic"
-          img="/assets/2.jpg"
+          img="/2.jpg"
           excerpt="Exploring color transparency, splashes, and soft layering techniques."
           href="#acrylic"
         />
         {/* CARD 2 */}
         <ArticleCard
           title="Watercolor"
-          img="/assets/1.jpg"
+          img="/1.jpg"
           excerpt="Fluid brushstrokes, expressive tones, and the delicacy of water-based pigments."
           href="#watercolor"
         />
         {/* CARD 3 */}
         <ArticleCard
           title="3D Crafting"
-          img="/assets/4.jpg"
+          img="/4.jpg"
           excerpt="Digital experiments — mixed media, collage, and stylized renderings."
           href="#3dCrafting"
         />

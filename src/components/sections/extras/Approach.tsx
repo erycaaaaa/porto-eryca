@@ -119,12 +119,12 @@ export default function Approach() {
             {/* slider */}
             <ImageSlider
               images={[
-                { src: "/assets/un.jpg", alt: "UntarX system overview" },
-                { src: "/assets/ed.jpg", alt: "Education module UI" },
-                { src: "/assets/to.jpg", alt: "Tokens & design system" },
-                { src: "/assets/wi.jpg", alt: "UntarX system overview" },
-                { src: "/assets/min.jpg", alt: "Education module UI" },
-                { src: "/assets/bu.jpg", alt: "Tokens & design system" },
+                { src: "/un.jpg", alt: "UntarX system overview" },
+                { src: "/ed.jpg", alt: "Education module UI" },
+                { src: "/to.jpg", alt: "Tokens & design system" },
+                { src: "/wi.jpg", alt: "UntarX system overview" },
+                { src: "/min.jpg", alt: "Education module UI" },
+                { src: "/bu.jpg", alt: "Tokens & design system" },
               ]}
             />
 

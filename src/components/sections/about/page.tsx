@@ -115,9 +115,9 @@ const data = {
     quoteBy: "Product Manager, UntarX",
   },
   gallery: [
-    { title: "Site Map Baru", img: "/assets/case/sitemap.png" },
-    { title: "Wireframe Beranda", img: "/assets/case/wire-home.png" },
-    { title: "UI Components", img: "/assets/case/ui-kit.png" },
+    { title: "Site Map Baru", img: "/case/sitemap.png" },
+    { title: "Wireframe Beranda", img: "/case/wire-home.png" },
+    { title: "UI Components", img: "/case/ui-kit.png" },
   ],
   next: {
     items: [
@@ -142,7 +142,7 @@ export default function CaseStudyOnePage() {
   return (
     <div className="min-h-screen bg-[#f5f4ef] text-zinc-900">
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-zinc-200/60 bg-[url('/assets/paper0.svg')] bg-[length:1200px] bg-center/cover bg-no-repeat">
+      <section className="relative overflow-hidden border-b border-zinc-200/60 bg-[url('/paper0.svg')] bg-[length:1200px] bg-center/cover bg-no-repeat">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
           <motion.span
             initial="hidden"

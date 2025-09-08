@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Eryca",
   description:
     "Clean, usable, and scalable design — from research to polished handoff.",
-  icons: { icon: [{ url: "/assets/logo-pp.svg", type: "image/svg+xml" }] },
+  icons: { icon: [{ url: "/logo-pp.svg", type: "image/svg+xml" }] },
 };
 
 export default function RootLayout({
@@ -38,11 +38,11 @@ export default function RootLayout({
           {/* FOOTER di-global di sini */}
           <Footer
             brandName="Eryca Portfolio"
-            brandLogoSrc="/assets/logo-pp.svg
+            brandLogoSrc="/logo-pp.svg
             " // opsional
-            decorativeGifSrc="/assets/logo-web.gif
+            decorativeGifSrc="/logo-web.gif
             "
-            // ⬅️ taruh file di public/assets/mee.gif
+            // ⬅️ taruh file di public/mee.gif
             decorativeAlt="" // dekoratif → alt kosong
             socials={{
               github: "https://github.com/erycaaaaa",

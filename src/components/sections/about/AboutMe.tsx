@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 
 "use client";
 
@@ -687,7 +688,7 @@ export default function AboutMe() {
               className="relative mx-auto w-56 md:w-64 aspect-[4/5] overflow-hidden rounded-[24px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
             >
               <img
-                src="/assets/mee.gif"
+                src="/mee.gif"
                 alt="Eryca — Informatics student and designer"
                 className="h-full w-full object-cover"
                 loading="lazy"
@@ -713,7 +714,7 @@ export default function AboutMe() {
             >
               {/* GIF naga: absolute, di kanan-atas, tidak menangkap pointer, z-index rendah */}
               <motion.img
-                src="/assets/naga1.gif"
+                src="/naga1.gif"
                 alt="Wave animation"
                 loading="lazy"
                 className="absolute top-[-70] right-4 h-40 w-40 object-cover rounded-xl z-0 pointer-events-none"
