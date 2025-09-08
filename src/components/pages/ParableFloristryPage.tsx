@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import IntroCardsAnimated from "@/components/sections/about/IntroCards";
 import AboutMeAnimated from "@/components/sections/about/AboutMe";
 import ApproachQrBlock from "@/components/sections/extras/ApproachVisual";
@@ -34,7 +33,7 @@ export default function ParableFloristryPage() {
 export function ImpactHighlights({
   items = [
     { kpi: "+18%", label: "Delivery speed" },
-    { kpi: "−32%", label: "Redesign time" },
+    { kpi: "-32%", label: "Redesign time" },
     { kpi: "4.8/5", label: "User testing score" },
     { kpi: "6+", label: "Shipped projects" },
   ],

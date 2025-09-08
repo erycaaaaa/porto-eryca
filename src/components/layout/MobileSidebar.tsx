@@ -1,8 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
-// src/components/layout/MobileSidebar.tsx
+
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Home,
@@ -20,17 +19,19 @@ import Image from "next/image";
 import * as React from "react";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
+type AnchorHandler = (
+  href: string
+) => (e: React.MouseEvent<HTMLAnchorElement>) => void;
+
 type Props = {
   open: boolean;
-  onClose: () => void;
-  onShowSplash: (ms?: number) => void;
-  handleAnchor: (
-    href: string
-  ) => (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  onCloseAction: () => void;                 // ✅ rename sesuai aturan Next 15
+  onShowSplashAction: (ms?: number) => void; // ✅ sudah benar
+  handleAnchorAction: AnchorHandler;         // ✅ pakai alias tipe biar rapi
 };
 
-const FULL_WIDTH = 420; 
-const RAIL_WIDTH = 80; 
+const FULL_WIDTH = 420;
+const RAIL_WIDTH = 80;
 
 // media query helper: true di mobile (<=640px)
 function useIsMobile() {
@@ -41,7 +42,6 @@ function useIsMobile() {
       setIsMobile("matches" in m ? m.matches : (m as MediaQueryList).matches);
     apply(mq);
     const listener = (e: MediaQueryListEvent) => apply(e);
-    // dukung browser lama
     if (mq.addEventListener) mq.addEventListener("change", listener);
     else mq.addListener(listener);
     return () => {
@@ -54,19 +54,19 @@ function useIsMobile() {
 
 export default function MobileSidebar({
   open,
-  onClose,
-  onShowSplash,
-  handleAnchor,
+  onCloseAction,
+  onShowSplashAction,
+  handleAnchorAction,
 }: Props) {
   const isMobile = useIsMobile();
   const [expanded, setExpanded] = useState(false);
 
   // ESC untuk menutup
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onCloseAction();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  }, [onCloseAction]);
 
   // Kunci body scroll saat menu terbuka
   useEffect(() => {
@@ -79,11 +79,13 @@ export default function MobileSidebar({
   }, [open]);
 
   // klik item: buka penuh (jika rail) lalu jalankan anchor
-  const onAnchor =
-    (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const onAnchor = useCallback<AnchorHandler>(
+    (href: string) => (e) => {
       if (!isMobile && !expanded) setExpanded(true);
-      handleAnchor(href)(e);
-    };
+      handleAnchorAction(href)(e);
+    },
+    [handleAnchorAction, isMobile, expanded]
+  );
 
   // width animatable (mobile = full screen)
   const width = isMobile ? "100vw" : expanded ? FULL_WIDTH : RAIL_WIDTH;
@@ -96,7 +98,7 @@ export default function MobileSidebar({
           <motion.button
             aria-label="Close menu"
             className="fixed inset-0 z-[60] bg-black/35 backdrop-blur-sm"
-            onClick={onClose}
+            onClick={onCloseAction}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -113,7 +115,7 @@ export default function MobileSidebar({
             dragConstraints={{ left: -100, right: 0 }}
             dragElastic={0.06}
             onDragEnd={(_, info) => {
-              if (info.offset.x > 80) onClose();
+              if (info.offset.x > 80) onCloseAction();
             }}
             className="
               fixed right-0 top-0 bottom-0 md:right-2 md:top-2 md:bottom-2
@@ -172,7 +174,7 @@ export default function MobileSidebar({
 
                 <div className="mt-auto pb-1">
                   <button
-                    onClick={onClose}
+                    onClick={onCloseAction}
                     aria-label="Close"
                     className="rounded-full p-2 hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/30 dark:hover:bg-white/5 dark:focus-visible:ring-white/30"
                   >
@@ -193,7 +195,7 @@ export default function MobileSidebar({
                 <div className="flex items-center gap-2">
                   <button
                     aria-label="Show splash"
-                    onClick={() => onShowSplash(1000)}
+                    onClick={() => onShowSplashAction(1000)}   // ✅ panggilan benar
                     className="rounded-full border border-[#e8dcb8] bg-white/90 p-1.5 shadow dark:border-[#3b3526] dark:bg-[#18160f]"
                   >
                     <Image
@@ -212,7 +214,7 @@ export default function MobileSidebar({
                 <div className="flex items-center gap-1.5">
                   <ThemeToggle />
                   <button
-                    onClick={onClose}
+                    onClick={onCloseAction}
                     className="rounded-full p-2 hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/30 dark:hover:bg-white/5 dark:focus-visible:ring-white/30"
                     aria-label="Close"
                   >
@@ -231,11 +233,7 @@ export default function MobileSidebar({
                 style={{ WebkitOverflowScrolling: "touch" }}
               >
                 <Section title="Explore">
-                  <Item
-                    icon={<Home />}
-                    href="#home"
-                    onClick={onAnchor("#home")}
-                  >
+                  <Item icon={<Home />} href="#home" onClick={onAnchor("#home")}>
                     Home
                   </Item>
                   <Item
@@ -257,18 +255,10 @@ export default function MobileSidebar({
                 <div className="my-3 h-px bg-[#e8dcb8]/70 dark:bg-[#2a2519]" />
 
                 <Section title="About">
-                  <Item
-                    icon={<User />}
-                    href="#about"
-                    onClick={onAnchor("#about")}
-                  >
+                  <Item icon={<User />} href="#about" onClick={onAnchor("#about")}>
                     About Me
                   </Item>
-                  <Item
-                    icon={<Mail />}
-                    href="#contact"
-                    onClick={onAnchor("#contact")}
-                  >
+                  <Item icon={<Mail />} href="#contact" onClick={onAnchor("#contact")}>
                     Contact
                   </Item>
                 </Section>
@@ -312,7 +302,8 @@ export default function MobileSidebar({
                     {[
                       {
                         label: "Instagram",
-                        href: "https://www.instagram.com/erycadhm?igsh=MWI3M2drN3R0ZmNwdA==",
+                        href:
+                          "https://www.instagram.com/erycadhm?igsh=MWI3M2drN3R0ZmNwdA==",
                       },
                       {
                         label: "LinkedIn",
@@ -341,11 +332,12 @@ export default function MobileSidebar({
                     ))}
                   </ul>
                 </div>
+
                 {/* Separator */}
                 <div className="relative my-5 flex items-center">
-                  <div className="flex-grow border-t border-gray-300"></div>
+                  <div className="flex-grow border-t border-gray-300" />
                   <span className="mx-4 text-gray-500 text-sm">✦</span>
-                  <div className="flex-grow border-t border-gray-300"></div>
+                  <div className="flex-grow border-t border-gray-300" />
                 </div>
 
                 {/* Playing Spotify (iframe) */}
@@ -362,37 +354,43 @@ export default function MobileSidebar({
                     className="rounded-lg ring-1 ring-[#e8dcb8]/70 dark:ring-[#2a2519]"
                   />
                 </div>
+
                 {/* Separator */}
                 <div className="relative my-5 flex items-center">
-                  <div className="flex-grow border-t border-gray-300"></div>
+                  <div className="flex-grow border-t border-gray-300" />
                   <span className="mx-4 text-gray-500 text-sm">✦</span>
-                  <div className="flex-grow border-t border-gray-300"></div>
+                  <div className="flex-grow border-t border-gray-300" />
                 </div>
 
                 <div className="mt-6">
                   <p className="mb-2 text-xs uppercase tracking-widest text-[color:var(--foreground)]/60">
                     Quote
                   </p>
-                               {/* Button/link to Quotes page */}
+
+                  {/* Button/link to Quotes page */}
                   <div className="mt-6 text-center">
                     <Link
-                      href="/quotes" // arahkan ke file/page Quote.tsx atau /quotes
+                      href="/quotes"
                       className="inline-block rounded-full bg-[color:var(--foreground)]/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow hover:bg-[color:var(--foreground)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--foreground)] transition"
                     >
                       More Quotes
                     </Link>
                   </div>
 
-                  {/* GIF */}
+                  {/* GIF → pakai <Image /> biar lint bersih */}
                   <div className="flex justify-center mt-5">
-                    <img
+                    <Image
                       src="/assets/girl.gif"
                       alt="Inspiration GIF"
+                      width={240}
+                      height={128}
                       className="w-60 h-32 object-contain"
+                      unoptimized
                     />
                   </div>
+
                   {/* Separator */}
-                  <div className="my-8 h-[2px] w-2/3 mx-auto bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+                  <div className="my-8 h-[2px] w-2/3 mx-auto bg-gradient-to-r from-transparent via-gray-400 to-transparent" />
 
                   {/* Quote */}
                   <div className="mt-6 border-l-4 border-gray-400 pl-4 italic text-sm text-[color:var(--foreground)]/80">

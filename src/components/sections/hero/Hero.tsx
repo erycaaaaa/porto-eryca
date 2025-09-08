@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+// import Image from "next/image"; // Kalau pakai opsi A
 
 type HeroProps = {
   name: string;
@@ -10,6 +11,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
   return (
     <section id="home" className="relative isolate">
       {/* BACKGROUND */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/assets/bg1.svg"
         alt=""

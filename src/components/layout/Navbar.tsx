@@ -20,12 +20,13 @@ const RIGHT = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  // trigger splash (mis. didengarkan oleh komponen lain)
   const showSplash = (ms = 5000) =>
     window.dispatchEvent(
       new CustomEvent("eryca:splash", { detail: { durationMs: ms } })
     );
 
-  // helper anchor scroll (offset navbar)
+  // helper anchor scroll (dengan offset tinggi navbar 72px)
   const handleAnchor =
     (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       if (!href.startsWith("#")) return;
@@ -45,17 +46,16 @@ export default function Navbar() {
   }, [open]);
 
   return (
-<nav
-  id="site-nav"
-  className="
-  relative w-full border-t border-#e8e0c2 bg-[#3b2f22] text-#e8e0c2
-  shadow-[0_-4px_12px_rgba(0,0,0,0.4)]
-    border-[var(--border)]
-  dark:bg-[#95927573] dark:text-[#ffffff] dark:border-[#3b3526]
-  "
-  aria-label="Primary"
->
-
+    <nav
+      id="site-nav"
+      aria-label="Primary"
+      className="
+        relative w-full border-t border-[#e8e0c2] bg-[#3b2f22] text-[#e8e0c2]
+        shadow-[0_-4px_12px_rgba(0,0,0,0.4)]
+        border-[var(--border)]
+        dark:bg-[#95927573] dark:text-[#ffffff] dark:border-[#3b3526]
+      "
+    >
       {/* wadah konten navbar */}
       <div className="max-w-6xl px-4 sm:px-6 md:ml-[205px]">
         {/* DESKTOP */}
@@ -159,9 +159,9 @@ export default function Navbar() {
       {/* Drawer ala desain */}
       <MobileSidebar
         open={open}
-        onClose={() => setOpen(false)}
-        onShowSplash={showSplash}
-        handleAnchor={handleAnchor}
+        onCloseAction={() => setOpen(false)}   
+        onShowSplashAction={showSplash}        
+        handleAnchorAction={handleAnchor}      
       />
     </nav>
   );
