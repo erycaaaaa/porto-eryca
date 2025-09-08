@@ -1,11 +1,12 @@
-// next.config.js
-/** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+// next.config.ts
+const isProd = process.env.NODE_ENV === "production";
+const repo = "porto-eryca";
 
-module.exports = {
-  output: 'export', 
-  basePath: isProd ? '/porto-eryca' : '',
-  assetPrefix: isProd ? '/porto-eryca/' : '',
-  images: { unoptimized: true },
-  trailingSlash: true, 
+const nextConfig = {
+  output: "export",                 
+  images: { unoptimized: true },    
+  basePath: isProd ? `/${repo}` : "",
+  assetPrefix: isProd ? `/${repo}/` : "",
 };
+
+export default nextConfig;
