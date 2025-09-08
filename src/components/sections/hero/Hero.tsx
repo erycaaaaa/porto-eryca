@@ -13,7 +13,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
       {/* BACKGROUND */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/bg1.svg"
+        src="/porto-eryca/bg1.svg"
         alt=""
         aria-hidden="true"
         loading="eager"

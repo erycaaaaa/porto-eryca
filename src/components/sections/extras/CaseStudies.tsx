@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 
 "use client";
 import React from "react";
@@ -16,21 +17,21 @@ export default function CaseStudiesSection({
     {
       title: "Parable Floristry",
       blurb: "Boutique floristry brand site with crisp UX and motion.",
-      image: "/w2.jpg",
+      image: "/porto-eryca/w2.jpg",
       href: "/case-studies/parable-floristry",
       tag: "Brand & Web",
     },
     {
       title: "Tarumanagara Enterprise",
       blurb: "Vision-led site with clean information flow.",
-      image: "/u00.jpg",
+      image: "/porto-eryca/u00.jpg",
       href: "/case-studies/tarumanagara-enterprise",
       tag: "UX Strategy",
     },
     {
       title: "Eryca Portfolio",
       blurb: "Fast, clear, and crafted personal portfolio.",
-      image: "/w11.jpg",
+      image: "/porto-eryca/w11.jpg",
       href: "/case-studies/eryca-portfolio",
       tag: "Design & Front-End",
     },

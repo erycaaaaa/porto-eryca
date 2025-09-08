@@ -48,7 +48,7 @@ export default function SplashScreen({
       aria-hidden={!visible}
     >
       <Image
-        src="/logo-web.gif" // GIF kamu
+        src="/porto-eryca/logo-web.gif" // GIF kamu
         alt="Loading"
         width={120}
         height={120}

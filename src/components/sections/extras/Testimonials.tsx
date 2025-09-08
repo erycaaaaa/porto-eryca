@@ -12,28 +12,28 @@ const PEOPLE: Item[] = [
       "If you ask me what I came to do in this world… I am here to live out loud.",
     name: "Émile Zola",
     role: "French Novelist & Critic",
-    avatar: "/Émile Zola.png",
+    avatar: "/porto-eryca/Émile Zola.png",
   },
   {
     quote:
       "Every portrait that is painted with feeling is a portrait of the artist, not of the sitter.",
     name: "Oscar Wilde",
     role: "The Picture of Dorian Gray",
-    avatar: "/Oscar Wilde.jpg",
+    avatar: "/porto-eryca/Oscar Wilde.jpg",
   },
   {
     quote:
       "Learn to light a candle in the darkest moments of someone’s life. Be the light that helps others see it is what gives life its deepest significance.",
     name: "Roy T. Bennett",
     role: "Author of The Light in the Heart.",
-    avatar: "/rot.jpg",
+    avatar: "/porto-eryca/rot.jpg",
   },
   {
     quote:
       "What you do makes a difference, and you have to decide what kind of difference you want to make.",
     name: "Jane Goodall",
     role: "The world's leading chimpanzee researcher.",
-    avatar: "/jane.jpeg",
+    avatar: "/porto-eryca/jane.jpeg",
   },
 ];
 

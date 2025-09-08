@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Eryca",
   description:
     "Clean, usable, and scalable design — from research to polished handoff.",
-  icons: { icon: [{ url: "/logo-pp.svg", type: "image/svg+xml" }] },
+  icons: { icon: [{ url: "/porto-eryca/logo-pp.svg", type: "image/svg+xml" }] },
 };
 
 export default function RootLayout({
@@ -38,9 +38,9 @@ export default function RootLayout({
           {/* FOOTER di-global di sini */}
           <Footer
             brandName="Eryca Portfolio"
-            brandLogoSrc="/logo-pp.svg
+            brandLogoSrc="/porto-eryca/logo-pp.svg
             " // opsional
-            decorativeGifSrc="/logo-web.gif
+            decorativeGifSrc="/porto-eryca/logo-web.gif
             "
             // ⬅️ taruh file di public/mee.gif
             decorativeAlt="" // dekoratif → alt kosong

@@ -2,6 +2,7 @@
 
 import React, { JSX } from "react";
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 
 type LinkItem = { label: string; href: string };
 type LinkGroup = { heading: string; items: LinkItem[] };
@@ -174,7 +175,7 @@ export default function Footer({
           aria-label="Back to top"
         >
           <img
-            src="/public/ikan.gif"
+            src="/porto-eryca/ikan.gif"
             alt="Back to top icon"
             className="h-[55px] w-[52px] select-none rounded-full ring-1 ring-[#b2a98a] shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
             loading="lazy"
