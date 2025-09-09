@@ -12,12 +12,20 @@ export default function Hero({ name, subtitle }: HeroProps) {
     <section id="home" className="relative isolate">
       {/* BACKGROUND */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+     <img
         src="/porto-eryca/bg1.svg"
         alt=""
         aria-hidden="true"
         loading="eager"
-        className="absolute inset-0 -z-10 w-full object-cover h-[50vh] sm:h-[60vh] md:h-[72vh] lg:h-[80vh] object-center sm:object-[50%_40%] md:object-[50%_30%]"
+        className={[
+          "absolute inset-0 -z-10 w-full",
+          "h-[55vh] sm:h-[62vh] md:h-[72vh] lg:h-[80vh]",
+          // cover + zoom-out di mobile
+          "object-cover object-center sm:object-[50%_40%] md:object-[50%_30%]",
+          "scale-90 sm:scale-95 md:scale-100 lg:scale-105",
+          "transition-transform duration-300 ease-out will-change-transform",
+          "pointer-events-none select-none"
+        ].join(" ")}
       />
 
       {/* CONTENT */}
