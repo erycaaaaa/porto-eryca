@@ -13,11 +13,25 @@ type Item = {
 // Data contoh
 const ALL_ITEMS: Item[] = [
   { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
+  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/kimi.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
+  { id: "ac-01", title: "Pak Muh Family", category: "Acrylic", src: "/porto-eryca/acy1.jpg", description: "Pak Muh Team" },
+  { id: "ac-01", title: "Joker", category: "Acrylic", src: "/porto-eryca/acy2.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
+  { id: "ac-01", title: "WindBreaker", category: "Acrylic", src: "/porto-eryca/acy5.jpg", description: "South Korean webtoon about a talented student named Jay who joins a school bicycle racing team called Hummingbird Crew, only for the series to be abruptly stopped by the Webtoon platform after the author, Jo Yong Seok" },
+  { id: "ac-01", title: "Commission", category: "Acrylic", src: "/porto-eryca/acy6.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
+  { id: "ac-01", title: "Jerome Teams", category: "Acrylic", src: "/porto-eryca/acy3.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
+  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/acy7.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
+
   { id: "wc-01", title: "Christmas Scene", category: "Watercolor", src: "/porto-eryca/1.jpg", description: "Watercolor: wet-on-wet glow & soft edges." },
+  { id: "wc-01", title: "A tiny shrimp alive on paper", category: "Watercolor", src: "/porto-eryca/wate1.jpg", description: "layered washes of orange and blue, with fine ink lines tracing the curve of its antennae and segmented body." },
+  { id: "wc-01", title: "A blue eye blooming on paper.", category: "Watercolor", src: "/porto-eryca/wate2.jpg", description: "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette." },
+
   { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
-  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/poster-thumb.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
-  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sketch-1.jpg", description: "Sketch: 60s gesture lines & proportions." },
-  { id: "de-01", title: "Brand Layout", category: "Design", src: "/porto-eryca/design-1.jpg", description: "Design: grid-based layout & color system." },
+
+  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/Poster-Humaniora-TIC_page-0001.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
+
+  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sket1.jpg", description: "Sketch: 60s gesture lines & proportions." },
+
+  { id: "de-01", title: "Brand Layout", category: "Design", src: "/porto-eryca/untarx.png", description: "Design: grid-based layout & color system." },
 ];
 
 // statically exported page
