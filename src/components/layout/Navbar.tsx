@@ -3,40 +3,62 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import MobileSidebar from "./MobileSidebar";
 
 const LEFT = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#footer" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#footer" },
 ];
 
 const RIGHT = [
-  { label: "Work", href: "#work" },
-  { label: "Illustrations", href: "#illustrations" },
-  { label: "Services", href: "#services" },
+  { label: "Work", href: "/#work" },
+  { label: "Illustrations", href: "/#illustrations" },
+  { label: "Services", href: "/#services" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // optional: base path untuk GitHub Pages project site, contoh: /porto-eryca
+  const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   // trigger splash (mis. didengarkan oleh komponen lain)
   const showSplash = (ms = 5000) =>
-    window.dispatchEvent(
-      new CustomEvent("eryca:splash", { detail: { durationMs: ms } })
-    );
+    window.dispatchEvent(new CustomEvent("eryca:splash", { detail: { durationMs: ms } }));
 
-  // helper anchor scroll (dengan offset tinggi navbar 72px)
+  // ambil id dari "/#id" atau "#id"
+  const getHash = (href: string) =>
+    href.startsWith("/#") ? href.slice(2) : href.startsWith("#") ? href.slice(1) : null;
+
+  // smooth scroll dengan offset tinggi navbar 72px
+  const smoothScrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    history.replaceState(null, "", `#${id}`);
+  };
+
+  // handle klik anchor: scroll kalau di home, kalau tidak -> push ke /#id
   const handleAnchor =
     (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-      if (!href.startsWith("#")) return;
+      const id = getHash(href);
+      if (!id) return; // bukan anchor; biarkan default
       e.preventDefault();
       setOpen(false);
-      const el = document.getElementById(href.slice(1));
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      history.replaceState(null, "", href);
+
+      if (pathname === "/" || pathname === `${BASE}/` || pathname === `${BASE}`) {
+        // sudah di halaman Home -> cukup scroll
+        smoothScrollToId(id);
+      } else {
+        // bukan di Home -> pindah route ke Home + hash
+        // gunakan BASE agar aman untuk GitHub Pages project site
+        router.push(`${BASE}/#${id}`);
+      }
     };
 
   // kunci body saat drawer open
@@ -52,7 +74,6 @@ export default function Navbar() {
       className="
         relative w-full border-t border-[#e8e0c2] bg-[#3b2f22] text-[#e8e0c2]
         shadow-[0_-4px_12px_rgba(0,0,0,0.4)]
-        border-[var(--border)]
         dark:bg-[#95927573] dark:text-[#ffffff] dark:border-[#3b3526]
       "
     >
@@ -60,7 +81,7 @@ export default function Navbar() {
       <div className="max-w-6xl px-4 sm:px-6 md:ml-[205px]">
         {/* DESKTOP */}
         <div className="hidden md:grid h-20 grid-cols-[auto_1fr_8rem_1fr] items-center gap-x-6">
-          {/* Burger juga tampil di desktop */}
+          {/* Burger */}
           <button
             type="button"
             aria-label="Open menu"
@@ -95,13 +116,7 @@ export default function Navbar() {
             onClick={() => showSplash(5200)}
             className="justify-self-center hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           >
-            <Image
-              src="/porto-eryca/eryca.gif"
-              alt="Logo"
-              width={48}
-              height={48}
-              unoptimized
-            />
+            <Image src="/porto-eryca/eryca.gif" alt="Logo" width={48} height={48} unoptimized />
           </button>
 
           <ul className="flex gap-8 justify-self-start">
@@ -141,13 +156,7 @@ export default function Navbar() {
             onClick={() => showSplash(1200)}
             className="hover:opacity-90"
           >
-            <Image
-              src="/porto-eryca/eryca.gif"
-              alt="Logo"
-              width={36}
-              height={36}
-              unoptimized
-            />
+            <Image src="/porto-eryca/eryca.gif" alt="Logo" width={36} height={36} unoptimized />
           </button>
 
           <div className="w-8" />
@@ -159,9 +168,9 @@ export default function Navbar() {
       {/* Drawer ala desain */}
       <MobileSidebar
         open={open}
-        onCloseAction={() => setOpen(false)}   
-        onShowSplashAction={showSplash}        
-        handleAnchorAction={handleAnchor}      
+        onCloseAction={() => setOpen(false)}
+        onShowSplashAction={showSplash}
+        handleAnchorAction={handleAnchor}
       />
     </nav>
   );

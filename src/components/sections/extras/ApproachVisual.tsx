@@ -28,9 +28,10 @@ const ALL_ITEMS: Item[] = [
   { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Demon Slayer (Kimetsu no Yaiba) tells the story of Tanjiro Kamado, a teenager whose family was slaughtered by demons, and his sister, Nezuko, who was turned into a demon. Tanjiro joins the Demon Slayer Corps to find a cure to turn Nezuko back into a human and to exterminate all demons. Set in Japan during the Taisho era, the anime depicts Tanjiro and his friends battling demons using special breathing techniques." },
   { id: "wc-01", title: "Christmas Scene", category: "Watercolor", src: "/porto-eryca/1.jpg", description: "Watercolor: wet-on-wet glow & soft edges." },
   { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
-  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/Poster-Humaniora-TIC_page-0001.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
-  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sketch-1.jpg", description: "Sketch: 60s gesture lines & proportions." },
-  { id: "de-01", title: "Brand Layout", category: "Design", src: "/porto-eryca/design-1.jpg", description: "Design: grid-based layout & color system." },
+  { id: "ac-06", title: "Commission", category: "Acrylic", src: "/porto-eryca/acy6.jpg", description: "Cat by Tesla Paint" },
+  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sket1.jpg", description: "Sketch: 60s gesture lines & proportions." },
+  { id: "wc-03", title: "A blue eye blooming on paper.", category: "Watercolor", src: "/porto-eryca/wate2.jpg", description: "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette." },
+
 ];
 
 export default function GalleryPage({
