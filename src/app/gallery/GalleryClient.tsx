@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
 type Category = "All" | "Acrylic" | "Watercolor" | "3D Crafting" | "Poster" | "Sketch" | "Design";
@@ -25,8 +26,13 @@ export default function GalleryClient({
   initialCategory?: Category;
   initialQuery?: string;
 }) {
-  const [active, setActive] = useState<Category>(initialCategory);
-  const [q, setQ] = useState(initialQuery);
+  
+  const sp = useSearchParams();
+  const catFromURL = (sp.get("cat") as Category) ?? initialCategory;
+  const qFromURL = sp.get("q") ?? initialQuery;
+
+  const [active, setActive] = useState<Category>(catFromURL);
+  const [q, setQ] = useState(qFromURL);
 
   const filtered = useMemo(() => {
     return items.filter((it) => {
@@ -86,7 +92,6 @@ export default function GalleryClient({
                 key={item.id}
                 className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
               >
-                {/* Hover fade overlay */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={item.src}
@@ -94,6 +99,7 @@ export default function GalleryClient({
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    priority={false}
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
@@ -104,7 +110,6 @@ export default function GalleryClient({
                   </div>
                 </div>
 
-                {/* meta bawah (opsional) */}
                 <div className="flex items-center justify-between px-4 py-3">
                   <div>
                     <h3 className="text-base font-medium text-[#3b2f22]">{item.title}</h3>

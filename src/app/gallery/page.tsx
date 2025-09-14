@@ -1,9 +1,6 @@
 import GalleryClient from "./GalleryClient";
 
-export const dynamic = "force-static"; // optional
-
 type Category = "All" | "Acrylic" | "Watercolor" | "3D Crafting" | "Poster" | "Sketch" | "Design";
-
 type Item = {
   id: string;
   title: string;
@@ -13,8 +10,9 @@ type Item = {
   description: string;
 };
 
+// Data contoh
 const ALL_ITEMS: Item[] = [
-  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Demon Slayer refers to the popular Japanese media franchise Kimetsu no Yaiba, which follows Tanjiro Kamado, a young boy who becomes a demon slayer after his family is killed and his sister Nezuko is turned into a demon" },
+  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
   { id: "wc-01", title: "Christmas Scene", category: "Watercolor", src: "/porto-eryca/1.jpg", description: "Watercolor: wet-on-wet glow & soft edges." },
   { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
   { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/poster-thumb.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
@@ -22,14 +20,10 @@ const ALL_ITEMS: Item[] = [
   { id: "de-01", title: "Brand Layout", category: "Design", src: "/porto-eryca/design-1.jpg", description: "Design: grid-based layout & color system." },
 ];
 
-export default function GalleryPage({
-  searchParams,
-}: {
-  searchParams?: { cat?: string; q?: string };
-}) {
-  const initialCategory = (searchParams?.cat ?? "All") as Category;
-  const initialQuery = searchParams?.q ?? "";
+// statically exported page
+export const dynamic = "force-static";
 
+export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-[#faf8f3]">
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
@@ -42,11 +36,7 @@ export default function GalleryPage({
       </header>
 
       <section className="mx-auto max-w-6xl px-6 py-8">
-        <GalleryClient
-          items={ALL_ITEMS}
-          initialCategory={initialCategory}
-          initialQuery={initialQuery}
-        />
+        <GalleryClient items={ALL_ITEMS} />
       </section>
     </main>
   );
