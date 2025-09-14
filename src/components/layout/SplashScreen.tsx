@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function SplashScreen({
-  defaultDurationMs = 2000,
+  defaultDurationMs = 1500,
 }: {
   defaultDurationMs?: number;
 }) {
@@ -42,13 +42,13 @@ export default function SplashScreen({
 
   return (
     <div
-      className={`fixed inset-0 grid place-items-center bg-[#fff2d6] z-[9999] transition-opacity duration-350 ${
+      className={`fixed inset-0 grid place-items-center bg-[#fff2d6] z-[9999] transition-opacity duration-500 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-hidden={!visible}
     >
       <Image
-        src="/porto-eryca/logo-web.gif" // GIF kamu
+        src="/porto-eryca/logo-web.gif"
         alt="Loading"
         width={120}
         height={120}

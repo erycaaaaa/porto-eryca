@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SplashScreen /> {/* overlay saat first load */}
+        <SplashScreen /> 
         <Navbar />
         <main className="pt-16">{children}</main>
         <Footer />

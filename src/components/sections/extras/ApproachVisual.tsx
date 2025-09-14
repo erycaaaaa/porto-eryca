@@ -1,107 +1,142 @@
+import Image from "next/image";
+import Link from "next/link";
 
-export default function ApproachVisual() {
-  return (
-    // ⬅️ tambahkan id="illustrations"
-    <section id="illustrations" className="w-full">
-      {/* HERO STRIP rustic */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-[#ffffff4e] via-[#5d582bd3] to-[#ffffff4e]">
-        <div className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="font-serif tracking-[0.08em] text-[38px] md:text-[46px] text-[#f8e6c9]">
-            ART GALLERY
-          </h2>
-          <p
-            className="mt-[-8] 
-          max-w-2xl text-[#f3e5cfcc]"
-          >
-            A curated collection of artworks — from watercolor and oil painting
-            to digital creations. Explore the textures, layers, and stories
-            behind every piece.
-          </p>
+export const dynamic = "force-static"; // optional
 
-          <a
-            href="#gallery"
-            className="mt-3
-            inline-block rounded-[6px] bg-[#a66b3f] px-5 py-2 font-semibold text-[#f8e6c9] shadow-[inset_0_-3px_0_rgba(0,0,0,0.25)] hover:bg-[#b27545]"
-          >
-            READ MORE…
-          </a>
-        </div>
+const CATEGORIES = [
+  "All",
+  "Acrylic",
+  "Watercolor",
+  "3D Crafting",
+  "Poster",
+  "Sketch",
+  "Design",
+] as const;
+type Category = typeof CATEGORIES[number];
 
-        {/* subtle texture overlay */}
-        <div className="pointer-events-none absolute inset-0 opacity-15 [background-image:radial-gradient(transparent_0,transparent_6px,rgba(0,0,0,.2)_7px)] [background-size:16px_16px]" />
-      </div>
-
-      {/* GRID 3 CARDS */}
-      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-10 md:grid-cols-3">
-        {/* CARD 1 */}
-        <ArticleCard
-          title="Acrylic"
-          img="/porto-eryca/2.jpg"
-          excerpt="Exploring color transparency, splashes, and soft layering techniques."
-          href="#acrylic"
-        />
-        {/* CARD 2 */}
-        <ArticleCard
-          title="Watercolor"
-          img="/porto-eryca/1.jpg"
-          excerpt="Fluid brushstrokes, expressive tones, and the delicacy of water-based pigments."
-          href="#watercolor"
-        />
-        {/* CARD 3 */}
-        <ArticleCard
-          title="3D Crafting"
-          img="/porto-eryca/4.jpg"
-          excerpt="Digital experiments — mixed media, collage, and stylized renderings."
-          href="#3dCrafting"
-        />
-      </div>
-    </section>
-  );
-}
-
-/* ————— Single Card ————— */
-function ArticleCard({
-  title,
-  img,
-  excerpt,
-  href,
-}: {
+type Item = {
+  id: string;
   title: string;
-  img: string;
-  excerpt: string;
-  href: string;
+  category: Exclude<Category, "All">;
+  src: string;
+  alt?: string;
+  description: string;
+};
+
+// ganti dengan data asli
+const ALL_ITEMS: Item[] = [
+  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Acrylic study: bold strokes + layered highlights." },
+  { id: "wc-01", title: "Christmas Scene", category: "Watercolor", src: "/porto-eryca/1.jpg", description: "Watercolor: wet-on-wet glow & soft edges." },
+  { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
+  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/poster-thumb.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
+  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sketch-1.jpg", description: "Sketch: 60s gesture lines & proportions." },
+  { id: "de-01", title: "Brand Layout", category: "Design", src: "/porto-eryca/design-1.jpg", description: "Design: grid-based layout & color system." },
+];
+
+export default function GalleryPage({
+  searchParams,
+}: {
+  searchParams?: { cat?: string; q?: string };
 }) {
+  const activeCat = (searchParams?.cat ?? "All") as Category;
+  const q = (searchParams?.q ?? "").toLowerCase();
+
+  const filtered = ALL_ITEMS.filter((it) => {
+    const byCat = activeCat === "All" || it.category === activeCat;
+    const byQ = !q || it.title.toLowerCase().includes(q);
+    return byCat && byQ;
+  });
+
   return (
-    <article className="rounded-[12px] bg-[#f4efe6] p-5 shadow-[0_8px_24px_rgba(0,0,0,0.06)] ring-1 ring-[#d8cfbf]">
-      <h3 className="font-serif text-[22px] text-[#262016]">{title}</h3>
+    <main className="min-h-screen bg-[#faf8f3]">
+      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
+        <div className="mx-auto max-w-6xl px-6 py-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">All Artworks</h1>
+              <p className="mt-1 text-sm text-[#5a5246]">
+                Telusuri karya. Filter berdasarkan kategori atau cari judul.
+              </p>
+            </div>
+            {/* Search (GET) */}
+            <form className="mt-3 sm:mt-0" action="/gallery" method="get">
+              <input
+                name="q"
+                defaultValue={searchParams?.q ?? ""}
+                placeholder="Search title…"
+                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+              />
+              {activeCat !== "All" && <input type="hidden" name="cat" value={activeCat} />}
+            </form>
+          </div>
 
-      {/* frame image + “tape” */}
-      <div className="relative mt-4 rounded-[8px] bg-[#fbf8f3] p-3 ring-1 ring-[#e6dccb]">
-        {/* tape left-top */}
-        <span className="absolute left-4 top-2 h-3 w-16 rotate-6 rounded-[3px] bg-[#d7c4a5] opacity-90" />
-        {/* tape right-top */}
-        <span className="absolute right-4 top-2 h-3 w-16 -rotate-6 rounded-[3px] bg-[#d7c4a5] opacity-90" />
-
-        <div className="overflow-hidden rounded-[6px] ring-1 ring-[#e6dccb]">
-          <img
-            src={img}
-            alt={title}
-            className="h-44 w-full object-cover md:h-48"
-            loading="lazy"
-          />
+          {/* Filter Pills */}
+          <div className="mt-5 flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => {
+              const href = cat === "All" ? "/gallery" : `/gallery?cat=${encodeURIComponent(cat)}`;
+              const isActive = activeCat === cat;
+              return (
+                <Link
+                  key={cat}
+                  href={href}
+                  className={[
+                    "rounded-full border px-4 py-2 text-sm",
+                    isActive
+                      ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
+                      : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
+                  ].join(" ")}
+                  aria-pressed={isActive}
+                >
+                  {cat}
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </header>
 
-      <p className="mt-4 text-[13px] leading-relaxed text-[#231e18]">
-        {excerpt}
-      </p>
+      <section className="mx-auto max-w-6xl px-6 py-8">
+        {filtered.length === 0 ? (
+          <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
+          </p>
+        ) : (
+          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((item) => (
+              <li
+                key={item.id}
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
+              >
+                {/* Hover fade overlay untuk semua kartu */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.alt ?? item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                      {item.category}
+                    </span>
+                  </div>
+                </div>
 
-      <a
-        href={href}
-        className="mt-4 inline-block rounded-[6px] bg-[#5f3d24] px-4 py-2 text-[13px] font-semibold text-[#f8e6c9] shadow-[inset_0_-3px_0_rgba(0,0,0,0.25)] hover:bg-[#b27545]"
-      >
-        READ MORE…
-      </a>
-    </article>
+                {/* meta bawah (opsional) */}
+                <div className="flex items-center justify-between px-4 py-3">
+                  <div>
+                    <h3 className="text-base font-medium text-[#3b2f22]">{item.title}</h3>
+                    <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    </main>
   );
 }
