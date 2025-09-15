@@ -1,13 +1,13 @@
-// src/components/media/StickySpotify.tsx
+// src/components/sections/media/StickySpotify.tsx
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Music2, X } from "lucide-react";
 
 type Pos = { x: number; y: number };
 const STORAGE_KEY = "stickySpotifyPos_v3";
-const DRAG_THRESHOLD = 6; // px gerak minimal untuk memicu drag
-const LONG_PRESS_MS = 180; // tahan sekian ms untuk memulai drag
+const DRAG_THRESHOLD = 6;   // px minimal gerak untuk mulai drag
+const LONG_PRESS_MS = 180;  // tahan sekian ms untuk memicu drag
 
 export default function StickySpotify() {
   const [open, setOpen] = useState(false);
@@ -61,17 +61,17 @@ export default function StickySpotify() {
   const cardW = contentW + PAD_X * 2;
 
   // Helper: ukur ukuran wrapper aktual (beda saat open/closed)
-  const measureWrap = () => {
+  const measureWrap = useCallback(() => {
     const el = wrapRef.current;
     if (!el) return { w: cardW, h: open ? contentH + 48 : 36 }; // fallback
     const rect = el.getBoundingClientRect();
     const w = rect.width || cardW;
     const h = rect.height || (open ? contentH + 48 : 36);
     return { w, h };
-  };
+  }, [open, contentH, cardW]);
 
   // Clamp helper pakai ukuran elemen dinamis
-  const clampToViewport = (p: Pos) => {
+  const clampToViewport = useCallback((p: Pos) => {
     const margin = 8;
     const vw = window.innerWidth;
     const vh = window.innerHeight;
@@ -80,7 +80,7 @@ export default function StickySpotify() {
       x: clamp(p.x, margin, Math.max(margin, vw - w - margin)),
       y: clamp(p.y, margin, Math.max(margin, vh - h - margin)),
     };
-  };
+  }, [measureWrap]);
 
   // Init posisi dari localStorage / default top-right (setelah layout siap)
   useLayoutEffect(() => {
@@ -93,12 +93,11 @@ export default function StickySpotify() {
       const vw = window.innerWidth;
       const margin = 8;
       const def: Pos = { x: vw - cardW - margin, y: margin }; // default top-right
-      setPos((prev) => clampToViewport(fromStore ?? def));
+      setPos(() => clampToViewport(fromStore ?? def));
     };
     const id = requestAnimationFrame(init);
     return () => cancelAnimationFrame(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cardW, open, scale]);
+  }, [cardW, clampToViewport]);
 
   // Simpan posisi
   useEffect(() => {
@@ -114,19 +113,13 @@ export default function StickySpotify() {
     const onResize = () => setPos((p) => (p ? clampToViewport(p) : p));
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, []);
+  }, [clampToViewport]);
 
   // --- Pointer drag: aktif untuk wrapper (tombol & dock) ---
-  const onWrapperPointerDown: React.PointerEventHandler<HTMLDivElement> = (
-    e
-  ) => {
+  const onWrapperPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
     // Abaikan drag kalau klik terjadi di dalam kontrol interaktif tertentu
     const target = e.target as HTMLElement;
-    if (
-      target.closest(
-        'input, textarea, select, a, label, [role="slider"], [data-no-drag]'
-      )
-    ) {
+    if (target.closest('input, textarea, select, a, label, [role="slider"], [data-no-drag]')) {
       return;
     }
     if (!pos) return;
@@ -149,8 +142,7 @@ export default function StickySpotify() {
   };
 
   const startDragging = (pointerId: number) => {
-    if (!dragRef.current) return;
-    if (dragRef.current.dragging) return;
+    if (!dragRef.current || dragRef.current.dragging) return;
     wrapRef.current?.setPointerCapture?.(pointerId);
     dragRef.current.dragging = true;
     document.body.classList.add("select-none");
@@ -171,10 +163,7 @@ export default function StickySpotify() {
     const dy = e.clientY - d.startY;
 
     // Jika belum dragging dan gerakan cukup jauh, mulai drag
-    if (
-      !d.dragging &&
-      (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)
-    ) {
+    if (!d.dragging && (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)) {
       startDragging(e.pointerId);
     }
 
@@ -210,10 +199,7 @@ export default function StickySpotify() {
       <div
         ref={wrapRef}
         onPointerDown={onWrapperPointerDown}
-        className={`
-          sticky-spotify-wrap fixed z-[56]
-          ${open ? "cursor-grab active:cursor-grabbing" : "cursor-move"}
-        `}
+        className={`sticky-spotify-wrap fixed z-[56] ${open ? "cursor-grab active:cursor-grabbing" : "cursor-move"}`}
         style={{
           left: pos.x,
           top: pos.y,
@@ -225,26 +211,13 @@ export default function StickySpotify() {
           // ==== TOMBOL (klik normal, drag via long-press/geser) ====
           <button
             onClick={() => setOpen(true)}
-            className="
-              group relative inline-flex items-center justify-center
-              gap-2 rounded-full border px-3 py-1.5 text-xs font-medium
-              border-[color:var(--border)] bg-[var(--background)]/90 text-[var(--foreground)]
-              shadow-lg backdrop-blur hover:opacity-90 focus:outline-none
-              focus-visible:ring-2 focus-visible:ring-black/60
-              select-none
-            "
+            className="group relative inline-flex items-center justify-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium border-[color:var(--border)] bg-[var(--background)]/90 text-[var(--foreground)] shadow-lg backdrop-blur hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/60 select-none"
             aria-label="Open Spotify player"
           >
             <Music2 className="h-4 w-4" />
             Playing Spotify
             <span
-              className="
-                pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-[-60]
-                whitespace-nowrap rounded-[50px] bg-black/3 px-2 py-1
-                text-[11px] text-[#494949]
-                opacity-0 transition-opacity duration-200
-                group-hover:opacity-100 group-focus-visible:opacity-100
-              "
+              className="pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-[-60] whitespace-nowrap rounded-[50px] bg-black/3 px-2 py-1 text-[11px] text-[#494949] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100"
               role="tooltip"
               aria-hidden="true"
             >
@@ -254,27 +227,15 @@ export default function StickySpotify() {
         ) : (
           // ==== DOCK (drag via long-press/geser dimana saja kecuali kontrol) ====
           <div
-            className="
-              rounded-2xl border border-[color:var(--border)]
-              bg-[var(--background)]/90 text-[var(--foreground)]
-              shadow-xl backdrop-blur p-2 overflow-visible select-none
-            "
+            className="rounded-2xl border border-[color:var(--border)] bg-[var(--background)]/90 text-[var(--foreground)] shadow-xl backdrop-blur p-2 overflow-visible select-none"
             style={{ width: cardW }}
           >
             {/* Header */}
             <div className="relative mb-2 flex items-center justify-between gap-3 px-1 group">
-              <span className="text-xs font-medium opacity-70">
-                Playing Spotify
-              </span>
+              <span className="text-xs font-medium opacity-70">Playing Spotify</span>
 
               <span
-                className="
-                  pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-[-70] z-50
-                  whitespace-nowrap rounded-[50px] bg-black/3 px-2 py-1
-                  text-[11px] text-[#494949]
-                  opacity-0 transition-opacity duration-200
-                  group-hover:opacity-100 group-focus-within:opacity-100
-                "
+                className="pointer-events-none absolute top-full left-1/2 -translate-x-1/2 mt-[-70] z-50 whitespace-nowrap rounded-[50px] bg-black/3 px-2 py-1 text-[11px] text-[#494949] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100"
                 role="tooltip"
               >
                 Hi!, Enjoy My Playlist! 🎵👋🏻
@@ -288,9 +249,7 @@ export default function StickySpotify() {
                 max={maxScale}
                 step={0.01}
                 value={scale}
-                onChange={(e) =>
-                  setScale(clamp(parseFloat(e.target.value), MIN, maxScale))
-                }
+                onChange={(e) => setScale(clamp(parseFloat(e.target.value), MIN, maxScale))}
                 className="w-24 accent-current"
                 aria-label="Resize player"
               />
@@ -307,10 +266,7 @@ export default function StickySpotify() {
             </div>
 
             {/* Konten Spotify */}
-            <div
-              className="relative overflow-hidden rounded-xl"
-              style={{ width: contentW, height: contentH }}
-            >
+            <div className="relative overflow-hidden rounded-xl" style={{ width: contentW, height: contentH }}>
               <div
                 style={{
                   width: BASE_W,
@@ -335,10 +291,7 @@ export default function StickySpotify() {
                 onMouseDown={(e) => e.stopPropagation()}
                 onPointerDown={(e) => e.stopPropagation()}
                 title="Drag to resize"
-                className="
-                  absolute bottom-1.5 right-1.5 h-3 w-3 cursor-se-resize
-                  border-r-2 border-b-2 border-[color:var(--border)]/70 rounded-[2px] opacity-80
-                "
+                className="absolute bottom-1.5 right-1.5 h-3 w-3 cursor-se-resize border-r-2 border-b-2 border-[color:var(--border)]/70 rounded-[2px] opacity-80"
               />
             </div>
           </div>
