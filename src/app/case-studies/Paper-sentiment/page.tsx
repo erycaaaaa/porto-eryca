@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-// src/app/case-studies/Paper-sentiment/page.tsx
+
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import TwoColSection from "@/components/case/TwoColSect";
 import RoleStrip from "@/components/case/RoleStrip";
 
-export const metadata = { title: "Sentiment Analysis Paper — Case Study" };
+
 
 export default function Page() {
   return (

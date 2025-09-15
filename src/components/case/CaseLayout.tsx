@@ -40,7 +40,6 @@ const TOOL_ICON_MAP: Record<string, string> = {
 
 export default function CaseLayout({
   meta,
-  coverImage,
   children,
   prototypeUrl,
   quickFacts,
