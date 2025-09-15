@@ -129,7 +129,7 @@ export default function MakeupPortfolioPage() {
                 src={g.src}
                 alt={g.alt}
                 fill
-                className="object-cover grayscale"
+             className="object-cover"   
                 sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
                 priority={i < 2} // biar 2 pertama cepat
               />

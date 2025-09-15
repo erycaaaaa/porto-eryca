@@ -1,5 +1,6 @@
-
+// src/components/layout/MobileSidebar.tsx
 "use client";
+
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,10 +15,12 @@ import {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  Sparkles, // ⬅️ ikon pengganti untuk Makeup
 } from "lucide-react";
 import Image from "next/image";
 import * as React from "react";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { useRouter } from "next/navigation";
 
 type AnchorHandler = (
   href: string
@@ -25,9 +28,9 @@ type AnchorHandler = (
 
 type Props = {
   open: boolean;
-  onCloseAction: () => void;                 // ✅ rename sesuai aturan Next 15
-  onShowSplashAction: (ms?: number) => void; // ✅ sudah benar
-  handleAnchorAction: AnchorHandler;         // ✅ pakai alias tipe biar rapi
+  onCloseAction: () => void;                 // tutup drawer
+  onShowSplashAction: (ms?: number) => void; // trigger splash
+  handleAnchorAction: AnchorHandler;         // handler anchor (#id)
 };
 
 const FULL_WIDTH = 420;
@@ -61,6 +64,23 @@ export default function MobileSidebar({
   const isMobile = useIsMobile();
   const [expanded, setExpanded] = useState(false);
 
+  // ===== router + base path awareness (untuk GitHub Pages) =====
+  const router = useRouter();
+  const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // contoh: "/porto-eryca"
+
+  const resolveHref = useCallback(
+    (href: string) => (href.startsWith("/") ? `${BASE}${href}` : href),
+    [BASE]
+  );
+
+  const go = useCallback(
+    (path: string) => {
+      onCloseAction();
+      router.push(resolveHref(path));
+    },
+    [router, resolveHref, onCloseAction]
+  );
+
   // ESC untuk menutup
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onCloseAction();
@@ -68,7 +88,7 @@ export default function MobileSidebar({
     return () => window.removeEventListener("keydown", onKey);
   }, [onCloseAction]);
 
-  // Kunci body scroll saat menu terbuka
+  // kunci body scroll saat menu terbuka
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -78,7 +98,7 @@ export default function MobileSidebar({
     };
   }, [open]);
 
-  // klik item: buka penuh (jika rail) lalu jalankan anchor
+  // klik item: kalau di desktop & masih rail → expand dulu, lalu jalankan anchor
   const onAnchor = useCallback<AnchorHandler>(
     (href: string) => (e) => {
       if (!isMobile && !expanded) setExpanded(true);
@@ -135,7 +155,7 @@ export default function MobileSidebar({
             exit={{ x: 24, opacity: 0 }}
             transition={{ type: "spring", stiffness: 320, damping: 30 }}
           >
-            {/* RAIL (sembunyikan di mobile) */}
+            {/* RAIL (disembunyikan di mobile) */}
             {!isMobile && (
               <div className="flex h-full w-[72px] flex-col items-center gap-2 border-r border-[#e8dcb8]/60 p-2 dark:border-[#2a2519]">
                 <button
@@ -156,10 +176,10 @@ export default function MobileSidebar({
                 <RailButton onClick={() => setExpanded(true)} title="Works">
                   <Briefcase className="h-5 w-5" />
                 </RailButton>
-                <RailButton
-                  onClick={() => setExpanded(true)}
-                  title="Illustrations"
-                >
+                <RailButton onClick={() => go("/makeup")} title="Makeup">
+                  <Sparkles className="h-5 w-5" />
+                </RailButton>
+                <RailButton onClick={() => setExpanded(true)} title="Illustrations">
                   <ImageIcon className="h-5 w-5" />
                 </RailButton>
 
@@ -195,7 +215,7 @@ export default function MobileSidebar({
                 <div className="flex items-center gap-2">
                   <button
                     aria-label="Show splash"
-                    onClick={() => onShowSplashAction(1000)}   // ✅ panggilan benar
+                    onClick={() => onShowSplashAction(1000)}
                     className="rounded-full border border-[#e8dcb8] bg-white/90 p-1.5 shadow dark:border-[#3b3526] dark:bg-[#18160f]"
                   >
                     <Image
@@ -236,13 +256,31 @@ export default function MobileSidebar({
                   <Item icon={<Home />} href="#home" onClick={onAnchor("#home")}>
                     Home
                   </Item>
-                  <Item
-                    icon={<Briefcase />}
-                    href="#work"
-                    onClick={onAnchor("#work")}
-                  >
+                  <Item icon={<Briefcase />} href="#worked" onClick={onAnchor("#worked")}>
                     Works
                   </Item>
+
+                  {/* Makeup ke route /makeup (bukan anchor) */}
+                  <li>
+                    <a
+                      href={resolveHref("/makeup")}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        go("/makeup");
+                      }}
+                      className="
+                        flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px]
+                        hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/20
+                        dark:hover:bg-white/5 dark:focus-visible:ring-white/20
+                      "
+                    >
+                      <span className="[&>svg]:h-5 [&>svg]:w-5 text-[color:var(--foreground)]/80">
+                        <Sparkles className="h-5 w-5" />
+                      </span>
+                      <span className="flex-1">Makeup</span>
+                    </a>
+                  </li>
+
                   <Item
                     icon={<ImageIcon />}
                     href="#illustrations"
@@ -258,7 +296,7 @@ export default function MobileSidebar({
                   <Item icon={<User />} href="#about" onClick={onAnchor("#about")}>
                     About Me
                   </Item>
-                  <Item icon={<Mail />} href="#contact" onClick={onAnchor("#contact")}>
+                  <Item icon={<Mail />} href="#footer" onClick={onAnchor("#footer")}>
                     Contact
                   </Item>
                 </Section>
@@ -284,7 +322,7 @@ export default function MobileSidebar({
                     rel="noopener noreferrer"
                     className="
                       inline-flex items-center justify-center gap-2 rounded-full border px-4 py-2 text-sm font-medium
-                      border-[#cdbf97] bg-white text-[#6f5d33] hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/20
+                      border-[#cdbf97] bg-white text-[#6f5d33] hover:bg黑/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/20
                       dark:border-[#3b3526] dark:bg-[#18160f] dark:text-[#e8e0c2] dark:hover:bg-white/5
                     "
                   >
@@ -377,7 +415,7 @@ export default function MobileSidebar({
                     </Link>
                   </div>
 
-                  {/* GIF → pakai <Image /> biar lint bersih */}
+                  {/* GIF */}
                   <div className="flex justify-center mt-5">
                     <Image
                       src="/porto-eryca/girl.gif"
