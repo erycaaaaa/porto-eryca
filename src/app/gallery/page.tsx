@@ -27,7 +27,7 @@ const ALL_ITEMS: Item[] = [
 
   { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
 
-  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/Poster-Humaniora-TIC_page-0001.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
+  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/poster-huma.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
 
   { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sket1.jpg", description: "Sketch: 60s gesture lines & proportions." },
 

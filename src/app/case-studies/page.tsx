@@ -1,10 +1,6 @@
-// src/app/case-studies/page.tsx
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
-
-// Halaman dinamis supaya searchParams memicu render ulang
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 /* =========================
    KATEGORI & TIPE DATA
@@ -19,19 +15,15 @@ const CATEGORIES = [
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
-// ganti fungsi normalizeCat lama dengan ini
+// Normalisasi kategori dari URL
 const normalizeCat = (v: unknown): Category => {
   if (typeof v !== "string") return "All";
-  // decode, ubah + jadi spasi, trim
   const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-
-  // cocokkan tanpa peduli kapital
   const match = (CATEGORIES as readonly string[]).find(
     (c) => c.toLowerCase() === cleaned.toLowerCase()
   );
   return (match as Category) ?? "All";
 };
-
 
 type Item = {
   id: string;
@@ -45,7 +37,7 @@ type Item = {
 };
 
 /* =========================
-   DATA LIST (sinkron dgn homepage)
+   DATA STATIC (hardcoded)
    ========================= */
 const ALL_ITEMS: Item[] = [
   {
@@ -65,8 +57,7 @@ const ALL_ITEMS: Item[] = [
     src: "/porto-eryca/u00.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
-    description:
-      "Vision-led site with clean information flow and scalable IA.",
+    description: "Vision-led site with clean information flow and scalable IA.",
   },
   {
     id: "cs-eryca",
@@ -83,7 +74,7 @@ const ALL_ITEMS: Item[] = [
     title: "Sentiment Analysis Paper",
     category: "Sentiment Analysis",
     src: "/porto-eryca/analisa.jpg",
-    href: "/case-studies/paper-sentiment", // gunakan lowercase agar aman di server
+    href: "/case-studies/Paper-sentiment",
     tag: "Research & NLP",
     description:
       "Research on sentiment classification using NLP & deep learning pipelines.",
@@ -92,8 +83,8 @@ const ALL_ITEMS: Item[] = [
     id: "paper-bot",
     title: "EduBot UI/UX Design",
     category: "UI/UX",
-    src: "/porto-eryca/edu1.jpg",
-    href: "/case-studies/paper-bot", // gunakan lowercase agar aman di server
+    src: "/porto-eryca/edubot.jpg",
+    href: "/case-studies/Paper-bot",
     tag: "UI/UX • Chatbot",
     description:
       "Design system & conversational flow for an educational chatbot.",
@@ -101,19 +92,18 @@ const ALL_ITEMS: Item[] = [
 ];
 
 /* =========================
-   PAGE
+   PAGE COMPONENT
    ========================= */
 export default function CaseStudiesIndex({
   searchParams,
 }: {
   searchParams?: { cat?: string; q?: string };
 }) {
-  // Normalisasi kategori & simpan query pencarian mentah utk dibawa antar filter
-  const rawCat = searchParams?.cat ?? "All";
-  const activeCat: Category = normalizeCat(rawCat);
+  const activeCat: Category = normalizeCat(searchParams?.cat ?? "All");
   const qRaw = searchParams?.q ?? "";
   const q = qRaw.toLowerCase();
 
+  // Filter data berdasarkan kategori & search
   const filtered = ALL_ITEMS.filter((it) => {
     const byCat = activeCat === "All" || it.category === activeCat;
     const byQ =
@@ -155,8 +145,8 @@ export default function CaseStudiesIndex({
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
               const params = new URLSearchParams();
-              if (cat !== "All") params.set("cat", cat);      // "UI/UX" otomatis di-encode (UI%2FUX)
-              if (qRaw) params.set("q", qRaw);                // pertahankan teks pencarian
+              if (cat !== "All") params.set("cat", cat);
+              if (qRaw) params.set("q", qRaw);
               const href = params.toString()
                 ? `/case-studies?${params.toString()}`
                 : "/case-studies";
@@ -172,7 +162,6 @@ export default function CaseStudiesIndex({
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
                   ].join(" ")}
-                  aria-pressed={isActive}
                 >
                   {cat}
                 </Link>
@@ -203,7 +192,6 @@ export default function CaseStudiesIndex({
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                      priority={false}
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <h3 className="text-base font-semibold">{item.title}</h3>

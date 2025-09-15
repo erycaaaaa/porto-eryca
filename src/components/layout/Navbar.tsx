@@ -20,6 +20,7 @@ const RIGHT = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -34,11 +35,13 @@ export default function Navbar() {
   const getHash = (href: string) =>
     href.startsWith("/#") ? href.slice(2) : href.startsWith("#") ? href.slice(1) : null;
 
-  // smooth scroll dengan offset tinggi navbar 72px
+  // smooth scroll dengan offset tinggi navbar dinamis
   const smoothScrollToId = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+    const nav = document.getElementById("site-nav");
+    const offset = nav ? nav.getBoundingClientRect().height : 72; // fallback 72px
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: "smooth" });
     history.replaceState(null, "", `#${id}`);
   };
@@ -56,7 +59,6 @@ export default function Navbar() {
         smoothScrollToId(id);
       } else {
         // bukan di Home -> pindah route ke Home + hash
-        // gunakan BASE agar aman untuk GitHub Pages project site
         router.push(`${BASE}/#${id}`);
       }
     };
@@ -67,18 +69,31 @@ export default function Navbar() {
     return () => document.body.classList.remove("overflow-hidden");
   }, [open]);
 
+  // sticky style saat di-scroll
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 2);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <nav
       id="site-nav"
       aria-label="Primary"
-      className="
-        relative w-full border-t border-[#e8e0c2] bg-[#3b2f22] text-[#e8e0c2]
-        shadow-[0_-4px_12px_rgba(0,0,0,0.4)]
-        dark:bg-[#95927573] dark:text-[#ffffff] dark:border-[#3b3526]
-      "
+      className={[
+        // STICKY!
+        "sticky top-0 z-50 w-full",
+        // warna dasar
+        "bg-[#3b2f22] text-[#e8e0c2] dark:bg-[#95927573] dark:text-white",
+        // border & shadow berubah saat scroll
+        scrolled
+          ? "border-b border-[#e8e0c2]/50 shadow-[0_6px_16px_rgba(0,0,0,0.18)] backdrop-blur"
+          : "border-b border-transparent",
+      ].join(" ")}
     >
       {/* wadah konten navbar */}
-      <div className="max-w-6xl px-4 sm:px-6 md:ml-[205px]">
+      <div className="mx-auto w-full max-w-[90rem] px-[5vw]">
         {/* DESKTOP */}
         <div className="hidden md:grid h-20 grid-cols-[auto_1fr_8rem_1fr] items-center gap-x-6">
           {/* Burger */}
@@ -145,9 +160,9 @@ export default function Navbar() {
             className="p-2 -ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             title="Menu"
           >
-            <span className="block w-6 h-[2px] bg-[#6f5d33] mb-1.5" />
-            <span className="block w-6 h-[2px] bg-[#6f5d33] mb-1.5" />
-            <span className="block w-6 h-[2px] bg-[#6f5d33]" />
+            <span className="block w-6 h-[2px] bg-[#f1e7c8] mb-1.5" />
+            <span className="block w-6 h-[2px] bg-[#f1e7c8] mb-1.5" />
+            <span className="block w-6 h-[2px] bg-[#f1e7c8]" />
           </button>
 
           <button
@@ -163,7 +178,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="h-[2px] bg-[#b7a373]/70 mx-6" />
+      <div className="h-[2px] bg-[#b7a373]/70 mx-[5vw]" />
 
       {/* Drawer ala desain */}
       <MobileSidebar
