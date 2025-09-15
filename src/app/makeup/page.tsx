@@ -115,15 +115,26 @@ export default function MakeupPortfolioPage() {
             Open for bookings
           </span>
         </div>
+
         <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { src: "/porto-eryca/Marettadrie-Eryca.jpg", alt: "Soft glam — clean skin bu Marettadrie" },
-            { src: "/porto-eryca/mua1.jpeg", alt: "Dewy minimal eye by Vindy" },
-            { src: "/porto-eryca/mua2.jpg", alt: "Party Look by Azti" },
-            { src: "/porto-eryca/mua4.png", alt: "Party Look by Azti" },
+            { src: "/porto-eryca/mua1.jpeg",           alt: "Dewy minimal eye by Vindy" },
+            { src: "/porto-eryca/mua2.jpg",            alt: "Party Look by Azti" },
+            { src: "/porto-eryca/mua4.png",            alt: "Party Look by Azti" },
           ].map((g, i) => (
             <li key={i} className={`${CARD} relative aspect-[4/5] overflow-hidden`}>
-               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              {/* FOTO WAJIB ADA */}
+              <Image
+                src={g.src}
+                alt={g.alt}
+                fill
+                className="object-cover grayscale"
+                sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
+                priority={i < 2} // biar 2 pertama cepat
+              />
+              {/* overlay */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </li>
           ))}
         </ul>
