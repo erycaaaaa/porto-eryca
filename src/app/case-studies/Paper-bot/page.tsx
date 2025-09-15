@@ -131,7 +131,7 @@ export default function Page() {
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/hki-edu.png"       // ganti path fotomu
+                src="/porto-eryca/hki-edu.jpg"       // ganti path fotomu
                 alt="Hak Cipta Desain Antarmuka EduBuddy Bot"
                 fill
                 className="object-cover"

@@ -12,7 +12,7 @@ const LEFT = [
 ];
 
 const RIGHT = [
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/#worked" },
   { label: "Illustrations", href: "/#illustrations" },
   { label: "Makeup", href: "/#makeup" },
 ];

@@ -131,47 +131,6 @@ export default function Page() {
         }}
       />
 
-      {/* NEW: PRESENTATION GALLERY (ZOOM) */}
-      <CaseSection id="presentation" title="Conference & Presentation (Zoom)">
-        <ul className="grid gap-6 sm:grid-cols-2">
-          {/* Card 1 */}
-          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
-            <div className="relative aspect-video w-full">
-              <img
-                src="/porto-eryca/presenter-serina.png"
-                alt="Presentasi jurnal ilmiah via Zoom — sesi 1"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-4">
-              <h4 className="font-medium">Presentasi Daring — Sesi 1</h4>
-              <p className="mt-1 text-sm text-neutral-600">
-                Pemaparan metode INSET + TF-IDF + SVM dan ringkasan evaluasi model.
-              </p>
-            </div>
-          </li>
-
-          {/* Card 2 */}
-          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
-            <div className="relative aspect-video w-full">
-              <img
-                src="/porto-eryca/serti-serina.png"  /* ganti dengan fotomu */
-                alt="Presentasi jurnal ilmiah via Zoom — sesi 2"
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-4">
-              <h4 className="font-medium">Sertifikat Peserta</h4>
-              <p className="mt-1 text-sm text-neutral-600">
-                Penerimaan Sertifikat Peserta 
-              </p>
-            </div>
-          </li>
-        </ul>
-      </CaseSection>
-
       {/* RESULTS */}
       <CaseSection id="results" title="Key Findings">
         <p>
@@ -218,6 +177,47 @@ export default function Page() {
           per-fitur, serta diintegrasikan ke dalam sistem monitoring real-time untuk
           pengambilan keputusan cepat.
         </p>
+      </CaseSection>
+
+            {/* NEW: PRESENTATION GALLERY (ZOOM) */}
+      <CaseSection id="presentation" title="Conference & Presentation (Zoom)">
+        <ul className="grid gap-6 sm:grid-cols-2">
+          {/* Card 1 */}
+          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+            <div className="relative aspect-video w-full">
+              <img
+                src="/porto-eryca/presenter-serina.jpg"
+                alt="Presentasi jurnal ilmiah via Zoom — sesi 1"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-4">
+              <h4 className="font-medium">Presentasi Daring — Sesi 1</h4>
+              <p className="mt-1 text-sm text-neutral-600">
+                Pemaparan metode INSET + TF-IDF + SVM dan ringkasan evaluasi model.
+              </p>
+            </div>
+          </li>
+
+          {/* Card 2 */}
+          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+            <div className="relative aspect-video w-full">
+              <img
+                src="/porto-eryca/peserta-serina.jpg"  /* ganti dengan fotomu */
+                alt="Presentasi jurnal ilmiah via Zoom — sesi 2"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-4">
+              <h4 className="font-medium">Sertifikat Peserta</h4>
+              <p className="mt-1 text-sm text-neutral-600">
+                Penerimaan Sertifikat Peserta 
+              </p>
+            </div>
+          </li>
+        </ul>
       </CaseSection>
     </CaseLayout>
   );
