@@ -3,9 +3,6 @@ import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
 import Image from "next/image";
 
-export const metadata = {
-  title: "EduBot UI/UX Design — Case Study",
-};
 
 export default function Page() {
   return (
@@ -120,9 +117,9 @@ export default function Page() {
               />
             </div>
             <div className="p-4">
-              <h4 className="font-medium">Uji Coba Lapangan</h4>
+              <h4 className="font-medium">Foto bersama Dosen,Tim PKM dan Guru </h4>
               <p className="mt-1 text-sm text-neutral-600">
-                Validasi fitur quick intents & aksesibilitas pada perangkat siswa.
+           Guru SDN KALIDERES 13 PETANG
               </p>
             </div>
           </li>
@@ -139,7 +136,7 @@ export default function Page() {
               />
             </div>
             <div className="p-4">
-              <h4 className="font-medium">Uji Coba Lapangan</h4>
+              <h4 className="font-medium">HKI Desain Antarmuka</h4>
               <p className="mt-1 text-sm text-neutral-600">
                 HKI Pengembangan Antarmuka ChatBot EduBuddy
               </p>

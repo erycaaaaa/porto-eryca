@@ -15,7 +15,7 @@ const LEFT = [
 const RIGHT = [
   { label: "Work", href: "/#worked" },
   { label: "Illustrations", href: "/#illustrations" },
-  { label: "Makeup", href: "/makeup", sectionId: null }, 
+  { label: "Makeup", href: "/#makeup"}, 
 ];
 
 export default function Navbar() {

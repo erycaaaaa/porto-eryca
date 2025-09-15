@@ -123,32 +123,10 @@ export default function MakeupPortfolioPage() {
             { src: "/makeup/look-4.jpg", alt: "Editorial line work" },
           ].map((g, i) => (
             <li key={i} className={`${CARD} relative aspect-[4/5] overflow-hidden`}>
-              <Image fill className="object-cover grayscale" {...g} />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </li>
           ))}
         </ul>
-      </section>
-
-      {/* SERVICES */}
-      <section id="services" className="border-y border-neutral-200 bg-white/70 py-14">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className={`${SERIF} mb-8 text-center text-3xl sm:text-4xl`}>Services & Rates</h2>
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: "Bridal Day", note: "Trial + full day coverage", price: "from IDR 2.5 jt" },
-              { title: "Photoshoot", note: "Half/full day, multi looks", price: "from IDR 1.2 jt" },
-              { title: "Graduation", note: "Natural tidy + retouch", price: "from IDR 600 rb" },
-              { title: "Occasion", note: "Events, party, engagement", price: "from IDR 500 rb" },
-            ].map((s) => (
-              <li key={s.title} className={`${CARD} p-6 text-center`}>
-                <h3 className="text-lg font-medium text-neutral-900">{s.title}</h3>
-                <p className={`mt-1 text-xs uppercase tracking-wide ${MUTED}`}>{s.note}</p>
-                <p className={`${SERIF} mt-4 text-2xl text-neutral-900`}>{s.price}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       {/* CONTACT */}
