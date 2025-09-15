@@ -7,7 +7,7 @@ import Image from "next/image";
 export const CATEGORIES = ["All","Acrylic","Watercolor","3D Crafting","Poster","Sketch","Design"] as const;
 export type Category = typeof CATEGORIES[number];
 
-type Item = {
+export type Item = {
   id: string;
   title: string;
   category: Exclude<Category, "All">;
@@ -29,14 +29,12 @@ export default function GalleryClient({
   const router = useRouter();
   const pathname = usePathname();
 
-  // baca dari URL sekali saat mount
   const catFromURL = (sp.get("cat") as Category) || initialCategory;
   const qFromURL = sp.get("q") || initialQuery;
 
   const [active, setActive] = useState<Category>(catFromURL);
   const [q, setQ] = useState(qFromURL);
 
-  // tulis balik ke URL supaya tidak “balik ke All”
   useEffect(() => {
     const params = new URLSearchParams(sp.toString());
     if (active === "All") params.delete("cat");
@@ -58,7 +56,11 @@ export default function GalleryClient({
   }, [items, active, q]);
 
   return (
-    <>
+    <section
+      id="illustrations"
+      className="scroll-mt-24 md:scroll-mt-28"
+      aria-label="Illustrations Gallery"
+    >
       {/* Controls */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-wrap gap-2">
@@ -89,12 +91,13 @@ export default function GalleryClient({
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search title…"
             className="w-full rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+            aria-label="Search illustrations by title"
           />
         </div>
       </div>
 
       {/* Grid */}
-      <section className="mt-5">
+      <div className="mt-5">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
             Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
@@ -102,7 +105,10 @@ export default function GalleryClient({
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((item) => (
-              <li key={item.id} className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm">
+              <li
+                key={item.id}
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
+              >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={item.src}
@@ -121,7 +127,9 @@ export default function GalleryClient({
                 </div>
                 <div className="flex items-center justify-between px-4 py-3">
                   <div>
-                    <h3 className="text-base font-medium text-[#3b2f22]">{item.title}</h3>
+                    <h3 className="text-base font-medium text-[#3b2f22]">
+                      {item.title}
+                    </h3>
                     <p className="text-xs text-[#7a6f62]">{item.category}</p>
                   </div>
                 </div>
@@ -129,7 +137,7 @@ export default function GalleryClient({
             ))}
           </ul>
         )}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

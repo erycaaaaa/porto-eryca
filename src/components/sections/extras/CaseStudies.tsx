@@ -62,7 +62,7 @@ const ALL_ITEMS: Item[] = [
   },
   {
     id: "cs-eryca",
-    title: "Eryca Portfolio",
+    title: "Website Wihara",
     category: "Front-End",
     src: "/porto-eryca/wihara1.jpg",
     href: "/case-studies/eryca-portfolio",
@@ -116,7 +116,7 @@ export default function CaseStudiesIndex() {
   }, [activeCat, q]);
 
   return (
-    <main className="min-h-screen bg-[#faf8f3]">
+    <main className="min-h-screen bg-[#faf8f3]" id="worked">
       {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
         <div className="mx-auto max-w-6xl px-6 py-8">

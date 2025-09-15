@@ -1,21 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import CaseLayout from "@/components/case/CaseLayout";
-
+import React from "react";
+import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TwoColSection from "@/components/case/TwoColSect";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import RoleStrip from "@/components/case/RoleStrip";
-import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
-// import FeatureCard tidak perlu langsung karena dipakai via ProtoAndFeatures
-
-export const metadata = { title: "Eryca Portfolio — Case Study" };
 
 export default function Page() {
   return (
     <CaseLayout
       meta={{
-        title: "Eryca Portfolio",
+        title: "Website Wihara",
         subtitle:
-          "Personal portfolio yang cepat, jelas, dan crafted — fokus pada pengalaman scroll dan storytelling.",
+          "Situs informasi vihara yang ringan, jelas, dan selalu terbarui — fokus pada akses mudah dan penyatuan kegiatan.",
         year: "2025",
         tag: "Design & Front-End",
         duration: "ongoing",
@@ -25,28 +21,85 @@ export default function Page() {
       // coverImage="/porto-eryca/mock-portfolio.jpg"
       prototypeUrl="https://www.figma.com/proto/your-eryca"
     >
+      {/* ABOUT — lebar */}
+      <CaseSection id="about" title="About Website">
+        <div className="prose prose-neutral max-w-none">
+          <p>
+            Website ini dibuat agar umat dan masyarakat bisa{" "}
+            <strong>lebih mudah menjangkau informasi kegiatan vihara</strong>,
+            meskipun vihara berada di lokasi yang jauh/terpencil dan jaringan
+            internet terbatas. Semua pengumuman, jadwal ibadah, dan kegiatan
+            sosial dihimpun dalam satu tempat yang ringan, jelas, dan selalu
+            diperbarui.
+          </p>
+          <p>
+            Tujuan kami sederhana: menjadi <em>pusat kegiatan (event center)</em>{" "}
+            yang memudahkan komunikasi, pendaftaran acara, serta pengingat
+            jadwal—sehingga siapa pun dapat mengikuti perkembangan vihara dari
+            mana saja.
+          </p>
 
-      {/* Problem + Solution = 2 kolom */}
+          <h4>Yang kamu temukan di website ini</h4>
+          <ul>
+            <li>
+              <strong>Jadwal Ibadah & Event</strong> — puja bakti, meditasi,
+              kelas Dhamma, bakti sosial (terintegrasi kalender).
+            </li>
+            <li>
+              <strong>Pengumuman Cepat</strong> — informasi terbaru di beranda
+              (perubahan jam, cuaca, dsb.).
+            </li>
+            <li>
+              <strong>Pendaftaran Online</strong> — formulir sederhana + konfirmasi
+              via WhatsApp/SMS.
+            </li>
+            <li>
+              <strong>Notifikasi Ringan</strong> — pilihan pengingat lewat
+              email/WhatsApp/Telegram.
+            </li>
+            <li>
+              <strong>Peta & Arah</strong> — link peta, titik kumpul, dan catatan
+              transport.
+            </li>
+            <li>
+              <strong>Kontak & Donasi</strong> — nomor admin, kanal tanya-jawab,
+              dan QRIS/rek. donasi.
+            </li>
+            <li>
+              <strong>Aksesibilitas</strong> — font besar, kontras baik, mode
+              gelap, bahasa Indonesia/daerah.
+            </li>
+            <li>
+              <strong>Ramah Jaringan Lambat</strong> — gambar terkompresi,
+              halaman ringan, cache (PWA).
+            </li>
+          </ul>
+
+        </div>
+      </CaseSection>
+
+      {/* Problem + Solution — 2 kolom */}
       <TwoColSection
         id="ps"
         titleLeft="Problem Statement"
         contentLeft={
-          <ul>
-            <li>Versi lama sulit di-scaling dan tidak modular.</li>
-            <li>Pengunjung tidak langsung paham value &amp; layanan.</li>
-            <li>Perf &amp; LCP perlu ditingkatkan untuk mobile.</li>
-          </ul>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li>Info kegiatan tersebar (grup WA/selebaran), sulit dilacak.</li>
+            <li>Perubahan jadwal mendadak tidak cepat sampai ke semua umat.</li>
+            <li>Lokasi terpencil & jaringan lemah menyulitkan akses informasi.</li>
+          </ol>
         }
         titleRight="Solution"
         contentRight={
-          <ul>
-            <li>App Router + komponen reusable (Hero, Navbar, StickySpotify, dsb).</li>
-            <li>Grid &amp; spacing mengikuti guideline Figma 12-kolom.</li>
-            <li>Optimasi gambar &amp; motion “ringan”.</li>
-          </ul>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li>Website ringan sebagai pusat informasi & event vihara.</li>
+            <li>Kalender terintegrasi + pengingat (WA/Telegram/email).</li>
+            <li>Pendaftaran online, pengumuman cepat, peta & kontak admin.</li>
+          </ol>
         }
       />
 
+      {/* UX + UI timeline — varian tombol (tanpa gambar) */}
       <TimelineDuo
         id="process"
         variant="buttons"
@@ -68,7 +121,7 @@ export default function Page() {
         }}
       />
 
-      {/* Role tanpa kartu + ikon tools */}
+      {/* Role — strip sederhana + ikon tools */}
       <RoleStrip
         tools={[
           { label: "Figma", icon: "/icons/figma.svg" },
@@ -78,27 +131,40 @@ export default function Page() {
         ]}
       />
 
-      {/* Testimoni 1 baris + foto 1:1 */}
-      {/* Bisa jadikan beberapa—ulang komponen ini untuk list */}
+      {/* Testimoni */}
       <section id="testimonials" className="scroll-mt-24 mb-10">
         <h2 className="font-serif text-2xl md:text-3xl mb-4">Testimonials</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-white/50 bg-white/75 backdrop-blur p-6 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="flex items-center gap-4">
-              <img src="/porto-eryca/ava1.jpg" alt="Client" className="h-16 w-16 rounded-xl object-cover aspect-square border border-neutral-200" />
+              <img
+                src="/porto-eryca/ava1.jpg"
+                alt="Umat"
+                className="h-16 w-16 rounded-xl object-cover aspect-square border border-neutral-200"
+              />
               <div>
-                <p className="text-lg leading-relaxed">“Halaman kerjanya rapi, gampang paham fokus dan gaya visualnya.”</p>
-                <p className="mt-1 text-sm text-neutral-600">— Client A</p>
+                <p className="text-lg leading-relaxed">
+                  “Sekarang jadwal puja dan info acara mudah dicek, tidak
+                  ketinggalan lagi.”
+                </p>
+                <p className="mt-1 text-sm text-neutral-600">— Umat A</p>
               </div>
             </div>
           </div>
 
           <div className="rounded-2xl border border-white/50 bg-white/75 backdrop-blur p-6 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="flex items-center gap-4">
-              <img src="/porto-eryca/ava2.jpg" alt="Reviewer" className="h-16 w-16 rounded-xl object-cover aspect-square border border-neutral-200" />
+              <img
+                src="/porto-eryca/ava2.jpg"
+                alt="Relawan"
+                className="h-16 w-16 rounded-xl object-cover aspect-square border border-neutral-200"
+              />
               <div>
-                <p className="text-lg leading-relaxed">“Navigasi satset, performa cepat, dan enak dibaca.”</p>
-                <p className="mt-1 text-sm text-neutral-600">— Reviewer B</p>
+                <p className="text-lg leading-relaxed">
+                  “Pengumuman cepat dan pendaftaran online membantu kami
+                  koordinasi relawan.”
+                </p>
+                <p className="mt-1 text-sm text-neutral-600">— Relawan B</p>
               </div>
             </div>
           </div>

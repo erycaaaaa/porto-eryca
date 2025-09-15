@@ -23,8 +23,8 @@ export default function SiteHero({
     <section
       className={[
         "relative mb-10 overflow-hidden rounded-3xl border border-neutral-200",
-        "bg-gradient-to-br from-[#f3ead2] via-white to-white",
-        "shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]",
+        "bg-gradient-to-br from-[#ffffff] via-white to-white",
+        "shadow-[0_20px_10px_-90px_rgba(0,0,0,0.15)]",
       ].join(" ")}
     >
       <div className="grid items-center gap-8 p-6 md:grid-cols-2 md:p-10">
@@ -59,52 +59,51 @@ export default function SiteHero({
           </div>
         </div>
 
-        {/* MOCK BROWSER + POSTER */}
-        <div className={`relative ${imgOrder}`}>
-        <div className="relative mx-auto aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-2xl border bg-white">
-            {/* simple chrome bar */}
-            <div className="flex items-center gap-2 border-b bg-neutral-50/90 px-3 h-8">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
-            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
+{/* POSTER — square 1:1 only */}
+<div className={`relative ${imgOrder}`}>
+  {(() => {
+    const finalHref = siteUrl ?? "/porto-eryca/mokap2.png"; 
+    const isExternal = /^https?:\/\//.test(finalHref);
+    const pretty = isExternal
+      ? finalHref.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "")
+      : "Open image";
 
-            {(() => {
-                const href = "https://erycaaaaa.github.io/toko-bunga-fajar/";
-                const pretty = href
-                .replace(/^https?:\/\//, "")
-                .replace(/^www\./, "")
-                .replace(/\/$/, "");
-                return (
-                <a
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="ml-2 line-clamp-1 text-[10px] text-neutral-10 hover:underline decoration-dotted"
-                    aria-label={`Open ${pretty}`}
-                    title={pretty}
-                >
-                    {pretty}
-                </a>
-                );
-            })()}
-            </div>
-
-            {/* poster clickable ke situs */}
-            <a
-            href="https://erycaaaaa.github.io/toko-bunga-fajar/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Open live website"
-            title="Open live website"
-            >
+    return (
+      <>
+        <a
+          href={finalHref}
+          target={isExternal ? "_blank" : "_self"}
+          rel={isExternal ? "noopener noreferrer" : undefined}
+          aria-label={isExternal ? `Open ${pretty}` : "Open full image"}
+          title={isExternal ? pretty : "Open full image"}
+          className="block"
+        >
+          <div className="relative mx-auto aspect-square w-full max-w-[28rem] overflow-hidden rounded-2xl border bg-white">
             <img
-                src={poster}
-                alt={`${title} preview`}
-                className="h-[calc(100%-2rem)] w-full object-cover" // 2rem = h-8 bar
+              src={poster}
+              alt={`${title} preview`}
+              className="h-full w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+              loading="lazy"
             />
-            </a>
+          </div>
+        </a>
+
+        {/* label/link kecil di bawah gambar */}
+        <div className="mt-2 text-center text-[10px] text-neutral-500">
+          <a
+            href={finalHref}
+            target={isExternal ? "_blank" : "_self"}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            className="hover:underline decoration-dotted"
+          >
+            {pretty}
+          </a>
         </div>
-        </div>
+      </>
+    );
+  })()}
+</div>
+
 
       </div>
     </section>

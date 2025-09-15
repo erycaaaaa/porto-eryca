@@ -1,11 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import TwoColSection from "@/components/case/TwoColSect";
 import RoleStrip from "@/components/case/RoleStrip";
-
-
 
 export default function Page() {
   return (
@@ -15,7 +12,7 @@ export default function Page() {
         subtitle:
           "Academic research: INSET Lexicon, TF-IDF vectorization, and Support Vector Machine classification for Indonesian transport app reviews.",
         year: "2025",
-        tag: "Research • NLP • Machine Learning",
+        tag: "Research • Natural Language Processing ",
         duration: "8 weeks",
         role: "Lead Researcher • Data Engineer • Author",
         tools: ["Python", "Pandas", "scikit-learn", "INSET Lexicon", "Matplotlib"],
@@ -28,36 +25,39 @@ export default function Page() {
       ]}
       resumeHref="/resume-eryca.pdf"
     >
-
-    <img
-      src="/porto-eryca/analisa1.jpg"
-      alt="Sentiment analysis cover: INSET + TF-IDF + SVM"
-      loading="eager"
-      className="h-full w-full object-cover"
-    />
+      {/* HERO IMAGE */}
+      <img
+        alt="Analisis Sentimen Ulasan Aplikasi Transportasi"
+        title="sentiment analysis"
+        src="/porto-eryca/analisa1.jpg"
+        loading="eager"
+        className="h-full w-full object-cover rounded-2xl border"
+      />
 
       {/* ABOUT PAPER */}
-      <CaseSection id="about" title="About the Research">
-        <p>
-          Studi ini merupakan penelitian akademik yang dipublikasikan dalam Jurnal
-          Muara Sains, Teknologi, Kedokteran, dan Ilmu Kesehatan (JMSTKIK) 2025.
-          Penelitian berfokus pada analisis sentimen ribuan ulasan aplikasi
-          transportasi digital Indonesia, seperti Access by KAI, MyMRTJ, dan
-          MitraDarat. Dengan memanfaatkan kombinasi <b>INSET Lexicon</b>—kamus
-          sentimen bahasa Indonesia—dan algoritma <b>Support Vector Machine (SVM)</b>,
-          penelitian ini bertujuan memberikan kerangka kerja untuk memahami persepsi
-          pengguna dan memperbaiki layanan berbasis data.
-        </p>
-        <p className="mt-4">
-          Latar belakang riset ini adalah tingginya volume ulasan berbahasa Indonesia
-          yang kaya slang dan variasi ejaan, membuat analisis manual sulit dilakukan.
-          Melalui pendekatan berbasis leksikon dan machine learning, penelitian ini
-          mengusulkan pipeline otomatis mulai dari pengumpulan data, pra-pemrosesan,
-          pelabelan sentimen, hingga evaluasi model. Selain kontribusi teknis, studi
-          ini juga berperan dalam menghubungkan data analitik dengan keputusan desain
-          dan pengalaman pengguna di sektor transportasi publik.
-        </p>
-      </CaseSection>
+      <div className="mt-15">
+        <CaseSection id="about" title="About the Research">
+          <p>
+            Studi ini merupakan penelitian akademik yang dipublikasikan dalam Jurnal
+            Muara Sains, Teknologi, Kedokteran, dan Ilmu Kesehatan (JMSTKIK) 2025.
+            Penelitian berfokus pada analisis sentimen ribuan ulasan aplikasi
+            transportasi digital Indonesia, seperti Access by KAI, MyMRTJ, dan
+            MitraDarat. Dengan memanfaatkan kombinasi <b>INSET Lexicon</b>—kamus
+            sentimen bahasa Indonesia—dan algoritma <b>Support Vector Machine (SVM)</b>,
+            penelitian ini bertujuan memberikan kerangka kerja untuk memahami persepsi
+            pengguna dan memperbaiki layanan berbasis data.
+          </p>
+          <p className="mt-4">
+            Latar belakang riset ini adalah tingginya volume ulasan berbahasa Indonesia
+            yang kaya slang dan variasi ejaan, membuat analisis manual sulit dilakukan.
+            Melalui pendekatan berbasis leksikon dan machine learning, penelitian ini
+            mengusulkan pipeline otomatis mulai dari pengumpulan data, pra-pemrosesan,
+            pelabelan sentimen, hingga evaluasi model. Selain kontribusi teknis, studi
+            ini juga berperan dalam menghubungkan data analitik dengan keputusan desain
+            dan pengalaman pengguna di sektor transportasi publik.
+          </p>
+        </CaseSection>
+      </div>
 
       {/* GAP VS SOLUTION */}
       <TwoColSection
@@ -130,6 +130,47 @@ export default function Page() {
           image: "/porto-eryca/svm.png",
         }}
       />
+
+      {/* NEW: PRESENTATION GALLERY (ZOOM) */}
+      <CaseSection id="presentation" title="Conference & Presentation (Zoom)">
+        <ul className="grid gap-6 sm:grid-cols-2">
+          {/* Card 1 */}
+          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+            <div className="relative aspect-video w-full">
+              <img
+                src="/porto-eryca/presenter-serina.png"
+                alt="Presentasi jurnal ilmiah via Zoom — sesi 1"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-4">
+              <h4 className="font-medium">Presentasi Daring — Sesi 1</h4>
+              <p className="mt-1 text-sm text-neutral-600">
+                Pemaparan metode INSET + TF-IDF + SVM dan ringkasan evaluasi model.
+              </p>
+            </div>
+          </li>
+
+          {/* Card 2 */}
+          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+            <div className="relative aspect-video w-full">
+              <img
+                src="/porto-eryca/serti-serina.png"  /* ganti dengan fotomu */
+                alt="Presentasi jurnal ilmiah via Zoom — sesi 2"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-4">
+              <h4 className="font-medium">Sertifikat Peserta</h4>
+              <p className="mt-1 text-sm text-neutral-600">
+                Penerimaan Sertifikat Peserta 
+              </p>
+            </div>
+          </li>
+        </ul>
+      </CaseSection>
 
       {/* RESULTS */}
       <CaseSection id="results" title="Key Findings">
