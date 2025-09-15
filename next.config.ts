@@ -6,6 +6,5 @@ const nextConfig = {
   images: { unoptimized: true },  
   basePath: isProd ? `/${repo}` : "",
   assetPrefix: isProd ? `/${repo}/` : "",
-  dirs: ['src'],
 };
 export default nextConfig;

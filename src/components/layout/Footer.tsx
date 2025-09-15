@@ -2,7 +2,6 @@
 
 import React, { JSX } from "react";
 import { Github, Instagram, Linkedin, Mail } from "lucide-react";
-import Image from "next/image";
 
 type LinkItem = { label: string; href: string };
 type LinkGroup = { heading: string; items: LinkItem[] };
@@ -180,7 +179,6 @@ export default function Footer({
             className="h-[55px] w-[52px] select-none rounded-full ring-1 ring-[#b2a98a] shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
             loading="lazy"
           />
-          
           <span
             className="
               absolute -top-8 whitespace-nowrap rounded-md bg-black/80 px-2 py-1
