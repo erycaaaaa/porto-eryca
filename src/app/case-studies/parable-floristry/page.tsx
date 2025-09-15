@@ -1,14 +1,10 @@
-
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import TwoColSection from "@/components/case/TwoColSect";
-import RoleStrip from "@/components/case/RoleStrip";
 import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
 import TestimonialRow from "@/components/case/TestimonialRow";
-
-export const metadata = {
-  title: "Parable Floristry — Case Study",
-};
+import SiteHero from "@/components/case/SiteHero-Bunga";
+import LogoStrip from "@/components/sections/extras/LogoStrips";
 
 export default function Page() {
   return (
@@ -21,9 +17,10 @@ export default function Page() {
         tag: "Brand & Web",
         duration: "6 weeks",
         role: "UI/UX • Front-End",
+        // Jika di dalam CaseLayout ada pill 'tools' yang memaksa icon /icons/... dan sering broken,
+        // kamu bisa kosongkan / hilangkan properti 'tools' ini agar tidak render di header.
         tools: ["Figma", "Next.js", "Tailwind", "Framer Motion"],
       }}
-
       quickFacts={[
         { label: "Screens", value: "24" },
         { label: "Components", value: "18+" },
@@ -32,37 +29,52 @@ export default function Page() {
       ]}
       resumeHref="/resume-eryca.pdf"
     >
+      {/* HERO WEBSITE */}
+      <SiteHero
+        title="Toko Bunga Fajar"
+        tagline="Affordable boutique bouquets from Pasar Rawa Belong — crafted with a warm editorial touch."
+        siteUrl="https://erycaaaaa.github.io/toko-bunga-fajar/"
+        figmaUrl="https://embed.figma.com/design/B7aozMLHyu5r81GO0MhkVg/TOKO-BUNGA-FAJAR---ERYCA?node-id=0-1&embed-host=share"
+        poster="/porto-eryca/faja1.jpg"
+      />
+
+      {/* TOOL STRIP — semua ikon pakai LogoStrip */}
+      <LogoStrip tools={["Figma", "Next.js", "Tailwind", "Framer Motion", "GitHub"]} />
+      {/* Atau tampilkan label teks juga: <LogoStrip tools={[...]} showLabels /> */}
+
       {/* ABOUT — lebar */}
-      <CaseSection id="about" title="About Project">
+      <div className="mt-10.5">
+   <CaseSection id="about" title="About Project">
         <p>
-          Parable Floristry adalah butik florist dengan pengalaman belanja personal.
-          Fokus studi kasus: arsitektur konten, narasi brand, dan micro-interaction
-          yang membuat user betah mengeksplor koleksi buket & karya editorial.
+          Perkenalan saya dengan Bapak Fajar dimulai secara tidak sengaja dari TikTok. Saat itu saya sedang mencari bunga yang affordable dan berkualitas, lalu menemukan akun beliau yang berjualan bunga di Pasar Rawa Belong. Bapak Fajar baru saja memanfaatkan TikTok dan WhatsApp untuk promosi serta menerima pemesanan langsung. Dari situ saya terpikir, sayang sekali kalau bunga-bunga cantik dan murah ini hanya diketahui oleh pengunjung pasar. Banyak orang di luar sana yang pasti ingin menikmati bunga berkualitas dengan harga terjangkau. Karena itu, saya membuat website ini agar usaha Bapak Fajar bisa dikenal lebih luas, memudahkan pemesanan, dan membantu memperluas jangkauan pelanggan.
+        Website ini adalah langkah awal untuk membawa keindahan bunga dari Pasar Rawa Belong ke lebih banyak rumah, kantor, dan acara, di mana pun kamu berada. 🌷✨
         </p>
       </CaseSection>
+      </div>
+   
 
       {/* PROBLEM + SOLUTION — 2 kolom */}
       <TwoColSection
         id="ps"
         titleLeft="Problem Statement"
         contentLeft={
-          <ul>
-            <li>Brand story belum tersampaikan kuat di laman utama.</li>
-            <li>Pengunjung sulit menemukan koleksi unggulan & CTA.</li>
-            <li>Kecepatan & konsistensi visual belum optimal.</li>
-          </ul>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li>Media sosial Bapak Fajar belum menjangkau banyak audiens.</li>
+            <li>Promosi hanya mengandalkan TikTok dan WhatsApp.</li>
+            <li>Pelanggan harus datang langsung ke Pasar Rawa Belong untuk membeli bunga.</li>
+          </ol>
         }
         titleRight="Solution"
         contentRight={
-          <ul>
-            <li>Hero yang menonjolkan value & koleksi kurasi.</li>
-            <li>Navigasi ringkas + grid 12 kolom untuk konten.</li>
-            <li>Motion micro-interaction untuk hierarchy & feedback.</li>
-          </ul>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li>Mengembangkan Instagram untuk meningkatkan engagement dan jangkauan.</li>
+            <li>Membangun website agar pembelian bunga bisa dilakukan dengan mudah.</li>
+            <li>Membuat katalog produk agar pelanggan bisa melihat koleksi bunga dari mana saja.</li>
+          </ol>
         }
       />
 
-      {/* UX + UI TIMELINE — 2 kolom + gambar 4:3 (placeholder, kamu isi sendiri) */}
+      {/* UX + UI TIMELINE */}
       <TimelineDuo
         id="process"
         ux={{
@@ -72,7 +84,6 @@ export default function Page() {
             "User flow → wireframe → prototipe",
             "Usability check & iterasi 3 ronde",
           ],
-          image: "/porto-eryca/ux-parable.jpg", // 4:3 — kamu isi
         }}
         ui={{
           title: "UI Timeline",
@@ -81,19 +92,10 @@ export default function Page() {
             "UI kit: kartu koleksi, hero, CTA, gallery",
             "Motion & aksesibilitas (focus ring, contrast)",
           ],
-          image: "/porto-eryca/ui-parable.jpg", // 4:3 — kamu isi
         }}
+        // variant="buttons" // aktifkan kalau kamu sudah buat varian tombol
       />
 
-      {/* ROLE — strip sederhana + ikon tools */}
-      <RoleStrip
-        tools={[
-          { label: "Figma", icon: "/icons/figma.svg" },
-          { label: "React", icon: "/icons/react.svg" },
-          { label: "Tailwind", icon: "/icons/tailwind.svg" },
-          { label: "Framer Motion", icon: "/icons/framer.svg" },
-        ]}
-      />
 
       {/* UI SOLUTION — kartu ringkas */}
       <CaseSection id="ui-solution" title="UI Solution">
@@ -103,26 +105,13 @@ export default function Page() {
         </p>
       </CaseSection>
 
-      {/* PROTOTYPE + PRIMARY FUNCTIONS — 2 kolom */}
       <ProtoAndFeatures
         id="prototype-and-features"
-        protoSrc="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/your-parable"
+        protoSrc="https://embed.figma.com/design/B7aozMLHyu5r81GO0MhkVg/TOKO-BUNGA-FAJAR---ERYCA?node-id=0-1&embed-host=share"
         features={[
-          {
-            title: "Search & Curated Browse",
-            description: <>Pencarian cepat + kategori kurasi agar user menemukan buket sesuai tema/occasions.</>,
-            image: "/porto-eryca/feature-parable-1.jpg", // 4:3 — kamu isi
-          },
-          {
-            title: "Timetables & Live Updates",
-            description: <>Informasi ketersediaan & jadwal pengiriman real-time, mengurangi friction checkout.</>,
-            image: "/porto-eryca/feature-parable-2.jpg", // 4:3 — kamu isi
-          },
-          {
-            title: "Pay Online & Share Details",
-            description: <>Pembayaran populer + share detail pesanan untuk gift/ucapan khusus penerima.</>,
-            image: "/porto-eryca/feature-parable-3.jpg", // 4:3 — kamu isi
-          },
+          { title: "Search & Curated Browse", description: <>Pencarian cepat + kategori kurasi…</> },
+          { title: "Timetables & Live Updates", description: <>Info ketersediaan & jadwal real-time…</> },
+          { title: "Pay Online & Share Details", description: <>Pembayaran populer + share detail…</> },
         ]}
       />
 
@@ -134,19 +123,14 @@ export default function Page() {
         </p>
       </CaseSection>
 
-      {/* TESTIMONIALS — 1 baris (2 item), foto 1:1 */}
+      {/* TESTIMONIALS */}
       <section id="testimonials" className="scroll-mt-24 mb-10">
-        <h2 className="font-serif text-2xl md:text-3xl mb-4">Testimonials</h2>
+        <h2 className="font-serif text-2xl md:text-3xl mb-4">What They Say</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <TestimonialRow
-            quote="Navigasinya gampang, foto bouquetnya ‘bercerita’ banget."
-            author="Customer A"
-            avatar="/porto-eryca/ava-floristry-1.jpg" // 1:1 — kamu isi
-          />
-          <TestimonialRow
-            quote="Checkout lebih cepat dan informatif soal pengiriman."
-            author="Customer B"
-            avatar="/porto-eryca/ava-floristry-2.jpg" // 1:1 — kamu isi
+            quote="Kemarin saya pulang kampung dan saya ceritain tuh kaka bikinin katalog..."
+            author="Bapak Fajar"
+            avatar="/porto-eryca/ava-floristry-1.jpg"
           />
         </div>
       </section>

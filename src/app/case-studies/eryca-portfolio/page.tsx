@@ -47,9 +47,9 @@ export default function Page() {
         }
       />
 
-      {/* UX + UI timeline 2 kolom, masing2 sisip gambar 4:3 */}
       <TimelineDuo
         id="process"
+        variant="buttons"
         ux={{
           title: "UX Timeline",
           bullets: [
@@ -57,7 +57,6 @@ export default function Page() {
             "Wireframe → flow → prototipe interaktif",
             "Validasi cepat & iterasi",
           ],
-          image: "/porto-eryca/ux-timeline.jpg", // ganti fotomu (4:3)
         }}
         ui={{
           title: "UI Timeline",
@@ -66,7 +65,6 @@ export default function Page() {
             "UI kit & states",
             "Motion & polish aksesibilitas",
           ],
-          image: "/porto-eryca/ui-timeline.jpg", // ganti fotomu (4:3)
         }}
       />
 
@@ -77,30 +75,6 @@ export default function Page() {
           { label: "React", icon: "/icons/react.svg" },
           { label: "Tailwind", icon: "/icons/tailwind.svg" },
           { label: "Framer Motion", icon: "/icons/framer.svg" },
-        ]}
-      />
-
-
-      {/* Prototype + Primary Functions satu baris (2 kolom) */}
-      <ProtoAndFeatures
-        id="prototype-and-features"
-        protoSrc="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/your-eryca"
-        features={[
-          {
-            title: "Search",
-            description: <>Pencarian dengan filter, cukup masukkan tujuan untuk mulai menelusuri karya/halaman terkait.</>,
-            image: "/porto-eryca/feature1.jpg",
-          },
-          {
-            title: "Timetables & Live Updates",
-            description: <>Jadwal rilis/updates bisa dilihat per waktu, real-time agar info selalu akurat.</>,
-            image: "/porto-eryca/feature2.jpg",
-          },
-          {
-            title: "Pay Online & Share Details",
-            description: <>Dukungan pembayaran dan berbagi detail proyek ke klien/teman secara mudah.</>,
-            image: "/porto-eryca/feature3.jpg",
-          },
         ]}
       />
 

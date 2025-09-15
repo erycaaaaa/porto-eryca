@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 import React from "react";
 
 export default function ProtoAndFeatures({
@@ -21,31 +21,35 @@ export default function ProtoAndFeatures({
           </div>
         </div>
 
-        {/* Primary Functions */}
-        <div className="rounded-2xl border border-neutral-200 bg-white/80 backdrop-blur p-4">
-          <h3 className="font-serif text-xl md:text-2xl">Primary Functions</h3>
-          <div className="mt-3 grid gap-4">
-            {features.map((f) => (
-              <article key={f.title} className="grid grid-cols-[1fr] gap-3 sm:grid-cols-[160px_1fr]">
-                {f.image ? (
-                  <img
-                    src={f.image}
-                    alt={f.title}
-                    className="rounded-lg border object-cover aspect-[4/3]"
-                  />
-                ) : (
-                  <div className="rounded-lg border border-dashed aspect-[4/3] grid place-items-center text-xs text-neutral-500">
-                    (4:3 image)
-                  </div>
-                )}
-                <div>
-                  <h4 className="font-medium">{f.title}</h4>
-                  <div className="prose prose-neutral max-w-none mt-1 text-sm">{f.description}</div>
+    {/* Primary Functions  */}
+    <div className="rounded-2xl border border-neutral-200 bg-white/80 backdrop-blur p-4">
+      <h3 className="font-serif text-xl md:text-2xl">Primary Functions</h3>
+
+      <ol className="mt-3 space-y-3">
+        {features.map((f, i) => (
+          <li
+            key={f.title}
+            className="group rounded-xl border p-4 transition-shadow hover:shadow-sm"
+          >
+            <div className="grid grid-cols-[auto_1fr] items-start gap-3">
+              {/* numbered badge */}
+              <span className="grid h-8 w-8 place-items-center rounded-full border bg-white text-xs font-semibold">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <div>
+                <h4 className="font-medium">{f.title}</h4>
+                <div className="prose prose-neutral max-w-none mt-1 text-sm">
+                  {f.description}
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+
       </div>
     </section>
   );

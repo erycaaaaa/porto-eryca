@@ -226,7 +226,7 @@ export default function CaseLayout({
                     href={resumeHref}
                     className="inline-flex w-full items-center justify-center rounded-full bg-neutral-900 px-3 py-2 text-sm font-medium text-white hover:bg-neutral-800"
                   >
-                    Download Resume (PDF)
+                    Download Katalog (PDF)
                   </a>
                 )}
               </div>

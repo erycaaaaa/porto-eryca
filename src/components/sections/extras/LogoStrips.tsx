@@ -1,42 +1,132 @@
+/* eslint-disable @next/next/no-img-element */
+import React from "react";
+import Image from "next/image";
 import SectionWrap from "@/components/sections/extras/SectionWrap";
-import { FaPython, FaHtml5, FaCss3Alt, FaGithub } from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiDart,
-  SiFigma,
-  SiAdobeillustrator,
-  SiAdobeaftereffects,
-  SiGooglecolab,
-} from "react-icons/si";
 
-export default function LogoStrip() {
-  const logos: { icon: React.ReactNode; label: string }[] = [
-    {
-      icon: <SiGooglecolab size={28} title="Google Colab" />,
-      label: "Google Colab",
-    },
-    { icon: <FaPython size={28} title="Python" />, label: "Python" },
-    { icon: <FaHtml5 size={28} title="HTML5" />, label: "HTML5" },
-    { icon: <FaCss3Alt size={28} title="CSS3" />, label: "CSS3" },
-    { icon: <SiNextdotjs size={28} title="Next.js" />, label: "Next.js" },
-    { icon: <SiDart size={28} title="Dart" />, label: "Dart" },
-    { icon: <SiFigma size={28} title="Figma" />, label: "Figma" },
-    {
-      icon: <SiAdobeillustrator size={28} title="Adobe Illustrator" />,
-      label: "Adobe Illustrator",
-    },
-    {
-      icon: <SiAdobeaftereffects size={28} title="Adobe After Effects" />,
-      label: "Adobe After Effects",
-    },
-    { icon: <FaGithub size={28} title="GitHub" />, label: "GitHub" },
+// react-icons fallback
+import { FaPython, FaHtml5, FaCss3Alt, FaGithub, FaBootstrap } from "react-icons/fa";
+import { SiNextdotjs, SiFigma, SiAdobeillustrator, SiAdobeaftereffects, SiGooglecolab, SiTailwindcss, SiDart, SiReact, SiNodedotjs, SiTypescript, SiVite } from "react-icons/si";
+
+/** 1) Peta ke ikon file lokal (SVG) */
+const TOOL_ICON_MAP: Record<string, string> = {
+  figma: "/icons/figma.svg",
+  "framer motion": "/icons/framer.svg",
+  react: "/icons/react.svg",
+  "next.js": "/icons/nextjs.svg",
+  nextjs: "/icons/nextjs.svg",
+  tailwind: "/icons/tailwind.svg",
+  "tailwind css": "/icons/tailwind.svg",
+  typescript: "/icons/typescript.svg",
+  vite: "/icons/vite.svg",
+  node: "/icons/node.svg",
+  "node.js": "/icons/node.svg",
+  bootstrap: "/icons/bootstrap.svg",
+  bootsraps: "/icons/bootstrap.svg", // typo yang sering muncul
+  github: "/icons/github.svg",
+  python: "/icons/python.svg",
+  html5: "/icons/html5.svg",
+  css3: "/icons/css3.svg",
+  dart: "/icons/dart.svg",
+  "adobe illustrator": "/icons/ai.svg",
+  "adobe after effects": "/icons/ae.svg",
+  "google colab": "/icons/colab.svg",
+};
+
+/** 2) Peta ke komponen react-icons (fallback kalau tidak ada SVG lokal) */
+const ICON_COMPONENT_MAP: Record<string, React.ReactNode> = {
+  figma: <SiFigma size={28} title="Figma" />,
+  "framer motion": <img src="/icons/framer.svg" alt="Framer Motion" width={28} height={28} />, // atau buat sendiri
+  react: <SiReact size={28} title="React" />,
+  "next.js": <SiNextdotjs size={28} title="Next.js" />,
+  nextjs: <SiNextdotjs size={28} title="Next.js" />,
+  tailwind: <SiTailwindcss size={28} title="Tailwind CSS" />,
+  "tailwind css": <SiTailwindcss size={28} title="Tailwind CSS" />,
+  typescript: <SiTypescript size={28} title="TypeScript" />,
+  vite: <SiVite size={28} title="Vite" />,
+  node: <SiNodedotjs size={28} title="Node.js" />,
+  "node.js": <SiNodedotjs size={28} title="Node.js" />,
+  bootstrap: <FaBootstrap size={28} title="Bootstrap" />,
+  bootsraps: <FaBootstrap size={28} title="Bootstrap" />,
+  github: <FaGithub size={28} title="GitHub" />,
+  python: <FaPython size={28} title="Python" />,
+  html5: <FaHtml5 size={28} title="HTML5" />,
+  css3: <FaCss3Alt size={28} title="CSS3" />,
+  dart: <SiDart size={28} title="Dart" />,
+  "adobe illustrator": <SiAdobeillustrator size={28} title="Adobe Illustrator" />,
+  "adobe after effects": <SiAdobeaftereffects size={28} title="Adobe After Effects" />,
+  "google colab": <SiGooglecolab size={28} title="Google Colab" />,
+};
+
+function normKey(s: string) {
+  return s.trim().toLowerCase();
+}
+
+function IconFor({ label }: { label: string }) {
+  const key = normKey(label);
+
+  // 1st: pakai SVG lokal kalau ada
+  const localSrc = TOOL_ICON_MAP[key];
+  if (localSrc) {
+    // pakai next/image agar optimal
+    return (
+      <Image
+        src={localSrc}
+        alt={label}
+        title={label}
+        width={28}
+        height={28}
+        className="shrink-0"
+      />
+    );
+  }
+
+  // 2nd: fallback ke react-icons jika ada
+  const comp = ICON_COMPONENT_MAP[key];
+  if (comp) return <>{comp}</>;
+
+  // 3rd: ultimate fallback — bulatan dengan inisial
+  return (
+    <span
+      title={label}
+      aria-label={label}
+      className="grid h-7 w-7 place-items-center rounded-full border text-[10px] bg-white/70 text-neutral-700"
+    >
+      {label.slice(0, 2).toUpperCase()}
+    </span>
+  );
+}
+
+/** 3) Komponen utama */
+export default function LogoStrip({
+  tools,
+  showLabels = false,
+}: {
+  tools?: string[];           // kirim mis: ["Figma","Next.js","Tailwind","Framer Motion","Python","HTML5","CSS3","GitHub"]
+  showLabels?: boolean;       // tampilkan teks label di samping ikon
+}) {
+  // default (kalau tidak diberi props)
+  const defaults = [
+    "Google Colab",
+    "Python",
+    "HTML5",
+    "CSS3",
+    "Next.js",
+    "Dart",
+    "Figma",
+    "Adobe Illustrator",
+    "Adobe After Effects",
+    "GitHub",
   ];
+
+  const items = (tools && tools.length > 0 ? tools : defaults).map((t) => ({
+    label: t,
+  }));
 
   return (
     <SectionWrap
       className="
-        py-6 w-full overflow-x-clip 
-    bg-gradient-to-r from-[#ffffff4e] via-[#95927573] to-[#ffffff4e]
+        py-6 w-full overflow-x-clip
+        bg-gradient-to-r from-[#ffffff4e] via-[#95927573] to-[#ffffff4e]
       "
     >
       <ul
@@ -46,16 +136,21 @@ export default function LogoStrip() {
           whitespace-nowrap
           md:overflow-visible overflow-x-auto
           px-4
-          opacity-90 
+          opacity-90
           [filter:grayscale(1)] hover:[filter:grayscale(0)] transition
         "
       >
-        {logos.map(({ icon, label }) => (
+        {items.map(({ label }) => (
           <li
             key={label}
             className="flex items-center justify-center text-[#f8e6c9] min-w-0"
+            aria-label={label}
+            title={label}
           >
-            {icon}
+            <IconFor label={label} />
+            {showLabels && (
+              <span className="ml-2 text-xs text-[#f8e6c9]">{label}</span>
+            )}
           </li>
         ))}
       </ul>
