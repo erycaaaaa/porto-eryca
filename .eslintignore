@@ -1,14 +1,32 @@
-# Output & vendor
-.next/
-out/
-docs/
-public/
-node_modules/
-**/*.min.js
+// eslint.config.js
+import next from "eslint-config-next";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsparser from "@typescript-eslint/parser";
 
-**/_buildManifest.js
-**/_ssgManifest.js
-**/chunks/*.js
-
-storybook-static/
-coverage/
+/** @type {import('eslint').Linter.FlatConfig[]} */
+export default [
+  {
+    ignores: [
+      ".next/**",     
+      "out/**",       
+      "docs/**",      
+      "public/**",    
+      "node_modules/**",
+      "**/_buildManifest.js",
+      "**/_ssgManifest.js",
+      "**/chunks/**",
+    ],
+  },
+  next,
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: { parser: tsparser },
+    plugins: { "@typescript-eslint": tseslint },
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
+];

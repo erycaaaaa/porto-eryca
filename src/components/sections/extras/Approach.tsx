@@ -175,7 +175,7 @@ export default function Approach() {
           </a>
 
           <ul
-            className="mt-3 ml-0  /* was ml-[-13], gunakan unit jika mau offset: ml-[-13px] */
+            className="mt-3 ml-0  /* was ml-[-13], gunakan unit jika mau offset: */
            space-y-1
            text-sm text-neutral-700"
           >

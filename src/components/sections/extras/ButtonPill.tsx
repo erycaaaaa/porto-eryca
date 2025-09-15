@@ -10,7 +10,7 @@ function ButtonPill({
   className?: string;
   ariaLabel?: string;
   target?: "_blank" | "_self" | "_parent" | "_top"; // ⬅️ baru
-}) {
+}): React.JSX.Element {
   return (
     <a
       href={href}
