@@ -1,120 +1,121 @@
-// src/app/case-studies/page.tsx
+// src/app/gallery/page.tsx
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+// optional: biar aman untuk next export (GitHub Pages)
+export const dynamic = "force-static";
 
 /* =========================
-   KATEGORI
+   KATEGORI KHUSUS GALLERY
    ========================= */
 const CATEGORIES = [
   "All",
-  "Case Studies",
-  "Sentiment Analysis",
-  "UI/UX",
-  "Front-End",
-  "Research",
+  "Acrylic",
+  "Watercolor",
+  "3D Crafting",
+  "Poster",
+  "Sketch",
+  "Design",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
-function normalizeCat(v: string | null): Category {
-  if (!v) return "All";
-  const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-  const match = CATEGORIES.find((c) => c.toLowerCase() === cleaned.toLowerCase());
-  return (match as Category) ?? "All";
-}
-
 /* =========================
-   DATA
+   DATA GALLERY
    ========================= */
 type Item = {
   id: string;
   title: string;
   category: Exclude<Category, "All">;
   src: string;
-  href: string;
   alt?: string;
   description: string;
-  tag?: string;
 };
 
 const ALL_ITEMS: Item[] = [
   {
-    id: "cs-parable",
-    title: "Parable Floristry",
-    category: "Case Studies",
-    src: "/porto-eryca/w2.jpg",
-    href: "/case-studies/parable-floristry",
-    tag: "Brand & Web",
+    id: "ac-01",
+    title: "Demon Slayer",
+    category: "Acrylic",
+    src: "/porto-eryca/2.jpg",
     description:
-      "Boutique floristry brand site with crisp UX, motion, and editorial storytelling.",
+      "Tanjiro & Nezuko. Acrylic fanart—Taisho vibes & breathing forms.",
   },
   {
-    id: "cs-tarumanagara",
-    title: "Tarumanagara Enterprise",
-    category: "Case Studies",
-    src: "/porto-eryca/u00.jpg",
-    href: "/case-studies/tarumanagara-enterprise",
-    tag: "UX Strategy",
-    description: "Vision-led site with clean information flow and scalable IA.",
+    id: "wc-01",
+    title: "Christmas Scene",
+    category: "Watercolor",
+    src: "/porto-eryca/1.jpg",
+    description: "Watercolor: wet-on-wet glow & soft edges.",
   },
   {
-    id: "cs-eryca",
-    title: "Eryca Portfolio",
-    category: "Front-End",
-    src: "/porto-eryca/w11.jpg",
-    href: "/case-studies/eryca-portfolio",
-    tag: "Design & Front-End",
-    description:
-      "Personal portfolio yang cepat, jelas, dan crafted—fokus scroll & storytelling.",
+    id: "dc-01",
+    title: "Self Potrait",
+    category: "3D Crafting",
+    src: "/porto-eryca/4.jpg",
+    description: "3D craft: stylized form, matte clay render.",
   },
   {
-    id: "paper-sentiment",
-    title: "Sentiment Analysis Paper",
-    category: "Sentiment Analysis",
-    src: "/porto-eryca/analisa.jpg",
-    href: "/case-studies/paper-sentiment",
-    tag: "Research & NLP",
-    description:
-      "Research on sentiment classification using NLP & deep learning pipelines.",
+    id: "ac-06",
+    title: "Commission",
+    category: "Acrylic",
+    src: "/porto-eryca/acy6.jpg",
+    description: "Cat by Tesla Paint",
   },
   {
-    id: "paper-bot",
-    title: "EduBot UI/UX Design",
-    category: "UI/UX",
-    src: "/porto-eryca/edu1.jpg",
-    href: "/case-studies/paper-bot",
-    tag: "UI/UX • Chatbot",
-    description:
-      "Design system & conversational flow for an educational chatbot.",
+    id: "sk-01",
+    title: "Gesture Study",
+    category: "Sketch",
+    src: "/porto-eryca/sket1.jpg",
+    description: "60s gesture lines & proportions.",
+  },
+  {
+    id: "wc-03",
+    title: "A blue eye blooming on paper.",
+    category: "Watercolor",
+    src: "/porto-eryca/wate2.jpg",
+    description: "Cobalt iris on warm ochre—breathing on textured paper.",
   },
 ];
 
 /* =========================
-   PAGE (Client-side filtering)
+   PAGE (client filtering)
    ========================= */
-export default function CaseStudiesIndex() {
+export default function GalleryPage() {
   const sp = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const catRaw = sp.get("cat"); // bisa null
-  const qRaw = sp.get("q") ?? ""; // string kosong jika tidak ada
+  // baca dari URL saat pertama kali render
+  const catFromURL = (sp.get("cat") as Category) || "All";
+  const qFromURL = sp.get("q") || "";
 
-  const activeCat: Category = normalizeCat(catRaw);
-  const q = qRaw.toLowerCase();
+  const [active, setActive] = useState<Category>(catFromURL);
+  const [q, setQ] = useState(qFromURL);
+
+  // sinkronkan state -> URL (tetap di /gallery, tidak pindah halaman lain)
+  useEffect(() => {
+    const params = new URLSearchParams(sp.toString());
+    if (active === "All") params.delete("cat");
+    else params.set("cat", active);
+    if (q.trim()) params.set("q", q.trim());
+    else params.delete("q");
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, q]);
 
   const filtered = useMemo(() => {
+    const a = active.toLowerCase().trim();
+    const query = q.toLowerCase().trim();
     return ALL_ITEMS.filter((it) => {
-      const byCat = activeCat === "All" || it.category === activeCat;
-      const byQ =
-        !q ||
-        it.title.toLowerCase().includes(q) ||
-        it.description.toLowerCase().includes(q) ||
-        (it.tag ?? "").toLowerCase().includes(q);
+      const byCat = a === "all" ? true : it.category.toLowerCase().trim() === a;
+      const byQ = query ? it.title.toLowerCase().includes(query) : true;
       return byCat && byQ;
     });
-  }, [activeCat, q]);
+  }, [active, q]);
 
   return (
     <main className="min-h-screen bg-[#faf8f3]">
@@ -123,41 +124,33 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">All Case Studies</h1>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">All Artworks</h1>
               <p className="mt-1 text-sm text-[#5a5246]">
-                Telusuri semua karya. Filter berdasarkan kategori atau cari judul/keyword.
+                Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>
 
-            {/* SEARCH (GET) */}
-            <form className="mt-3 sm:mt-0" action="/case-studies" method="get">
+            {/* SEARCH box (state, bukan form GET) */}
+            <div className="mt-3 sm:mt-0">
               <input
-                name="q"
-                defaultValue={qRaw}
-                placeholder="Search case studies…"
-                className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="Search title…"
+                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                aria-label="Search artworks"
               />
-              {activeCat !== "All" && (
-                <input type="hidden" name="cat" value={activeCat} />
-              )}
-            </form>
+            </div>
           </div>
 
-          {/* FILTER PILLS */}
+          {/* FILTER PILLS (BUTTON, bukan Link) */}
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
-              const params = new URLSearchParams();
-              if (cat !== "All") params.set("cat", cat);
-              if (qRaw) params.set("q", qRaw);
-              const href = params.toString()
-                ? `/case-studies?${params.toString()}`
-                : "/case-studies";
-              const isActive = activeCat === cat;
-
+              const isActive = active === cat;
               return (
-                <Link
+                <button
                   key={cat}
-                  href={href}
+                  type="button"
+                  onClick={() => setActive(cat)}
                   aria-pressed={isActive}
                   className={[
                     "rounded-full border px-4 py-2 text-sm transition",
@@ -167,7 +160,7 @@ export default function CaseStudiesIndex() {
                   ].join(" ")}
                 >
                   {cat}
-                </Link>
+                </button>
               );
             })}
           </div>
@@ -178,7 +171,7 @@ export default function CaseStudiesIndex() {
       <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada hasil untuk filter/pencarian ini.
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -187,40 +180,31 @@ export default function CaseStudiesIndex() {
                 key={item.id}
                 className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
               >
-                <Link href={item.href} className="block">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <Image
-                      src={item.src}
-                      alt={item.alt ?? item.title}
-                      fill
-                      priority={false}
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                    />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <h3 className="text-base font-semibold">{item.title}</h3>
-                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
-                        {item.description}
-                      </p>
-                      {item.tag && (
-                        <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
-                          {item.tag}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between px-4 py-3">
-                    <div>
-                      <h3 className="text-base font-medium text-[#3b2f22]">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-[#7a6f62]">{item.category}</p>
-                    </div>
-                    <span className="text-xs font-medium text-[#5f3d24]">
-                      View →
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.alt ?? item.title}
+                    fill
+                    priority={false}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                      {item.category}
                     </span>
                   </div>
-                </Link>
+                </div>
+                <div className="flex items-center justify-between px-4 py-3">
+                  <div>
+                    <h3 className="text-base font-medium text-[#3b2f22]">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

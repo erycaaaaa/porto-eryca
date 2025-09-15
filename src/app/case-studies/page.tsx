@@ -45,7 +45,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-parable",
     title: "Parable Floristry",
     category: "Case Studies",
-    src: "/porto-eryca/w2.jpg",
+    src: "/porto-eryca/fajar1.jpg",
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
     description:
@@ -55,7 +55,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-tarumanagara",
     title: "Tarumanagara Enterprise",
     category: "Case Studies",
-    src: "/porto-eryca/u00.jpg",
+    src: "/porto-eryca/untarx1.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
     description: "Vision-led site with clean information flow and scalable IA.",
@@ -64,7 +64,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-eryca",
     title: "Eryca Portfolio",
     category: "Front-End",
-    src: "/porto-eryca/w11.jpg",
+    src: "/porto-eryca/wihara1.jpg",
     href: "/case-studies/eryca-portfolio",
     tag: "Design & Front-End",
     description:
@@ -74,8 +74,8 @@ const ALL_ITEMS: Item[] = [
     id: "paper-sentiment",
     title: "Sentiment Analysis Paper",
     category: "Sentiment Analysis",
-    src: "/porto-eryca/analisa.jpg",
-    href: "/case-studies/paper-sentiment",
+    src: "/porto-eryca/analisa1.jpg",
+    href: "/case-studies/Paper-sentiment",
     tag: "Research & NLP",
     description:
       "Research on sentiment classification using NLP & deep learning pipelines.",
@@ -85,13 +85,12 @@ const ALL_ITEMS: Item[] = [
     title: "EduBot UI/UX Design",
     category: "UI/UX",
     src: "/porto-eryca/edu1.jpg",
-    href: "/case-studies/paper-bot",
+    href: "/case-studies/Paper-bot",
     tag: "UI/UX • Chatbot",
     description:
       "Design system & conversational flow for an educational chatbot.",
   },
 ];
-
 /* =========================
    PAGE INDEX (Client-side Filtering)
    ========================= */

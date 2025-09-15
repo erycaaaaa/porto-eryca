@@ -30,7 +30,7 @@ export default function Page() {
     >
 
     <img
-      src="/porto-eryca/analisa.jpg"
+      src="/porto-eryca/analisa1.jpg"
       alt="Sentiment analysis cover: INSET + TF-IDF + SVM"
       loading="eager"
       className="h-full w-full object-cover"
