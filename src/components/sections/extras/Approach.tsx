@@ -1,6 +1,6 @@
-
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 export default function Approach() {
   /** ---------- Accessible Image Slider ---------- **/
@@ -13,12 +13,15 @@ export default function Approach() {
   }) {
     const [idx, setIdx] = useState(0);
     const len = images.length;
-    const wrap = (n: number) => (n + len) % len;
+
+    // wrap index dengan dependensi 'len'
+    const wrap = useCallback((n: number) => (n + len) % len, [len]);
 
     // touch swipe
     const startX = useRef<number | null>(null);
-    const onTouchStart = (e: React.TouchEvent) =>
-      (startX.current = e.touches[0].clientX);
+    const onTouchStart = (e: React.TouchEvent) => {
+      startX.current = e.touches[0].clientX;
+    };
     const onTouchEnd = (e: React.TouchEvent) => {
       if (startX.current == null) return;
       const dx = e.changedTouches[0].clientX - startX.current;
@@ -37,7 +40,7 @@ export default function Approach() {
       };
       box.addEventListener("keydown", onKey);
       return () => box.removeEventListener("keydown", onKey);
-    }, [len]);
+    }, [wrap]);
 
     return (
       <div
@@ -52,11 +55,14 @@ export default function Approach() {
         onTouchEnd={onTouchEnd}
       >
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-neutral-50">
-          <img
+          {/* Next/Image: gunakan fill agar responsif, parent harus relative */}
+          <Image
             src={images[idx].src}
             alt={images[idx].alt}
-            className="absolute inset-0 h-full w-full object-contain"
-            loading="lazy"
+            fill
+            sizes="(min-width: 1024px) 960px, 100vw"
+            priority={idx === 0}
+            className="object-contain"
           />
         </div>
 
@@ -169,7 +175,7 @@ export default function Approach() {
           </a>
 
           <ul
-            className="mt-3 ml-[-13]
+            className="mt-3 ml-0  /* was ml-[-13], gunakan unit jika mau offset: ml-[-13px] */
            space-y-1
            text-sm text-neutral-700"
           >

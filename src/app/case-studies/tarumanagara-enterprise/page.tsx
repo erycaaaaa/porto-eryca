@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 
 export const metadata = {

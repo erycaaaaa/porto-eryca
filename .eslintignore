@@ -1,0 +1,14 @@
+# Output & vendor
+.next/
+out/
+docs/
+public/
+node_modules/
+**/*.min.js
+
+**/_buildManifest.js
+**/_ssgManifest.js
+**/chunks/*.js
+
+storybook-static/
+coverage/
