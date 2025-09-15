@@ -1,56 +1,230 @@
-import GalleryClient from "./GalleryClient";
+// src/app/case-studies/page.tsx
+"use client";
 
-type Category = "All" | "Acrylic" | "Watercolor" | "3D Crafting" | "Poster" | "Sketch" | "Design";
+import Image from "next/image";
+import Link from "next/link";
+import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
+
+/* =========================
+   KATEGORI
+   ========================= */
+const CATEGORIES = [
+  "All",
+  "Case Studies",
+  "Sentiment Analysis",
+  "UI/UX",
+  "Front-End",
+  "Research",
+] as const;
+type Category = (typeof CATEGORIES)[number];
+
+function normalizeCat(v: string | null): Category {
+  if (!v) return "All";
+  const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
+  const match = CATEGORIES.find((c) => c.toLowerCase() === cleaned.toLowerCase());
+  return (match as Category) ?? "All";
+}
+
+/* =========================
+   DATA
+   ========================= */
 type Item = {
   id: string;
   title: string;
   category: Exclude<Category, "All">;
   src: string;
+  href: string;
   alt?: string;
   description: string;
+  tag?: string;
 };
 
-// Data contoh
 const ALL_ITEMS: Item[] = [
-  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Demon Slayer refers to the popular Japanese media franchise..." },
-  { id: "ac-02", title: "Your Name", category: "Acrylic", src: "/porto-eryca/kimi.jpg", description: "Anime Kimi no Na wa ." },
-  { id: "ac-03", title: "Pak Muh Family", category: "Acrylic", src: "/porto-eryca/acy1.jpg", description: "Pak Muh Team" },
-  { id: "ac-04", title: "Joker", category: "Acrylic", src: "/porto-eryca/acy2.jpg", description: "Arthur Fleck" },
-  { id: "ac-05", title: "WindBreaker", category: "Acrylic", src: "/porto-eryca/acy5.jpg", description: "South Korean webtoon about a talented student named Jay who joins a school bicycle racing team called Hummingbird Crew, only for the series to be abruptly stopped by the Webtoon platform after the author, Jo Yong Seok" },
-  { id: "ac-06", title: "Commission", category: "Acrylic", src: "/porto-eryca/acy6.jpg", description: "Cat by Tesla Paint" },
-  { id: "ac-07", title: "Waseda Boys", category: "Acrylic", src: "/porto-eryca/acy3.jpg", description: "Waseda Boys" },
-  { id: "ac-08", title: "Himiko Toga", category: "Acrylic", src: "/porto-eryca/acy7.jpg", description: "My Hero Academia (Boku no Hero Academia)" },
-
-  { id: "wc-01", title: "Christmas Scene", category: "Watercolor", src: "/porto-eryca/1.jpg", description: "Watercolor: wet-on-wet glow & soft edges." },
-  { id: "wc-02", title: "A tiny shrimp alive on paper", category: "Watercolor", src: "/porto-eryca/wate1.jpg", description: "layered washes of orange and blue, with fine ink lines tracing the curve of its antennae and segmented body." },
-  { id: "wc-03", title: "A blue eye blooming on paper.", category: "Watercolor", src: "/porto-eryca/wate2.jpg", description: "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette." },
-
-  { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
-
-  { id: "po-01", title: "Humaniora Poster", category: "Poster", src: "/porto-eryca/poster-huma.jpg", description: "Poster: typographic rhythm & visual hierarchy." },
-
-  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sket1.jpg", description: "Sketch: 60s gesture lines & proportions." },
-
-  { id: "de-01", title: "Brand Layout", category: "Design", src: "/porto-eryca/untarx.png", description: "Design: grid-based layout & color system." },
+  {
+    id: "cs-parable",
+    title: "Parable Floristry",
+    category: "Case Studies",
+    src: "/porto-eryca/w2.jpg",
+    href: "/case-studies/parable-floristry",
+    tag: "Brand & Web",
+    description:
+      "Boutique floristry brand site with crisp UX, motion, and editorial storytelling.",
+  },
+  {
+    id: "cs-tarumanagara",
+    title: "Tarumanagara Enterprise",
+    category: "Case Studies",
+    src: "/porto-eryca/u00.jpg",
+    href: "/case-studies/tarumanagara-enterprise",
+    tag: "UX Strategy",
+    description: "Vision-led site with clean information flow and scalable IA.",
+  },
+  {
+    id: "cs-eryca",
+    title: "Eryca Portfolio",
+    category: "Front-End",
+    src: "/porto-eryca/w11.jpg",
+    href: "/case-studies/eryca-portfolio",
+    tag: "Design & Front-End",
+    description:
+      "Personal portfolio yang cepat, jelas, dan crafted—fokus scroll & storytelling.",
+  },
+  {
+    id: "paper-sentiment",
+    title: "Sentiment Analysis Paper",
+    category: "Sentiment Analysis",
+    src: "/porto-eryca/analisa.jpg",
+    href: "/case-studies/paper-sentiment",
+    tag: "Research & NLP",
+    description:
+      "Research on sentiment classification using NLP & deep learning pipelines.",
+  },
+  {
+    id: "paper-bot",
+    title: "EduBot UI/UX Design",
+    category: "UI/UX",
+    src: "/porto-eryca/edu1.jpg",
+    href: "/case-studies/paper-bot",
+    tag: "UI/UX • Chatbot",
+    description:
+      "Design system & conversational flow for an educational chatbot.",
+  },
 ];
 
-// statically exported page
-export const dynamic = "force-static";
+/* =========================
+   PAGE (Client-side filtering)
+   ========================= */
+export default function CaseStudiesIndex() {
+  const sp = useSearchParams();
 
-export default function GalleryPage() {
+  const catRaw = sp.get("cat"); // bisa null
+  const qRaw = sp.get("q") ?? ""; // string kosong jika tidak ada
+
+  const activeCat: Category = normalizeCat(catRaw);
+  const q = qRaw.toLowerCase();
+
+  const filtered = useMemo(() => {
+    return ALL_ITEMS.filter((it) => {
+      const byCat = activeCat === "All" || it.category === activeCat;
+      const byQ =
+        !q ||
+        it.title.toLowerCase().includes(q) ||
+        it.description.toLowerCase().includes(q) ||
+        (it.tag ?? "").toLowerCase().includes(q);
+      return byCat && byQ;
+    });
+  }, [activeCat, q]);
+
   return (
     <main className="min-h-screen bg-[#faf8f3]">
+      {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
         <div className="mx-auto max-w-6xl px-6 py-8">
-          <h1 className="font-serif text-3xl text-[#3b2f22]">All Artworks</h1>
-          <p className="mt-1 text-sm text-[#5a5246]">
-            Telusuri karya. Filter berdasarkan kategori atau cari judul.
-          </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">All Case Studies</h1>
+              <p className="mt-1 text-sm text-[#5a5246]">
+                Telusuri semua karya. Filter berdasarkan kategori atau cari judul/keyword.
+              </p>
+            </div>
+
+            {/* SEARCH (GET) */}
+            <form className="mt-3 sm:mt-0" action="/case-studies" method="get">
+              <input
+                name="q"
+                defaultValue={qRaw}
+                placeholder="Search case studies…"
+                className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+              />
+              {activeCat !== "All" && (
+                <input type="hidden" name="cat" value={activeCat} />
+              )}
+            </form>
+          </div>
+
+          {/* FILTER PILLS */}
+          <div className="mt-5 flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => {
+              const params = new URLSearchParams();
+              if (cat !== "All") params.set("cat", cat);
+              if (qRaw) params.set("q", qRaw);
+              const href = params.toString()
+                ? `/case-studies?${params.toString()}`
+                : "/case-studies";
+              const isActive = activeCat === cat;
+
+              return (
+                <Link
+                  key={cat}
+                  href={href}
+                  aria-pressed={isActive}
+                  className={[
+                    "rounded-full border px-4 py-2 text-sm transition",
+                    isActive
+                      ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
+                      : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
+                  ].join(" ")}
+                >
+                  {cat}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </header>
 
+      {/* GRID */}
       <section className="mx-auto max-w-6xl px-6 py-8">
-        <GalleryClient items={ALL_ITEMS} />
+        {filtered.length === 0 ? (
+          <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
+            Tidak ada hasil untuk filter/pencarian ini.
+          </p>
+        ) : (
+          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((item) => (
+              <li
+                key={item.id}
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
+              >
+                <Link href={item.href} className="block">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={item.alt ?? item.title}
+                      fill
+                      priority={false}
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <h3 className="text-base font-semibold">{item.title}</h3>
+                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
+                        {item.description}
+                      </p>
+                      {item.tag && (
+                        <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                          {item.tag}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between px-4 py-3">
+                    <div>
+                      <h3 className="text-base font-medium text-[#3b2f22]">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                    </div>
+                    <span className="text-xs font-medium text-[#5f3d24]">
+                      View →
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </main>
   );

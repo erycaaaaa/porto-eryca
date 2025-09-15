@@ -1,13 +1,13 @@
 // src/app/case-studies/page.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
-// Halaman dinamis supaya searchParams memicu render ulang
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 
 /* =========================
-   KATEGORI & TIPE DATA
+   KATEGORI
    ========================= */
 const CATEGORIES = [
   "All",
@@ -19,20 +19,16 @@ const CATEGORIES = [
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
-// ganti fungsi normalizeCat lama dengan ini
-const normalizeCat = (v: unknown): Category => {
-  if (typeof v !== "string") return "All";
-  // decode, ubah + jadi spasi, trim
+function normalizeCat(v: string | null): Category {
+  if (!v) return "All";
   const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-
-  // cocokkan tanpa peduli kapital
-  const match = (CATEGORIES as readonly string[]).find(
-    (c) => c.toLowerCase() === cleaned.toLowerCase()
-  );
+  const match = CATEGORIES.find((c) => c.toLowerCase() === cleaned.toLowerCase());
   return (match as Category) ?? "All";
-};
+}
 
-
+/* =========================
+   DATA
+   ========================= */
 type Item = {
   id: string;
   title: string;
@@ -44,9 +40,6 @@ type Item = {
   tag?: string;
 };
 
-/* =========================
-   DATA LIST (sinkron dgn homepage)
-   ========================= */
 const ALL_ITEMS: Item[] = [
   {
     id: "cs-parable",
@@ -65,8 +58,7 @@ const ALL_ITEMS: Item[] = [
     src: "/porto-eryca/u00.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
-    description:
-      "Vision-led site with clean information flow and scalable IA.",
+    description: "Vision-led site with clean information flow and scalable IA.",
   },
   {
     id: "cs-eryca",
@@ -83,7 +75,7 @@ const ALL_ITEMS: Item[] = [
     title: "Sentiment Analysis Paper",
     category: "Sentiment Analysis",
     src: "/porto-eryca/analisa.jpg",
-    href: "/case-studies/paper-sentiment", // gunakan lowercase agar aman di server
+    href: "/case-studies/paper-sentiment",
     tag: "Research & NLP",
     description:
       "Research on sentiment classification using NLP & deep learning pipelines.",
@@ -93,7 +85,7 @@ const ALL_ITEMS: Item[] = [
     title: "EduBot UI/UX Design",
     category: "UI/UX",
     src: "/porto-eryca/edu1.jpg",
-    href: "/case-studies/paper-bot", // gunakan lowercase agar aman di server
+    href: "/case-studies/paper-bot",
     tag: "UI/UX • Chatbot",
     description:
       "Design system & conversational flow for an educational chatbot.",
@@ -101,32 +93,31 @@ const ALL_ITEMS: Item[] = [
 ];
 
 /* =========================
-   PAGE
+   PAGE INDEX (Client-side Filtering)
    ========================= */
-export default function CaseStudiesIndex({
-  searchParams,
-}: {
-  searchParams?: { cat?: string; q?: string };
-}) {
-  // Normalisasi kategori & simpan query pencarian mentah utk dibawa antar filter
-  const rawCat = searchParams?.cat ?? "All";
-  const activeCat: Category = normalizeCat(rawCat);
-  const qRaw = searchParams?.q ?? "";
+export default function CaseStudiesIndex() {
+  const sp = useSearchParams();
+  const catRaw = sp.get("cat");
+  const qRaw = sp.get("q") ?? "";
+
+  const activeCat: Category = normalizeCat(catRaw);
   const q = qRaw.toLowerCase();
 
-  const filtered = ALL_ITEMS.filter((it) => {
-    const byCat = activeCat === "All" || it.category === activeCat;
-    const byQ =
-      !q ||
-      it.title.toLowerCase().includes(q) ||
-      it.description.toLowerCase().includes(q) ||
-      (it.tag ?? "").toLowerCase().includes(q);
-    return byCat && byQ;
-  });
+  const filtered = useMemo(() => {
+    return ALL_ITEMS.filter((it) => {
+      const byCat = activeCat === "All" || it.category === activeCat;
+      const byQ =
+        !q ||
+        it.title.toLowerCase().includes(q) ||
+        it.description.toLowerCase().includes(q) ||
+        (it.tag ?? "").toLowerCase().includes(q);
+      return byCat && byQ;
+    });
+  }, [activeCat, q]);
 
   return (
     <main className="min-h-screen bg-[#faf8f3]">
-      {/* Header & Controls */}
+      {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -137,7 +128,7 @@ export default function CaseStudiesIndex({
               </p>
             </div>
 
-            {/* Search (GET) */}
+            {/* SEARCH */}
             <form className="mt-3 sm:mt-0" action="/case-studies" method="get">
               <input
                 name="q"
@@ -151,12 +142,12 @@ export default function CaseStudiesIndex({
             </form>
           </div>
 
-          {/* Filter Pills */}
+          {/* FILTER PILLS */}
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
               const params = new URLSearchParams();
-              if (cat !== "All") params.set("cat", cat);      // "UI/UX" otomatis di-encode (UI%2FUX)
-              if (qRaw) params.set("q", qRaw);                // pertahankan teks pencarian
+              if (cat !== "All") params.set("cat", cat);
+              if (qRaw) params.set("q", qRaw);
               const href = params.toString()
                 ? `/case-studies?${params.toString()}`
                 : "/case-studies";
@@ -166,13 +157,13 @@ export default function CaseStudiesIndex({
                 <Link
                   key={cat}
                   href={href}
+                  aria-pressed={isActive}
                   className={[
-                    "rounded-full border px-4 py-2 text-sm",
+                    "rounded-full border px-4 py-2 text-sm transition",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
                   ].join(" ")}
-                  aria-pressed={isActive}
                 >
                   {cat}
                 </Link>
@@ -182,7 +173,7 @@ export default function CaseStudiesIndex({
         </div>
       </header>
 
-      {/* Grid */}
+      {/* GRID */}
       <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
@@ -203,7 +194,6 @@ export default function CaseStudiesIndex({
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                      priority={false}
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <h3 className="text-base font-semibold">{item.title}</h3>
