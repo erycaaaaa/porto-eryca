@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/components/layout/Navbar.tsx
 "use client";
 
@@ -15,7 +16,7 @@ const LEFT = [
 const RIGHT = [
   { label: "Work", href: "/#worked" },
   { label: "Illustrations", href: "/#illustrations" },
-  { label: "Makeup", href: "/#makeup"}, 
+  { label: "Makeup", href: "/makeup" }, // path biasa → nanti diprefix BASE
 ];
 
 export default function Navbar() {
@@ -24,52 +25,63 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  // optional: base path untuk GitHub Pages project site, contoh: /porto-eryca
+  // base path untuk GitHub Pages project site, contoh: /porto-eryca
   const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-  // trigger splash (mis. didengarkan oleh komponen lain)
+  // ==== utils =======================================================
   const showSplash = (ms = 5000) =>
     window.dispatchEvent(new CustomEvent("eryca:splash", { detail: { durationMs: ms } }));
 
-  // ambil id dari "/#id" atau "#id"
   const getHash = (href: string) =>
     href.startsWith("/#") ? href.slice(2) : href.startsWith("#") ? href.slice(1) : null;
 
-  // smooth scroll dengan offset tinggi navbar dinamis
+  const resolveHref = (href: string) => {
+    // anchor tetap apa adanya → diproses oleh smooth scroll
+    if (href.startsWith("/#") || href.startsWith("#")) return href;
+    // internal path absolut → prefix BASE
+    if (href.startsWith("/")) return `${BASE}${href}`;
+    // eksternal (http/mailto/tel) biarkan
+    return href;
+  };
+
   const smoothScrollToId = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
     const nav = document.getElementById("site-nav");
-    const offset = nav ? nav.getBoundingClientRect().height : 72; // fallback 72px
+    const offset = nav ? nav.getBoundingClientRect().height : 72;
     const y = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: "smooth" });
     history.replaceState(null, "", `#${id}`);
   };
 
-  // handle klik anchor: scroll kalau di home, kalau tidak -> push ke /#id
-  const handleAnchor =
-    (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-      const id = getHash(href);
-      if (!id) return; // bukan anchor; biarkan default
-      e.preventDefault();
-      setOpen(false);
-
-      if (pathname === "/" || pathname === `${BASE}/` || pathname === `${BASE}`) {
-        // sudah di halaman Home -> cukup scroll
-        smoothScrollToId(id);
-      } else {
-        // bukan di Home -> pindah route ke Home + hash
-        router.push(`${BASE}/#${id}`);
+  // handler umum: anchor → scroll/push #; path → push dengan BASE
+  const onClickNav =
+    (rawHref: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      const id = getHash(rawHref);
+      if (id) {
+        e.preventDefault();
+        setOpen(false);
+        if (pathname === "/" || pathname === `${BASE}/` || pathname === `${BASE}`) {
+          smoothScrollToId(id);
+        } else {
+          router.push(`${BASE}/#${id}`);
+        }
+        return;
       }
+      if (rawHref.startsWith("/")) {
+        e.preventDefault();
+        setOpen(false);
+        router.push(resolveHref(rawHref));
+      }
+      // eksternal: biarkan default
     };
 
-  // kunci body saat drawer open
+  // ==== effects =====================================================
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
     return () => document.body.classList.remove("overflow-hidden");
   }, [open]);
 
-  // sticky style saat di-scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 2);
     onScroll();
@@ -77,22 +89,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // ==== render ======================================================
   return (
     <nav
       id="site-nav"
       aria-label="Primary"
       className={[
-        // STICKY!
         "sticky top-0 z-50 w-full",
-        // warna dasar
         "bg-[#3b2f22] text-[#e8e0c2] dark:bg-[#95927573] dark:text-white",
-        // border & shadow berubah saat scroll
         scrolled
           ? "border-b border-[#e8e0c2]/50 shadow-[0_6px_16px_rgba(0,0,0,0.18)] backdrop-blur"
           : "border-b border-transparent",
       ].join(" ")}
     >
-      {/* wadah konten navbar */}
       <div className="mx-auto w-full max-w-[90rem] px-[5vw]">
         {/* DESKTOP */}
         <div className="hidden md:grid h-20 grid-cols-[auto_1fr_8rem_1fr] items-center gap-x-6">
@@ -115,9 +124,9 @@ export default function Navbar() {
             {LEFT.map((i) => (
               <li key={i.label}>
                 <a
+                  href={resolveHref(i.href)}
+                  onClick={onClickNav(i.href)}
                   className="hover:text-[#52451f] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-                  href={i.href}
-                  onClick={handleAnchor(i.href)}
                 >
                   {i.label}
                 </a>
@@ -138,9 +147,9 @@ export default function Navbar() {
             {RIGHT.map((i) => (
               <li key={i.label}>
                 <a
+                  href={resolveHref(i.href)}
+                  onClick={onClickNav(i.href)}
                   className="hover:text-[#52451f] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-                  href={i.href}
-                  onClick={handleAnchor(i.href)}
                 >
                   {i.label}
                 </a>
@@ -180,12 +189,12 @@ export default function Navbar() {
 
       <div className="h-[2px] bg-[#b7a373]/70 mx-[5vw]" />
 
-      {/* Drawer ala desain */}
+      {/* Drawer */}
       <MobileSidebar
         open={open}
         onCloseAction={() => setOpen(false)}
         onShowSplashAction={showSplash}
-        handleAnchorAction={handleAnchor}
+        handleAnchorAction={(href: string) => onClickNav(href) as any}
       />
     </nav>
   );
