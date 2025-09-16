@@ -126,10 +126,10 @@ export default function MakeupPortfolioPage() {
         </div>
         <ul className="mt-7 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { src: "/porto-eryca/mar.jpg", alt: "Makeup Artist by Marettadrie" },
-            { src: "/porto-eryca/mua1.jpeg", alt: "Makeup Artist by Vindy" },
-            { src: "/porto-eryca/mua2.jpg", alt: "Makeup Artist by Azti" },
-            { src: "/porto-eryca/mua4.png", alt: "Makeup Artist by Azti" },
+            { src: "/porto-eryca/mua4.jpg", alt: "Makeup Artist by Marettadrie" },
+            { src: "/porto-eryca/mua1.jpg", alt: "Makeup Artist by Vindy" },
+            { src: "/porto-eryca/mua3.jpg", alt: "Makeup Artist by Azti" },
+            { src: "/porto-eryca/mua2.jpg", alt: "Makeup Artist by Marettadrie" },
           ].map((g, i) => (
             <li key={i} className={`${CARD} relative aspect-square overflow-hidden rounded-xl bg-neutral-100`}>
               <Image
