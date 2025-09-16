@@ -86,15 +86,18 @@ export default function MakeupPortfolioPage() {
             Learn More
           </a>
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-neutral-200 bg-neutral-100">
+        <div className="overflow-hidden rounded-[32px] border border-neutral-200 bg-neutral-100 shadow-sm">
           <Image
-            src="/porto-eryca/p.gif"
+            src="/porto-eryca/pp.gif"
             alt="About image"
-            fill
-            className="object-contain"
+            width={1200}    
+            height={800}   
+            className="w-full h-auto object-contain"
+            priority
             unoptimized
           />
         </div>
+
       </section>
 
       {/* LOGOS */}
@@ -121,7 +124,7 @@ export default function MakeupPortfolioPage() {
             Open for Collaboration
           </span>
         </div>
-        <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-7 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { src: "/porto-eryca/mar.jpg", alt: "Makeup Artist by Marettadrie" },
             { src: "/porto-eryca/mua1.jpeg", alt: "Makeup Artist by Vindy" },
@@ -133,7 +136,7 @@ export default function MakeupPortfolioPage() {
                 src={g.src}
                 alt={g.alt}
                 width={800}
-                height={800}
+                height={1000}
                 className="object-contain"
                 sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
                 priority={i < 2}
