@@ -38,54 +38,53 @@ export default function MakeupPortfolioPage() {
       </header>
 
       {/* HERO */}
-<section className="relative isolate">
-  <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
-    <div className="relative overflow-hidden rounded-[36px] border border-neutral-200 bg-neutral-50">
-      <Image
-        src="/porto-eryca/bg1.svg"
-        alt="Makeup monochrome hero"
-        fill
-        priority
-        className="object-cover grayscale"
-      />
-      <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-3xl flex-col items-center justify-center p-8 text-center sm:min-h-[56vh]">
-        
-        {/* Judul mirip poster */}
-        <h1 className="text-5xl sm:text-6xl leading-tight">
-          <span className="block font-[Great_Vibes] text-4xl sm:text-5xl text-neutral-100 drop-shadow-md">
-            Muse
-          </span>
-          <span className="block font-serif font-bold tracking-wide text-white sm:text-7xl">
-            ERYCA
-          </span>
-        </h1>
+      <section className="relative isolate">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
+          <div className="relative overflow-hidden rounded-[36px] border border-neutral-200 bg-neutral-50">
+            <Image
+              src="/porto-eryca/bg1.svg"
+              alt="Makeup monochrome hero"
+              fill
+              priority
+              className="object-cover grayscale"
+            />
+            <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-3xl flex-col items-center justify-center p-8 text-center sm:min-h-[56vh]">
+              
+              {/* Judul mirip poster */}
+              <h1 className="text-5xl sm:text-6xl leading-tight">
+                <span className="block font-[Great_Vibes] text-4xl sm:text-5xl text-neutral-900 drop-shadow-md">
+                  Muse
+                </span>
+                <span className="block font-serif font-bold tracking-wide text-black sm:text-7xl">
+                  ERYCA
+                </span>
+              </h1>
 
-        {/* Tagline kecil */}
-        <p className="mt-4 max-w-xl text-sm italic text-neutral-400">
-          More than a face, <br />
-          I am the canvas where beauty tells its story. <br />
-        </p>
+              {/* Tagline kecil */}
+              <p className="mt-4 max-w-xl text-sm italic text-neutral-400">
+                More than a face, <br />
+                I am the canvas where beauty tells its story. <br />
+              </p>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a
-            href="#services"
-            className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white"
-          >
-            Explore Services
-          </a>
-          <a
-            href="#portfolio"
-            className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800"
-          >
-            View Works
-          </a>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <a
+                  href="#services"
+                  className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white"
+                >
+                  Explore Services
+                </a>
+                <a
+                  href="#portfolio"
+                  className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800"
+                >
+                  View Works
+                </a>
+              </div>
+            </div>
+            <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          </div>
         </div>
-      </div>
-      <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* ABOUT */}
       <section id="about" className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2">
@@ -98,7 +97,7 @@ export default function MakeupPortfolioPage() {
           <a href="#contact" className="mt-6 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white">Learn More</a>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-neutral-200 bg-neutral-100">
-          <Image src="/porto-eryca/PP1.gif" alt="About image" fill className="object-cover grayscale" />
+          <Image src="/porto-eryca/pp.gif" alt="About image"/>
         </div>
       </section>
 
@@ -123,10 +122,9 @@ export default function MakeupPortfolioPage() {
           <h2 className={`${SERIF} text-3xl sm:text-4xl`}>Selected Works</h2>
           <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-xs text-neutral-600">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            Open for bookings
+            Open for Collaboration
           </span>
         </div>
-
         <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { src: "/porto-eryca/mar.jpg", alt: "Makeup Artist by Marettadrie" },
@@ -136,7 +134,7 @@ export default function MakeupPortfolioPage() {
           ].map((g, i) => (
             <li
               key={i}
-              className={`${CARD} relative aspect-square overflow-hidden rounded-xl`}
+              className={`${CARD} relative aspect-square overflow-hidden rounded-xl bg-neutral-100`}
             >
               {/* FOTO */}
               <Image
@@ -144,7 +142,7 @@ export default function MakeupPortfolioPage() {
                 alt={g.alt}
                 width={800}
                 height={800}
-                className="object-cover"
+                className="object-contain"
                 sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
                 priority={i < 2}
               />
