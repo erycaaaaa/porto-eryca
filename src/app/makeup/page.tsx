@@ -2,10 +2,9 @@
 "use client";
 
 import Image from "next/image";
-
-// ---- tokens ----
 import { FaGithub } from "react-icons/fa";
 import { SiReact, SiFigma } from "react-icons/si";
+
 const SERIF = "font-serif";
 const BODY = "text-neutral-800";
 const MUTED = "text-neutral-600";
@@ -17,7 +16,7 @@ const HERO_GRAD =
 export default function MakeupPortfolioPage() {
   return (
     <main id="makeup" className={`min-h-screen ${BODY} ${HERO_GRAD}`}>
-      {/* Topbar (simple) */}
+      {/* Topbar */}
       <header className="sticky top-0 z-30 border-b border-neutral-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
           <a href="#makeup" className={`${SERIF} text-xl font-semibold`}>Eryca</a>
@@ -49,8 +48,6 @@ export default function MakeupPortfolioPage() {
               className="object-cover grayscale"
             />
             <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-3xl flex-col items-center justify-center p-8 text-center sm:min-h-[56vh]">
-              
-              {/* Judul mirip poster */}
               <h1 className="text-5xl sm:text-6xl leading-tight">
                 <span className="block font-[Great_Vibes] text-4xl sm:text-5xl text-neutral-900 drop-shadow-md">
                   Muse
@@ -59,24 +56,15 @@ export default function MakeupPortfolioPage() {
                   ERYCA
                 </span>
               </h1>
-
-              {/* Tagline kecil */}
               <p className="mt-4 max-w-xl text-sm italic text-neutral-400">
                 More than a face, <br />
                 I am the canvas where beauty tells its story. <br />
               </p>
-
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <a
-                  href="#services"
-                  className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white"
-                >
+                <a href="#services" className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white">
                   Explore Services
                 </a>
-                <a
-                  href="#portfolio"
-                  className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800"
-                >
+                <a href="#portfolio" className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800">
                   View Works
                 </a>
               </div>
@@ -92,28 +80,36 @@ export default function MakeupPortfolioPage() {
           <p className="text-xs uppercase tracking-widest text-neutral-500">About Eryca</p>
           <h2 className={`${SERIF} mt-2 text-3xl sm:text-4xl`}>Muse, based in Jakarta.</h2>
           <p className={`mt-4 ${MUTED}`}>
-       Hello peps, kenalin aku newbie muse heheh
+            Hello peps, kenalin aku newbie muse heheh
           </p>
-          <a href="#contact" className="mt-6 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white">Learn More</a>
+          <a href="#contact" className="mt-6 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white">
+            Learn More
+          </a>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-neutral-200 bg-neutral-100">
-          <Image src="/porto-eryca/pp.gif" alt="About image"/>
+          <Image
+            src="/porto-eryca/p.gif"
+            alt="About image"
+            fill
+            className="object-contain"
+            unoptimized
+          />
         </div>
       </section>
 
-      {/* LOGOS (optional) */}
+      {/* LOGOS */}
       <section className="mx-auto max-w-6xl px-6 pb-6">
-            <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-              <li className="flex items-center justify-center text-4xl">
-                <FaGithub title="GitHub" />
-              </li>
-              <li className="flex items-center justify-center text-4xl text-sky-500">
-                <SiReact title="React" />
-              </li>
-              <li className="flex items-center justify-center text-4xl text-pink-500">
-                <SiFigma title="Figma" />
-              </li>
-            </ul>
+        <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+          <li className="flex items-center justify-center text-4xl">
+            <FaGithub title="GitHub" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-sky-500">
+            <SiReact title="React" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <SiFigma title="Figma" />
+          </li>
+        </ul>
       </section>
 
       {/* PORTFOLIO */}
@@ -132,11 +128,7 @@ export default function MakeupPortfolioPage() {
             { src: "/porto-eryca/mua2.jpg", alt: "Makeup Artist by Azti" },
             { src: "/porto-eryca/mua4.png", alt: "Makeup Artist by Azti" },
           ].map((g, i) => (
-            <li
-              key={i}
-              className={`${CARD} relative aspect-square overflow-hidden rounded-xl bg-neutral-100`}
-            >
-              {/* FOTO */}
+            <li key={i} className={`${CARD} relative aspect-square overflow-hidden rounded-xl bg-neutral-100`}>
               <Image
                 src={g.src}
                 alt={g.alt}
@@ -146,14 +138,8 @@ export default function MakeupPortfolioPage() {
                 sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
                 priority={i < 2}
               />
-
-              {/* overlay */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
-
-              {/* tag nama MUA */}
-              <span
-                className={`${SERIF} absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-neutral-800 shadow`}
-              >
+              <span className={`${SERIF} absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-neutral-800 shadow`}>
                 {g.alt}
               </span>
             </li>
