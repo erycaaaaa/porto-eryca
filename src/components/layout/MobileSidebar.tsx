@@ -1,4 +1,3 @@
-// src/components/layout/MobileSidebar.tsx
 "use client";
 
 import Link from "next/link";
@@ -15,7 +14,7 @@ import {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
-  Sparkles, // ⬅️ ikon pengganti untuk Makeup
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import * as React from "react";
@@ -28,9 +27,9 @@ type AnchorHandler = (
 
 type Props = {
   open: boolean;
-  onCloseAction: () => void;                 // tutup drawer
-  onShowSplashAction: (ms?: number) => void; // trigger splash
-  handleAnchorAction: AnchorHandler;         // handler anchor (#id)
+  onCloseAction: () => void;               
+  onShowSplashAction: (ms?: number) => void; 
+  handleAnchorAction: AnchorHandler;       
 };
 
 const FULL_WIDTH = 420;
@@ -64,7 +63,7 @@ export default function MobileSidebar({
   const isMobile = useIsMobile();
   const [expanded, setExpanded] = useState(false);
 
-  // ===== router + base path awareness (untuk GitHub Pages) =====
+  // ===== router + base path awareness (GitHub Pages) =====
   const router = useRouter();
   const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // contoh: "/porto-eryca"
 
@@ -88,13 +87,23 @@ export default function MobileSidebar({
     return () => window.removeEventListener("keydown", onKey);
   }, [onCloseAction]);
 
-  // kunci body scroll saat menu terbuka
+  // ===== kunci body scroll saat menu terbuka (safe di Android/iOS) =====
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
+    const y = window.scrollY;
+    const prevOverflow = document.body.style.overflow;
+    const prevPosition = document.body.style.position;
+    const prevTop = document.body.style.top;
+
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${y}px`;
+
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
+      document.body.style.position = prevPosition;
+      document.body.style.top = prevTop;
+      window.scrollTo(0, y);
     };
   }, [open]);
 
@@ -114,10 +123,10 @@ export default function MobileSidebar({
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop super-tinggi supaya ngalahin elemen fixed lain */}
           <motion.button
             aria-label="Close menu"
-            className="fixed inset-0 z-[60] bg-black/35 backdrop-blur-sm"
+            className="fixed inset-0 z-[10000] bg-black/40 backdrop-blur-sm touch-none"
             onClick={onCloseAction}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -132,14 +141,14 @@ export default function MobileSidebar({
             aria-label="Mobile navigation"
             // mobile: geser ke kanan untuk menutup
             drag={isMobile ? "x" : false}
-            dragConstraints={{ left: -100, right: 0 }}
+            dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.06}
             onDragEnd={(_, info) => {
-              if (info.offset.x > 80) onCloseAction();
+              if (info.offset.x > 1) onCloseAction();
             }}
             className="
               fixed right-0 top-0 bottom-0 md:right-2 md:top-2 md:bottom-2
-              z-[61] overflow-hidden
+              z-[10001] overflow-hidden
               rounded-none md:rounded-3xl
               border shadow-xl flex
               bg-[var(--background)] text-[var(--foreground)]
@@ -322,7 +331,7 @@ export default function MobileSidebar({
                     rel="noopener noreferrer"
                     className="
                       inline-flex items-center justify-center gap-2 rounded-full border px-4 py-2 text-sm font-medium
-                      border-[#cdbf97] bg-white text-[#6f5d33] hover:bg黑/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/20
+                      border-[#cdbf97] bg-white text-[#6f5d33] hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/20
                       dark:border-[#3b3526] dark:bg-[#18160f] dark:text-[#e8e0c2] dark:hover:bg-white/5
                     "
                   >
