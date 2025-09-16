@@ -4,6 +4,8 @@
 import Image from "next/image";
 
 // ---- tokens ----
+import { FaGithub } from "react-icons/fa";
+import { SiReact, SiFigma } from "react-icons/si";
 const SERIF = "font-serif";
 const BODY = "text-neutral-800";
 const MUTED = "text-neutral-600";
@@ -36,74 +38,83 @@ export default function MakeupPortfolioPage() {
       </header>
 
       {/* HERO */}
-      <section className="relative isolate">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
-          <div className="relative overflow-hidden rounded-[36px] border border-neutral-200 bg-neutral-50">
-            <Image
-              src="/porto-eryca/bg1.svg"
-              alt="Makeup monochrome hero"
-              fill
-              priority
-              className="object-cover grayscale"
-            />
-            <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-3xl flex-col items-center justify-center p-8 text-center sm:min-h-[56vh]">
-              <p className="mb-2 text-[11px] tracking-[0.28em] uppercase text-neutral-500">
-                Built for Portfolio
-              </p>
-              <h1 className={`${SERIF} text-5xl leading-tight sm:text-6xl`}>
-                Timeless Makeup
-                <br />
-                in Black & White
-              </h1>
-              <p className={`mt-4 max-w-2xl ${MUTED}`}>
-                Soft glam, camera-ready looks with a skin-first approach. Minimal,
-                elegant, and confidently you.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <a
-                  href="#services"
-                  className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white"
-                >
-                  Explore Services
-                </a>
-                <a
-                  href="#portfolio"
-                  className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800"
-                >
-                  View Works
-                </a>
-              </div>
-            </div>
-            <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-          </div>
+<section className="relative isolate">
+  <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
+    <div className="relative overflow-hidden rounded-[36px] border border-neutral-200 bg-neutral-50">
+      <Image
+        src="/porto-eryca/bg1.svg"
+        alt="Makeup monochrome hero"
+        fill
+        priority
+        className="object-cover grayscale"
+      />
+      <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-3xl flex-col items-center justify-center p-8 text-center sm:min-h-[56vh]">
+        
+        {/* Judul mirip poster */}
+        <h1 className="text-5xl sm:text-6xl leading-tight">
+          <span className="block font-[Great_Vibes] text-4xl sm:text-5xl text-neutral-100 drop-shadow-md">
+            Muse
+          </span>
+          <span className="block font-serif font-bold tracking-wide text-white sm:text-7xl">
+            ERYCA
+          </span>
+        </h1>
 
- 
+        {/* Tagline kecil */}
+        <p className="mt-4 max-w-xl text-sm italic text-neutral-400">
+          More than a face, <br />
+          I am the canvas where beauty tells its story. <br />
+        </p>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <a
+            href="#services"
+            className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white"
+          >
+            Explore Services
+          </a>
+          <a
+            href="#portfolio"
+            className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800"
+          >
+            View Works
+          </a>
         </div>
-      </section>
+      </div>
+      <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+    </div>
+  </div>
+</section>
+
 
       {/* ABOUT */}
       <section id="about" className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2">
         <div>
           <p className="text-xs uppercase tracking-widest text-neutral-500">About Eryca</p>
-          <h2 className={`${SERIF} mt-2 text-3xl sm:text-4xl`}>Muse MUA, based in Jakarta.</h2>
+          <h2 className={`${SERIF} mt-2 text-3xl sm:text-4xl`}>Muse, based in Jakarta.</h2>
           <p className={`mt-4 ${MUTED}`}>
-            Mengutamakan kenyamanan kulit dengan hasil yang rapi dan tahan lama. Setiap
-            look dirancang untuk terasa ringan dilihat langsung maupun di kamera.
+       Hello peps, kenalin aku newbie muse heheh
           </p>
           <a href="#contact" className="mt-6 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white">Learn More</a>
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] border border-neutral-200 bg-neutral-100">
-          <Image src="/porto-eryca/profile.png" alt="About image" fill className="object-cover grayscale" />
+          <Image src="/porto-eryca/PP1.gif" alt="About image" fill className="object-cover grayscale" />
         </div>
       </section>
 
       {/* LOGOS (optional) */}
       <section className="mx-auto max-w-6xl px-6 pb-6">
-        <ul className="flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale">
-          {['Meta','Peloton','Supreme','North','Prada','Chanel','Pandora'].map((n) => (
-            <li key={n} className="h-6 w-28 rounded bg-neutral-200" aria-hidden />
-          ))}
-        </ul>
+            <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+              <li className="flex items-center justify-center text-4xl">
+                <FaGithub title="GitHub" />
+              </li>
+              <li className="flex items-center justify-center text-4xl text-sky-500">
+                <SiReact title="React" />
+              </li>
+              <li className="flex items-center justify-center text-4xl text-pink-500">
+                <SiFigma title="Figma" />
+              </li>
+            </ul>
       </section>
 
       {/* PORTFOLIO */}
@@ -118,23 +129,35 @@ export default function MakeupPortfolioPage() {
 
         <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { src: "/porto-eryca/mar.jpg", alt: "Soft glam — clean skin bu Marettadrie" },
-            { src: "/porto-eryca/mua1.jpeg",           alt: "Dewy minimal eye by Vindy" },
-            { src: "/porto-eryca/mua2.jpg",            alt: "Party Look by Azti" },
-            { src: "/porto-eryca/mua4.png",            alt: "Party Look by Azti" },
+            { src: "/porto-eryca/mar.jpg", alt: "Makeup Artist by Marettadrie" },
+            { src: "/porto-eryca/mua1.jpeg", alt: "Makeup Artist by Vindy" },
+            { src: "/porto-eryca/mua2.jpg", alt: "Makeup Artist by Azti" },
+            { src: "/porto-eryca/mua4.png", alt: "Makeup Artist by Azti" },
           ].map((g, i) => (
-            <li key={i} className={`${CARD} relative aspect-[4/5] overflow-hidden`}>
-              {/* FOTO WAJIB ADA */}
+            <li
+              key={i}
+              className={`${CARD} relative aspect-square overflow-hidden rounded-xl`}
+            >
+              {/* FOTO */}
               <Image
                 src={g.src}
                 alt={g.alt}
-                fill
-             className="object-cover"   
+                width={800}
+                height={800}
+                className="object-cover"
                 sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
-                priority={i < 2} // biar 2 pertama cepat
+                priority={i < 2}
               />
+
               {/* overlay */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+
+              {/* tag nama MUA */}
+              <span
+                className={`${SERIF} absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-neutral-800 shadow`}
+              >
+                {g.alt}
+              </span>
             </li>
           ))}
         </ul>
