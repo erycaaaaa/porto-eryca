@@ -1,13 +1,35 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import SectionWrap from "@/components/sections/extras/SectionWrap";
 
 // react-icons fallback
 import { FaPython, FaHtml5, FaCss3Alt, FaGithub, FaBootstrap } from "react-icons/fa";
-import { SiNextdotjs, SiFigma, SiAdobeillustrator, SiAdobeaftereffects, SiGooglecolab, SiTailwindcss, SiDart, SiReact, SiNodedotjs, SiTypescript, SiVite } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiFigma,
+  SiAdobeillustrator,
+  SiAdobeaftereffects,
+  SiGooglecolab,
+  SiTailwindcss,
+  SiDart,
+  SiReact,
+  SiNodedotjs,
+  SiTypescript,
+  SiVite,
+} from "react-icons/si";
 
-/** 1) Peta ke ikon file lokal (SVG) */
+type Props = {
+  tools?: string[];
+  showLabels?: boolean;
+  /** paksa pakai react-icons dan abaikan SVG lokal */
+  preferReactIcons?: boolean;
+  /** tinggi strip; default 72px (py-6) */
+  heightClass?: string; // contoh: "py-5" | "py-4"
+  className?: string;
+};
+
 const TOOL_ICON_MAP: Record<string, string> = {
   figma: "/icons/figma.svg",
   "framer motion": "/icons/framer.svg",
@@ -21,7 +43,7 @@ const TOOL_ICON_MAP: Record<string, string> = {
   node: "/icons/node.svg",
   "node.js": "/icons/node.svg",
   bootstrap: "/icons/bootstrap.svg",
-  bootsraps: "/icons/bootstrap.svg", // typo yang sering muncul
+  bootsraps: "/icons/bootstrap.svg",
   github: "/icons/github.svg",
   python: "/icons/python.svg",
   html5: "/icons/html5.svg",
@@ -32,10 +54,9 @@ const TOOL_ICON_MAP: Record<string, string> = {
   "google colab": "/icons/colab.svg",
 };
 
-/** 2) Peta ke komponen react-icons (fallback kalau tidak ada SVG lokal) */
 const ICON_COMPONENT_MAP: Record<string, React.ReactNode> = {
   figma: <SiFigma size={28} title="Figma" />,
-  "framer motion": <img src="/icons/framer.svg" alt="Framer Motion" width={28} height={28} />, // atau buat sendiri
+  "framer motion": <img src="/icons/framer.svg" alt="Framer Motion" width={28} height={28} />,
   react: <SiReact size={28} title="React" />,
   "next.js": <SiNextdotjs size={28} title="Next.js" />,
   nextjs: <SiNextdotjs size={28} title="Next.js" />,
@@ -57,34 +78,30 @@ const ICON_COMPONENT_MAP: Record<string, React.ReactNode> = {
   "google colab": <SiGooglecolab size={28} title="Google Colab" />,
 };
 
-function normKey(s: string) {
-  return s.trim().toLowerCase();
-}
+const normKey = (s: string) => s.trim().toLowerCase();
 
-function IconFor({ label }: { label: string }) {
+function IconFor({ label, preferReactIcons = false }: { label: string; preferReactIcons?: boolean }) {
   const key = normKey(label);
 
-  // 1st: pakai SVG lokal kalau ada
-  const localSrc = TOOL_ICON_MAP[key];
-  if (localSrc) {
-    // pakai next/image agar optimal
-    return (
-      <Image
-        src={localSrc}
-        alt={label}
-        title={label}
-        width={28}
-        height={28}
-        className="shrink-0"
-      />
-    );
+  if (!preferReactIcons) {
+    const localSrc = TOOL_ICON_MAP[key];
+    if (localSrc) {
+      return (
+        <Image
+          src={localSrc}
+          alt={label}
+          title={label}
+          width={28}
+          height={28}
+          className="shrink-0"
+        />
+      );
+    }
   }
 
-  // 2nd: fallback ke react-icons jika ada
   const comp = ICON_COMPONENT_MAP[key];
   if (comp) return <>{comp}</>;
 
-  // 3rd: ultimate fallback — bulatan dengan inisial
   return (
     <span
       title={label}
@@ -96,15 +113,13 @@ function IconFor({ label }: { label: string }) {
   );
 }
 
-/** 3) Komponen utama */
 export default function LogoStrip({
   tools,
   showLabels = false,
-}: {
-  tools?: string[];           // kirim mis: ["Figma","Next.js","Tailwind","Framer Motion","Python","HTML5","CSS3","GitHub"]
-  showLabels?: boolean;       // tampilkan teks label di samping ikon
-}) {
-  // default (kalau tidak diberi props)
+  preferReactIcons = false,
+  heightClass = "py-6",
+  className = "",
+}: Props) {
   const defaults = [
     "Google Colab",
     "Python",
@@ -118,20 +133,20 @@ export default function LogoStrip({
     "GitHub",
   ];
 
-  const items = (tools && tools.length > 0 ? tools : defaults).map((t) => ({
-    label: t,
-  }));
+  const items = (tools && tools.length > 0 ? tools : defaults).map((t) => ({ label: t }));
 
   return (
-    <SectionWrap
-      className="
-        py-6 w-full overflow-x-clip
-        bg-gradient-to-r from-[#ffffff4e] via-[#95927573] to-[#ffffff4e]
-      "
+    <section
+      className={[
+        "w-full overflow-x-clip bg-gradient-to-r from-[#ffffff4e] via-[#95927573] to-[#ffffff4e]",
+        heightClass, // kontrol tinggi strip
+        className,
+      ].join(" ")}
+      aria-label="Technology strip"
     >
       <ul
         className="
-          mx-auto max-w-[min(100%,100vw)] w-full
+          mx-auto max-w-[100vw] w-full
           flex items-center justify-center gap-8
           whitespace-nowrap
           md:overflow-visible overflow-x-auto
@@ -147,13 +162,11 @@ export default function LogoStrip({
             aria-label={label}
             title={label}
           >
-            <IconFor label={label} />
-            {showLabels && (
-              <span className="ml-2 text-xs text-[#f8e6c9]">{label}</span>
-            )}
+            <IconFor label={label} preferReactIcons={preferReactIcons} />
+            {showLabels && <span className="ml-2 text-xs text-[#f8e6c9]">{label}</span>}
           </li>
         ))}
       </ul>
-    </SectionWrap>
+    </section>
   );
 }
