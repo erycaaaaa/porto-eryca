@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // src/app/layout.tsx
 import "./globals.css";
 import SplashScreen from "@/components/layout/SplashScreen";

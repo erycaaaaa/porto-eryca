@@ -3,78 +3,76 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type Props = {
- 
   defaultDurationMs?: number;
   maxTotalMs?: number;
   oncePerSession?: boolean;
 };
 
 export default function SplashScreen({
-  defaultDurationMs = 900,
+  defaultDurationMs = 1200,
   maxTotalMs = 2500,
   oncePerSession = true,
 }: Props) {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window === "undefined") return false; 
-    if (oncePerSession && sessionStorage.getItem("splash:shown") === "1") return false;
-    return true;
-  });
-  const [mounted, setMounted] = useState(false);
+ 
+  const [visible, setVisible] = useState(true);
+  const [shouldRender, setShouldRender] = useState(true);
+
   const hideTimerRef = useRef<number | null>(null);
   const maxTimerRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-    if (!visible) return;
-    maxTimerRef.current = window.setTimeout(() => setVisible(false), maxTotalMs);
+  // Utility
+  const clearTimers = () => {
+    if (hideTimerRef.current) { clearTimeout(hideTimerRef.current); hideTimerRef.current = null; }
+    if (maxTimerRef.current) { clearTimeout(maxTimerRef.current); maxTimerRef.current = null; }
+  };
 
-    const raf = requestAnimationFrame(() => {
-      hideTimerRef.current = window.setTimeout(() => setVisible(false), defaultDurationMs);
-    });
-
-    return () => {
-      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
-      if (maxTimerRef.current) clearTimeout(maxTimerRef.current);
-      cancelAnimationFrame(raf);
-    };
-
-  }, []);
-
- 
-  useEffect(() => {
-    const handler = (e: Event) => {
-      const d = (e as CustomEvent<{ durationMs?: number }>).detail?.durationMs ?? defaultDurationMs;
-      // batalkan timer lama, tampilkan lagi sebentar
-      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
-      if (maxTimerRef.current) clearTimeout(maxTimerRef.current);
-      setVisible(true);
-      hideTimerRef.current = window.setTimeout(() => setVisible(false), d);
-      maxTimerRef.current = window.setTimeout(() => setVisible(false), Math.max(d, maxTotalMs));
-      window.scrollTo({ top: 0, behavior: "auto" }); // jangan 'smooth' agar tidak block
-    };
-    window.addEventListener("eryca:splash", handler as EventListener);
-    return () => window.removeEventListener("eryca:splash", handler as EventListener);
-  }, [defaultDurationMs, maxTotalMs]);
+  const startTimers = (durMs: number) => {
+    clearTimers();
+    setVisible(true);
+    hideTimerRef.current = window.setTimeout(() => setVisible(false), durMs);
+    maxTimerRef.current = window.setTimeout(() => setVisible(false), Math.max(durMs, maxTotalMs));
+  };
 
   
   useEffect(() => {
-    if (!visible && oncePerSession && mounted) {
-      try {
-        sessionStorage.setItem("splash:shown", "1");
-      } catch {}
+    try {
+      const alreadyShown = sessionStorage.getItem("splash:shown") === "1";
+      if (oncePerSession && alreadyShown) {
+        setVisible(false);
+        setShouldRender(false);
+        return;
+      }
+    } catch {
     }
-  }, [visible, oncePerSession, mounted]);
+    startTimers(defaultDurationMs);
 
-  const [shouldRender, setShouldRender] = useState(visible);
+    return clearTimers;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultDurationMs, maxTotalMs, oncePerSession]);
+
+
   useEffect(() => {
-    if (visible) setShouldRender(true);
-  }, [visible]);
+    const handler = (e: Event) => {
+      const d = (e as CustomEvent<{ durationMs?: number }>).detail?.durationMs ?? defaultDurationMs;
+      startTimers(d);
+      window.scrollTo({ top: 0, behavior: "auto" });
+      setShouldRender(true);
+    };
+    window.addEventListener("eryca:splash", handler as EventListener);
+    return () => window.removeEventListener("eryca:splash", handler as EventListener);
+  }, [defaultDurationMs]);
+
+  useEffect(() => {
+    if (!visible && oncePerSession) {
+      try { sessionStorage.setItem("splash:shown", "1"); } catch {}
+    }
+  }, [visible, oncePerSession]);
 
   if (!shouldRender) return null;
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] grid place-items-center bg-[#fff2d6] transition-opacity duration-400 ${
+      className={`fixed inset-0 z-[9999] grid place-items-center bg-[#fff2d6] transition-opacity duration-1500 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-hidden={!visible}
@@ -88,7 +86,6 @@ export default function SplashScreen({
         width={120}
         height={120}
         priority
-      
       />
     </div>
   );

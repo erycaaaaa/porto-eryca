@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="h-full overflow-x-clip">
       <body className="min-h-screen bg-[#f5f4ef] text-zinc-900">
-        <SplashScreen defaultDurationMs={900} />
+        <SplashScreen defaultDurationMs={1200} />
         <Navbar />
         <main className="pt-16">{children}</main>
         <Footer />
