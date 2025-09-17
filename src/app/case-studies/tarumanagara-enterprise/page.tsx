@@ -1,10 +1,9 @@
- 
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
-
-export const metadata = {
-  title: "Tarumanagara Enterprise — Case Study",
-};
-
+import {
+  SiAdobeaftereffects,
+  SiAdobeillustrator,
+  SiFigma,
+} from "react-icons/si";
 export default function Page() {
   return (
     <CaseLayout
@@ -16,11 +15,26 @@ export default function Page() {
         tag: "UX Strategy",
         duration: "4 weeks",
         role: "UX • Copy • Front-End",
-        tools: ["Figma", "Next.js", "Tailwind"],
+        tools: ["Figma"],
       }}
       // coverImage="/porto-eryca/mock-te.jpg"
       prototypeUrl="https://www.figma.com/proto/your-te"
     >
+      
+              {/* LOGOS */}
+        <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
+                <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+                  <li className="flex items-center justify-center text-4xl">
+                    <SiFigma title="Figma" />
+                  </li>
+                  <li className="flex items-center justify-center text-4xl">
+                    <SiAdobeillustrator title="Adobe Illustrator" />
+                  </li>
+                  <li className="flex items-center justify-center text-4xl">
+                    <SiAdobeaftereffects title="Adobe After Effect" />
+                  </li>
+                </ul>
+              </section>
       <CaseSection id="about" title="About Project">
         <p>
           Situs organisasi untuk menyampaikan arah, nilai, dan aktivitas dengan
@@ -85,15 +99,6 @@ export default function Page() {
         </blockquote>
       </CaseSection>
 
-      <CaseSection id="prototype" title="Prototype">
-        <div className="mt-4 aspect-[16/9] w-full overflow-hidden rounded-xl border">
-          <iframe
-            className="h-full w-full"
-            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/your-te"
-            allowFullScreen
-          />
-        </div>
-      </CaseSection>
     </CaseLayout>
   );
 }

@@ -2,7 +2,9 @@
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import TwoColSection from "@/components/case/TwoColSect";
-import RoleStrip from "@/components/case/RoleStrip";
+import { BiLogoPlayStore } from "react-icons/bi";
+import { SiPandas,SiGooglecolab } from "react-icons/si";
+import { FaPython, FaFileExcel, FaGithub, FaFileWord } from "react-icons/fa";
 
 export default function Page() {
   return (
@@ -15,7 +17,7 @@ export default function Page() {
         tag: "Research • Natural Language Processing ",
         duration: "8 weeks",
         role: "Lead Researcher • Data Engineer • Author",
-        tools: ["Python", "Pandas", "scikit-learn", "INSET Lexicon", "Matplotlib"],
+        tools: ["Python", "Pandas", "scikit-learn", "INSET Lexicon", "NLTK"],
       }}
       quickFacts={[
         { label: "Reviews Analyzed", value: "1,783" },
@@ -33,7 +35,33 @@ export default function Page() {
         loading="eager"
         className="h-full w-full object-cover rounded-2xl border"
       />
-
+        {/* LOGOS */}
+        <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
+          <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+             <li className="flex items-center justify-center text-4xl">
+               <FaGithub title="GitHub" />
+             </li>
+            <li className="flex items-center justify-center text-4xl">
+              <FaPython title="Python" />
+            </li>
+            <li className="flex items-center justify-center text-4xl">
+              <SiGooglecolab title="GoogleCollab" />
+            </li>
+            <li className="flex items-center justify-center text-4xl">
+              <BiLogoPlayStore title="GoogleCollab" />
+            </li>
+            <li className="flex items-center justify-center text-4xl">
+              <FaFileWord title="FaFileWord" />
+            </li>
+            <li className="flex items-center justify-center text-4xl">
+              <SiPandas title="SiPandas" />
+            </li>  
+            <li className="flex items-center justify-center text-4xl">
+              < FaFileExcel title=" FaFileExcel" />
+            </li>  
+          </ul>
+        </section>
+        
       {/* ABOUT PAPER */}
       <div className="mt-15">
         <CaseSection id="about" title="About the Research">
@@ -96,16 +124,6 @@ export default function Page() {
             </li>
           </ul>
         }
-      />
-
-      {/* TOOL STACK */}
-      <RoleStrip
-        tools={[
-          { label: "Python", icon: "/icons/python.svg" },
-          { label: "Pandas", icon: "/icons/pandas.svg" },
-          { label: "scikit-learn", icon: "/icons/sklearn.svg" },
-          { label: "Matplotlib", icon: "/icons/matplotlib.svg" },
-        ]}
       />
 
       {/* PIPELINE TIMELINE */}

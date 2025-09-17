@@ -2,7 +2,7 @@
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
 import Image from "next/image";
-
+import { FaFigma } from "react-icons/fa";
 
 export default function Page() {
   return (
@@ -15,7 +15,6 @@ export default function Page() {
         tag: "UI/UX • Chatbot",
         duration: "8 weeks",
         role: "Designer • Researcher",
-        tools: ["Figma", "Next.js", "Tailwind", "Framer Motion"],
       }}
       quickFacts={[
         { label: "Screens", value: "30" },
@@ -23,6 +22,15 @@ export default function Page() {
         { label: "Components", value: "25+" },
       ]}
     >
+              {/* LOGOS */}
+              <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
+                <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+                   <li className="flex items-center justify-center text-4xl">
+                     <FaFigma title="Figma" />
+                   </li>
+                </ul>
+              </section>
+              
       {/* ABOUT */}
       <CaseSection id="about" title="About Project">
         <p className="mb-3">

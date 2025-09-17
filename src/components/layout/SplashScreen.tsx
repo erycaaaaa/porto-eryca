@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -47,7 +48,7 @@ export default function SplashScreen({
     startTimers(defaultDurationMs);
 
     return clearTimers;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [defaultDurationMs, maxTotalMs, oncePerSession]);
 
 
@@ -60,7 +61,7 @@ export default function SplashScreen({
     };
     window.addEventListener("eryca:splash", handler as EventListener);
     return () => window.removeEventListener("eryca:splash", handler as EventListener);
-  }, [defaultDurationMs]);
+  }, [defaultDurationMs, startTimers]);
 
   useEffect(() => {
     if (!visible && oncePerSession) {

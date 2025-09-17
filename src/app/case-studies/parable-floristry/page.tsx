@@ -4,7 +4,7 @@ import TwoColSection from "@/components/case/TwoColSect";
 import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
 import TestimonialRow from "@/components/case/TestimonialRow";
 import SiteHero from "@/components/case/SiteHero-Bunga";
-import LogoStrip from "@/components/sections/extras/LogoStrips";
+import { FaHtml5, FaCss3Alt, FaGithub, FaBootstrap, FaFigma } from "react-icons/fa";
 
 export default function Page() {
   return (
@@ -17,9 +17,7 @@ export default function Page() {
         tag: "Brand & Web",
         duration: "6 weeks",
         role: "UI/UX • Front-End",
-        // Jika di dalam CaseLayout ada pill 'tools' yang memaksa icon /icons/... dan sering broken,
-        // kamu bisa kosongkan / hilangkan properti 'tools' ini agar tidak render di header.
-        tools: ["Figma", "Next.js", "Tailwind", "Framer Motion"],
+        tools: ["JS", "CSS", "HTML", "Boostraps5"],
       }}
       quickFacts={[
         { label: "Screens", value: "24" },
@@ -38,9 +36,26 @@ export default function Page() {
         poster="/porto-eryca/faja1.jpg"
       />
 
-      {/* TOOL STRIP — semua ikon pakai LogoStrip */}
-      <LogoStrip tools={["Figma", "Next.js", "Tailwind", "Framer Motion", "GitHub"]} />
-      {/* Atau tampilkan label teks juga: <LogoStrip tools={[...]} showLabels /> */}
+        {/* LOGOS */}
+        <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
+          <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+            <li className="flex items-center justify-center text-4xl">
+              <FaGithub title="GitHub" />
+            </li>
+            <li className="flex items-center justify-center text-4xl text-sky-500">
+              <FaHtml5 title="HTML" />
+            </li>
+            <li className="flex items-center justify-center text-4xl text-pink-500">
+              <FaCss3Alt title="CSS" />
+            </li>
+            <li className="flex items-center justify-center text-4xl text-pink-500">
+              <FaBootstrap title="Bootstraps5" />
+            </li> 
+            <li className="flex items-center justify-center text-4xl text-pink-500">
+              <FaFigma title="Figma" />
+            </li>
+          </ul>
+        </section>
 
       {/* ABOUT — lebar */}
       <div className="mt-10.5">

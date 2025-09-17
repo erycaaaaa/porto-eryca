@@ -4,6 +4,8 @@ import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TwoColSection from "@/components/case/TwoColSect";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import RoleStrip from "@/components/case/RoleStrip";
+import { FaHtml5, FaCss3Alt, FaGithub, FaBootstrap } from "react-icons/fa";
+
 
 export default function Page() {
   return (
@@ -16,11 +18,29 @@ export default function Page() {
         tag: "Design & Front-End",
         duration: "ongoing",
         role: "Product Designer • Front-End",
-        tools: ["Next.js 15", "React 19", "Tailwind", "Framer Motion"],
+        tools: ["Boostraps5", "HTML", "CSS", "JS"],
       }}
       // coverImage="/porto-eryca/mock-portfolio.jpg"
       prototypeUrl="https://www.figma.com/proto/your-eryca"
     >
+              {/* LOGOS */}
+                    <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
+                <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+                  <li className="flex items-center justify-center text-4xl">
+                    <FaGithub title="GitHub" />
+                  </li>
+                  <li className="flex items-center justify-center text-4xl text-sky-500">
+                    <FaHtml5 title="HTML" />
+                  </li>
+                  <li className="flex items-center justify-center text-4xl text-pink-500">
+                    <FaCss3Alt title="CSS" />
+                  </li>
+                              <li className="flex items-center justify-center text-4xl text-pink-500">
+                    <FaBootstrap title="Bootstraps5" />
+                  </li>
+                </ul>
+              </section>
+
       {/* ABOUT — lebar */}
       <CaseSection id="about" title="About Website">
         <div className="prose prose-neutral max-w-none">
