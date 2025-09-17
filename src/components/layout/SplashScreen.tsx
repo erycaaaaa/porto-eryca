@@ -72,7 +72,7 @@ export default function SplashScreen({
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] grid place-items-center bg-[#fff2d6] transition-opacity duration-1500 ${
+      className={`fixed inset-0 z-[9999] grid place-items-center bg-[#fff2d6] transition-opacity duration-900 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-hidden={!visible}
