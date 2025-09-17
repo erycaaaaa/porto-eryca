@@ -5,10 +5,6 @@ import SplashScreen from "@/components/layout/SplashScreen";
 import Providers from "./providers";
 import StickySpotify from "@/components/sections/media/StickySpotify";
 
-export const metadata = {
-  title: "Eryca",
-  description: "Portfolio",
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,9 +13,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <SplashScreen defaultDurationMs={1200} />
           <Navbar />
-          <main className="pt-16">{children}</main>
+          <main className="pt-0">{children}</main>
           <Footer />
-
           <StickySpotify />
         </Providers>
       </body>

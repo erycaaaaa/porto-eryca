@@ -1,0 +1,782 @@
+[
+  {
+    "id": "00-the-fool",
+    "name": "The Fool",
+    "suit": "Major",
+    "index": 0,
+    "upright": "Awal baru, spontan, percaya proses.",
+    "reversed": "Tak siap, ceroboh, ragu melangkah.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "01-the-magician",
+    "name": "The Magician",
+    "suit": "Major",
+    "index": 1,
+    "upright": "Manifestasi, fokus, sumber daya ada.",
+    "reversed": "Manipulatif, arah kabur, potensi macet.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "02-the-high-priestess",
+    "name": "The High Priestess",
+    "suit": "Major",
+    "index": 2,
+    "upright": "Intuisi, misteri, kebijaksanaan batin.",
+    "reversed": "Rahasia mengganggu, intuisi diabaikan.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "03-the-empress",
+    "name": "The Empress",
+    "suit": "Major",
+    "index": 3,
+    "upright": "Kreativitas, kelimpahan, perawatan diri.",
+    "reversed": "Ketergantungan, kurang batas, stagnan.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "04-the-emperor",
+    "name": "The Emperor",
+    "suit": "Major",
+    "index": 4,
+    "upright": "Struktur, kepemimpinan, stabilitas.",
+    "reversed": "Kaku, dominasi, kontrol berlebih.",
+    "yesno": "mixed",
+    "weight": 60
+  },
+  {
+    "id": "05-the-hierophant",
+    "name": "The Hierophant",
+    "suit": "Major",
+    "index": 5,
+    "upright": "Tradisi, pembelajaran, bimbingan.",
+    "reversed": "Dogmatis, anti-inovasi, memberontak.",
+    "yesno": "mixed",
+    "weight": 50
+  },
+  {
+    "id": "06-the-lovers",
+    "name": "The Lovers",
+    "suit": "Major",
+    "index": 6,
+    "upright": "Pilihan bernilai, hubungan, harmoni.",
+    "reversed": "Ragu komitmen, ketidakseimbangan nilai.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "07-the-chariot",
+    "name": "The Chariot",
+    "suit": "Major",
+    "index": 7,
+    "upright": "Tekad, arah jelas, menang lewat disiplin.",
+    "reversed": "Terganggu, kurang kendali, agresif.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "08-strength",
+    "name": "Strength",
+    "suit": "Major",
+    "index": 8,
+    "upright": "Keberanian lembut, pengendalian diri.",
+    "reversed": "Keraguan diri, lelah, reaktif.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "09-the-hermit",
+    "name": "The Hermit",
+    "suit": "Major",
+    "index": 9,
+    "upright": "Refleksi, pencarian makna, jeda bijak.",
+    "reversed": "Isolasi, menutup diri, menunda terus.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "10-wheel-of-fortune",
+    "name": "Wheel of Fortune",
+    "suit": "Major",
+    "index": 10,
+    "upright": "Perubahan siklus, keberuntungan bergerak.",
+    "reversed": "Roda berbalik, resistensi perubahan.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "11-justice",
+    "name": "Justice",
+    "suit": "Major",
+    "index": 11,
+    "upright": "Keadilan, keseimbangan, sebab-akibat.",
+    "reversed": "Tidak adil, bias, perlu koreksi.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "12-the-hanged-man",
+    "name": "The Hanged Man",
+    "suit": "Major",
+    "index": 12,
+    "upright": "Sudut pandang baru, melepas kontrol.",
+    "reversed": "Mandek, pengorbanan tanpa arah.",
+    "yesno": "mixed",
+    "weight": 50
+  },
+  {
+    "id": "13-death",
+    "name": "Death",
+    "suit": "Major",
+    "index": 13,
+    "upright": "Transisi, akhir yang perlu, transformasi.",
+    "reversed": "Menolak berakhir, takut berubah.",
+    "yesno": "mixed",
+    "weight": 60
+  },
+  {
+    "id": "14-temperance",
+    "name": "Temperance",
+    "suit": "Major",
+    "index": 14,
+    "upright": "Moderasi, harmoni, alkimia sabar.",
+    "reversed": "Berlebihan, tidak sabar, ketidakseimbangan.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "15-the-devil",
+    "name": "The Devil",
+    "suit": "Major",
+    "index": 15,
+    "upright": "Keterikatan, pola tak sehat, godaan.",
+    "reversed": "Melepas belenggu, sadar pola buruk.",
+    "yesno": "no",
+    "weight": 35
+  },
+  {
+    "id": "16-the-tower",
+    "name": "The Tower",
+    "suit": "Major",
+    "index": 16,
+    "upright": "Guncangan, runtuhnya kepalsuan, reset.",
+    "reversed": "Penundaan runtuh, rapuh, krisis berkepanjangan.",
+    "yesno": "no",
+    "weight": 25
+  },
+  {
+    "id": "17-the-star",
+    "name": "The Star",
+    "suit": "Major",
+    "index": 17,
+    "upright": "Harapan, penyembuhan, panduan tenang.",
+    "reversed": "Putus asa, sinis, butuh pemulihan.",
+    "yesno": "yes",
+    "weight": 85
+  },
+  {
+    "id": "18-the-moon",
+    "name": "The Moon",
+    "suit": "Major",
+    "index": 18,
+    "upright": "Kabur, ilusi, mimpi & kecemasan.",
+    "reversed": "Klarifikasi perlu, takut tak berdasar.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "19-the-sun",
+    "name": "The Sun",
+    "suit": "Major",
+    "index": 19,
+    "upright": "Sukacita, kejelasan, sukses, vitalitas.",
+    "reversed": "Terlalu percaya diri, kebahagiaan tertunda.",
+    "yesno": "yes",
+    "weight": 90
+  },
+  {
+    "id": "20-judgement",
+    "name": "Judgement",
+    "suit": "Major",
+    "index": 20,
+    "upright": "Kebangkitan, evaluasi, panggilan batin.",
+    "reversed": "Self-doubt, penilaian keras, menunda putusan.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "21-the-world",
+    "name": "The World",
+    "suit": "Major",
+    "index": 21,
+    "upright": "Penyelesaian, integrasi, kelulusan.",
+    "reversed": "Siklus belum rampung, rasa belum puas.",
+    "yesno": "yes",
+    "weight": 85
+  },
+  {
+    "id": "ace-of-wands",
+    "name": "Ace of Wands",
+    "suit": "Wands",
+    "index": 22,
+    "upright": "Kiprah baru, inspirasi, energi kreatif.",
+    "reversed": "Antusias reda, ide belum matang.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "two-of-wands",
+    "name": "Two of Wands",
+    "suit": "Wands",
+    "index": 23,
+    "upright": "Perencanaan, visi, langkah awal mapan.",
+    "reversed": "Ragu memilih, takut keluar zona nyaman.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "three-of-wands",
+    "name": "Three of Wands",
+    "suit": "Wands",
+    "index": 24,
+    "upright": "Ekspansi, hasil mulai tampak, kolaborasi.",
+    "reversed": "Tertunda, dukungan kurang, perhitungan ulang.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "four-of-wands",
+    "name": "Four of Wands",
+    "suit": "Wands",
+    "index": 25,
+    "upright": "Stabil, perayaan kecil, fondasi nyaman.",
+    "reversed": "Kurang rasa aman, rumah tak kondusif.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "five-of-wands",
+    "name": "Five of Wands",
+    "suit": "Wands",
+    "index": 26,
+    "upright": "Kompetisi, gesekan kecil, adu argumen.",
+    "reversed": "Konflik melebar, capek debat.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "six-of-wands",
+    "name": "Six of Wands",
+    "suit": "Wands",
+    "index": 27,
+    "upright": "Kemenangan publik, pengakuan, percaya diri.",
+    "reversed": "Ego, kemenangan kosong, validasi eksternal.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "seven-of-wands",
+    "name": "Seven of Wands",
+    "suit": "Wands",
+    "index": 28,
+    "upright": "Bertahan, pertahankan posisi, batas jelas.",
+    "reversed": "Defensif berlebih, lelah menjaga garis.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "eight-of-wands",
+    "name": "Eight of Wands",
+    "suit": "Wands",
+    "index": 29,
+    "upright": "Pergerakan cepat, kabar datang, momentum.",
+    "reversed": "Tergesa, miskom, flighty.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "nine-of-wands",
+    "name": "Nine of Wands",
+    "suit": "Wands",
+    "index": 30,
+    "upright": "Ketahanan, hampir sampai, waspada.",
+    "reversed": "Parno, trauma lama, kelelahan.",
+    "yesno": "mixed",
+    "weight": 50
+  },
+  {
+    "id": "ten-of-wands",
+    "name": "Ten of Wands",
+    "suit": "Wands",
+    "index": 31,
+    "upright": "Beban tebal, tanggung jawab berlebih.",
+    "reversed": "Delegasi perlu, lepaskan beban.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "page-of-wands",
+    "name": "Page of Wands",
+    "suit": "Wands",
+    "index": 32,
+    "upright": "Percik ide, magang kreatif, belajar beraksi.",
+    "reversed": "Impulsif, cepat bosan, belum fokus.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "knight-of-wands",
+    "name": "Knight of Wands",
+    "suit": "Wands",
+    "index": 33,
+    "upright": "Aksi cepat, berani, pionir.",
+    "reversed": "Ceroboh, terburu-buru, tidak sabar.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "queen-of-wands",
+    "name": "Queen of Wands",
+    "suit": "Wands",
+    "index": 34,
+    "upright": "Kharisma hangat, menginspirasi, mandiri.",
+    "reversed": "Dominan, mood-driven, kurang konsistensi.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "king-of-wands",
+    "name": "King of Wands",
+    "suit": "Wands",
+    "index": 35,
+    "upright": "Kepemimpinan visioner, eksekusi tegas.",
+    "reversed": "Otoriter, ego, keras kepala.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "ace-of-cups",
+    "name": "Ace of Cups",
+    "suit": "Cups",
+    "index": 36,
+    "upright": "Awal emosional, cinta/intuisi mengalir.",
+    "reversed": "Blok emosi, takut terbuka.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "two-of-cups",
+    "name": "Two of Cups",
+    "suit": "Cups",
+    "index": 37,
+    "upright": "Koneksi, kemitraan setara, harmoni.",
+    "reversed": "Ketidakseimbangan, miskom, tarik-ulur.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "three-of-cups",
+    "name": "Three of Cups",
+    "suit": "Cups",
+    "index": 38,
+    "upright": "Perayaan, komunitas, dukungan teman.",
+    "reversed": "Berlebihan bersosial, gosip, distraksi.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "four-of-cups",
+    "name": "Four of Cups",
+    "suit": "Cups",
+    "index": 39,
+    "upright": "Bosanan, melewatkan peluang, introspeksi.",
+    "reversed": "Stagnan, apatis, perlu gerak baru.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "five-of-cups",
+    "name": "Five of Cups",
+    "suit": "Cups",
+    "index": 40,
+    "upright": "Duka/penyesalan, fokus pada hilang.",
+    "reversed": "Alihkan fokus ke sisa peluang.",
+    "yesno": "no",
+    "weight": 35
+  },
+  {
+    "id": "six-of-cups",
+    "name": "Six of Cups",
+    "suit": "Cups",
+    "index": 41,
+    "upright": "Nostalgia, kenyamanan, inner child.",
+    "reversed": "Terjebak masa lalu, idealisasi.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "seven-of-cups",
+    "name": "Seven of Cups",
+    "suit": "Cups",
+    "index": 42,
+    "upright": "Banyak opsi, fantasi, perlu prioritas.",
+    "reversed": "Ilusi, bingung pilih, overthinking.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "eight-of-cups",
+    "name": "Eight of Cups",
+    "suit": "Cups",
+    "index": 43,
+    "upright": "Meninggalkan yang tak memuaskan, mencari makna.",
+    "reversed": "Takut pergi, bertahan walau kosong.",
+    "yesno": "mixed",
+    "weight": 60
+  },
+  {
+    "id": "nine-of-cups",
+    "name": "Nine of Cups",
+    "suit": "Cups",
+    "index": 44,
+    "upright": "Keinginan terpenuhi, puas, syukur.",
+    "reversed": "Hedonis, puas semu, complacent.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "ten-of-cups",
+    "name": "Ten of Cups",
+    "suit": "Cups",
+    "index": 45,
+    "upright": "Kebahagiaan keluarga/emosi purna.",
+    "reversed": "Disharmoni, ekspektasi tak realistis.",
+    "yesno": "yes",
+    "weight": 80
+  },
+  {
+    "id": "page-of-cups",
+    "name": "Page of Cups",
+    "suit": "Cups",
+    "index": 46,
+    "upright": "Kepekaan, kabar hati, kreativitas lembut.",
+    "reversed": "Baper, labil, menghindar.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "knight-of-cups",
+    "name": "Knight of Cups",
+    "suit": "Cups",
+    "index": 47,
+    "upright": "Romantis, gerak hati, ajakan tulus.",
+    "reversed": "Mood swing, janji manis tak konsisten.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "queen-of-cups",
+    "name": "Queen of Cups",
+    "suit": "Cups",
+    "index": 48,
+    "upright": "Empati, intuisi, dukungan emosional.",
+    "reversed": "Batas kabur, mudah terseret emosi.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "king-of-cups",
+    "name": "King of Cups",
+    "suit": "Cups",
+    "index": 49,
+    "upright": "Dewasa emosional, tenang, bijak.",
+    "reversed": "Menahan rasa, dingin tampak, pasif.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "ace-of-swords",
+    "name": "Ace of Swords",
+    "suit": "Swords",
+    "index": 50,
+    "upright": "Kejernihan ide, kebenaran, keputusan.",
+    "reversed": "Terlalu tajam, kebingungan, ragu bicara.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "two-of-swords",
+    "name": "Two of Swords",
+    "suit": "Swords",
+    "index": 51,
+    "upright": "Bimbang, menutup mata, butuh data.",
+    "reversed": "Menunda putuskan, deadlock.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "three-of-swords",
+    "name": "Three of Swords",
+    "suit": "Swords",
+    "index": 52,
+    "upright": "Luka hati, kecewa, kata-kata tajam.",
+    "reversed": "Penyembuhan dimulai, maafkan diri.",
+    "yesno": "no",
+    "weight": 30
+  },
+  {
+    "id": "four-of-swords",
+    "name": "Four of Swords",
+    "suit": "Swords",
+    "index": 53,
+    "upright": "Istirahat, pemulihan, jeda strategis.",
+    "reversed": "Over-rest, menghindar aksi.",
+    "yesno": "mixed",
+    "weight": 50
+  },
+  {
+    "id": "five-of-swords",
+    "name": "Five of Swords",
+    "suit": "Swords",
+    "index": 54,
+    "upright": "Menang tapi sepi, konflik ego.",
+    "reversed": "Lepas perlu, jangan gengsi.",
+    "yesno": "no",
+    "weight": 40
+  },
+  {
+    "id": "six-of-swords",
+    "name": "Six of Swords",
+    "suit": "Swords",
+    "index": 55,
+    "upright": "Transisi ke tenang, pindah haluan.",
+    "reversed": "Tertahan migrasi, masa lalu tarik balik.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "seven-of-swords",
+    "name": "Seven of Swords",
+    "suit": "Swords",
+    "index": 56,
+    "upright": "Strategi/diam, rencana sunyi, hack cerdas.",
+    "reversed": "Tipu daya, curang, tidak etis.",
+    "yesno": "mixed",
+    "weight": 45
+  },
+  {
+    "id": "eight-of-swords",
+    "name": "Eight of Swords",
+    "suit": "Swords",
+    "index": 57,
+    "upright": "Terikat pikiran, takut bergerak.",
+    "reversed": "Sadar pintu ada, ambil langkah kecil.",
+    "yesno": "no",
+    "weight": 35
+  },
+  {
+    "id": "nine-of-swords",
+    "name": "Nine of Swords",
+    "suit": "Swords",
+    "index": 58,
+    "upright": "Cemas malam, overthinking, mimpi buruk.",
+    "reversed": "Menghadapinya kurangi beban pikiran.",
+    "yesno": "no",
+    "weight": 30
+  },
+  {
+    "id": "ten-of-swords",
+    "name": "Ten of Swords",
+    "suit": "Swords",
+    "index": 59,
+    "upright": "Akhir pahit, mentok, needing reboot.",
+    "reversed": "Bangkit dari nol, sunrise setelah gelap.",
+    "yesno": "no",
+    "weight": 25
+  },
+  {
+    "id": "page-of-swords",
+    "name": "Page of Swords",
+    "suit": "Swords",
+    "index": 60,
+    "upright": "Keingintahuan tajam, analitis, belajar cepat.",
+    "reversed": "Ngegas debat, gosip, kurang empati.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "knight-of-swords",
+    "name": "Knight of Swords",
+    "suit": "Swords",
+    "index": 61,
+    "upright": "Aksi intelektual cepat, tegas.",
+    "reversed": "Terlalu menyerbu, kasar, terburu-buru.",
+    "yesno": "mixed",
+    "weight": 50
+  },
+  {
+    "id": "queen-of-swords",
+    "name": "Queen of Swords",
+    "suit": "Swords",
+    "index": 62,
+    "upright": "Jernih, jujur, batas tegas.",
+    "reversed": "Dingin, sinis, kaku pada nuansa.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "king-of-swords",
+    "name": "King of Swords",
+    "suit": "Swords",
+    "index": 63,
+    "upright": "Strateg, logis, keputusan objektif.",
+    "reversed": "Kurang hati, over-control, birokratis.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "ace-of-pentacles",
+    "name": "Ace of Pentacles",
+    "suit": "Pentacles",
+    "index": 64,
+    "upright": "Peluang materi/karier baru, benih stabil.",
+    "reversed": "Kesempatan lewat, takut mulai praktis.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "two-of-pentacles",
+    "name": "Two of Pentacles",
+    "suit": "Pentacles",
+    "index": 65,
+    "upright": "Juggling, prioritas, keluwesan finansial.",
+    "reversed": "Kelebihan beban, prioritas kabur.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "three-of-pentacles",
+    "name": "Three of Pentacles",
+    "suit": "Pentacles",
+    "index": 66,
+    "upright": "Kolaborasi, craft, kualitas kerja diakui.",
+    "reversed": "Kurang sinergi, standar abu-abu.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "four-of-pentacles",
+    "name": "Four of Pentacles",
+    "suit": "Pentacles",
+    "index": 67,
+    "upright": "Aman tapi kaku, nahan, saving kuat.",
+    "reversed": "Kikir, takut rugi, rigid.",
+    "yesno": "mixed",
+    "weight": 50
+  },
+  {
+    "id": "five-of-pentacles",
+    "name": "Five of Pentacles",
+    "suit": "Pentacles",
+    "index": 68,
+    "upright": "Kekurangan, tertolak, dingin di luar.",
+    "reversed": "Cari bantuan, komunitas ada.",
+    "yesno": "no",
+    "weight": 35
+  },
+  {
+    "id": "six-of-pentacles",
+    "name": "Six of Pentacles",
+    "suit": "Pentacles",
+    "index": 69,
+    "upright": "Berbagi adil, keseimbangan memberi-terima.",
+    "reversed": "Ketergantungan, pamrih, tidak setara.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "seven-of-pentacles",
+    "name": "Seven of Pentacles",
+    "suit": "Pentacles",
+    "index": 70,
+    "upright": "Sabar, evaluasi hasil bertahap.",
+    "reversed": "Tak sabar, panen terlalu dini.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "eight-of-pentacles",
+    "name": "Eight of Pentacles",
+    "suit": "Pentacles",
+    "index": 71,
+    "upright": "Latihan, mastery, kerja telaten.",
+    "reversed": "Perfeksionis buntu, bosan rutinitas.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "nine-of-pentacles",
+    "name": "Nine of Pentacles",
+    "suit": "Pentacles",
+    "index": 72,
+    "upright": "Kemandirian finansial, nikmati hasil.",
+    "reversed": "Kesepian dalam sukses, over-self.",
+    "yesno": "yes",
+    "weight": 70
+  },
+  {
+    "id": "ten-of-pentacles",
+    "name": "Ten of Pentacles",
+    "suit": "Pentacles",
+    "index": 73,
+    "upright": "Warisan, stabilitas jangka panjang, keluarga.",
+    "reversed": "Materialistis, tradisi mengekang.",
+    "yesno": "yes",
+    "weight": 75
+  },
+  {
+    "id": "page-of-pentacles",
+    "name": "Page of Pentacles",
+    "suit": "Pentacles",
+    "index": 74,
+    "upright": "Belajar keahlian, peluang kecil nyata.",
+    "reversed": "Stuck belajar tanpa praktik.",
+    "yesno": "yes",
+    "weight": 60
+  },
+  {
+    "id": "knight-of-pentacles",
+    "name": "Knight of Pentacles",
+    "suit": "Pentacles",
+    "index": 75,
+    "upright": "Kerja konsisten, dapat diandalkan.",
+    "reversed": "Lambat, kaku, kurang improvisasi.",
+    "yesno": "mixed",
+    "weight": 55
+  },
+  {
+    "id": "queen-of-pentacles",
+    "name": "Queen of Pentacles",
+    "suit": "Pentacles",
+    "index": 76,
+    "upright": "Praktis, hangat, merawat dengan sumber daya.",
+    "reversed": "Over-nurture, lupa diri, kewalahan.",
+    "yesno": "yes",
+    "weight": 65
+  },
+  {
+    "id": "king-of-pentacles",
+    "name": "King of Pentacles",
+    "suit": "Pentacles",
+    "index": 77,
+    "upright": "Stabilitas mapan, manajemen aset bagus.",
+    "reversed": "Materialistis, takut risiko.",
+    "yesno": "yes",
+    "weight": 60
+  }
+]
