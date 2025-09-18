@@ -1,55 +1,65 @@
 // src/app/tarot/page.tsx
 import NavbarTarot from "@/components/tarot/NavbarTarot";
 import HeroTarot from "@/components/tarot/HeroTarot";
-import TarotClient from "./tarot-client";
-import deckRaw from "@/data/tarot/deck.json";
+import TarotClient, { Card } from "./tarot-client";
+import { promises as fs } from "node:fs";
+import path from "node:path";
 
 export const dynamic = "force-static";
 
-type Card = {
-  id: string;
-  name: string;
-  suit: "Major" | "Wands" | "Cups" | "Swords" | "Pentacles";
-  index: number;
-  upright: string;
-  reversed: string;
-  yesno?: "yes" | "no" | "mixed";
-  weight?: number;
-  image: string; 
-};
+/* =========================
+   Type guards (tanpa any)
+   ========================= */
+const SUITS = new Set<Card["suit"]>(["Major", "Wands", "Cups", "Swords", "Pentacles"]);
 
-function isCardArray(x: unknown): x is Card[] {
+function isRecord(x: unknown): x is Record<string, unknown> {
+  return typeof x === "object" && x !== null;
+}
+function isCard(x: unknown): x is Card {
+  if (!isRecord(x)) return false;
   return (
-    Array.isArray(x) &&
-    x.every(
-      (c) =>
-        typeof c.id === "string" &&
-        typeof c.name === "string" &&
-        typeof c.suit === "string" &&
-        typeof c.index === "number" &&
-        typeof c.upright === "string" &&
-        typeof c.reversed === "string" &&
-        typeof c.image === "string" 
-    )
+    typeof x.id === "string" &&
+    typeof x.name === "string" &&
+    typeof x.suit === "string" &&
+    SUITS.has(x.suit as Card["suit"]) &&
+    typeof x.index === "number" &&
+    typeof x.upright === "string" &&
+    typeof x.reversed === "string" &&
+    typeof x.image === "string"
   );
 }
-
-if (!isCardArray(deckRaw)) {
-  throw new Error("Invalid deck.json");
+function isCardArray(data: unknown): data is Card[] {
+  return Array.isArray(data) && data.every(isCard);
 }
-const deck: Card[] = deckRaw;
 
-const heroCards = deck.slice(0, 3).map((c) => c.image);
+/* =========================
+   Loader dari filesystem (public/)
+   ========================= */
+async function getDeck(): Promise<Card[]> {
+  const filePath = path.join(process.cwd(), "public", "tarot", "deck.json");
+  const file = await fs.readFile(filePath, "utf-8");
+  const data: unknown = JSON.parse(file);
 
-export default function Page() {
+  if (!isCardArray(data)) {
+    throw new Error("Invalid deck.json shape");
+  }
+  return data;
+}
+
+/* =========================
+   Page
+   ========================= */
+export default async function Page() {
+  const deck = await getDeck();
+
+  // Jika deploy dengan basePath (mis. GitHub Pages), prefix gambar dari env publik
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const heroCards = deck.slice(0, 3).map((c) => `${base}${c.image}`);
+
   return (
     <div className="bg-gradient-to-b from-purple-900 via-indigo-900 to-[#0a0620] text-white min-h-screen">
       <NavbarTarot />
-
-      {/* Hero transparan biar nyambung */}
       <HeroTarot cards={heroCards} />
-
-      {/* Konten utama: tetap gelap/ungu (full) */}
       <section id="tarot" className="py-16">
         <div className="mx-auto max-w-6xl px-6">
           <TarotClient deck={deck} />

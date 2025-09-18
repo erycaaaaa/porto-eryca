@@ -19,6 +19,7 @@ export type Card = {
   index: number;
   upright: string;
   reversed: string;
+  image: string;
   yesno?: "yes" | "no" | "mixed";
   weight?: number;
   // opsional meta (jika dataset-mu sudah punya)
@@ -77,27 +78,231 @@ const META: Record<
     luckyTip?: string;
   }
 > = {
-  "king-of-pentacles": {
-    keywords: ["Stability", "Security", "Control", "Resourcefulness", "Discipline"],
-    goodFor: [
-      "Reviewing your finances and budget",
-      "Organizing your possessions",
-      "Securing your home or workspace",
-      "Long-term financial planning",
-      "Appreciating what you have",
+  "the-fool": {
+    "keywords": [
+      "Awal baru",
+      "Spontanitas",
+      "Kepolosan",
+      "Petualangan",
+      "Kebebasan"
     ],
-    cautions: [
-      "Being overly possessive or materialistic",
-      "Resisting change/new opportunities",
-      "Unnecessary hoarding",
-      "Becoming stubborn or inflexible",
-      "Ignoring others’ needs",
+    "goodFor": [
+      "Memulai proyek baru",
+      "Mengambil peluang segar",
+      "Mengikuti intuisi",
+      "Menyalurkan kreativitas",
+      "Perjalanan spontan"
     ],
-    luckyColors: ["Brown", "Gold", "Bronze"],
-    luckyTip:
-      "Practice gratitude for what you possess. Sisihkan investasi kecil namun konsisten untuk keamanan masa depan.",
+    "cautions": [
+      "Terlalu gegabah",
+      "Kurang perencanaan",
+      "Mengabaikan tanggung jawab",
+      "Mengambil risiko berlebihan",
+      "Terlalu polos terhadap orang lain"
+    ],
+    "luckyColors": [
+      "Putih",
+      "Biru muda"
+    ],
+    "luckyTip": "Beranilah mencoba hal baru, namun tetap berpijak pada kenyataan."
   },
-  // tambahkan kartu lain di sini…
+  "the-magician": {
+    "keywords": [
+      "Kekuatan",
+      "Manifestasi",
+      "Fokus",
+      "Kecerdikan",
+      "Aksi"
+    ],
+    "goodFor": [
+      "Mewujudkan tujuan",
+      "Mengubah ide menjadi aksi",
+      "Menggunakan semua kemampuan",
+      "Menyusun strategi",
+      "Presentasi penting"
+    ],
+    "cautions": [
+      "Manipulatif",
+      "Terlalu percaya diri",
+      "Menggunakan kekuatan untuk ego",
+      "Tertipu ilusi sukses cepat",
+      "Kurang disiplin"
+    ],
+    "luckyColors": [
+      "Merah",
+      "Emas"
+    ],
+    "luckyTip": "Gunakan bakatmu untuk kebaikan bersama, bukan hanya untuk ambisi pribadi."
+  },
+  "the-high-priestess": {
+    "keywords": [
+      "Intuisi",
+      "Misteri",
+      "Kebijaksanaan",
+      "Alam bawah sadar",
+      "Rahasia"
+    ],
+    "goodFor": [
+      "Meditasi",
+      "Belajar spiritual",
+      "Mengandalkan intuisi",
+      "Mendengarkan suara hati",
+      "Menjaga rahasia"
+    ],
+    "cautions": [
+      "Menutup diri berlebihan",
+      "Menyembunyikan informasi penting",
+      "Pasif",
+      "Mengabaikan logika",
+      "Membiarkan misteri jadi alasan stagnan"
+    ],
+    "luckyColors": [
+      "Perak",
+      "Indigo"
+    ],
+    "luckyTip": "Percaya pada suara batinmu; jawaban sering datang dari dalam diri."
+  },
+  "ace-of-wands": {
+    "keywords": [
+      "Inspirasi",
+      "Peluang baru",
+      "Pertumbuhan",
+      "Potensi",
+      "Kreativitas"
+    ],
+    "goodFor": [
+      "Memulai usaha kreatif",
+      "Membangun ide segar",
+      "Mengambil tantangan baru",
+      "Menulis, melukis, berkarya",
+      "Membangkitkan motivasi"
+    ],
+    "cautions": [
+      "Ide tanpa eksekusi",
+      "Kehilangan momentum",
+      "Impulsif",
+      "Janji berlebihan",
+      "Mudah bosan"
+    ],
+    "luckyColors": [
+      "Oranye",
+      "Merah terang"
+    ],
+    "luckyTip": "Tulis ide-idemu sekarang, jangan biarkan menguap begitu saja."
+  },
+  "ace-of-cups": {
+    "keywords": [
+      "Cinta",
+      "Kasih sayang",
+      "Perasaan baru",
+      "Spiritualitas",
+      "Kreativitas"
+    ],
+    "goodFor": [
+      "Memulai hubungan baru",
+      "Menunjukkan kasih sayang",
+      "Penyembuhan emosional",
+      "Ekspresi seni",
+      "Menguatkan empati"
+    ],
+    "cautions": [
+      "Terlalu emosional",
+      "Terlalu sensitif",
+      "Mengabaikan logika",
+      "Hubungan terlalu cepat",
+      "Harapan palsu"
+    ],
+    "luckyColors": [
+      "Biru muda",
+      "Merah muda"
+    ],
+    "luckyTip": "Bagikan kasih tanpa syarat, kebahagiaanmu akan berlipat ganda."
+  },
+  "ace-of-swords": {
+    "keywords": [
+      "Kejelasan",
+      "Kebenaran",
+      "Terobosan",
+      "Keadilan",
+      "Ide baru"
+    ],
+    "goodFor": [
+      "Menulis atau presentasi",
+      "Mengambil keputusan sulit",
+      "Membongkar kebohongan",
+      "Analisis data",
+      "Debat sehat"
+    ],
+    "cautions": [
+      "Kata-kata menyakitkan",
+      "Keputusan tergesa",
+      "Overthinking",
+      "Terlalu kaku",
+      "Mengabaikan perasaan"
+    ],
+    "luckyColors": [
+      "Biru",
+      "Perak"
+    ],
+    "luckyTip": "Gunakan logika dan kata-kata dengan hati-hati, bisa menyembuhkan atau melukai."
+  },
+  "ace-of-pentacles": {
+    "keywords": [
+      "Kemakmuran",
+      "Peluang baru",
+      "Manifestasi",
+      "Kelimpahan",
+      "Stabilitas"
+    ],
+    "goodFor": [
+      "Memulai investasi",
+      "Proyek bisnis baru",
+      "Menabung jangka panjang",
+      "Mencari pekerjaan",
+      "Membangun pondasi rumah tangga"
+    ],
+    "cautions": [
+      "Materialistik",
+      "Terlalu fokus uang",
+      "Mengabaikan kesehatan",
+      "Lupa berbagi",
+      "Kesempatan terlewat"
+    ],
+    "luckyColors": [
+      "Hijau",
+      "Emas"
+    ],
+    "luckyTip": "Bangun pondasi yang kokoh agar panen bisa dinikmati dalam jangka panjang."
+  },
+  "king-of-pentacles": {
+    "keywords": [
+      "Stabilitas",
+      "Keamanan",
+      "Kontrol",
+      "Kecerdikan",
+      "Disiplin"
+    ],
+    "goodFor": [
+      "Meninjau keuangan dan anggaran",
+      "Mengatur kepemilikan",
+      "Mengamankan rumah atau tempat kerja",
+      "Perencanaan keuangan jangka panjang",
+      "Menghargai apa yang dimiliki"
+    ],
+    "cautions": [
+      "Terlalu posesif atau materialistik",
+      "Menolak perubahan/peluang baru",
+      "Menimbun berlebihan",
+      "Keras kepala dan kaku",
+      "Mengabaikan kebutuhan orang lain"
+    ],
+    "luckyColors": [
+      "Cokelat",
+      "Emas",
+      "Perunggu"
+    ],
+    "luckyTip": "Latih rasa syukur atas apa yang kamu miliki. Sisihkan investasi kecil tapi konsisten untuk masa depan."
+  }
 };
 
 /* =========================
@@ -293,7 +498,7 @@ function CardView({
           onSelect();
         }}
       >
-        <motion.div
+      <motion.div
           className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white [transform-style:preserve-3d] overflow-hidden"
           animate={{ rotateY: flipped ? 180 : 0 }}
           transition={{ duration: 0.6 }}
@@ -304,12 +509,12 @@ function CardView({
           </div>
           <div className="absolute inset-0 backface-hidden rounded-xl [transform:rotateY(180deg)] overflow-hidden">
             <Image
-              src={`/tarot/${data.card.id}.jpg`}
+              src={data.card.image} // ✅ pakai field image dari JSON
               alt={data.card.name}
               fill
-              className={`object-cover ${
-                data.reversed ? "[transform:rotate(180deg)]" : ""
-              }`}
+              className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
+              sizes="(max-width: 768px) 100vw, 33vw"
+              priority={false}
             />
           </div>
         </motion.div>
