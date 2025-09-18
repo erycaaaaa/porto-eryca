@@ -498,26 +498,33 @@ function CardView({
           onSelect();
         }}
       >
-      <motion.div
-          className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white [transform-style:preserve-3d] overflow-hidden"
-          animate={{ rotateY: flipped ? 180 : 0 }}
-          transition={{ duration: 0.6 }}
-          style={{ cursor: "pointer" }}
-        >
-          <div className="absolute inset-0 grid place-items-center backface-hidden rounded-xl bg-neutral-100">
-            <span className="text-neutral-500">Klik untuk membuka</span>
-          </div>
-          <div className="absolute inset-0 backface-hidden rounded-xl [transform:rotateY(180deg)] overflow-hidden">
-            <Image
-              src={data.card.image} // ✅ pakai field image dari JSON
-              alt={data.card.name}
-              fill
-              className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
-              sizes="(max-width: 768px) 100vw, 33vw"
-              priority={false}
-            />
-          </div>
-        </motion.div>
+
+      <div className="relative" style={{ perspective: 1000 }}>
+       <motion.div
+        className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white [transform-style:preserve-3d] overflow-hidden"
+        animate={{ rotateY: flipped ? 180 : 0 }}
+        transition={{ duration: 0.6 }}
+        style={{ cursor: "pointer" }}
+      >
+        {/* FRONT */}
+        <div className="absolute inset-0 grid place-items-center rounded-xl bg-neutral-100 [backface-visibility:hidden]">
+          <span className="text-neutral-500">Klik untuk membuka</span>
+        </div>
+
+        {/* BACK */}
+        <div className="absolute inset-0 rounded-xl [transform:rotateY(180deg)] overflow-hidden [backface-visibility:hidden]">
+          <Image
+            src={data.card.image?.startsWith("/") ? data.card.image : `/${data.card.image}`}
+            alt={data.card.name}
+            fill
+            className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority={false}
+          />
+        </div>
+      </motion.div>
+     </div>
+
       </motion.button>
       <div className="mt-2 text-sm font-medium">
         {data.card.name}
