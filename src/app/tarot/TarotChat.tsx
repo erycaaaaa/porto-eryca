@@ -1,5 +1,6 @@
 "use client";
 
+import { TarotButtonLink } from "@/components/case/TarrotButton";
 import { useState } from "react";
 
 export default function TarotChat({ prompt }: { prompt: string }) {
@@ -83,3 +84,4 @@ export default function TarotChat({ prompt }: { prompt: string }) {
     </div>
   );
 }
+  <TarotButtonLink/>
