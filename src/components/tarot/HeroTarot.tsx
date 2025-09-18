@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function HeroTarot({
 title = "Whispers of the Cards",
 subtitle = "Di balik setiap gambar, terdapat kisah hening tentang keberanian, cinta, dan kebijaksanaan untuk ditafsirkan.",
-cards = ["/porto-eryca/tarot/00-the-fool.jpg", "/porto-eryca/tarot/06-the-lovers.jpg", "/porto-eryca/tarot/queen-of-swords.jpg"],
+cards = ["/tarot/the-fool.jpg", "/tarot/the-lovers.jpg", "/tarot/queen-of-swords.jpg"],
 }: {
   title?: string;
   subtitle?: string;

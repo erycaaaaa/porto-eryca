@@ -1,223 +1,223 @@
 [
   {
-    "id": "00-the-fool",
+    "id": "the-fool",
     "name": "The Fool",
     "suit": "Major",
     "index": 0,
     "upright": "The Fool menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the fool menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the fool terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the fool dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/00-the-fool.jpg"
+    "image": "/tarot/the-fool.jpg"
   },
   {
-    "id": "01-the-magician",
+    "id": "the-magician",
     "name": "The Magician",
     "suit": "Major",
     "index": 1,
     "upright": "The Magician menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the magician menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the magician terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the magician dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/01-the-magician.jpg"
+    "image": "/tarot/the-magician.jpg"
   },
   {
-    "id": "02-the-high-priestess",
+    "id": "the-high-priestess",
     "name": "The High Priestess",
     "suit": "Major",
     "index": 2,
     "upright": "The High Priestess menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the high priestess menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the high priestess terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the high priestess dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/tarot/02-the-high-priestess.jpg"
+    "image": "/tarot/the-high-priestess.jpg"
   },
   {
-    "id": "03-the-empress",
+    "id": "the-empress",
     "name": "The Empress",
     "suit": "Major",
     "index": 3,
     "upright": "The Empress menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the empress menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the empress terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the empress dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/03-the-empress.jpg"
+    "image": "/tarot/the-empress.jpg"
   },
   {
-    "id": "04-the-emperor",
+    "id": "the-emperor",
     "name": "The Emperor",
     "suit": "Major",
     "index": 4,
     "upright": "The Emperor menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the emperor menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the emperor terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the emperor dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/04-the-emperor.jpg"
+    "image": "/tarot/the-emperor.jpg"
   },
   {
-    "id": "05-the-hierophant",
+    "id": "the-hierophant",
     "name": "The Hierophant",
     "suit": "Major",
     "index": 5,
     "upright": "The Hierophant menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the hierophant menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the hierophant terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the hierophant dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/tarot/05-the-hierophant.jpg"
+    "image": "/tarot/the-hierophant.jpg"
   },
   {
-    "id": "06-the-lovers",
+    "id": "the-lovers",
     "name": "The Lovers",
     "suit": "Major",
     "index": 6,
     "upright": "The Lovers menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the lovers menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the lovers terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the lovers dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/tarot/06-the-lovers.jpg"
+    "image": "/tarot/the-lovers.jpg"
   },
   {
-    "id": "07-the-chariot",
+    "id": "the-chariot",
     "name": "The Chariot",
     "suit": "Major",
     "index": 7,
     "upright": "The Chariot menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the chariot menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the chariot terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the chariot dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/07-the-chariot.jpg"
+    "image": "/tarot/the-chariot.jpg"
   },
   {
-    "id": "08-strength",
+    "id": "strength",
     "name": "Strength",
     "suit": "Major",
     "index": 8,
     "upright": "Strength menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, strength menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika strength terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas strength dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/08-strength.jpg"
+    "image": "/tarot/strength.jpg"
   },
   {
-    "id": "09-the-hermit",
+    "id": "the-hermit",
     "name": "The Hermit",
     "suit": "Major",
     "index": 9,
     "upright": "The Hermit menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the hermit menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the hermit terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the hermit dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/tarot/09-the-hermit.jpg"
+    "image": "/tarot/the-hermit.jpg"
   },
   {
-    "id": "10-wheel-of-fortune",
+    "id": "wheel-of-fortune",
     "name": "Wheel of Fortune",
     "suit": "Major",
     "index": 10,
     "upright": "Wheel of Fortune menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, wheel of fortune menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika wheel of fortune terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas wheel of fortune dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/10-wheel-of-fortune.jpg"
+    "image": "/tarot/wheel-of-fortune.jpg"
   },
   {
-    "id": "11-justice",
+    "id": "justice",
     "name": "Justice",
     "suit": "Major",
     "index": 11,
     "upright": "Justice menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, justice menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika justice terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas justice dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/tarot/11-justice.jpg"
+    "image": "/tarot/justice.jpg"
   },
   {
-    "id": "12-the-hanged-man",
+    "id": "the-hanged-man",
     "name": "The Hanged Man",
     "suit": "Major",
     "index": 12,
     "upright": "The Hanged Man menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the hanged man menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the hanged man terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the hanged man dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/tarot/12-the-hanged-man.jpg"
+    "image": "/tarot/the-hanged-man.jpg"
   },
   {
-    "id": "13-death",
+    "id": "death",
     "name": "Death",
     "suit": "Major",
     "index": 13,
     "upright": "Death menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, death menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika death terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas death dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/tarot/13-death.jpg"
+    "image": "/tarot/death.jpg"
   },
   {
-    "id": "14-temperance",
+    "id": "temperance",
     "name": "Temperance",
     "suit": "Major",
     "index": 14,
     "upright": "Temperance menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, temperance menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika temperance terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas temperance dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/14-temperance.jpg"
+    "image": "/tarot/temperance.jpg"
   },
   {
-    "id": "15-the-devil",
+    "id": "the-devil",
     "name": "The Devil",
     "suit": "Major",
     "index": 15,
     "upright": "The Devil menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the devil menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the devil terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the devil dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/tarot/15-the-devil.jpg"
+    "image": "/tarot/the-devil.jpg"
   },
   {
-    "id": "16-the-tower",
+    "id": "the-tower",
     "name": "The Tower",
     "suit": "Major",
     "index": 16,
     "upright": "The Tower menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the tower menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the tower terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the tower dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/tarot/16-the-tower.jpg"
+    "image": "/tarot/the-tower.jpg"
   },
   {
-    "id": "17-the-star",
+    "id": "the-star",
     "name": "The Star",
     "suit": "Major",
     "index": 17,
     "upright": "The Star menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the star menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the star terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the star dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/17-the-star.jpg"
+    "image": "/tarot/the-star.jpg"
   },
   {
-    "id": "18-the-moon",
+    "id": "the-moon",
     "name": "The Moon",
     "suit": "Major",
     "index": 18,
     "upright": "The Moon menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the moon menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the moon terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the moon dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/tarot/18-the-moon.jpg"
+    "image": "/tarot/the-moon.jpg"
   },
   {
-    "id": "19-the-sun",
+    "id": "the-sun",
     "name": "The Sun",
     "suit": "Major",
     "index": 19,
     "upright": "The Sun menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the sun menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the sun terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the sun dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/19-the-sun.jpg"
+    "image": "/tarot/the-sun.jpg"
   },
   {
-    "id": "20-judgement",
+    "id": "judgement",
     "name": "Judgement",
     "suit": "Major",
     "index": 20,
     "upright": "Judgement menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, judgement menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika judgement terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas judgement dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/tarot/20-judgement.jpg"
+    "image": "/tarot/judgement.jpg"
   },
   {
-    "id": "21-the-world",
+    "id": "the-world",
     "name": "The World",
     "suit": "Major",
     "index": 21,
     "upright": "The World menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the world menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the world terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the world dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/tarot/21-the-world.jpg"
+    "image": "/tarot/the-world.jpg"
   },
   {
     "id": "ace-of-wands",
