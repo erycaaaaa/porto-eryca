@@ -17,7 +17,7 @@
     "upright": "The Magician menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the magician menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the magician terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the magician dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-magician.jpg"
+    "image": "/tarot/the-magician.jpg"
   },
   {
     "id": "the-high-priestess",
@@ -27,7 +27,7 @@
     "upright": "The High Priestess menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the high priestess menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the high priestess terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the high priestess dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/the-high-priestess.jpg"
+    "image": "/tarot/the-high-priestess.jpg"
   },
   {
     "id": "the-empress",
@@ -37,7 +37,7 @@
     "upright": "The Empress menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the empress menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the empress terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the empress dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-empress.jpg"
+    "image": "/tarot/the-empress.jpg"
   },
   {
     "id": "the-emperor",

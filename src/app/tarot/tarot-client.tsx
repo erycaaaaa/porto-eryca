@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Shuffle, RotateCcw } from "lucide-react";
-// opsional: sesuaikan path-mu
 import TarotChat from "@/app/tarot/TarotChat";
 import { TarotButtonLink } from "@/components/case/TarrotButton";
 
@@ -22,7 +21,6 @@ export type Card = {
   image: string;
   yesno?: "yes" | "no" | "mixed";
   weight?: number;
-  // opsional meta (jika dataset-mu sudah punya)
   keywords?: string[];
   goodFor?: string[];
   cautions?: string[];
@@ -488,44 +486,36 @@ function CardView({
   return (
     <div className="w-full">
       <div className="mb-2 text-xs text-neutral-500">{label}</div>
-      <motion.button
-        type="button"
-        className={`relative w-full aspect-[2/3] [perspective:1000px] rounded-xl ring-offset-2 ${
-          active ? "ring-2 ring-violet-400" : "ring-0"
-        }`}
-        onClick={() => {
-          setFlipped((f) => !f);
-          onSelect();
-        }}
-      >
+    <motion.button
+      type="button"
+      className={`relative w-full aspect-[2/3] rounded-xl ring-offset-2 ${
+        active ? "ring-2 ring-violet-400" : "ring-0"
+      }`}
+      onClick={() => { setFlipped(f => !f); onSelect(); }}
+    >
+      <div className="relative h-full w-full [perspective:1000px]">
+        <motion.div
+          className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white [transform-style:preserve-3d] overflow-hidden"
+          animate={{ rotateY: flipped ? 180 : 0 }}
+          transition={{ duration: 0.6 }}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="absolute inset-0 grid place-items-center rounded-xl bg-neutral-100 [backface-visibility:hidden]">
+            <span className="text-neutral-500">Klik untuk membuka</span>
+          </div>
+          <div className="absolute inset-0 rounded-xl [transform:rotateY(180deg)] overflow-hidden [backface-visibility:hidden]">
+            <Image
+              src={data.card.image?.startsWith("/") ? data.card.image : `/${data.card.image}`}
+              alt={data.card.name}
+              fill
+              className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </motion.button>
 
-      <div className="relative" style={{ perspective: 1000 }}>
-       <motion.div
-        className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white [transform-style:preserve-3d] overflow-hidden"
-        animate={{ rotateY: flipped ? 180 : 0 }}
-        transition={{ duration: 0.6 }}
-        style={{ cursor: "pointer" }}
-      >
-        {/* FRONT */}
-        <div className="absolute inset-0 grid place-items-center rounded-xl bg-neutral-100 [backface-visibility:hidden]">
-          <span className="text-neutral-500">Klik untuk membuka</span>
-        </div>
-
-        {/* BACK */}
-        <div className="absolute inset-0 rounded-xl [transform:rotateY(180deg)] overflow-hidden [backface-visibility:hidden]">
-          <Image
-            src={data.card.image?.startsWith("/") ? data.card.image : `/${data.card.image}`}
-            alt={data.card.name}
-            fill
-            className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            priority={false}
-          />
-        </div>
-      </motion.div>
-     </div>
-
-      </motion.button>
       <div className="mt-2 text-sm font-medium">
         {data.card.name}
         {data.reversed ? " (Reversed)" : ""}
