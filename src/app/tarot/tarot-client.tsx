@@ -1,4 +1,3 @@
-// src/app/tarot/tarot-client.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,9 +7,6 @@ import { Shuffle, RotateCcw } from "lucide-react";
 import TarotChat from "@/app/tarot/TarotChat";
 import { TarotButtonLink } from "@/components/case/TarrotButton";
 
-/* =========================
-   TYPES
-   ========================= */
 type Suit = "Major" | "Wands" | "Cups" | "Swords" | "Pentacles";
 type Card = {
   id: string;
@@ -25,26 +21,16 @@ type Card = {
 type DrawnCard = { card: Card; reversed: boolean };
 type SpreadKind = "one" | "three" | "daily" | "yesno";
 
-const SPREADS: Record<
-  SpreadKind,
-  { label: string; size: number; positions: string[] }
-> = {
-  one: { label: "One Card", size: 1, positions: ["Insight utama"] },
-  three: {
-    label: "Three Cards",
-    size: 3,
-    positions: ["Masa lalu", "Sekarang", "Masa depan"],
-  },
-  daily: { label: "Daily Card", size: 1, positions: ["Fokus hari ini"] },
-  yesno: { label: "Yes / No", size: 1, positions: ["Energi jawaban"] },
+const SPREADS: Record<SpreadKind, { label: string; size: number; positions: string[] }> = {
+  one:   { label: "One Card",    size: 1, positions: ["Insight utama"] },
+  three: { label: "Three Cards", size: 3, positions: ["Masa lalu", "Sekarang", "Masa depan"] },
+  daily: { label: "Daily Card",  size: 1, positions: ["Fokus hari ini"] },
+  yesno: { label: "Yes / No",    size: 1, positions: ["Energi jawaban"] },
 };
 
-/* =========================
-   HELPERS (shuffle & seed)
-   ========================= */
 function mulberry32(seed: number) {
   return function () {
-    let t = (seed += 0x6d2b79f5);
+    let t = (seed += 0x6D2B79F5);
     t = Math.imul(t ^ (t >>> 15), t | 1);
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
@@ -65,9 +51,6 @@ function hashSeed(s: string) {
   return Math.abs(h);
 }
 
-/* =========================
-   MAIN COMPONENT
-   ========================= */
 export default function TarotClient({ deck }: { deck: Card[] }) {
   const [spread, setSpread] = useState<SpreadKind>("three");
   const [question, setQuestion] = useState("");
@@ -94,24 +77,23 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
   const prompt = buildPrompt(question, spread, drawn, spreadDef.positions);
 
   return (
-    /* Background: sama dengan hero (tanpa dot) */
-    <div className="relative min-h-screen text-white bg-gradient-to-b from-purple-900/0 via-indigo-900/0 to-[#0a0620]/0">
+    <div className="relative min-h-screen text-white bg-gradient-to-b from-purple-900 via-indigo-900 to-[#0a0620]">
       <main className="relative mx-auto max-w-6xl px-6 py-12 grid lg:grid-cols-[1.1fr_0.9fr] gap-8">
-        {/* ===== Left column ===== */}
+        {/* Left column */}
         <section className="space-y-6">
-          {/* Panel pengaturan */}
-          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+          {/* Pengaturan */}
+          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4">
             <h2 className="font-semibold mb-3 text-fuchsia-200">Pengaturan</h2>
 
             <div className="grid sm:grid-cols-3 gap-3">
               <div className="sm:col-span-1">
                 <label className="text-xs text-white/60">Spread</label>
-                <div className="mt-1 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="mt-1 grid grid-cols-2 md:grid-cols-3 gap-2">
                   {(Object.keys(SPREADS) as SpreadKind[]).map((key) => (
                     <button
                       key={key}
                       onClick={() => setSpread(key)}
-                      className={`gap-6 w-13 px-2 py-4 rounded-xl text-xs transition border ${
+                      className={`px-3 py-2 rounded-xl text-sm transition border ${
                         spread === key
                           ? "bg-fuchsia-600 text-white border-fuchsia-400"
                           : "bg-white/5 text-white/90 hover:bg-white/10 border-white/15"
@@ -123,13 +105,13 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
                 </div>
               </div>
 
-              <div className="px-12 sm:col-span-2">
-                <label className="py-8 px-8 text-xs text-white/60">Pertanyaan (opsional)</label>
+              <div className="sm:col-span-2">
+                <label className="text-xs text-white/60">Pertanyaan (opsional)</label>
                 <input
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder="Contoh: Apa fokus terbaik untuk karierku bulan ini?"
-                  className="text-xs mt-1 w-full rounded-xl border border-white/15 bg-white/10 text-white placeholder-white/50 px-8 py-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/60"
+                  className="mt-1 w-full rounded-xl border border-white/15 bg-white/10 text-white placeholder-white/50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/60"
                 />
               </div>
             </div>
@@ -150,8 +132,8 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
             </div>
           </div>
 
-          {/* Panel hasil */}
-          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+          {/* Hasil kartu */}
+          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4">
             <h3 className="font-semibold mb-3 text-fuchsia-200">
               Spread: {spreadDef.label}
             </h3>
@@ -160,18 +142,12 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
                 Belum ada kartu. Klik <b>Shuffle &amp; Draw</b>.
               </div>
             ) : (
-              <div
-                className={`grid ${
-                  spread === "three" ? "grid-cols-3" : "grid-cols-1"
-                } gap-4`}
-              >
+              <div className={`grid ${spread === "three" ? "grid-cols-3" : "grid-cols-1"} gap-4`}>
                 {drawn.map((dc, idx) => (
                   <CardView
                     key={dc.card.id}
                     data={dc}
-                    label={`${idx + 1}. ${
-                      spreadDef.positions[idx] ?? "Posisi"
-                    }`}
+                    label={`${idx + 1}. ${spreadDef.positions[idx] ?? "Posisi"}`}
                     reveal={reveal}
                   />
                 ))}
@@ -180,12 +156,10 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
           </div>
         </section>
 
-        {/* ===== Right column ===== */}
+        {/* Right column */}
         <aside className="space-y-4">
-          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
-            <h3 className="font-semibold text-fuchsia-200">
-              Prompt untuk AI (copy &amp; paste)
-            </h3>
+          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4">
+            <h3 className="font-semibold text-fuchsia-200">Prompt untuk AI (copy &amp; paste)</h3>
             <textarea
               value={prompt}
               readOnly
@@ -193,38 +167,20 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
             />
           </div>
 
-          {/* Chat dengan prompt yang sama */}
           <TarotChat prompt={prompt} />
 
-          {/* CTA mengambang */}
           <div className="fixed bottom-6 right-6">
             <TarotButtonLink />
           </div>
         </aside>
       </main>
-
-      {/* Fade halus ke section berikutnya (opsional) */}
-      <div className="h-24 bg-gradient-to-b from-transparent to-[#0a0620]" />
     </div>
   );
 }
 
-/* =========================
-   SUB-COMPONENTS
-   ========================= */
-function CardView({
-  data,
-  label,
-  reveal,
-}: {
-  data: DrawnCard;
-  label: string;
-  reveal: boolean;
-}) {
+function CardView({ data, label, reveal }: { data: DrawnCard; label: string; reveal: boolean }) {
   const [flipped, setFlipped] = useState(false);
-  useEffect(() => {
-    setFlipped(reveal);
-  }, [reveal]);
+  useEffect(() => { setFlipped(reveal); }, [reveal]);
 
   return (
     <div className="w-full">
@@ -247,16 +203,13 @@ function CardView({
               src={`/tarot/${data.card.id}.jpg`}
               alt={data.card.name}
               fill
-              className={`object-cover ${
-                data.reversed ? "[transform:rotate(180deg)]" : ""
-              }`}
+              className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
             />
           </div>
         </motion.div>
       </motion.div>
       <div className="mt-2 text-sm font-medium text-fuchsia-100">
-        {data.card.name}
-        {data.reversed ? " (Reversed)" : ""}
+        {data.card.name}{data.reversed ? " (Reversed)" : ""}
       </div>
       <p className="text-xs text-white/80 mt-1">
         {data.reversed ? data.card.reversed : data.card.upright}
@@ -265,22 +218,9 @@ function CardView({
   );
 }
 
-/* =========================
-   PROMPT BUILDER
-   ========================= */
-function buildPrompt(
-  q: string,
-  spread: SpreadKind,
-  cards: DrawnCard[],
-  positions: string[]
-) {
+function buildPrompt(q: string, spread: SpreadKind, cards: DrawnCard[], positions: string[]) {
   const cardsBlock = cards
-    .map(
-      (c, i) =>
-        `- ${positions[i] ?? `Posisi ${i + 1}`}: ${c.card.name} (${
-          c.reversed ? "reversed" : "upright"
-        }) – ${c.reversed ? c.card.reversed : c.card.upright}`
-    )
+    .map((c, i) => `- ${positions[i] ?? `Posisi ${i + 1}`}: ${c.card.name} (${c.reversed ? "reversed" : "upright"}) – ${c.reversed ? c.card.reversed : c.card.upright}`)
     .join("\n");
 
   const base = [

@@ -4,9 +4,9 @@ import { motion, easeInOut } from "framer-motion";
 import Image from "next/image";
 
 export default function HeroTarot({
-  title = "Discover Your Path",
-  subtitle = "Tarikan kartu tarot interaktif dengan visual indah dan interpretasi AI.",
-  cards = ["/porto-eryca/tarot/00-the-fool.jpg", "/porto-eryca/tarot/06-the-lovers.jpg", "/porto-eryca/tarot/queen-of-swords.jpg"],
+title = "Whispers of the Cards",
+subtitle = "Di balik setiap gambar, terdapat kisah hening tentang keberanian, cinta, dan kebijaksanaan untuk ditafsirkan.",
+cards = ["/porto-eryca/tarot/00-the-fool.jpg", "/porto-eryca/tarot/06-the-lovers.jpg", "/porto-eryca/tarot/queen-of-swords.jpg"],
 }: {
   title?: string;
   subtitle?: string;
