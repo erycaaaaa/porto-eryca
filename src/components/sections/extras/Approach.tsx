@@ -128,9 +128,8 @@ export default function Approach() {
                 { src: "/porto-eryca/un.jpg", alt: "UntarX system overview" },
                 { src: "/porto-eryca/ed.jpg", alt: "Education module UI" },
                 { src: "/porto-eryca/to.jpg", alt: "Tokens & design system" },
-                { src: "/porto-eryca/wi.jpg", alt: "UntarX system overview" },
+                { src: "/porto-eryca/wihara.jpg", alt: "wihara" },
                 { src: "/porto-eryca/min.jpg", alt: "Education module UI" },
-                { src: "/porto-eryca/bu.jpg", alt: "Tokens & design system" },
               ]}
             />
 

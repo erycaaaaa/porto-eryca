@@ -27,7 +27,7 @@ export default function MakeupPortfolioPage() {
             <li><a href="#contact" className="hover:underline">Contact</a></li>
           </ul>
           <a
-            href="https://wa.me/6281234567890?text=Hi%20Eryca%2C%20saya%20ingin%20booking%20makeup."
+            href="https://wa.me/6285871154799?text=Hi%20Eryca%2C%20saya%20ingin%20booking%20makeup."
             target="_blank"
             className="hidden rounded-full bg-neutral-900 px-4 py-2 text-xs font-medium text-white sm:inline-block"
           >
@@ -41,7 +41,7 @@ export default function MakeupPortfolioPage() {
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
           <div className="relative overflow-hidden rounded-[36px] border border-neutral-200 bg-neutral-50">
             <Image
-              src="/porto-eryca/bg1.svg"
+              src="/porto-eryca/bg-baru.png"
               alt="Makeup monochrome hero"
               fill
               priority
@@ -165,7 +165,7 @@ export default function MakeupPortfolioPage() {
               Email Inquiry
             </a>
             <a
-              href="https://wa.me/6281234567890?text=Hi%20Eryca%2C%20saya%20ingin%20booking%20makeup."
+              href="https://wa.me/6285871154799?text=Hi%20Eryca%2C%20saya%20ingin%20booking%20makeup."
               target="_blank"
               className="rounded-full border border-neutral-300 px-7 py-4 text-sm font-semibold text-neutral-800"
             >

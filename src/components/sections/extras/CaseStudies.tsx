@@ -64,7 +64,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-eryca",
     title: "Website Wihara",
     category: "Front-End",
-    src: "/porto-eryca/wihara1.jpg",
+    src: "/porto-eryca/wihara.jpg",
     href: "/case-studies/eryca-portfolio",
     tag: "Design & Front-End",
     description:

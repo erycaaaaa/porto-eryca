@@ -61,7 +61,7 @@ type SkillsProp =
 
 type ResumeCVProps = {
   email: string;
-  skills: SkillsProp; // ⬅️ sekarang bisa array atau object
+  skills: SkillsProp;
   experiences: [string, string][];
 };
 

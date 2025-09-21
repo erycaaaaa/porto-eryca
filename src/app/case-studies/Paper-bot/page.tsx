@@ -97,7 +97,7 @@ export default function Page() {
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/pkm1.png"       // ganti path fotomu
+                src="/porto-eryca/pkm2.png"   
                 alt="PKM — sesi foto bersama"
                 fill
                 priority={false}
@@ -106,7 +106,7 @@ export default function Page() {
               />
             </div>
             <div className="p-4">
-              <h4 className="font-medium">Sesi Presentasi</h4>
+              <h4 className="font-medium">Sesi Presentasi </h4>
               <p className="mt-1 text-sm text-neutral-600">
                 Memaparkan alur percakapan EduBot dan feedback awal pengguna.
               </p>
@@ -117,7 +117,7 @@ export default function Page() {
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/pkm2.png"       // ganti path fotomu
+                src="/porto-eryca/pkm1.png"   
                 alt="PKM — uji coba bersama guru"
                 fill
                 className="object-cover"
@@ -136,7 +136,7 @@ export default function Page() {
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/hki-edu.jpg"       // ganti path fotomu
+                src="/porto-eryca/hki-edu.png"   
                 alt="Hak Cipta Desain Antarmuka EduBuddy Bot"
                 fill
                 className="object-cover"
