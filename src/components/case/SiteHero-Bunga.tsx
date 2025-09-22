@@ -7,13 +7,13 @@ export default function SiteHero({
   siteUrl,
   figmaUrl,
   poster,
-  imagePosition = "right", // "left" | "right"
+  imagePosition = "right", 
 }: {
   title: string;
   tagline?: string;
   siteUrl?: string;
   figmaUrl?: string;
-  poster: string;           // screenshot hero (≥1200×750)
+  poster: string;     
   imagePosition?: "left" | "right";
 }) {
   const textOrder = imagePosition === "left" ? "md:order-2" : "md:order-1";

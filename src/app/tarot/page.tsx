@@ -7,7 +7,7 @@ import deck from "@/data/tarot/deck.json" assert { type: "json" };
 export const dynamic = "force-static";
 
 export default function Page() {
-  const typed = deck as Card[];                  // pastikan image = "/tarot/xxx.jpg"
+  const typed = deck as Card[];               
   const heroCards = typed.slice(0, 3).map(c => c.image);
 
   return (

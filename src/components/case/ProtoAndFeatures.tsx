@@ -7,7 +7,7 @@ export default function ProtoAndFeatures({
   features,
 }: {
   id?: string;
-  protoSrc: string; // full embed URL (sudah ada https://www.figma.com/embed?...)
+  protoSrc: string;
   features: Array<{ title: string; description: React.ReactNode; image?: string }>;
 }) {
   return (

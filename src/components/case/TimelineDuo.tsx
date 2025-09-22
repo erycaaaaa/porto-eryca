@@ -4,7 +4,7 @@ import React from "react";
 type Col = {
   title: string;
   bullets: string[];
-  image?: string; // tetap opsional utk varian lain
+  image?: string; 
 };
 
 export default function TimelineDuo({
@@ -44,8 +44,7 @@ export default function TimelineDuo({
       </section>
     );
   }
-
-  // (opsional) varian lama jika nanti mau pakai lagi
+  
   return (
     <section id={id} className="scroll-mt-24 mb-10">
       <div className="grid gap-6 md:grid-cols-2">

@@ -80,14 +80,19 @@ export default function MobileSidebar({
     [router, resolveHref, onCloseAction]
   );
 
-  // ESC untuk menutup
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onCloseAction();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onCloseAction]);
+useEffect(() => {
+  const onLoad = () => onCloseAction();
+  window.addEventListener("load", onLoad);
+  return () => window.removeEventListener("load", onLoad);
+}, [onCloseAction]);
 
-  // ===== kunci body scroll saat menu terbuka (safe di Android/iOS) =====
+useEffect(() => {
+  const onHash = () => onCloseAction();
+  window.addEventListener("hashchange", onHash);
+  return () => window.removeEventListener("hashchange", onHash);
+}, [onCloseAction]);
+
+
   useEffect(() => {
     if (!open) return;
     const y = window.scrollY;

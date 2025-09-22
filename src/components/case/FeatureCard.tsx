@@ -5,7 +5,7 @@ export default function FeatureCard({
   title,
   description,
   image,
-  reverse = false, // kalau true, gambar di kanan
+  reverse = false, 
 }: {
   title: string;
   description: React.ReactNode;

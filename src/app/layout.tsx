@@ -2,18 +2,21 @@
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import SplashScreen from "@/components/layout/SplashScreen";
-import Providers from "./providers";
 import StickySpotify from "@/components/sections/media/StickySpotify";
+import SplashScreen from "@/components/layout/SplashScreen";
+import Providers from "./providers";                  
+import HashScrollFix from "@/components/system/HashScrollFix";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full overflow-x-clip">
       <body className="min-h-screen bg-[#f5f4ef] text-zinc-900">
         <Providers>
-        <SplashScreen minMs={900} hardTimeoutMs={1800} oncePerSession />
+          <div id="top" />
+          <SplashScreen minMs={900} hardTimeoutMs={1800} oncePerSession />
           <Navbar />
-          <main  className="overflow-x-hidden">
+          <HashScrollFix />
+          <main className="overflow-x-hidden">
             {children}
           </main>
           <Footer />

@@ -16,7 +16,7 @@ const LEFT = [
 const RIGHT = [
   { label: "Work", href: "/#worked" },
   { label: "Illustrations", href: "/#illustrations" },
-  { label: "Makeup", href: "/makeup" }, // path biasa → nanti diprefix BASE
+  { label: "Makeup", href: "/makeup" },
 ];
 
 export default function Navbar() {
@@ -24,11 +24,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-
-  // base path untuk GitHub Pages project site, contoh: /porto-eryca
   const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-  // ==== utils =======================================================
+  // ===== utils =====
   const showSplash = (ms = 5000) =>
     window.dispatchEvent(new CustomEvent("eryca:splash", { detail: { durationMs: ms } }));
 
@@ -36,25 +34,30 @@ export default function Navbar() {
     href.startsWith("/#") ? href.slice(2) : href.startsWith("#") ? href.slice(1) : null;
 
   const resolveHref = (href: string) => {
-    // anchor tetap apa adanya → diproses oleh smooth scroll
-    if (href.startsWith("/#") || href.startsWith("#")) return href;
-    // internal path absolut → prefix BASE
-    if (href.startsWith("/")) return `${BASE}${href}`;
-    // eksternal (http/mailto/tel) biarkan
-    return href;
+    if (href.startsWith("/#") || href.startsWith("#")) return href; 
+    if (href.startsWith("/")) return `${BASE}${href}`;              
+    return href;                                                    
   };
-
+  
   const smoothScrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
     const nav = document.getElementById("site-nav");
     const offset = nav ? nav.getBoundingClientRect().height : 72;
+
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", "#home");
+      return;
+    }
+
+    const el = document.getElementById(id);
+    if (!el) return;
+
     const y = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top: y, behavior: "smooth" });
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
     history.replaceState(null, "", `#${id}`);
   };
 
-  // handler umum: anchor → scroll/push #; path → push dengan BASE
+  // handler nav
   const onClickNav =
     (rawHref: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
       const id = getHash(rawHref);
@@ -64,7 +67,7 @@ export default function Navbar() {
         if (pathname === "/" || pathname === `${BASE}/` || pathname === `${BASE}`) {
           smoothScrollToId(id);
         } else {
-          router.push(`${BASE}/#${id}`);
+          router.push(`${BASE}/#${id}`); 
         }
         return;
       }
@@ -73,15 +76,32 @@ export default function Navbar() {
         setOpen(false);
         router.push(resolveHref(rawHref));
       }
-      // eksternal: biarkan default
+
     };
 
-  // ==== effects =====================================================
+  // ===== effects =====
+
+  useEffect(() => { setOpen(false); }, []);
+
+  // lock body saat menu open
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
     return () => document.body.classList.remove("overflow-hidden");
   }, [open]);
 
+
+  useEffect(() => {
+    const onHash = () => setOpen(false);
+    const onLoad = () => setOpen(false);
+    window.addEventListener("hashchange", onHash);
+    window.addEventListener("load", onLoad);
+    return () => {
+      window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("load", onLoad);
+    };
+  }, []);
+
+  // nav shadow saat scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 2);
     onScroll();
@@ -89,7 +109,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ==== render ======================================================
+  // ===== render =====
   return (
     <nav
       id="site-nav"
@@ -189,7 +209,7 @@ export default function Navbar() {
 
       <div className="h-[2px] bg-[#b7a373]/70 mx-[5vw]" />
 
-      {/* Drawer */}
+      {/* Drawer / sidebar */}
       <MobileSidebar
         open={open}
         onCloseAction={() => setOpen(false)}
