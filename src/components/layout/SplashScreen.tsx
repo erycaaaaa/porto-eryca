@@ -1,121 +1,77 @@
-
+// src/components/layout/SplashScreen.tsx
 "use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { publicUrl } from "@/utils/publicUrl";
 
 type Props = {
-  defaultDurationMs?: number; 
-  maxTotalMs?: number;        
-  oncePerSession?: boolean;   
+  minMs?: number;
+  hardTimeoutMs?: number;
+  oncePerSession?: boolean;
+  defaultDurationMs?: number;
+  maxTotalMs?: number;
 };
 
 export default function SplashScreen({
-  defaultDurationMs = 1200,
-  maxTotalMs = 2500,
+  minMs,
+  hardTimeoutMs,
   oncePerSession = true,
+  defaultDurationMs,
+  maxTotalMs,
 }: Props) {
-  const [visible, setVisible] = useState(true);
-  const [shouldRender, setShouldRender] = useState(true);
+  const effectiveMin = (minMs ?? defaultDurationMs ?? 700);
+  const effectiveHard = (hardTimeoutMs ?? maxTotalMs ?? 1800);
 
-  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const maxTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [shouldRender, setShouldRender] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return oncePerSession ? sessionStorage.getItem("splash:shown") !== "1" : true;
+  });
+  const [visible, setVisible] = useState(shouldRender);
 
-  const clearTimers = useCallback(() => {
-    if (hideTimerRef.current) {
-      clearTimeout(hideTimerRef.current);
-      hideTimerRef.current = null;
-    }
-    if (maxTimerRef.current) {
-      clearTimeout(maxTimerRef.current);
-      maxTimerRef.current = null;
-    }
-  }, []);
+  const startedAtRef = useRef(0);
+  const ranRef = useRef(false);
 
-  const startTimers = useCallback(
-    (durMs: number) => {
-      clearTimers();
-      setShouldRender(true);
-      setVisible(true);
-
-      // jika user prefer-reduced-motion, buat lebih cepat
-      const prefersReduced =
-        typeof window !== "undefined" &&
-        window.matchMedia &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      const effDur = prefersReduced ? Math.min(500, durMs) : durMs;
-
-      hideTimerRef.current = setTimeout(() => setVisible(false), effDur);
-      maxTimerRef.current = setTimeout(
-        () => setVisible(false),
-        Math.max(effDur, maxTotalMs)
-      );
-    },
-    [clearTimers, maxTotalMs]
-  );
-
-  // pertama kali mount → cek sesi
   useEffect(() => {
-    try {
-      const alreadyShown = sessionStorage.getItem("splash:shown") === "1";
-      if (oncePerSession && alreadyShown) {
+    if (!shouldRender || ranRef.current) return;
+    ranRef.current = true;
+    startedAtRef.current = performance.now();
+
+    const close = () => {
+      const elapsed = performance.now() - startedAtRef.current;
+      const wait = Math.max(0, effectiveMin - elapsed);
+      window.setTimeout(() => {
         setVisible(false);
-        setShouldRender(false);
-        return;
-      }
-    } catch {
-    }
-
-    startTimers(defaultDurationMs);
-    return clearTimers;
-  }, [defaultDurationMs, oncePerSession, startTimers, clearTimers]);
-
-  useEffect(() => {
-    const handler = (e: Event) => {
-      const d = (e as CustomEvent<{ durationMs?: number }>).detail?.durationMs ?? defaultDurationMs;
-      startTimers(d);
-      if (typeof window !== "undefined") {
-        window.scrollTo({ top: 0, behavior: "auto" });
-      }
+        if (oncePerSession) sessionStorage.setItem("splash:shown", "1");
+        window.setTimeout(() => setShouldRender(false), 320);
+      }, wait);
     };
-    window.addEventListener("eryca:splash", handler as EventListener);
-    return () => window.removeEventListener("eryca:splash", handler as EventListener);
-  }, [defaultDurationMs, startTimers]);
 
-  // ketika visible berubah ke false, tulis flag session & sediakan fallback jika transitionend tidak terpanggil
-  useEffect(() => {
-    if (!visible) {
-      if (oncePerSession) {
-        try { sessionStorage.setItem("splash:shown", "1"); } catch {}
-      }
-      // Fallback: kalau onTransitionEnd tidak terpanggil, pastikan ditutup 600ms kemudian
-      const t = setTimeout(() => setShouldRender(false), 600);
-      return () => clearTimeout(t);
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+      close();
+    } else {
+      const onReady = () => { document.removeEventListener("readystatechange", onReady); close(); };
+      document.addEventListener("readystatechange", onReady);
     }
-  }, [visible, oncePerSession]);
+
+    const hard = window.setTimeout(close, effectiveHard);
+    return () => window.clearTimeout(hard);
+  }, [shouldRender, effectiveMin, effectiveHard, oncePerSession]);
 
   if (!shouldRender) return null;
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] grid place-items-center bg-[#fff2d6] transition-opacity duration-900 ${
-        visible ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-      aria-hidden={!visible}
-      onTransitionEnd={() => {
-        if (!visible) setShouldRender(false);
-      }}
+      aria-hidden
+      className={[
+        "fixed inset-0 z-[9999] grid place-items-center",
+        "bg-[#fff2d6]",
+        "transition-opacity duration-300",
+        visible ? "opacity-100" : "opacity-0 pointer-events-none",
+      ].join(" ")}
     >
-      {/* penting: pakai publicUrl agar jalan di GitHub Pages */}
-      <Image
-        src={publicUrl("/logo-web.gif")}
-        alt="Loading"
-        width={120}
-        height={120}
-        priority
-      />
+      <div className="flex flex-col items-center gap-4">
+        <Image src="/porto-eryca/logo-web.gif" alt="Logo" width={84} height={84} priority className="drop-shadow" />
+        <p className="text-sm opacity-70">Tunggu Sebentar yaa…</p>
+      </div>
     </div>
   );
 }
