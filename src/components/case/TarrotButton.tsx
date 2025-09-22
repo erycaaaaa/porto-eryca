@@ -64,8 +64,8 @@ export function TarotButtonLink({ className = "" }: Props) {
         className="
           pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3
           whitespace-nowrap rounded-[10px] border border-black/10 bg-white/90
-          px-3 py-1 text-sm text-black shadow-md
-          opacity-0 translate-y-1
+          px-0 py-0 text-sm text-black shadow-md
+          opacity-0 translate-y-0
           transition-opacity duration-150
           group-hover:opacity-100 group-hover:translate-y-0
           group-focus-visible:opacity-100 group-focus-visible:translate-y-0
