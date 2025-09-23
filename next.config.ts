@@ -3,8 +3,9 @@ const repo = "porto-eryca";
 
 const nextConfig = {
   output: "export",
-  images: { unoptimized: true },  
+  images: { unoptimized: true },
   basePath: isProd ? `/${repo}` : "",
   assetPrefix: isProd ? `/${repo}/` : "",
 };
+
 export default nextConfig;
