@@ -685,7 +685,7 @@ export default function AboutMe() {
               style={{ y: yImg, rotate: rImg }}
               whileHover={{ y: -6, scale: 1.02, rotate: 1 }}
               transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              className="relative mx-auto w-56 md:w-64 aspect-[4/5] overflow-hidden rounded-[24px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+              className="relative mx-auto w-56 md:w-64 aspect-[4/5] overflow-hidden rounded-[24px] bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
             >
               <img
                 src="/porto-eryca/mee.gif"

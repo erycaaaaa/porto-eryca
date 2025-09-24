@@ -198,7 +198,7 @@ export default function CaseStudiesIndex() {
             {filtered.map((item) => (
               <li
                 key={item.id}
-                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white/0 shadow-sm"
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white/100 shadow-sm"
               >
                 <Link href={item.href} className="block">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -215,7 +215,7 @@ export default function CaseStudiesIndex() {
                         {item.description}
                       </p>
                       {item.tag && (
-                        <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                        <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3] px-3 py-1 text-[10px] tracking-wide">
                           {item.tag}
                         </span>
                       )}

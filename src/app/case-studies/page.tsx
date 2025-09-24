@@ -90,7 +90,7 @@ export default function GalleryPage({
   });
 
   return (
-    <main id="illustrations" className="relative min-h-screen text-neutral-900">
+    <main id="cs-parable" className="relative min-h-screen text-neutral-900">
       {/* BG image 10% opacity agar konten tetap jelas */}
       <div
         aria-hidden

@@ -54,8 +54,8 @@ export default function TestimonialHover() {
         </p>
 
         {/* divider w/ small pointer */}
-        <div className="relative mx-auto my-8 h-px w-full max-w-3xl bg-neutral-200">
-          <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-neutral-200" />
+        <div className="relative mx-auto my-8 h-px w-full max-w-3xl bg-neutral-200/0">
+          <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-neutral-200/0" />
         </div>
 
         {/* name & role */}
