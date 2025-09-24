@@ -103,15 +103,11 @@ export default function CaseLayout({
 
   return (
     <main
-      className={[
-        "min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]",
-        "relative min-h-screen",
-        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
-        "bg-top bg-cover",
-        "md:bg-fixed md:bg-center md:bg-cover",
-
-        "text-neutral-900",
-      ].join(" ")}
+      id="worked" 
+      className={`
+        relative min-h-screen
+        bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
+      `}
     >
       {/* Background blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
