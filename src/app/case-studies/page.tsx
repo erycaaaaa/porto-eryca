@@ -1,222 +1,152 @@
-"use client";
-
+// src/app/gallery/page.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
 
-/* =========================
-   KATEGORI
-   ========================= */
+export const dynamic = "force-static"; // optional
+
+// Route halaman saat ini
+const THIS_ROUTE = "/gallery";
+
 const CATEGORIES = [
   "All",
-  "Case Studies",
-  "Sentiment Analysis",
-  "UI/UX",
-  "Front-End",
-  "Research",
+  "Acrylic",
+  "Watercolor",
+  "3D Crafting",
+  "Poster",
+  "Sketch",
+  "Design",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
-function normalizeCat(v: string | null): Category {
-  if (!v) return "All";
-  const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-  const match = CATEGORIES.find(
-    (c) => c.toLowerCase() === cleaned.toLowerCase()
-  );
-  return (match as Category) ?? "All";
-}
-
-/* =========================
-   DATA STUDI KASUS
-   ========================= */
 type Item = {
   id: string;
   title: string;
   category: Exclude<Category, "All">;
   src: string;
-  href: string;
   alt?: string;
   description: string;
-  tag?: string;
 };
 
+// ganti dengan data asli
 const ALL_ITEMS: Item[] = [
   {
-    id: "cs-parable",
-    title: "Parable Floristry",
-    category: "Case Studies",
-    src: "/porto-eryca/fajar1.jpg",
-    href: "/case-studies/parable-floristry",
-    tag: "Brand & Web",
+    id: "ac-01",
+    title: "Demon Slayer",
+    category: "Acrylic",
+    src: "/porto-eryca/2.jpg",
     description:
-      "Sebuah brand floristry butik dengan pengalaman pengguna yang mulus, elemen animasi, dan narasi visual yang elegan.",
-  },
-
-  {
-    id: "cs-untarx",
-    title: "UntarX — Student App",
-    category: "UI/UX",
-    src: "/porto-eryca/untarx1.jpg",
-    href: "/case-studies/untarx",
-    tag: "UI/UX • Student App",
-    alt: "UntarX — UI/UX screens",
-    description:
-      "Fokus pada pengembangan UI/UX untuk menyederhanakan kehidupan mahasiswa. Fitur unggulan: direktori staf, voucher diskon kampus, dan kutipan harian.",
-  },
-
-  {
-    id: "cs-eryca",
-    title: "Website Wihara",
-    category: "Front-End",
-    src: "/porto-eryca/wihara.jpg",
-    href: "/case-studies/eryca-portfolio",
-    tag: "Desain & Front-End",
-    description:
-      "Portfolio pribadi yang dirancang untuk kecepatan, kejelasan, dan penceritaan yang menarik melalui pengalaman scroll yang unik.",
+      "Demon Slayer (Kimetsu no Yaiba) tells the story of Tanjiro Kamado, a teenager whose family was slaughtered by demons, and his sister, Nezuko, who was turned into a demon. Tanjiro joins the Demon Slayer Corps to find a cure to turn Nezuko back into a human and to exterminate all demons. Set in Japan during the Taisho era, the anime depicts Tanjiro and his friends battling demons using special breathing techniques.",
   },
   {
-    id: "paper-sentiment",
-    title: "Analisis Sentimen",
-    category: "Sentiment Analysis",
-    src: "/porto-eryca/analisa1.jpg",
-    href: "/case-studies/Paper-sentiment",
-    tag: "Research & NLP",
-    description:
-      "Riset mendalam tentang klasifikasi sentimen menggunakan Natural Language Processing (NLP) dan pipeline deep learning.",
+    id: "wc-01",
+    title: "Christmas Scene",
+    category: "Watercolor",
+    src: "/porto-eryca/1.jpg",
+    description: "Watercolor: wet-on-wet glow & soft edges.",
   },
   {
-    id: "paper-bot",
-    title: "EduBot UI/UX Design",
-    category: "UI/UX",
-    src: "/porto-eryca/edu1.jpg",
-    href: "/case-studies/Paper-bot",
-    tag: "UI/UX • Chatbot",
+    id: "dc-01",
+    title: "Self Potrait",
+    category: "3D Crafting",
+    src: "/porto-eryca/4.jpg",
+    description: "3D craft: stylized form, matte clay render.",
+  },
+  {
+    id: "ac-06",
+    title: "Commission",
+    category: "Acrylic",
+    src: "/porto-eryca/acy6.jpg",
+    description: "Cat by Tesla Paint",
+  },
+  {
+    id: "sk-01",
+    title: "Gesture Study",
+    category: "Sketch",
+    src: "/porto-eryca/sket1.jpg",
+    description: "Sketch: 60s gesture lines & proportions.",
+  },
+  {
+    id: "wc-03",
+    title: "A blue eye blooming on paper.",
+    category: "Watercolor",
+    src: "/porto-eryca/wate2.jpg",
     description:
-      "Desain sistem dan alur percakapan untuk chatbot edukasi yang interaktif.",
+      "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette.",
   },
 ];
 
-/* =========================
-   HALAMAN INDEX STUDI KASUS
-   ========================= */
-export default function CaseStudiesIndex() {
-  const sp = useSearchParams();
-  const catRaw = sp.get("cat");
-  const qRaw = sp.get("q") ?? "";
+export default function GalleryPage({
+  searchParams,
+}: {
+  searchParams?: { cat?: string; q?: string };
+}) {
+  const activeCat = (searchParams?.cat ?? "All") as Category;
+  const q = (searchParams?.q ?? "").toLowerCase();
 
-  const activeCat: Category = normalizeCat(catRaw);
-  const q = qRaw.toLowerCase();
-
-  const filtered = useMemo(() => {
-    return ALL_ITEMS.filter((it) => {
-      const byCat = activeCat === "All" || it.category === activeCat;
-      const byQ =
-        !q ||
-        it.title.toLowerCase().includes(q) ||
-        it.description.toLowerCase().includes(q) ||
-        (it.tag ?? "").toLowerCase().includes(q);
-      return byCat && byQ;
-    });
-  }, [activeCat, q]);
+  const filtered = ALL_ITEMS.filter((it) => {
+    const byCat = activeCat === "All" || it.category === activeCat;
+    const byQ = !q || it.title.toLowerCase().includes(q);
+    return byCat && byQ;
+  });
 
   return (
-    <main
-      className={[
-        "min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]",
-        "relative min-h-screen",
-        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
-        "bg-top bg-cover",
-        "md:bg-fixed md:bg-center md:bg-cover",
-        "text-neutral-900",
-        " transform rotate-[180deg]",
-      ].join(" ")}
-    >
-      {" "}
-      {/* Gradien latar belakang lembut */}
-      {/* HEADER */}
-      <header className="border-b-2 border-[#e0d8c8] bg-white/80 backdrop-blur-sm">
-        {" "}
-        {/* Transparan dengan blur */}
-        <div className="mx-auto max-w-7xl px-6 py-10">
-          {" "}
-          {/* Lebar maksimum sedikit lebih luas */}
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            {" "}
-            {/* Jarak antar elemen lebih konsisten */}
+    <main id="illustrations" className="relative min-h-screen text-neutral-900">
+      {/* BG image 10% opacity agar konten tetap jelas */}
+      <div
+        aria-hidden
+        className="
+          pointer-events-none absolute inset-0 -z-10
+          bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat
+          bg-top bg-cover md:bg-fixed md:bg-center md:bg-cover
+          opacity-10
+        "
+      />
+
+      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
+        <div className="mx-auto max-w-6xl px-6 py-8">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-4xl font-bold text-[#4a3c31]">
-                {" "}
-                {/* Ukuran dan ketebalan judul lebih besar */}
-                Karya Kami
+              <h1 className="font-serif text-3xl text-[#3b2f22]">
+                All Artworks
               </h1>
-              <p className="mt-2 text-lg text-[#6b5f50]">
-                {" "}
-                {/* Ukuran teks deskripsi lebih besar */}
-                Jelajahi portofolio kami. Filter berdasarkan kategori atau
-                gunakan kolom pencarian untuk menemukan apa yang Anda cari.
+              <p className="mt-1 text-sm text-[#5a5246]">
+                Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>
-            {/* SEARCH */}
-            <form className="mt-4 sm:mt-0" action="/case-studies" method="get">
-              <div className="flex items-center space-x-2">
-                {" "}
-                {/* Menggunakan flex untuk layout pencarian */}
-                <input
-                  name="q"
-                  defaultValue={qRaw}
-                  placeholder="Cari studi kasus..."
-                  className="w-80 rounded-lg border-2 border-[#d4c4b0] bg-white px-4 py-3 text-base text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#8c6a4a] focus:ring-opacity-50 transition duration-300 ease-in-out"
-                />
-                <button
-                  type="submit"
-                  aria-label="Search"
-                  className="rounded-lg bg-[#8c6a4a] px-5 py-3 text-white shadow-md hover:bg-[#6b4a32] transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#6b4a32] focus:ring-opacity-50"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                </button>
-              </div>
+
+            {/* Search (GET) */}
+            <form className="mt-3 sm:mt-0" action={THIS_ROUTE} method="get">
+              <input
+                name="q"
+                defaultValue={searchParams?.q ?? ""}
+                placeholder="Search title…"
+                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+              />
               {activeCat !== "All" && (
                 <input type="hidden" name="cat" value={activeCat} />
               )}
             </form>
           </div>
-          {/* FILTER PILLS */}
-          <div className="mt-8 flex flex-wrap gap-3">
-            {" "}
-            {/* Jarak antar pil lebih besar */}
-            {CATEGORIES.map((cat) => {
-              const params = new URLSearchParams();
-              if (cat !== "All") params.set("cat", cat);
-              if (qRaw) params.set("q", qRaw);
-              const href = params.toString()
-                ? `/case-studies?${params.toString()}`
-                : "/case-studies";
-              const isActive = activeCat === cat;
 
+          {/* Filter Pills */}
+          <div className="mt-5 flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => {
+              const href =
+                cat === "All"
+                  ? THIS_ROUTE
+                  : `${THIS_ROUTE}?cat=${encodeURIComponent(cat)}`;
+              const isActive = activeCat === cat;
               return (
                 <Link
                   key={cat}
                   href={href}
-                  aria-pressed={isActive}
                   className={[
-                    "rounded-full px-5 py-2 text-sm font-medium transition duration-300 ease-in-out shadow-sm",
+                    "rounded-full border px-4 py-2 text-sm",
                     isActive
-                      ? "border-2 border-[#6b4a32] bg-[#6b4a32] text-white hover:bg-[#4a3c31]" // Warna aktif lebih solid dan kontras
-                      : "border border-[#e0d8c8] bg-white text-[#4a3c31] hover:bg-[#f9f5f0] hover:shadow-md", // Efek hover lebih halus
+                      ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
+                      : "border-[#e6dccb] bg-white text-[#3b2f2 2] hover:bg-[#f4efe6]",
                   ].join(" ")}
+                  aria-pressed={isActive}
                 >
                   {cat}
                 </Link>
@@ -225,81 +155,50 @@ export default function CaseStudiesIndex() {
           </div>
         </div>
       </header>
-      {/* GRID STUDI KASUS */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        {" "}
-        {/* Jarak vertikal lebih besar */}
+
+      <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
-          <div className="flex items-center justify-center rounded-lg border-2 border-dashed border-[#dcd0be] bg-[#fdfcf9] p-8 text-xl text-[#7a6f62]">
-            {" "}
-            {/* Kontainer pesan lebih besar */}
-            <p>
-              Oops! Tidak ada hasil yang cocok dengan kriteria Anda. Coba ubah
-              pencarian atau filter.
-            </p>
-          </div>
+          <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
+            pencarian.
+          </p>
         ) : (
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {" "}
-            {/* Grid lebih rapat, 4 kolom di layar besar */}
+          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((item) => (
               <li
                 key={item.id}
-                className="group relative overflow-hidden rounded-xl border border-[#e0d8c8] bg-white shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-xl" // Efek hover mengangkat kartu
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
               >
-                <Link href={item.href} className="block">
-                  <div className="relative aspect-video w-full overflow-hidden">
-                    {" "}
-                    {/* Aspect ratio video untuk tampilan lebih dramatis */}
-                    <Image
-                      src={item.src}
-                      alt={item.alt ?? item.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105" // Transformasi lebih halus dan lambat
-                      sizes="(min-width:1200px) 25vw, (min-width:768px) 50vw, 100vw" // Optimasi ukuran gambar
-                    />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black/60 via-black/40 to-black/20 px-5 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      {" "}
-                      {/* Gradien overlay untuk teks lebih terbaca */}
-                      <h3 className="text-xl font-bold tracking-wide">
-                        {item.title}
-                      </h3>{" "}
-                      {/* Judul lebih besar */}
-                      <p className="mt-2 text-sm leading-relaxed line-clamp-3">
-                        {" "}
-                        {/* Jarak dan ukuran teks deskripsi lebih nyaman */}
-                        {item.description}
-                      </p>
-                      {item.tag && (
-                        <span className="mt-3 rounded-full border border-[#ffffff]/30 bg-[#ffffff]/10 px-4 py-1 text-[11px] font-medium tracking-wide backdrop-blur-sm">
-                          {" "}
-                          {/* Tag dengan latar belakang blur */}
-                          {item.tag}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between px-5 py-4">
-                    {" "}
-                    {/* Padding lebih besar */}
-                    <div>
-                      <h3 className="text-lg font-semibold text-[#3b2f22]">
-                        {" "}
-                        {/* Judul lebih besar */}
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-[#7a6f62] opacity-80">
-                        {item.category}
-                      </p>{" "}
-                      {/* Kategori sedikit lebih redup */}
-                    </div>
-                    <span className="text-sm font-bold text-[#8c6a4a] transition hover:text-[#6b4a32]">
-                      {" "}
-                      {/* Tombol "View" lebih menonjol */}
-                      Lihat Detail →
+                {/* Hover fade overlay untuk semua kartu */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.alt ?? item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    priority={false}
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <p className="mt-1 text-xs opacity-90">
+                      {item.description}
+                    </p>
+                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                      {item.category}
                     </span>
                   </div>
-                </Link>
+                </div>
+
+                {/* meta bawah (opsional) */}
+                <div className="flex items-center justify-between px-4 py-3">
+                  <div>
+                    <h3 className="text-base font-medium text-[#3b2f22]">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

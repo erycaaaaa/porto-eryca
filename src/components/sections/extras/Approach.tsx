@@ -54,7 +54,7 @@ export default function Approach() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-neutral-50">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-white/50">
           {/* Next/Image: gunakan fill agar responsif, parent harus relative */}
           <Image
             src={images[idx].src}
