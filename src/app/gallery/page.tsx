@@ -119,13 +119,13 @@ export default function GalleryPage() {
 
   return (
     <main
+      id="illustrations"
       className={[
-        "min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]",
         "relative min-h-screen",
         "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        " transform rotate-[1800deg]",
         "bg-top bg-cover",
         "md:bg-fixed md:bg-center md:bg-cover",
-
         "text-neutral-900",
       ].join(" ")}
     >

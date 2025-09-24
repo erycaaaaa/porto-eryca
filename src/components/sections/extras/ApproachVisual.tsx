@@ -92,16 +92,22 @@ export default function GalleryPage({
   return (
     <main
       id="illustrations"
-      className={`
-        relative min-h-screen
-        bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
-      `}
+      className={[
+        "relative min-h-screen",
+        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        " transform rotate-[1800deg]",
+        "bg-top bg-cover",
+        "md:bg-fixed md:bg-center md:bg-cover",
+        "text-neutral-900",
+      ].join(" ")}
     >
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">All Artworks</h1>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">
+                All Artworks
+              </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
@@ -174,7 +180,9 @@ export default function GalleryPage({
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <p className="mt-1 text-xs opacity-90">
+                      {item.description}
+                    </p>
                     <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                       {item.category}
                     </span>
