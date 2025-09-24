@@ -233,7 +233,7 @@ useEffect(() => {
                     className="rounded-full border border-[#e8dcb8] bg-white/90 p-1.5 shadow dark:border-[#3b3526] dark:bg-[#18160f]"
                   >
                     <Image
-                      src="/porto-eryca/ikan.gif"
+                      src="/porto-eryca/eryca.gif"
                       alt="Logo"
                       width={24}
                       height={24}
