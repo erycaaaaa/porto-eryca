@@ -20,6 +20,7 @@ export default function RootLayout({
           <SplashScreen minMs={900} hardTimeoutMs={1800} oncePerSession />
           <Navbar />
           <HashScrollFix />
+
           <main
             className={[
               "overflow-x-hidden",
@@ -29,7 +30,10 @@ export default function RootLayout({
               "md:bg-fixed md:bg-center md:bg-cover",
               "text-neutral-900",
             ].join(" ")}
-          ></main>
+          >
+            {children}
+          </main>
+
           <Footer />
           <StickySpotify />
         </Providers>
