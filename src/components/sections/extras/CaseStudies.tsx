@@ -118,7 +118,15 @@ export default function CaseStudiesIndex() {
   }, [activeCat, q]);
 
   return (
-    <main className="min-h-screen bg-[#faf8f3]/10" id="worked">
+    <main
+      id="worked"
+        className={`
+      relative min-h-screen
+      bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
+      transform rotate-[360deg]
+    `}
+
+    >
       {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
@@ -217,13 +225,13 @@ export default function CaseStudiesIndex() {
                       <h3 className="text-base font-medium text-[#3b2f22]">
                         {item.title}
                       </h3>
-                      <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                      <p className="text-xs text-[#7a6f62]">
+                        {item.category}
+                      </p>
                     </div>
-                      <span
-                        className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm"
-                      >
-                        View
-                      </span>
+                    <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
+                      View
+                    </span>
                   </div>
                 </Link>
               </li>
