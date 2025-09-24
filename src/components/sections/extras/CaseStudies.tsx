@@ -194,7 +194,7 @@ export default function CaseStudiesIndex() {
             {filtered.map((item) => (
               <li
                 key={item.id}
-                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white/0 shadow-sm"
               >
                 <Link href={item.href} className="block">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
