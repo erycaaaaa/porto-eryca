@@ -1,5 +1,12 @@
 "use client";
 import React from "react";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // pilih yang kamu pakai
+  display: "swap",
+});
 
 type HeroProps = {
   name: string;
@@ -19,10 +26,12 @@ export default function Hero({ name, subtitle }: HeroProps) {
     >
       {/* CONTENT */}
       <div className="relative max-w-7xl">
-        <h1 className="mt-2 font-serif leading-tight tracking-tight text-5xl text-white drop-shadow-md">
+        <h1
+          className={`${playfair.className} mt-2 leading-tight tracking-tight text-3xl sm:text-4xl md:text-5xl text-black/70 drop-shadow-md`}
+        >
           {name}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-white/80 text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-black/60 text-base sm:text-lg">
           {subtitle}
         </p>
       </div>
