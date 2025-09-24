@@ -137,7 +137,7 @@ export default function Approach() {
 
   /** ---------- Section ---------- **/
   return (
-    <section className="bg-brand-cream/0 py-20">
+    <section className="bg-transparent py-20">
       {/* Header */}
       <div className="mx-auto max-w-6xl px-6 text-center">
         <h2 className="font-serif text-4xl md:text-5xl text-brand-brown">

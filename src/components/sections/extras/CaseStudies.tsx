@@ -120,7 +120,7 @@ export default function CaseStudiesIndex() {
   return (
     <main className="min-h-screen bg-[#faf8f3]/10" id="worked">
       {/* HEADER */}
-      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
+      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -167,7 +167,7 @@ export default function CaseStudiesIndex() {
                     "rounded-full border px-4 py-2 text-sm transition",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
-                      : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
+                      : "border-[#e6dccb] bg-white/80 text-[#3b2f22] hover:bg-[#f4efe6]",
                   ].join(" ")}
                 >
                   {cat}

@@ -86,8 +86,8 @@ export default function GalleryPage({
   });
 
   return (
-    <main id="illustrations" className="min-h-screen bg-[#faf8f3]">
-      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
+    <main id="illustrations" className="min-h-screen bg-[#faf8f3]/0">
+      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
