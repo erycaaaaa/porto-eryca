@@ -84,7 +84,7 @@ export default function SplashScreen({
                   ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       onClick={close}
     >
-      <div className="rounded-2xl bg-[#f5f4ef] p-6 shadow-2xl">
+      <div className="rounded-2xl p-6 shadow-2xl">
         <Image src="/porto-eryca/eryca.gif" alt="" width={96} height={96} />
       </div>
     </div>

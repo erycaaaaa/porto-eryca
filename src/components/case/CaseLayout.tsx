@@ -102,7 +102,17 @@ export default function CaseLayout({
   };
 
   return (
-    <main className="min-h-screen bg-[#fafaf9] text-neutral-900 relative overflow-hidden">
+    <main
+      className={[
+        "min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]",
+        "relative min-h-screen",
+        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        "bg-top bg-cover",
+        "md:bg-fixed md:bg-center md:bg-cover",
+
+        "text-neutral-900",
+      ].join(" ")}
+    >
       {/* Background blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-24 -left-32 h-80 w-80 rounded-full bg-[#e8dcb8]/50 blur-3xl" />

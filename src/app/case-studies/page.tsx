@@ -121,7 +121,17 @@ export default function CaseStudiesIndex() {
   }, [activeCat, q]);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]">
+    <main
+      className={[
+        "min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]",
+        "relative min-h-screen",
+        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        "bg-top bg-cover",
+        "md:bg-fixed md:bg-center md:bg-cover",
+
+        "text-neutral-900",
+      ].join(" ")}
+    >
       {" "}
       {/* Gradien latar belakang lembut */}
       {/* HEADER */}

@@ -118,7 +118,17 @@ export default function GalleryPage() {
   }, [active, q]);
 
   return (
-    <main className="min-h-screen bg-[#faf8f3]">
+    <main
+      className={[
+        "min-h-screen bg-gradient-to-br from-[#fdfbf5] to-[#f5f0e9]",
+        "relative min-h-screen",
+        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        "bg-top bg-cover",
+        "md:bg-fixed md:bg-center md:bg-cover",
+
+        "text-neutral-900",
+      ].join(" ")}
+    >
       {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
         <div className="mx-auto max-w-6xl px-6 py-8">
