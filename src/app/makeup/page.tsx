@@ -45,52 +45,67 @@ export default function MakeupPortfolioPage() {
         </nav>
       </header>
 
-      {/* HERO */}
-      <section >
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
-     <div className="relative overflow-hidden rounded-none">
-  <Image
-    src="/porto-eryca/bg11.png"
-    alt="Makeup monochrome hero"
-    fill   // otomatis full parent
-    className="object-cover"
-    priority
-    unoptimized
-  />
-  
-  {/* Konten hero */}
-  <div className="relative z-10 flex flex-col items-center justify-center h-[80vh] text-center">
-    <h1 className="text-4xl md:text-6xl font-bold">Muse ERYCA</h1>
-    <p className="mt-2 text-neutral-600 dark:text-neutral-300">
-      More than a face,<br/>I am the canvas where beauty tells its story.
-    </p>
-    <div className="mt-6 flex gap-4">
-      <a
-        href="#services"
-        className="rounded-full bg-black text-white px-6 py-3 hover:opacity-90"
-      >
-        Explore Services
-      </a>
-      <a
-        href="#portfolio"
-        className="rounded-full border border-black px-6 py-3 hover:bg-black hover:text-white"
-      >
-        View Works
-      </a>
-    </div>
-  </div>
-</div>
+      {/* HERO – full header */}
+      <section className="relative h-[70vh] sm:h-[80vh] lg:h-[88vh]">
+        {/* BG image */}
+        <Image
+          src="/porto-eryca/bg11.png"
+          alt="Makeup monochrome hero"
+          fill
+          className="object-cover"
+          priority
+          unoptimized
+        />
 
+        {/* Overlay (opsional biar teks lebih terbaca) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/40" />
+
+        {/* Konten */}
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center">
+          <p className="text-sm tracking-widest text-neutral-700">Muse</p>
+          <h1 className={`${SERIF} mt-1 text-4xl font-bold md:text-6xl`}>ERYCA</h1>
+          <p className={`mt-3 max-w-xl ${MUTED}`}>
+            More than a face,<br />I am the canvas where beauty tells its story.
+          </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#services"
+              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:opacity-90"
+            >
+              Explore Services
+            </a>
+            <a
+              href="#portfolio"
+              className="rounded-full border border-black px-6 py-3 text-sm font-medium text-black hover:bg-black hover:text-white"
+            >
+              View Works
+            </a>
+          </div>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2">
+      <section
+        id="about"
+        className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2"
+      >
         <div>
-          <p className="text-xs uppercase tracking-widest text-neutral-500">About Eryca</p>
-          <h2 className={`${SERIF} mt-2 text-3xl sm:text-4xl`}>Muse, based in Jakarta.</h2>
-          <p className={`mt-4 ${MUTED}`}>Hello peps, kenalin aku newbie muse heheh</p>
-          <a href="#contact" className="mt-6 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white">Learn More</a>
+          <p className="text-xs uppercase tracking-widest text-neutral-500">
+            About Eryca
+          </p>
+          <h2 className={`${SERIF} mt-2 text-3xl sm:text-4xl`}>
+            Muse, based in Jakarta.
+          </h2>
+          <p className={`mt-4 ${MUTED}`}>
+            Hello peps, kenalin aku newbie muse heheh
+          </p>
+          <a
+            href="#contact"
+            className="mt-6 inline-flex rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white"
+          >
+            Learn More
+          </a>
         </div>
         <div className="overflow-hidden rounded-[32px] border border-neutral-200 bg-neutral-100 shadow-sm">
           <Image
@@ -108,9 +123,15 @@ export default function MakeupPortfolioPage() {
       {/* LOGOS */}
       <section className="mx-auto max-w-6xl px-6 pb-6">
         <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-          <li className="flex items-center justify-center text-4xl"><FaGithub title="GitHub" /></li>
-          <li className="flex items-center justify-center text-4xl text-sky-500"><SiReact title="React" /></li>
-          <li className="flex items-center justify-center text-4xl text-pink-500"><SiFigma title="Figma" /></li>
+          <li className="flex items-center justify-center text-4xl">
+            <FaGithub title="GitHub" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-sky-500">
+            <SiReact title="React" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <SiFigma title="Figma" />
+          </li>
         </ul>
       </section>
 
@@ -130,7 +151,10 @@ export default function MakeupPortfolioPage() {
             { src: "/porto-eryca/mua3.jpg", alt: "Makeup Artist by Azti" },
             { src: "/porto-eryca/mua2.jpg", alt: "Makeup Artist by Marettadrie" },
           ].map((g, i) => (
-            <li key={i} className={`${CARD} relative aspect-square overflow-hidden rounded-xl bg-neutral-100`}>
+            <li
+              key={i}
+              className={`${CARD} relative aspect-square overflow-hidden rounded-xl bg-neutral-100`}
+            >
               <Image
                 src={g.src}
                 alt={g.alt}
@@ -141,7 +165,9 @@ export default function MakeupPortfolioPage() {
                 priority={i < 2}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
-              <span className={`${SERIF} absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-neutral-800 shadow`}>
+              <span
+                className={`${SERIF} absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-neutral-800 shadow`}
+              >
                 {g.alt}
               </span>
             </li>
@@ -152,13 +178,27 @@ export default function MakeupPortfolioPage() {
       {/* CONTACT */}
       <section id="contact" className="mx-auto max-w-4xl px-6 py-16">
         <div className={`${PANEL} p-10 text-center`}>
-          <h3 className={`${SERIF} text-3xl sm:text-4xl`}>Ready to collaborate?</h3>
+          <h3 className={`${SERIF} text-3xl sm:text-4xl`}>
+            Ready to collaborate?
+          </h3>
           <p className={`mx-auto mt-3 max-w-xl ${MUTED}`}>
-            Available for bridal, prewedding, graduation and events. On-location by request.
+            Available for bridal, prewedding, graduation and events. On-location
+            by request.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="mailto:hello@eryca847@gmail.com?subject=Makeup%20Booking%20Inquiry" className="rounded-full bg-neutral-900 px-7 py-4 text-sm font-semibold text-white">Email Inquiry</a>
-            <a href="https://wa.me/6285871154799?text=Hi%20Eryca%2C%20saya%20ingin%20collab%20muse%20makeup%20artist." target="_blank" className="rounded-full border border-neutral-300 px-7 py-4 text-sm font-semibold text-neutral-800">WhatsApp</a>
+            <a
+              href="mailto:hello@eryca847@gmail.com?subject=Makeup%20Booking%20Inquiry"
+              className="rounded-full bg-neutral-900 px-7 py-4 text-sm font-semibold text-white"
+            >
+              Email Inquiry
+            </a>
+            <a
+              href="https://wa.me/6285871154799?text=Hi%20Eryca%2C%20saya%20ingin%20collab%20muse%20makeup%20artist."
+              target="_blank"
+              className="rounded-full border border-neutral-300 px-7 py-4 text-sm font-semibold text-neutral-800"
+            >
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>
