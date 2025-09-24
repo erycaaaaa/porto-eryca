@@ -107,7 +107,7 @@ export default function IntroCardsAnimated() {
 
   return (
     <section className="relative z-10 -mt-10 px-4 sm:px-6">
-      <div className="mx-auto max-w-6xl rounded-[24px] bg-[#fffdf8]/50 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] md:p-10">
+      <div className="mx-auto max-w-6xl rounded-[24px] bg-[#fffdf8]/70 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] md:p-10">
         <h2 className="mb-8 text-center font-serif leading-tight text-2xl sm:text-3xl md:text-4xl text-[#4c3e1f]">
           Thoughtful visuals & experiences that tell stories.
         </h2>
@@ -201,11 +201,19 @@ function TiltCard({
       }}
       className="group relative rounded-2xl p-[1.2px] bg-gradient-to-tr from-[#d6c8a3]/50 via-[#f3e9c8] to-[#fffdf8] shadow-md hover:shadow-lg"
     >
-      <div className="relative h-full rounded-[15px] bg-[#fffdf8] p-5 sm:p-6">
+      <div
+        className="
+        relative h-full 
+        rounded-[15px] 
+        shadow-lg shadow-black/10 
+        bg-[#fffdf8]/50 
+        p-5 sm:p-6
+      "
+      >
         <div className="relative z-10 flex h-full flex-col justify-between text-[#4c3e1f]">
           <div>
             {/* Icon chip */}
-            <div className="mb-3 inline-flex items-center justify-center rounded-xl border border-[#d1c4a5] bg-[#fdfbf4] px-3 py-2 shadow-sm">
+            <div className="mb-3 inline-flex items-center justify-center rounded-xl border border-[#d1c4a5] bg-[#fdfbf4]/75 px-3 py-2 shadow-sm">
               <span className="text-2xl leading-none">{item.icon}</span>
             </div>
             <h3 className="font-serif text-lg sm:text-xl">{item.title}</h3>
@@ -215,7 +223,7 @@ function TiltCard({
           </div>
 
           <span className="mt-5 inline-flex items-center gap-2 self-start rounded-full bg-[#4c3e1f] px-4 py-2 text-sm font-medium text-white transition-all duration-200 group-hover:gap-3 group-active:scale-[0.98]">
-            {item.cta} 
+            {item.cta}
           </span>
         </div>
       </div>
