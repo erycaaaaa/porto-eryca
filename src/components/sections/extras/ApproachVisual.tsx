@@ -94,8 +94,7 @@ export default function GalleryPage({
       id="illustrations"
       className={[
         "relative min-h-screen",
-        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
-        " transform rotate-[1800deg]",
+        "bg-[url('/porto-eryca/bg-mua.png')]/0 bg-no-repeat",
         "bg-top bg-cover",
         "md:bg-fixed md:bg-center md:bg-cover",
         "text-neutral-900",
