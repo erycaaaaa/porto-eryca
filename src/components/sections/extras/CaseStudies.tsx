@@ -122,13 +122,12 @@ export default function CaseStudiesIndex() {
       id="worked"
         className={`
       relative min-h-screen
-      bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
-      transform rotate-[360deg]
+     
     `}
 
     >
       {/* HEADER */}
-      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
+      <header className="border-b border-[#e6dccb]/0 bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>

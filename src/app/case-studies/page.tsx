@@ -128,8 +128,8 @@ export default function CaseStudiesIndex() {
         "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
         "bg-top bg-cover",
         "md:bg-fixed md:bg-center md:bg-cover",
-
         "text-neutral-900",
+        " transform rotate-[180deg]",
       ].join(" ")}
     >
       {" "}
