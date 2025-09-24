@@ -1,4 +1,4 @@
-// src/components/layout/SplashScreen.tsx
+
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -21,23 +21,36 @@ export default function SplashScreen({
   const effectiveMin = (minMs ?? defaultDurationMs ?? 700);
   const effectiveHard = (hardTimeoutMs ?? maxTotalMs ?? 1800);
 
-  const [shouldRender, setShouldRender] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return oncePerSession ? sessionStorage.getItem("splash:shown") !== "1" : true;
-  });
-  const [visible, setVisible] = useState(shouldRender);
+ 
+  const [shouldRender, setShouldRender] = useState(true);  
+  const [visible, setVisible] = useState(false);       
 
   const startedAtRef = useRef(0);
-  const ranRef = useRef(false);
+  const closedRef = useRef(false);
+  const hardTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!shouldRender || ranRef.current) return;
-    ranRef.current = true;
+
+    if (closedRef.current) return;
+
+    const already = oncePerSession && sessionStorage.getItem("splash:shown") === "1";
+    if (already) {
+
+      setShouldRender(false);
+      return;
+    }
+
+    // Tampilkan overlay (fade in)
+    setVisible(true);
     startedAtRef.current = performance.now();
 
     const close = () => {
+      if (closedRef.current) return;
+      closedRef.current = true;
+
       const elapsed = performance.now() - startedAtRef.current;
       const wait = Math.max(0, effectiveMin - elapsed);
+
       window.setTimeout(() => {
         setVisible(false);
         if (oncePerSession) sessionStorage.setItem("splash:shown", "1");
@@ -48,13 +61,20 @@ export default function SplashScreen({
     if (document.readyState === "interactive" || document.readyState === "complete") {
       close();
     } else {
-      const onReady = () => { document.removeEventListener("readystatechange", onReady); close(); };
+      const onReady = () => {
+        document.removeEventListener("readystatechange", onReady);
+        close();
+      };
       document.addEventListener("readystatechange", onReady);
     }
 
-    const hard = window.setTimeout(close, effectiveHard);
-    return () => window.clearTimeout(hard);
-  }, [shouldRender, effectiveMin, effectiveHard, oncePerSession]);
+    // Hard timeout cadangan
+    hardTimerRef.current = window.setTimeout(close, effectiveHard);
+
+    return () => {
+      if (hardTimerRef.current) window.clearTimeout(hardTimerRef.current);
+    };
+  }, [effectiveMin, effectiveHard, oncePerSession]);
 
   if (!shouldRender) return null;
 
