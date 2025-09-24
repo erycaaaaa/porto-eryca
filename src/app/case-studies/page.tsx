@@ -5,7 +5,7 @@ import Link from "next/link";
 export const dynamic = "force-static"; // optional
 
 // Route halaman saat ini
-const THIS_ROUTE = "/gallery";
+const THIS_ROUTE = "/cs-parable"; // Ganti sesuai route halaman studi kasus
 
 const CATEGORIES = [
   "All",
