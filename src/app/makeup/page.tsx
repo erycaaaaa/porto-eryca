@@ -24,7 +24,7 @@ export default function MakeupPortfolioPage() {
       `}
     >
       {/* Topbar */}
-      <header className="sticky top-0 z-30 border-b border-neutral-200/60 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <header className="sticky top-0 z-30 border-b border-neutral-200/00 bg-white/00 backdrop-blur supports-[backdrop-filter]:bg-white/00">
         <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
           <a href="#makeup" className={`${SERIF} text-xl font-semibold`}>
             Eryca
@@ -38,7 +38,7 @@ export default function MakeupPortfolioPage() {
           <a
             href="https://wa.me/6285871154799?text=Hi%20Eryca%2C%20saya%20ingin%20booking%20makeup."
             target="_blank"
-            className="hidden rounded-full px-4 py-2 text-xs font-medium text-white sm:inline-block"
+            className="hidden rounded-full px-4 py-2 text-xs font-medium text-black sm:inline-block"
           >
             Collaboration With Me ^^ →
           </a>
@@ -46,9 +46,9 @@ export default function MakeupPortfolioPage() {
       </header>
 
       {/* HERO */}
-      <section className="relative isolate">
+      <section >
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
-          <div className="relative overflow-hidden rounded-[36px] border border-neutral-200 bg-neutral-50">
+          <div className="relative overflow-hidden rounded-[36px] border border-neutral-200/0 bg-neutral-0">
             <Image
               src="/porto-eryca/bg-baru.png"
               alt="Makeup monochrome hero"
