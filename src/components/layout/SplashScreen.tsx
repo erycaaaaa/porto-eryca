@@ -4,15 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type Props = {
-  /** Minimal tampil (ms) sebelum boleh ditutup otomatis/oleh user */
   minMs?: number;
-  /** Batas keras total splash (ms) — akan dipaksa hilang jika lewat */
   hardTimeoutMs?: number;
-  /** Hanya sekali per sessionStorage */
   oncePerSession?: boolean;
-  /** (Alias) Default durasi minimal jika minMs tak diisi */
-  defaultDurationMs?: number; // ← tambahkan ini
-  /** (Alias) Batas keras total jika hardTimeoutMs tak diisi */
+  defaultDurationMs?: number;
   maxTotalMs?: number;
 };
 
@@ -23,9 +18,8 @@ export default function SplashScreen({
   defaultDurationMs,
   maxTotalMs,
 }: Props) {
-  // Resolusi nilai alias vs utama
-  const effectiveMin = (minMs ?? defaultDurationMs ?? 700);
-  const effectiveHard = (hardTimeoutMs ?? maxTotalMs ?? 1800);
+  const effectiveMin = minMs ?? defaultDurationMs ?? 700;
+  const effectiveHard = hardTimeoutMs ?? maxTotalMs ?? 1800;
 
   const [shouldRender, setShouldRender] = useState(true);
   const [visible, setVisible] = useState(false);
@@ -35,11 +29,11 @@ export default function SplashScreen({
   const hardTimerRef = useRef<number | null>(null);
   const hideTimerRef = useRef<number | null>(null);
 
-  // Contoh: fungsi “gateFull” dibikin stabil agar lolos ESLint
   const gateFull = useCallback(() => {
     if (closedRef.current) return;
 
-    const already = oncePerSession && sessionStorage.getItem("splash:shown") === "1";
+    const already =
+      oncePerSession && sessionStorage.getItem("splash:shown") === "1";
     if (already) {
       setShouldRender(false);
       return;
@@ -59,14 +53,13 @@ export default function SplashScreen({
   }, [oncePerSession, effectiveHard]);
 
   useEffect(() => {
-    gateFull(); // ← kita panggil fungsi stabil
+    gateFull();
     return () => {
       if (hardTimerRef.current) clearTimeout(hardTimerRef.current);
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     };
-  }, [gateFull]); // ← deps ditambahkan agar tak ada warning
+  }, [gateFull]);
 
-  // contoh close handler menjaga minimal durasi tampil
   const close = useCallback(() => {
     if (closedRef.current) return;
     const elapsed = performance.now() - startedAtRef.current;
@@ -92,8 +85,7 @@ export default function SplashScreen({
       onClick={close}
     >
       <div className="rounded-2xl bg-[#f5f4ef] p-6 shadow-2xl">
-        <Image src="/logo.png" alt="" width={96} height={96} />
-        <p className="mt-3 text-sm text-zinc-700">Loading…</p>
+        <Image src="/porto-eryca/eryca.gif" alt="" width={96} height={96} />
       </div>
     </div>
   );

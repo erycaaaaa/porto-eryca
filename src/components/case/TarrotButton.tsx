@@ -22,10 +22,22 @@ export function TarotButtonLink({ className = "" }: Props) {
       />
 
       {/* Sparkle putih random */}
-      <span aria-hidden className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-white shadow animate-ping" />
-      <span aria-hidden className="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-white/90 shadow animate-pulse" />
-      <span aria-hidden className="absolute top-1/4 left-[10%] w-1.5 h-1.5 rounded-full bg-white/90 shadow animate-ping" />
-      <span aria-hidden className="absolute bottom-[18%] right-[14%] w-2 h-2 rounded-full bg-white shadow animate-pulse" />
+      <span
+        aria-hidden
+        className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-white shadow animate-ping"
+      />
+      <span
+        aria-hidden
+        className="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full bg-white/90 shadow animate-pulse"
+      />
+      <span
+        aria-hidden
+        className="absolute top-1/4 left-[10%] w-1.5 h-1.5 rounded-full bg-white/90 shadow animate-ping"
+      />
+      <span
+        aria-hidden
+        className="absolute bottom-[18%] right-[14%] w-2 h-2 rounded-full bg-white shadow animate-pulse"
+      />
 
       {/* Segitiga bintang kuning */}
       <span

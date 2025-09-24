@@ -124,7 +124,9 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">All Artworks</h1>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">
+                All Artworks
+              </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
@@ -171,7 +173,8 @@ export default function GalleryPage() {
       <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
+            pencarian.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -191,7 +194,9 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <p className="mt-1 text-xs opacity-90">
+                      {item.description}
+                    </p>
                     <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                       {item.category}
                     </span>

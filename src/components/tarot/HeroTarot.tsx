@@ -4,9 +4,13 @@ import { motion, easeInOut } from "framer-motion";
 import Image from "next/image";
 
 export default function HeroTarot({
-title = "Whispers of the Cards",
-subtitle = "Di balik setiap gambar, terdapat kisah hening tentang keberanian, cinta, dan kebijaksanaan untuk ditafsirkan.",
-cards = ["/porto-eryca/the-fool.jpg", "/porto-eryca/the-lovers.jpg", "/porto-eryca/queen-of-swords.jpg"],
+  title = "Whispers of the Cards",
+  subtitle = "Di balik setiap gambar, terdapat kisah hening tentang keberanian, cinta, dan kebijaksanaan untuk ditafsirkan.",
+  cards = [
+    "/porto-eryca/the-fool.jpg",
+    "/porto-eryca/the-lovers.jpg",
+    "/porto-eryca/queen-of-swords.jpg",
+  ],
 }: {
   title?: string;
   subtitle?: string;
@@ -18,7 +22,7 @@ cards = ["/porto-eryca/the-fool.jpg", "/porto-eryca/the-lovers.jpg", "/porto-ery
     transition: {
       duration: 4 + i,
       repeat: Infinity,
-      ease: easeInOut, 
+      ease: easeInOut,
     },
   });
 
@@ -33,9 +37,17 @@ cards = ["/porto-eryca/the-fool.jpg", "/porto-eryca/the-lovers.jpg", "/porto-ery
             <motion.div
               key={src}
               animate={float(i)}
-              className={`relative w-32 h-52 sm:w-40 sm:h-64 rounded-xl shadow-xl overflow-hidden ${i === 1 ? "scale-105" : "opacity-90"}`}
+              className={`relative w-32 h-52 sm:w-40 sm:h-64 rounded-xl shadow-xl overflow-hidden ${
+                i === 1 ? "scale-105" : "opacity-90"
+              }`}
             >
-              <Image src={src} alt={`card-${i}`} fill className="object-cover" priority={i === 1} />
+              <Image
+                src={src}
+                alt={`card-${i}`}
+                fill
+                className="object-cover"
+                priority={i === 1}
+              />
             </motion.div>
           ))}
         </div>

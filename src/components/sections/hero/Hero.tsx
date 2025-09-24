@@ -11,7 +11,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
     <section id="home" className="relative isolate">
       {/* BACKGROUND */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-     <img
+      <img
         src="/porto-eryca/bg11.png"
         alt=""
         aria-hidden="true"
@@ -22,7 +22,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
           "object-contain sm:object-cover object-center",
           "sm:object-[50%_40%] md:object-[50%_30%]",
           "transition-transform duration-300 ease-out will-change-transform",
-          "pointer-events-none select-none"
+          "pointer-events-none select-none",
         ].join(" ")}
       />
 

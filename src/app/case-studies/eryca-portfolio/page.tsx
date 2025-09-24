@@ -6,7 +6,6 @@ import TimelineDuo from "@/components/case/TimelineDuo";
 import RoleStrip from "@/components/case/RoleStrip";
 import { FaHtml5, FaCss3Alt, FaGithub, FaBootstrap } from "react-icons/fa";
 
-
 export default function Page() {
   return (
     <CaseLayout
@@ -23,23 +22,23 @@ export default function Page() {
       // coverImage="/porto-eryca/mock-portfolio.jpg"
       prototypeUrl="https://www.figma.com/proto/your-eryca"
     >
-              {/* LOGOS */}
-                    <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
-                <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-                  <li className="flex items-center justify-center text-4xl">
-                    <FaGithub title="GitHub" />
-                  </li>
-                  <li className="flex items-center justify-center text-4xl text-sky-500">
-                    <FaHtml5 title="HTML" />
-                  </li>
-                  <li className="flex items-center justify-center text-4xl text-pink-500">
-                    <FaCss3Alt title="CSS" />
-                  </li>
-                              <li className="flex items-center justify-center text-4xl text-pink-500">
-                    <FaBootstrap title="Bootstraps5" />
-                  </li>
-                </ul>
-              </section>
+      {/* LOGOS */}
+      <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
+        <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+          <li className="flex items-center justify-center text-4xl">
+            <FaGithub title="GitHub" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-sky-500">
+            <FaHtml5 title="HTML" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <FaCss3Alt title="CSS" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <FaBootstrap title="Bootstraps5" />
+          </li>
+        </ul>
+      </section>
 
       {/* ABOUT — lebar */}
       <CaseSection id="about" title="About Website">
@@ -53,10 +52,10 @@ export default function Page() {
             diperbarui.
           </p>
           <p>
-            Tujuan kami sederhana: menjadi <em>pusat kegiatan (event center)</em>{" "}
-            yang memudahkan komunikasi, pendaftaran acara, serta pengingat
-            jadwal—sehingga siapa pun dapat mengikuti perkembangan vihara dari
-            mana saja.
+            Tujuan kami sederhana: menjadi{" "}
+            <em>pusat kegiatan (event center)</em> yang memudahkan komunikasi,
+            pendaftaran acara, serta pengingat jadwal—sehingga siapa pun dapat
+            mengikuti perkembangan vihara dari mana saja.
           </p>
 
           <h4>Yang kamu temukan di website ini</h4>
@@ -70,16 +69,16 @@ export default function Page() {
               (perubahan jam, cuaca, dsb.).
             </li>
             <li>
-              <strong>Pendaftaran Online</strong> — formulir sederhana + konfirmasi
-              via WhatsApp/SMS.
+              <strong>Pendaftaran Online</strong> — formulir sederhana +
+              konfirmasi via WhatsApp/SMS.
             </li>
             <li>
               <strong>Notifikasi Ringan</strong> — pilihan pengingat lewat
               email/WhatsApp/Telegram.
             </li>
             <li>
-              <strong>Peta & Arah</strong> — link peta, titik kumpul, dan catatan
-              transport.
+              <strong>Peta & Arah</strong> — link peta, titik kumpul, dan
+              catatan transport.
             </li>
             <li>
               <strong>Kontak & Donasi</strong> — nomor admin, kanal tanya-jawab,
@@ -94,7 +93,6 @@ export default function Page() {
               halaman ringan, cache (PWA).
             </li>
           </ul>
-
         </div>
       </CaseSection>
 
@@ -106,7 +104,9 @@ export default function Page() {
           <ol className="list-decimal pl-5 space-y-1">
             <li>Info kegiatan tersebar (grup WA/selebaran), sulit dilacak.</li>
             <li>Perubahan jadwal mendadak tidak cepat sampai ke semua umat.</li>
-            <li>Lokasi terpencil & jaringan lemah menyulitkan akses informasi.</li>
+            <li>
+              Lokasi terpencil & jaringan lemah menyulitkan akses informasi.
+            </li>
           </ol>
         }
         titleRight="Solution"

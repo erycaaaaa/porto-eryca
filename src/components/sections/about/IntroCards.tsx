@@ -215,7 +215,7 @@ function TiltCard({
           </div>
 
           <span className="mt-5 inline-flex items-center gap-2 self-start rounded-full bg-[#4c3e1f] px-4 py-2 text-sm font-medium text-white transition-all duration-200 group-hover:gap-3 group-active:scale-[0.98]">
-            {item.cta} →
+            {item.cta} 
           </span>
         </div>
       </div>

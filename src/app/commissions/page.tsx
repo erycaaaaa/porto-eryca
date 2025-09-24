@@ -65,19 +65,35 @@ export default function OpenCommissionPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#ffffff] text-neutral-900">
+    <main
+      className={[
+        "relative min-h-screen",
+        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        "bg-top bg-cover",
+        "md:bg-fixed md:bg-center md:bg-cover",
+        "text-neutral-900",
+      ].join(" ")}
+    >
       <StoryCover name={name} />
       <StorySpread />
       <Packages />
       <CTASection />
 
-      {gateOpen && <IntroGate onSubmit={closeGate} onSkip={() => closeGate("Friend")} />}
+      {gateOpen && (
+        <IntroGate onSubmit={closeGate} onSkip={() => closeGate("Friend")} />
+      )}
     </main>
   );
 }
 
 /* ---------- Intro Gate (overlay fixed menutup navbar) ---------- */
-function IntroGate({ onSubmit, onSkip }: { onSubmit: (name: string) => void; onSkip: () => void }) {
+function IntroGate({
+  onSubmit,
+  onSkip,
+}: {
+  onSubmit: (name: string) => void;
+  onSkip: () => void;
+}) {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
 
@@ -87,19 +103,28 @@ function IntroGate({ onSubmit, onSkip }: { onSubmit: (name: string) => void; onS
   };
 
   return (
-    <div className="fixed inset-0 z-[100] grid place-items-center" role="dialog" aria-modal="true">
+    <div
+      className="fixed inset-0 z-[100] grid place-items-center"
+      role="dialog"
+      aria-modal="true"
+    >
       {/* backdrop */}
       <div className="absolute inset-0 bg-[radial-gradient(1000px_600px_at_50%_0%,#fff5ea,transparent)]" />
       <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]" />
 
       {/* card */}
       <div className="relative mx-auto w-[90%] max-w-lg rounded-3xl border border-[#ecd9c7] bg-white/90 p-8 shadow-[0_40px_120px_-40px_rgba(104,65,40,0.35)]">
-        <h1 className="text-center font-serif text-3xl text-[#5a3b25]">Selamat datang ✨</h1>
+        <h1 className="text-center font-serif text-3xl text-[#5a3b25]">
+          Selamat datang ✨
+        </h1>
         <p className="mt-2 text-center text-sm text-neutral-700">
-          Sebelum mulai, kenalan dulu yuk—tulis namamu biar halamannya terasa lebih personal.
+          Sebelum mulai, kenalan dulu yuk—tulis namamu biar halamannya terasa
+          lebih personal.
         </p>
 
-        <label className="mt-6 block text-sm font-medium text-[#6e482c]">Namamu</label>
+        <label className="mt-6 block text-sm font-medium text-[#6e482c]">
+          Namamu
+        </label>
         <input
           value={value}
           onChange={(e) => setValue(e.target.value)}
@@ -149,7 +174,9 @@ function StoryCover({ name }: { name: string }) {
           <div className="grid items-center gap-10 md:grid-cols-12">
             {/* Judul kiri */}
             <div className="md:col-span-7">
-              <p className="text-xs tracking-[0.35em] uppercase text-[#b08155]">Portfolio Commissions</p>
+              <p className="text-xs tracking-[0.35em] uppercase text-[#b08155]">
+                Portfolio Commissions
+              </p>
               <h1 className="mt-2 font-serif text-5xl leading-tight sm:text-6xl text-[#5a3b25]">
                 Open <span className="italic">Commissions</span>
               </h1>
@@ -159,10 +186,11 @@ function StoryCover({ name }: { name: string }) {
 
               {/* storytelling intro */}
               <p className="mt-3 max-w-prose text-[15px] leading-7 text-neutral-700">
-                Seperti membuka halaman pertama sebuah buku dongeng, setiap komisi adalah
-                perjalanan baru. Dari ilustrasi penuh warna hingga spot-art untuk desain modern,
-                aku membantumu mewujudkan ide, brand, atau kisah pribadimu menjadi visual yang
-                hangat dan bercerita—siap untuk layar digital maupun cetak.
+                Seperti membuka halaman pertama sebuah buku dongeng, setiap
+                komisi adalah perjalanan baru. Dari ilustrasi penuh warna hingga
+                spot-art untuk desain modern, aku membantumu mewujudkan ide,
+                brand, atau kisah pribadimu menjadi visual yang hangat dan
+                bercerita—siap untuk layar digital maupun cetak.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -193,7 +221,9 @@ function StoryCover({ name }: { name: string }) {
                 {/* glare */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/20 mix-blend-overlay" />
               </div>
-              <p className="mt-2 text-center text-[11px] text-neutral-500">by eryca dhm</p>
+              <p className="mt-2 text-center text-[11px] text-neutral-500">
+                by eryca dhm
+              </p>
             </div>
           </div>
         </OrnateFrame>
@@ -219,14 +249,19 @@ function StorySpread() {
         <div className="grid gap-10 md:grid-cols-12">
           {/* teks kiri */}
           <article className="md:col-span-6 lg:col-span-5">
-            <p className="text-xs tracking-[0.3em] uppercase text-[#b08155]">Chapter I</p>
-            <h2 className="mt-2 font-serif text-3xl md:text-4xl text-[#5a3b25]">The Garden of Hope</h2>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#b08155]">
+              Chapter I
+            </p>
+            <h2 className="mt-2 font-serif text-3xl md:text-4xl text-[#5a3b25]">
+              The Garden of Hope
+            </h2>
 
             <div className="prose prose-neutral mt-4 max-w-none text-[15px] leading-7">
               <p>
-                Kamu bisa mulai dari coretan hitam-putih, atau langsung ke warna penuh. Untuk brand
-                maupun karya pribadi, kita bisa membuat ilustrasi editorial yang pas untuk layout
-                A4/A5, feed sosial, atau bahkan poster cetak.
+                Kamu bisa mulai dari coretan hitam-putih, atau langsung ke warna
+                penuh. Untuk brand maupun karya pribadi, kita bisa membuat
+                ilustrasi editorial yang pas untuk layout A4/A5, feed sosial,
+                atau bahkan poster cetak.
               </p>
             </div>
 
@@ -322,7 +357,11 @@ function Packages() {
       title: "Custom Illustration",
       desc: "Ilustrasi bebas (karakter, scene, atau konsep unik) sesuai kebutuhan personal maupun komersial.",
       price: "mulai dari IDR 300k",
-      spec: ["High-res PNG/JPG", "Pilihan gaya watercolor/digital", "Lisensi fleksibel"],
+      spec: [
+        "High-res PNG/JPG",
+        "Pilihan gaya watercolor/digital",
+        "Lisensi fleksibel",
+      ],
       icon: <Paintbrush size={18} className="text-[#6e482c]" />,
     },
     {
@@ -372,10 +411,14 @@ function Packages() {
             >
               <div className="flex items-center gap-2">
                 {it.icon}
-                <h4 className="font-serif text-lg md:text-xl text-[#5a3b25]">{it.title}</h4>
+                <h4 className="font-serif text-lg md:text-xl text-[#5a3b25]">
+                  {it.title}
+                </h4>
               </div>
 
-              <p className="mt-1 text-[13px] md:text-sm leading-6 text-neutral-700">{it.desc}</p>
+              <p className="mt-1 text-[13px] md:text-sm leading-6 text-neutral-700">
+                {it.desc}
+              </p>
 
               <ul className="mt-3 space-y-1 text-[13px] md:text-sm text-neutral-700">
                 {it.spec.map((s) => (
@@ -386,7 +429,9 @@ function Packages() {
                 ))}
               </ul>
 
-              <p className="mt-3 md:mt-4 font-medium text-[#6e482c]">{it.price}</p>
+              <p className="mt-3 md:mt-4 font-medium text-[#6e482c]">
+                {it.price}
+              </p>
             </li>
           ))}
         </ul>
@@ -403,10 +448,13 @@ function CTASection() {
         <div className="rounded-3xl border border-[#ecd9c7] bg-gradient-to-br from-white to-[#fff3e7] p-6 md:p-8">
           <div className="grid items-center gap-6 md:grid-cols-12">
             <div className="md:col-span-8">
-              <h3 className="font-serif text-2xl text-[#5a3b25]">Siap membuka lembar cerita barumu?</h3>
+              <h3 className="font-serif text-2xl text-[#5a3b25]">
+                Siap membuka lembar cerita barumu?
+              </h3>
               <p className="mt-1 text-sm text-neutral-700">
-                Kamu bisa DM aku di Instagram @erycadhm atau langsung kirim brief singkat:
-                tema, ukuran, tujuan penggunaan, dan deadline. Mari kita mulai perjalanan kreatif ini bersama.
+                Kamu bisa DM aku di Instagram @erycadhm atau langsung kirim
+                brief singkat: tema, ukuran, tujuan penggunaan, dan deadline.
+                Mari kita mulai perjalanan kreatif ini bersama.
               </p>
             </div>
             <div className="md:col-span-4 md:text-right">

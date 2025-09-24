@@ -10,7 +10,11 @@ type Ctx = {
 
 const NowPlayingCtx = createContext<Ctx | null>(null);
 
-export default function NowPlayingProvider({ children }: { children: React.ReactNode }) {
+export default function NowPlayingProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isPlaying, setPlaying] = useState(false);
 
   const value = useMemo(
@@ -22,11 +26,14 @@ export default function NowPlayingProvider({ children }: { children: React.React
     [isPlaying]
   );
 
-  return <NowPlayingCtx.Provider value={value}>{children}</NowPlayingCtx.Provider>;
+  return (
+    <NowPlayingCtx.Provider value={value}>{children}</NowPlayingCtx.Provider>
+  );
 }
 
 export function useNowPlaying() {
   const ctx = useContext(NowPlayingCtx);
-  if (!ctx) throw new Error("useNowPlaying must be used within NowPlayingProvider");
+  if (!ctx)
+    throw new Error("useNowPlaying must be used within NowPlayingProvider");
   return ctx;
 }

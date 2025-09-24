@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 // react-icons
-import { FaPython, FaHtml5, FaCss3Alt, FaGithub, FaBootstrap } from "react-icons/fa";
+import {
+  FaPython,
+  FaHtml5,
+  FaCss3Alt,
+  FaGithub,
+  FaBootstrap,
+} from "react-icons/fa";
 import {
   SiNextdotjs,
   SiFigma,
@@ -111,7 +117,9 @@ export default function LogoStrip({
     "GitHub",
   ];
 
-  const items = (tools && tools.length > 0 ? tools : defaults).map((t) => ({ label: t }));
+  const items = (tools && tools.length > 0 ? tools : defaults).map((t) => ({
+    label: t,
+  }));
 
   return (
     <section
@@ -141,7 +149,9 @@ export default function LogoStrip({
             title={label}
           >
             <IconFor label={label} />
-            {showLabels && <span className="ml-2 text-xs text-[#f8e6c9]">{label}</span>}
+            {showLabels && (
+              <span className="ml-2 text-xs text-[#f8e6c9]">{label}</span>
+            )}
           </li>
         ))}
       </ul>

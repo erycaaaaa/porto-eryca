@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { Music2, X } from "lucide-react";
 import { useNowPlaying } from "@/components/sections/media/NowPlayingProvider";
 
@@ -103,9 +109,16 @@ export default function StickySpotify() {
     return () => window.removeEventListener("resize", onResize);
   }, [clampToViewport]);
 
-  const onWrapperPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
+  const onWrapperPointerDown: React.PointerEventHandler<HTMLDivElement> = (
+    e
+  ) => {
     const target = e.target as HTMLElement;
-    if (target.closest("input, textarea, select, a, label, [role='slider'], [data-no-drag]")) return;
+    if (
+      target.closest(
+        "input, textarea, select, a, label, [role='slider'], [data-no-drag]"
+      )
+    )
+      return;
     if (!pos) return;
 
     dragRef.current = {
@@ -144,7 +157,10 @@ export default function StickySpotify() {
     const dx = e.clientX - d.startX;
     const dy = e.clientY - d.startY;
 
-    if (!d.dragging && (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)) {
+    if (
+      !d.dragging &&
+      (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)
+    ) {
       startDragging(e.pointerId);
     }
 
@@ -177,7 +193,12 @@ export default function StickySpotify() {
       className={`sticky-spotify-wrap fixed z-[2000] ${
         open ? "cursor-grab active:cursor-grabbing" : "cursor-move"
       }`}
-      style={{ left: pos.x, top: pos.y, width: open ? cardW : "auto", touchAction: "none" }}
+      style={{
+        left: pos.x,
+        top: pos.y,
+        width: open ? cardW : "auto",
+        touchAction: "none",
+      }}
     >
       {!open ? (
         <button
@@ -219,7 +240,9 @@ export default function StickySpotify() {
               max={maxScale}
               step={0.01}
               value={scale}
-              onChange={(e) => setScale(clamp(parseFloat(e.target.value), MIN, maxScale))}
+              onChange={(e) =>
+                setScale(clamp(parseFloat(e.target.value), MIN, maxScale))
+              }
               className="w-24 accent-current"
               aria-label="Resize player"
             />
@@ -234,7 +257,10 @@ export default function StickySpotify() {
             </button>
           </div>
 
-          <div className="relative overflow-hidden rounded-xl" style={{ width: contentW, height: contentH }}>
+          <div
+            className="relative overflow-hidden rounded-xl"
+            style={{ width: contentW, height: contentH }}
+          >
             <div
               style={{
                 width: BASE_W,

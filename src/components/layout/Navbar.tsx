@@ -28,17 +28,23 @@ export default function Navbar() {
 
   // ===== utils =====
   const showSplash = (ms = 5000) =>
-    window.dispatchEvent(new CustomEvent("eryca:splash", { detail: { durationMs: ms } }));
+    window.dispatchEvent(
+      new CustomEvent("eryca:splash", { detail: { durationMs: ms } })
+    );
 
   const getHash = (href: string) =>
-    href.startsWith("/#") ? href.slice(2) : href.startsWith("#") ? href.slice(1) : null;
+    href.startsWith("/#")
+      ? href.slice(2)
+      : href.startsWith("#")
+      ? href.slice(1)
+      : null;
 
   const resolveHref = (href: string) => {
-    if (href.startsWith("/#") || href.startsWith("#")) return href; 
-    if (href.startsWith("/")) return `${BASE}${href}`;              
-    return href;                                                    
+    if (href.startsWith("/#") || href.startsWith("#")) return href;
+    if (href.startsWith("/")) return `${BASE}${href}`;
+    return href;
   };
-  
+
   const smoothScrollToId = (id: string) => {
     const nav = document.getElementById("site-nav");
     const offset = nav ? nav.getBoundingClientRect().height : 72;
@@ -64,10 +70,14 @@ export default function Navbar() {
       if (id) {
         e.preventDefault();
         setOpen(false);
-        if (pathname === "/" || pathname === `${BASE}/` || pathname === `${BASE}`) {
+        if (
+          pathname === "/" ||
+          pathname === `${BASE}/` ||
+          pathname === `${BASE}`
+        ) {
           smoothScrollToId(id);
         } else {
-          router.push(`${BASE}/#${id}`); 
+          router.push(`${BASE}/#${id}`);
         }
         return;
       }
@@ -76,19 +86,19 @@ export default function Navbar() {
         setOpen(false);
         router.push(resolveHref(rawHref));
       }
-
     };
 
   // ===== effects =====
 
-  useEffect(() => { setOpen(false); }, []);
+  useEffect(() => {
+    setOpen(false);
+  }, []);
 
   // lock body saat menu open
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
     return () => document.body.classList.remove("overflow-hidden");
   }, [open]);
-
 
   useEffect(() => {
     const onHash = () => setOpen(false);
@@ -160,7 +170,13 @@ export default function Navbar() {
             onClick={() => showSplash(5200)}
             className="justify-self-center hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           >
-            <Image src="/porto-eryca/eryca.gif" alt="Logo" width={48} height={48} unoptimized />
+            <Image
+              src="/porto-eryca/eryca.gif"
+              alt="Logo"
+              width={48}
+              height={48}
+              unoptimized
+            />
           </button>
 
           <ul className="flex gap-8 justify-self-start">
@@ -200,7 +216,13 @@ export default function Navbar() {
             onClick={() => showSplash(1200)}
             className="hover:opacity-90"
           >
-            <Image src="/porto-eryca/eryca.gif" alt="Logo" width={36} height={36} unoptimized />
+            <Image
+              src="/porto-eryca/eryca.gif"
+              alt="Logo"
+              width={36}
+              height={36}
+              unoptimized
+            />
           </button>
 
           <div className="w-8" />

@@ -7,17 +7,17 @@ export default function SiteHero({
   siteUrl,
   figmaUrl,
   poster,
-  imagePosition = "right", 
+  imagePosition = "right",
 }: {
   title: string;
   tagline?: string;
   siteUrl?: string;
   figmaUrl?: string;
-  poster: string;     
+  poster: string;
   imagePosition?: "left" | "right";
 }) {
   const textOrder = imagePosition === "left" ? "md:order-2" : "md:order-1";
-  const imgOrder  = imagePosition === "left" ? "md:order-1" : "md:order-2";
+  const imgOrder = imagePosition === "left" ? "md:order-1" : "md:order-2";
 
   return (
     <section
@@ -59,52 +59,53 @@ export default function SiteHero({
           </div>
         </div>
 
-{/* POSTER — square 1:1 only */}
-<div className={`relative ${imgOrder}`}>
-  {(() => {
-    const finalHref = siteUrl ?? "/porto-eryca/mokap2.png"; 
-    const isExternal = /^https?:\/\//.test(finalHref);
-    const pretty = isExternal
-      ? finalHref.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "")
-      : "Open image";
+        {/* POSTER — square 1:1 only */}
+        <div className={`relative ${imgOrder}`}>
+          {(() => {
+            const finalHref = siteUrl ?? "/porto-eryca/mokap2.png";
+            const isExternal = /^https?:\/\//.test(finalHref);
+            const pretty = isExternal
+              ? finalHref
+                  .replace(/^https?:\/\//, "")
+                  .replace(/^www\./, "")
+                  .replace(/\/$/, "")
+              : "Open image";
 
-    return (
-      <>
-        <a
-          href={finalHref}
-          target={isExternal ? "_blank" : "_self"}
-          rel={isExternal ? "noopener noreferrer" : undefined}
-          aria-label={isExternal ? `Open ${pretty}` : "Open full image"}
-          title={isExternal ? pretty : "Open full image"}
-          className="block"
-        >
-          <div className="relative mx-auto aspect-square w-full max-w-[28rem] overflow-hidden rounded-2xl border bg-white">
-            <img
-              src={poster}
-              alt={`${title} preview`}
-              className="h-full w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
-              loading="lazy"
-            />
-          </div>
-        </a>
+            return (
+              <>
+                <a
+                  href={finalHref}
+                  target={isExternal ? "_blank" : "_self"}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  aria-label={isExternal ? `Open ${pretty}` : "Open full image"}
+                  title={isExternal ? pretty : "Open full image"}
+                  className="block"
+                >
+                  <div className="relative mx-auto aspect-square w-full max-w-[28rem] overflow-hidden rounded-2xl border bg-white">
+                    <img
+                      src={poster}
+                      alt={`${title} preview`}
+                      className="h-full w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                  </div>
+                </a>
 
-        {/* label/link kecil di bawah gambar */}
-        <div className="mt-2 text-center text-[10px] text-neutral-500">
-          <a
-            href={finalHref}
-            target={isExternal ? "_blank" : "_self"}
-            rel={isExternal ? "noopener noreferrer" : undefined}
-            className="hover:underline decoration-dotted"
-          >
-            {pretty}
-          </a>
+                {/* label/link kecil di bawah gambar */}
+                <div className="mt-2 text-center text-[10px] text-neutral-500">
+                  <a
+                    href={finalHref}
+                    target={isExternal ? "_blank" : "_self"}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="hover:underline decoration-dotted"
+                  >
+                    {pretty}
+                  </a>
+                </div>
+              </>
+            );
+          })()}
         </div>
-      </>
-    );
-  })()}
-</div>
-
-
       </div>
     </section>
   );

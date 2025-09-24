@@ -15,7 +15,8 @@ export default function ParableFloristryPage() {
   return (
     <div className="min-h-screen bg-[#f5f4ef] text-black">
       <main>
-        <Hero name="ERYCA" subtitle="GRAPHIC DESIGNER" />   {/* pakai Hero global */}
+        <Hero name="ERYCA" subtitle="GRAPHIC DESIGNER" />{" "}
+        {/* pakai Hero global */}
         <IntroCardsAnimated />
         <AboutMeAnimated />
         <ExternalLogoStrip />

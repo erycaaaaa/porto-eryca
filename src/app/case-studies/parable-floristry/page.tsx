@@ -4,7 +4,13 @@ import TwoColSection from "@/components/case/TwoColSect";
 import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
 import TestimonialRow from "@/components/case/TestimonialRow";
 import SiteHero from "@/components/case/SiteHero-Bunga";
-import { FaHtml5, FaCss3Alt, FaGithub, FaBootstrap, FaFigma } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaGithub,
+  FaBootstrap,
+  FaFigma,
+} from "react-icons/fa";
 
 export default function Page() {
   return (
@@ -36,37 +42,47 @@ export default function Page() {
         poster="/porto-eryca/faja1.jpg"
       />
 
-        {/* LOGOS */}
-        <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
-          <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-            <li className="flex items-center justify-center text-4xl">
-              <FaGithub title="GitHub" />
-            </li>
-            <li className="flex items-center justify-center text-4xl text-sky-500">
-              <FaHtml5 title="HTML" />
-            </li>
-            <li className="flex items-center justify-center text-4xl text-pink-500">
-              <FaCss3Alt title="CSS" />
-            </li>
-            <li className="flex items-center justify-center text-4xl text-pink-500">
-              <FaBootstrap title="Bootstraps5" />
-            </li> 
-            <li className="flex items-center justify-center text-4xl text-pink-500">
-              <FaFigma title="Figma" />
-            </li>
-          </ul>
-        </section>
+      {/* LOGOS */}
+      <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
+        <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+          <li className="flex items-center justify-center text-4xl">
+            <FaGithub title="GitHub" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-sky-500">
+            <FaHtml5 title="HTML" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <FaCss3Alt title="CSS" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <FaBootstrap title="Bootstraps5" />
+          </li>
+          <li className="flex items-center justify-center text-4xl text-pink-500">
+            <FaFigma title="Figma" />
+          </li>
+        </ul>
+      </section>
 
       {/* ABOUT — lebar */}
       <div className="mt-10.5">
-   <CaseSection id="about" title="About Project">
-        <p>
-          Perkenalan saya dengan Bapak Fajar dimulai secara tidak sengaja dari TikTok. Saat itu saya sedang mencari bunga yang affordable dan berkualitas, lalu menemukan akun beliau yang berjualan bunga di Pasar Rawa Belong. Bapak Fajar baru saja memanfaatkan TikTok dan WhatsApp untuk promosi serta menerima pemesanan langsung. Dari situ saya terpikir, sayang sekali kalau bunga-bunga cantik dan murah ini hanya diketahui oleh pengunjung pasar. Banyak orang di luar sana yang pasti ingin menikmati bunga berkualitas dengan harga terjangkau. Karena itu, saya membuat website ini agar usaha Bapak Fajar bisa dikenal lebih luas, memudahkan pemesanan, dan membantu memperluas jangkauan pelanggan.
-        Website ini adalah langkah awal untuk membawa keindahan bunga dari Pasar Rawa Belong ke lebih banyak rumah, kantor, dan acara, di mana pun kamu berada. 🌷✨
-        </p>
-      </CaseSection>
+        <CaseSection id="about" title="About Project">
+          <p>
+            Perkenalan saya dengan Bapak Fajar dimulai secara tidak sengaja dari
+            TikTok. Saat itu saya sedang mencari bunga yang affordable dan
+            berkualitas, lalu menemukan akun beliau yang berjualan bunga di
+            Pasar Rawa Belong. Bapak Fajar baru saja memanfaatkan TikTok dan
+            WhatsApp untuk promosi serta menerima pemesanan langsung. Dari situ
+            saya terpikir, sayang sekali kalau bunga-bunga cantik dan murah ini
+            hanya diketahui oleh pengunjung pasar. Banyak orang di luar sana
+            yang pasti ingin menikmati bunga berkualitas dengan harga
+            terjangkau. Karena itu, saya membuat website ini agar usaha Bapak
+            Fajar bisa dikenal lebih luas, memudahkan pemesanan, dan membantu
+            memperluas jangkauan pelanggan. Website ini adalah langkah awal
+            untuk membawa keindahan bunga dari Pasar Rawa Belong ke lebih banyak
+            rumah, kantor, dan acara, di mana pun kamu berada. 🌷✨
+          </p>
+        </CaseSection>
       </div>
-   
 
       {/* PROBLEM + SOLUTION — 2 kolom */}
       <TwoColSection
@@ -76,15 +92,27 @@ export default function Page() {
           <ol className="list-decimal pl-5 space-y-1">
             <li>Media sosial Bapak Fajar belum menjangkau banyak audiens.</li>
             <li>Promosi hanya mengandalkan TikTok dan WhatsApp.</li>
-            <li>Pelanggan harus datang langsung ke Pasar Rawa Belong untuk membeli bunga.</li>
+            <li>
+              Pelanggan harus datang langsung ke Pasar Rawa Belong untuk membeli
+              bunga.
+            </li>
           </ol>
         }
         titleRight="Solution"
         contentRight={
           <ol className="list-decimal pl-5 space-y-1">
-            <li>Mengembangkan Instagram untuk meningkatkan engagement dan jangkauan.</li>
-            <li>Membangun website agar pembelian bunga bisa dilakukan dengan mudah.</li>
-            <li>Membuat katalog produk agar pelanggan bisa melihat koleksi bunga dari mana saja.</li>
+            <li>
+              Mengembangkan Instagram untuk meningkatkan engagement dan
+              jangkauan.
+            </li>
+            <li>
+              Membangun website agar pembelian bunga bisa dilakukan dengan
+              mudah.
+            </li>
+            <li>
+              Membuat katalog produk agar pelanggan bisa melihat koleksi bunga
+              dari mana saja.
+            </li>
           </ol>
         }
       />
@@ -111,12 +139,12 @@ export default function Page() {
         // variant="buttons" // aktifkan kalau kamu sudah buat varian tombol
       />
 
-
       {/* UI SOLUTION — kartu ringkas */}
       <CaseSection id="ui-solution" title="UI Solution">
         <p>
-          Palet rustic brown, tipografi serif-sans, kartu produk dengan depth halus,
-          grid editorial untuk storytelling, dan komponen reusable (Hero, Collection, Story).
+          Palet rustic brown, tipografi serif-sans, kartu produk dengan depth
+          halus, grid editorial untuk storytelling, dan komponen reusable (Hero,
+          Collection, Story).
         </p>
       </CaseSection>
 
@@ -124,17 +152,26 @@ export default function Page() {
         id="prototype-and-features"
         protoSrc="https://embed.figma.com/design/B7aozMLHyu5r81GO0MhkVg/TOKO-BUNGA-FAJAR---ERYCA?node-id=0-1&embed-host=share"
         features={[
-          { title: "Search & Curated Browse", description: <>Pencarian cepat + kategori kurasi…</> },
-          { title: "Timetables & Live Updates", description: <>Info ketersediaan & jadwal real-time…</> },
-          { title: "Pay Online & Share Details", description: <>Pembayaran populer + share detail…</> },
+          {
+            title: "Search & Curated Browse",
+            description: <>Pencarian cepat + kategori kurasi…</>,
+          },
+          {
+            title: "Timetables & Live Updates",
+            description: <>Info ketersediaan & jadwal real-time…</>,
+          },
+          {
+            title: "Pay Online & Share Details",
+            description: <>Pembayaran populer + share detail…</>,
+          },
         ]}
       />
 
       {/* UX CASE — contoh alur ringkas */}
       <CaseSection id="ux-case" title="UX Case">
         <p>
-          Alur “browse → detail bouquet → add to inquiry” diringkas menjadi 3 klik
-          dengan CTA yang terbaca di atas fold & sticky di mobile.
+          Alur pemesanan bunga yang sederhana dan cepat, dari landing page
+          hingga checkout, dengan fokus pada kemudahan navigasi dan konversi.
         </p>
       </CaseSection>
 

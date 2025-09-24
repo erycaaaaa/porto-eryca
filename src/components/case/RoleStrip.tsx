@@ -16,9 +16,7 @@ export default function RoleStrip({
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <h3 className="font-serif text-xl md:text-2xl">{title}</h3>
-            <p className="mt-1 text-sm text-neutral-600">
-              {roles.join(" • ")}
-            </p>
+            <p className="mt-1 text-sm text-neutral-600">{roles.join(" • ")}</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             {(tools ?? []).map((t) => (

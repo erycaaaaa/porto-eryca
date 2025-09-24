@@ -13,8 +13,7 @@ import {
   useReducedMotion,
   useMotionValue,
 } from "framer-motion";
-import { ChevronLeft, ChevronRight, Download} from "lucide-react";
-
+import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 
 /** ======================== Shared Variants ======================== **/
 const revealContainer: Variants = {
@@ -759,21 +758,20 @@ export default function AboutMe() {
             </motion.div>
 
             <motion.div variants={item} className="flex flex-wrap gap-2 pt-1">
-            <motion.a
-              whileTap={{ scale: 0.98 }}
-              href="/cv/Eryca-Dhamma-Shanty-CV.pdf"
-              download="Eryca-Dhamma-Shanty-CV.pdf"
-              aria-label="Download CV"
-              className="
+              <motion.a
+                whileTap={{ scale: 0.98 }}
+                href="/cv/Eryca-Dhamma-Shanty-CV.pdf"
+                download="Eryca-Dhamma-Shanty-CV.pdf"
+                aria-label="Download CV"
+                className="
                 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
                 bg-[#6f5d33] text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/40
                 dark:bg-[#bba46b] dark:text-black
               "
-            >
-              <Download className="h-4 w-4" />  {/* ← ganti icon */}
-              Download CV
-            </motion.a>
-
+              >
+                <Download className="h-4 w-4" /> {/* ← ganti icon */}
+                Download CV
+              </motion.a>
             </motion.div>
           </motion.div>
 

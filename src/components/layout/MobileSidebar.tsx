@@ -27,9 +27,9 @@ type AnchorHandler = (
 
 type Props = {
   open: boolean;
-  onCloseAction: () => void;               
-  onShowSplashAction: (ms?: number) => void; 
-  handleAnchorAction: AnchorHandler;       
+  onCloseAction: () => void;
+  onShowSplashAction: (ms?: number) => void;
+  handleAnchorAction: AnchorHandler;
 };
 
 const FULL_WIDTH = 420;
@@ -80,18 +80,17 @@ export default function MobileSidebar({
     [router, resolveHref, onCloseAction]
   );
 
-useEffect(() => {
-  const onLoad = () => onCloseAction();
-  window.addEventListener("load", onLoad);
-  return () => window.removeEventListener("load", onLoad);
-}, [onCloseAction]);
+  useEffect(() => {
+    const onLoad = () => onCloseAction();
+    window.addEventListener("load", onLoad);
+    return () => window.removeEventListener("load", onLoad);
+  }, [onCloseAction]);
 
-useEffect(() => {
-  const onHash = () => onCloseAction();
-  window.addEventListener("hashchange", onHash);
-  return () => window.removeEventListener("hashchange", onHash);
-}, [onCloseAction]);
-
+  useEffect(() => {
+    const onHash = () => onCloseAction();
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, [onCloseAction]);
 
   useEffect(() => {
     if (!open) return;
@@ -193,7 +192,10 @@ useEffect(() => {
                 <RailButton onClick={() => setExpanded(true)} title="Makeup">
                   <Sparkles className="h-5 w-5" />
                 </RailButton>
-                <RailButton onClick={() => setExpanded(true)} title="Illustrations">
+                <RailButton
+                  onClick={() => setExpanded(true)}
+                  title="Illustrations"
+                >
                   <ImageIcon className="h-5 w-5" />
                 </RailButton>
 
@@ -267,10 +269,18 @@ useEffect(() => {
                 style={{ WebkitOverflowScrolling: "touch" }}
               >
                 <Section title="Explore">
-                  <Item icon={<Home />} href="#home" onClick={onAnchor("#home")}>
+                  <Item
+                    icon={<Home />}
+                    href="#home"
+                    onClick={onAnchor("#home")}
+                  >
                     Home
                   </Item>
-                  <Item icon={<Briefcase />} href="#worked" onClick={onAnchor("#worked")}>
+                  <Item
+                    icon={<Briefcase />}
+                    href="#worked"
+                    onClick={onAnchor("#worked")}
+                  >
                     Works
                   </Item>
 
@@ -307,10 +317,18 @@ useEffect(() => {
                 <div className="my-3 h-px bg-[#e8dcb8]/70 dark:bg-[#2a2519]" />
 
                 <Section title="About">
-                  <Item icon={<User />} href="#about" onClick={onAnchor("#about")}>
+                  <Item
+                    icon={<User />}
+                    href="#about"
+                    onClick={onAnchor("#about")}
+                  >
                     About Me
                   </Item>
-                  <Item icon={<Mail />} href="#footer" onClick={onAnchor("#footer")}>
+                  <Item
+                    icon={<Mail />}
+                    href="#footer"
+                    onClick={onAnchor("#footer")}
+                  >
                     Contact
                   </Item>
                 </Section>
@@ -354,8 +372,7 @@ useEffect(() => {
                     {[
                       {
                         label: "Instagram",
-                        href:
-                          "https://www.instagram.com/erycadhm?igsh=MWI3M2drN3R0ZmNwdA==",
+                        href: "https://www.instagram.com/erycadhm?igsh=MWI3M2drN3R0ZmNwdA==",
                       },
                       {
                         label: "LinkedIn",

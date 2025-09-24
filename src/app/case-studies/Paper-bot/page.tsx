@@ -22,15 +22,15 @@ export default function Page() {
         { label: "Components", value: "25+" },
       ]}
     >
-              {/* LOGOS */}
-              <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
-                <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-                   <li className="flex items-center justify-center text-4xl">
-                     <FaFigma title="Figma" />
-                   </li>
-                </ul>
-              </section>
-              
+      {/* LOGOS */}
+      <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
+        <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+          <li className="flex items-center justify-center text-4xl">
+            <FaFigma title="Figma" />
+          </li>
+        </ul>
+      </section>
+
       {/* ABOUT */}
       <CaseSection id="about" title="About Project">
         <p className="mb-3">
@@ -40,10 +40,12 @@ export default function Page() {
         </p>
         <ul className="mt-2 grid gap-2 sm:grid-cols-2">
           <li className="rounded-lg border bg-white/70 p-3 text-sm">
-            🎯 <strong>Goal:</strong> faster answers for students, less admin load.
+            🎯 <strong>Goal:</strong> faster answers for students, less admin
+            load.
           </li>
           <li className="rounded-lg border bg-white/70 p-3 text-sm">
-            ♿ <strong>A11y:</strong> high contrast, keyboard & screen reader friendly.
+            ♿ <strong>A11y:</strong> high contrast, keyboard & screen reader
+            friendly.
           </li>
           <li className="rounded-lg border bg-white/70 p-3 text-sm">
             🔁 <strong>System:</strong> tokenized theme + reusable chat atoms.
@@ -63,8 +65,8 @@ export default function Page() {
             title: "Conversational UI states",
             description: (
               <>
-                Bubble variants (user/bot), typing indicators, retry/error,
-                and message grouping to keep context clear.
+                Bubble variants (user/bot), typing indicators, retry/error, and
+                message grouping to keep context clear.
               </>
             ),
           },
@@ -91,13 +93,12 @@ export default function Page() {
 
       {/* ⬇️ PKM MOMENTS — 2 foto */}
       <CaseSection id="pkm" title="PKM Moments">
-  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {/* Card 1 */}
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/pkm2.png"   
+                src="/porto-eryca/pkm2.png"
                 alt="PKM — sesi foto bersama"
                 fill
                 priority={false}
@@ -117,7 +118,7 @@ export default function Page() {
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/pkm1.png"   
+                src="/porto-eryca/pkm1.png"
                 alt="PKM — uji coba bersama guru"
                 fill
                 className="object-cover"
@@ -125,18 +126,20 @@ export default function Page() {
               />
             </div>
             <div className="p-4">
-              <h4 className="font-medium">Foto bersama Dosen,Tim PKM dan Guru </h4>
+              <h4 className="font-medium">
+                Foto bersama Dosen,Tim PKM dan Guru{" "}
+              </h4>
               <p className="mt-1 text-sm text-neutral-600">
-           Guru SDN KALIDERES 13 PETANG
+                Guru SDN KALIDERES 13 PETANG
               </p>
             </div>
           </li>
 
-            {/* Card 3 */}
+          {/* Card 3 */}
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/porto-eryca/hki-edu.png"   
+                src="/porto-eryca/hki-edu.png"
                 alt="Hak Cipta Desain Antarmuka EduBuddy Bot"
                 fill
                 className="object-cover"
@@ -150,7 +153,6 @@ export default function Page() {
               </p>
             </div>
           </li>
-
         </ul>
       </CaseSection>
     </CaseLayout>

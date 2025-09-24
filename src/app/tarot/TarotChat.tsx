@@ -32,7 +32,10 @@ export default function TarotChat({ prompt = "" }: { prompt?: string }) {
       if (!API_KEY) {
         setMessages((prev) => [
           ...prev,
-          { role: "bot", text: "DEMO MODE: NEXT_PUBLIC_GROQ_API_KEY belum di-set." },
+          {
+            role: "bot",
+            text: "DEMO MODE: NEXT_PUBLIC_GROQ_API_KEY belum di-set.",
+          },
         ]);
         return;
       }
@@ -46,7 +49,11 @@ export default function TarotChat({ prompt = "" }: { prompt?: string }) {
         body: JSON.stringify({
           model: MODEL,
           messages: [
-            { role: "system", content: "Anda adalah penafsir tarot profesional. Hangat & membantu." },
+            {
+              role: "system",
+              content:
+                "Anda adalah penafsir tarot profesional. Hangat & membantu.",
+            },
             { role: "user", content: `${prompt}\n\nUser: ${q}` },
           ],
           temperature: 0.7,
@@ -62,12 +69,16 @@ export default function TarotChat({ prompt = "" }: { prompt?: string }) {
       } else {
         const data = await res.json();
         const bot: string =
-          data?.choices?.[0]?.message?.content ?? "Model tidak memberi jawaban.";
+          data?.choices?.[0]?.message?.content ??
+          "Model tidak memberi jawaban.";
         setMessages((prev) => [...prev, { role: "bot", text: bot }]);
       }
     } catch (err) {
       console.error(err);
-      setMessages((prev) => [...prev, { role: "bot", text: "Gagal terhubung ke AI." }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: "Gagal terhubung ke AI." },
+      ]);
     } finally {
       setInput("");
       setLoading(false);
@@ -98,7 +109,10 @@ export default function TarotChat({ prompt = "" }: { prompt?: string }) {
         aria-live="polite"
       >
         {messages.map((msg, i) => (
-          <div key={i} className={msg.role === "user" ? "text-right" : "text-left"}>
+          <div
+            key={i}
+            className={msg.role === "user" ? "text-right" : "text-left"}
+          >
             <span
               className={`inline-block px-3 py-2 rounded-xl ${
                 msg.role === "user" ? "bg-black text-white" : "bg-neutral-200"

@@ -60,7 +60,8 @@ export default function GalleryClient({
     const cat = active.toLowerCase().trim();
     const query = q.toLowerCase().trim();
     return items.filter((it) => {
-      const byCat = cat === "all" ? true : it.category.toLowerCase().trim() === cat;
+      const byCat =
+        cat === "all" ? true : it.category.toLowerCase().trim() === cat;
       const byQ = query ? it.title.toLowerCase().includes(query) : true;
       return byCat && byQ;
     });
@@ -106,7 +107,8 @@ export default function GalleryClient({
       <section className="mt-5">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
+            pencarian.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,7 +127,9 @@ export default function GalleryClient({
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <p className="mt-1 text-xs opacity-90">
+                      {item.description}
+                    </p>
                     <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                       {item.category}
                     </span>
@@ -133,7 +137,9 @@ export default function GalleryClient({
                 </div>
                 <div className="flex items-center justify-between px-4 py-3">
                   <div>
-                    <h3 className="text-base font-medium text-[#3b2f22]">{item.title}</h3>
+                    <h3 className="text-base font-medium text-[#3b2f22]">
+                      {item.title}
+                    </h3>
                     <p className="text-xs text-[#7a6f62]">{item.category}</p>
                   </div>
                 </div>

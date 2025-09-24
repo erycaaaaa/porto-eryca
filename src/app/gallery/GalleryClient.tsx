@@ -4,8 +4,16 @@ import { useMemo, useState, useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 
-export const CATEGORIES = ["All","Acrylic","Watercolor","3D Crafting","Poster","Sketch","Design"] as const;
-export type Category = typeof CATEGORIES[number];
+export const CATEGORIES = [
+  "All",
+  "Acrylic",
+  "Watercolor",
+  "3D Crafting",
+  "Poster",
+  "Sketch",
+  "Design",
+] as const;
+export type Category = (typeof CATEGORIES)[number];
 
 export type Item = {
   id: string;
@@ -100,7 +108,8 @@ export default function GalleryClient({
       <div className="mt-5">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
+            pencarian.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -119,7 +128,9 @@ export default function GalleryClient({
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <p className="mt-1 text-xs opacity-90">
+                      {item.description}
+                    </p>
                     <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                       {item.category}
                     </span>

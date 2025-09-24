@@ -87,7 +87,38 @@ export default function Approach() {
         </button>
 
         {/* Dots */}
-        <div className="pointer-events-auto absolute inset-x-0 bottom-3 flex justify-center gap-2">
+
+        <Image
+          src={images[idx].src}
+          alt={images[idx].alt}
+          fill
+          sizes="(min-width: 1024px) 960px, 100vw"
+          priority={idx === 0}
+          className="object-contain pointer-events-none select-none"
+        />
+
+        {/* Prev */}
+        <button
+          type="button"
+          onClick={() => setIdx((i) => wrap(i - 1))}
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/95 px-4 py-2 shadow ring-1 ring-black/10 hover:bg-neutral-50 z-10"
+          aria-label="Previous slide"
+        >
+          ‹
+        </button>
+
+        {/* Next */}
+        <button
+          type="button"
+          onClick={() => setIdx((i) => wrap(i + 1))}
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/95 px-4 py-2 shadow ring-1 ring-black/10 hover:bg-neutral-50 z-10"
+          aria-label="Next slide"
+        >
+          ›
+        </button>
+
+        {/* Dots */}
+        <div className="pointer-events-auto absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2">
           {images.map((_, i) => (
             <button
               key={i}
@@ -127,7 +158,7 @@ export default function Approach() {
               images={[
                 { src: "/porto-eryca/un.jpg", alt: "UntarX system overview" },
                 { src: "/porto-eryca/ed.jpg", alt: "Education module UI" },
-                { src: "/porto-eryca/wihara.jpg", alt: "wihara" },
+                { src: "/porto-eryca/wihara11.jpg", alt: "wihara" },
                 { src: "/porto-eryca/min.jpg", alt: "Education module UI" },
               ]}
             />
@@ -152,45 +183,43 @@ export default function Approach() {
           </div>
         </div>
 
-   {/* Konten kanan */}
-      <div className="md:col-span-6 lg:col-span-5">
-        <h3 className="font-serif text-3xl md:text-4xl leading-tight text-brand-brown">
-          Design + handoff in one flow
-        </h3>
-        <p className="mt-4 leading-relaxed text-neutral-700">
-          From journey maps and wireframes to production-ready specs, we help
-          teams move smoothly from concept to implementation.
-        </p>
+        {/* Konten kanan */}
+        <div className="md:col-span-6 lg:col-span-5">
+          <h3 className="font-serif text-3xl md:text-4xl leading-tight text-brand-brown">
+            Design + handoff in one flow
+          </h3>
+          <p className="mt-4 leading-relaxed text-neutral-700">
+            From journey maps and wireframes to production-ready specs, we help
+            teams move smoothly from concept to implementation.
+          </p>
 
-        {/* Primary button */}
-        <a
-          href="#contact"
-          className="mt-6 inline-flex rounded-full px-6 py-2.5 text-sm font-medium text-white 
+          {/* Primary button */}
+          <a
+            href="#contact"
+            className="mt-6 inline-flex rounded-full px-6 py-2.5 text-sm font-medium text-white 
            bg-gradient-to-r from-[#a66b3f] via-[#8f623e] to-[#6e482c]
            shadow-md hover:shadow-lg hover:from-[#b97a4d] hover:to-[#5a3b25]
            transition-all duration-200"
-        >
-          Open to Collaboration
-        </a>
+          >
+            Open to Collaboration
+          </a>
 
-        {/* List poin */}
-        <ul
-          className="mt-6 space-y-2 text-sm text-neutral-700 leading-relaxed"
-        >
-          <li className="flex items-start gap-2">
-            <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent-green" />
-            1–2 rounds of quick user validation
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent-green" />
-            Design files tidy & documented
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent-green" />
-            Optional front-end pairing (React/Next.js)
-          </li>
-        </ul>
-      </div>
+          {/* List poin */}
+          <ul className="mt-6 space-y-2 text-sm text-neutral-700 leading-relaxed">
+            <li className="flex items-start gap-2">
+              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent-green" />
+              1–2 rounds of quick user validation
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent-green" />
+              Design files tidy & documented
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent-green" />
+              Optional front-end pairing (React/Next.js)
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   );

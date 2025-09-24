@@ -62,7 +62,8 @@ export default function CaseLayout({
   useEffect(() => {
     const ids = TOC.map((t) => t.id);
     const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
       { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
     );
     ids.forEach((id) => {
@@ -112,9 +113,13 @@ export default function CaseLayout({
       {/* Breadcrumb */}
       <div className="border-b border-neutral-200/70 bg-white/70 backdrop-blur">
         <div className="mx-auto w-full max-w-[90rem] px-[5vw] py-4 flex items-center gap-2 text-sm">
-          <Link href="/" className="hover:underline">Home</Link>
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
           <span>/</span>
-          <Link href="/#work" className="hover:underline">Work</Link>
+          <Link href="/#work" className="hover:underline">
+            Work
+          </Link>
           <span>/</span>
           <span className="text-neutral-500">{meta.title}</span>
         </div>
@@ -126,12 +131,26 @@ export default function CaseLayout({
           {meta.tag ?? "Case Study"} {meta.year ? `• ${meta.year}` : ""}
         </p>
         <h1 className="mt-1 font-serif text-4xl md:text-5xl">{meta.title}</h1>
-        {meta.subtitle && <p className="mt-3 max-w-4xl text-neutral-600">{meta.subtitle}</p>}
+        {meta.subtitle && (
+          <p className="mt-3 max-w-4xl text-neutral-600">{meta.subtitle}</p>
+        )}
 
         <div className="mt-4 flex flex-wrap gap-2 text-xs">
-          {meta.role && <span className="rounded-full border border-neutral-300 bg-white px-3 py-1">Role: {meta.role}</span>}
-          {meta.duration && <span className="rounded-full border border-neutral-300 bg-white px-3 py-1">Duration: {meta.duration}</span>}
-          {meta.tools?.length ? <span className="rounded-full border border-neutral-300 bg-white px-3 py-1">Tools: {meta.tools.join(" • ")}</span> : null}
+          {meta.role && (
+            <span className="rounded-full border border-neutral-300 bg-white px-3 py-1">
+              Role: {meta.role}
+            </span>
+          )}
+          {meta.duration && (
+            <span className="rounded-full border border-neutral-300 bg-white px-3 py-1">
+              Duration: {meta.duration}
+            </span>
+          )}
+          {meta.tools?.length ? (
+            <span className="rounded-full border border-neutral-300 bg-white px-3 py-1">
+              Tools: {meta.tools.join(" • ")}
+            </span>
+          ) : null}
           {prototypeUrl && (
             <button
               type="button"
@@ -156,7 +175,6 @@ export default function CaseLayout({
             className="pointer-events-none hidden lg:block absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-neutral-300/60 to-transparent"
           />
 
-
           {/* children sections */}
           {children}
 
@@ -167,7 +185,9 @@ export default function CaseLayout({
               <div className="mt-4 aspect-[16/9] w-full overflow-hidden rounded-xl border">
                 <iframe
                   className="h-full w-full"
-                  src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(prototypeUrl)}`}
+                  src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
+                    prototypeUrl
+                  )}`}
                   allowFullScreen
                 />
               </div>
@@ -179,7 +199,9 @@ export default function CaseLayout({
         <aside className="hidden lg:block">
           <div className="absolute right-0 top-0 w-[300px]">
             <div className="sticky top-24 rounded-2xl border border-neutral-200 bg-white p-4 z-10">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">On this page</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+                On this page
+              </p>
               <nav className="space-y-1">
                 {TOC.map((t) => {
                   const isActive = active === t.id;
@@ -188,7 +210,9 @@ export default function CaseLayout({
                       key={t.id}
                       href={`#${t.id}`}
                       className={`block rounded-md px-2 py-1 text-sm hover:bg-neutral-50 ${
-                        isActive ? "bg-neutral-100 font-medium text-neutral-900" : "text-neutral-700"
+                        isActive
+                          ? "bg-neutral-100 font-medium text-neutral-900"
+                          : "text-neutral-700"
                       }`}
                     >
                       {t.label}
@@ -210,13 +234,20 @@ export default function CaseLayout({
 
             {(quickFacts?.length || resumeHref) && (
               <div className="mt-6 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">Quick Facts</p>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+                  Quick Facts
+                </p>
                 {quickFacts?.length ? (
                   <ul className="mb-3 space-y-1 text-sm">
                     {quickFacts.map((q) => (
-                      <li key={`${q.label}-${q.value}`} className="flex justify-between gap-3">
+                      <li
+                        key={`${q.label}-${q.value}`}
+                        className="flex justify-between gap-3"
+                      >
                         <span className="text-neutral-600">{q.label}</span>
-                        <span className="font-medium text-neutral-900">{q.value}</span>
+                        <span className="font-medium text-neutral-900">
+                          {q.value}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -237,8 +268,15 @@ export default function CaseLayout({
 
       {/* Prototype Modal */}
       {prototypeUrl && protoOpen && (
-        <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setProtoOpen(false)} />
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+        >
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setProtoOpen(false)}
+          />
           <div className="relative z-10 w-[95vw] max-w-5xl rounded-2xl bg-white p-3 shadow-2xl">
             <div className="flex items-center justify-between px-1 pb-2">
               <h3 className="font-serif text-lg">Prototype Preview</h3>
@@ -253,7 +291,9 @@ export default function CaseLayout({
             <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border">
               <iframe
                 className="h-full w-full"
-                src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(prototypeUrl)}`}
+                src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
+                  prototypeUrl
+                )}`}
                 allowFullScreen
               />
             </div>

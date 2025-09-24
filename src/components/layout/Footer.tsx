@@ -20,7 +20,9 @@ export type FooterProps = {
 
 const icons: Record<SocialKey, JSX.Element> = {
   github: <Github className="h-5 w-5 text-[#1f1810]" aria-hidden="true" />,
-  instagram: <Instagram className="h-5 w-5 text-[#1f1810]" aria-hidden="true" />,
+  instagram: (
+    <Instagram className="h-5 w-5 text-[#1f1810]" aria-hidden="true" />
+  ),
   linkedin: <Linkedin className="h-5 w-5 text-[#1f1810]" aria-hidden="true" />,
   email: <Mail className="h-5 w-5 text-[#1f1810]" aria-hidden="true" />,
 };
@@ -30,7 +32,10 @@ export default function Footer({
   brandLogoSrc,
   groups = [
     { heading: "Happy", items: [{ label: "Blog", href: "#" }] },
-    { heading: "Products", items: [{ label: "Partner Resources", href: "#work" }] },
+    {
+      heading: "Products",
+      items: [{ label: "Partner Resources", href: "#work" }],
+    },
     {
       heading: "Contact",
       items: [
@@ -70,7 +75,9 @@ export default function Footer({
                   loading="lazy"
                 />
               )}
-              <span className="text-base font-semibold leading-none">{brandName}</span>
+              <span className="text-base font-semibold leading-none">
+                {brandName}
+              </span>
             </div>
             <p className="text-sm text-[#ffff]">
               Nature-inspired craft & everyday florals.
@@ -140,7 +147,11 @@ export default function Footer({
             })}
           </div>
           <div className="text-center text-sm text-[#ffff]">
-            {children ?? <>©{year} {brandName}. All rights reserved.</>}
+            {children ?? (
+              <>
+                ©{year} {brandName}. All rights reserved.
+              </>
+            )}
           </div>
         </div>
       </div>

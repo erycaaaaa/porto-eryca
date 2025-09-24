@@ -7,8 +7,8 @@ import deck from "@/data/tarot/deck.json" assert { type: "json" };
 export const dynamic = "force-static";
 
 export default function Page() {
-  const typed = deck as Card[];               
-  const heroCards = typed.slice(0, 3).map(c => c.image);
+  const typed = deck as Card[];
+  const heroCards = typed.slice(0, 3).map((c) => c.image);
 
   return (
     <div className="bg-gradient-to-b from-purple-900 via-indigo-900 to-[#0a0620] text-white min-h-screen">

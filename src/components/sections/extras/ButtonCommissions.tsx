@@ -5,9 +5,12 @@ export default function HomePage() {
     <main>
       <section className="py-12 px-6">
         <div className="mx-auto max-w-5xl text-center rounded-3xl border border-[#ecd9c7] bg-[#fff8f2]/80 p-10">
-          <h2 className="font-serif text-3xl text-[#5a3b25]">Commissions are Open!</h2>
+          <h2 className="font-serif text-3xl text-[#5a3b25]">
+            Commissions are Open!
+          </h2>
           <p className="mt-2 text-neutral-700">
-            Ilustrasi bergaya buku dongeng, editorial, dan spot-art untuk brand atau personal.
+            Ilustrasi bergaya buku dongeng, editorial, dan spot-art untuk brand
+            atau personal.
           </p>
 
           <Link

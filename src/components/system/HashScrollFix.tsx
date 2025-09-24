@@ -69,8 +69,8 @@ export default function HashScrollFix() {
       window.removeEventListener("pageshow", onPageShow as EventListener);
       try {
         if ("scrollRestoration" in history) {
-          history.scrollRestoration =
-            (prevScrollRestoration ?? "auto") as ScrollRestoration;
+          history.scrollRestoration = (prevScrollRestoration ??
+            "auto") as ScrollRestoration;
         }
       } catch {
         // ignore

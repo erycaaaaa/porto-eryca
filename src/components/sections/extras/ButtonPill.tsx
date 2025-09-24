@@ -6,7 +6,7 @@ export default function ButtonPill({
   children,
   className = "",
   ariaLabel,
-  target, 
+  target,
 }: {
   href: string;
   children: React.ReactNode;

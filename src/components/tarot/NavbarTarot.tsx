@@ -23,7 +23,11 @@ export default function NavbarTarot() {
         {/* links kanan */}
         <div className="hidden md:flex gap-6 text-sm font-medium text-white">
           {items.map((it) => (
-            <a key={it.label} href={it.href} className="hover:text-purple-300 transition">
+            <a
+              key={it.label}
+              href={it.href}
+              className="hover:text-purple-300 transition"
+            >
               {it.label}
             </a>
           ))}

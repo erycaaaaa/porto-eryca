@@ -12,7 +12,7 @@ const CATEGORIES = [
   "Sketch",
   "Design",
 ] as const;
-type Category = typeof CATEGORIES[number];
+type Category = (typeof CATEGORIES)[number];
 
 type Item = {
   id: string;
@@ -25,13 +25,50 @@ type Item = {
 
 // ganti dengan data asli
 const ALL_ITEMS: Item[] = [
-  { id: "ac-01", title: "Demon Slayer", category: "Acrylic", src: "/porto-eryca/2.jpg", description: "Demon Slayer (Kimetsu no Yaiba) tells the story of Tanjiro Kamado, a teenager whose family was slaughtered by demons, and his sister, Nezuko, who was turned into a demon. Tanjiro joins the Demon Slayer Corps to find a cure to turn Nezuko back into a human and to exterminate all demons. Set in Japan during the Taisho era, the anime depicts Tanjiro and his friends battling demons using special breathing techniques." },
-  { id: "wc-01", title: "Christmas Scene", category: "Watercolor", src: "/porto-eryca/1.jpg", description: "Watercolor: wet-on-wet glow & soft edges." },
-  { id: "dc-01", title: "Self Potrait", category: "3D Crafting", src: "/porto-eryca/4.jpg", description: "3D craft: stylized form, matte clay render." },
-  { id: "ac-06", title: "Commission", category: "Acrylic", src: "/porto-eryca/acy6.jpg", description: "Cat by Tesla Paint" },
-  { id: "sk-01", title: "Gesture Study", category: "Sketch", src: "/porto-eryca/sket1.jpg", description: "Sketch: 60s gesture lines & proportions." },
-  { id: "wc-03", title: "A blue eye blooming on paper.", category: "Watercolor", src: "/porto-eryca/wate2.jpg", description: "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette." },
-
+  {
+    id: "ac-01",
+    title: "Demon Slayer",
+    category: "Acrylic",
+    src: "/porto-eryca/2.jpg",
+    description:
+      "Demon Slayer (Kimetsu no Yaiba) tells the story of Tanjiro Kamado, a teenager whose family was slaughtered by demons, and his sister, Nezuko, who was turned into a demon. Tanjiro joins the Demon Slayer Corps to find a cure to turn Nezuko back into a human and to exterminate all demons. Set in Japan during the Taisho era, the anime depicts Tanjiro and his friends battling demons using special breathing techniques.",
+  },
+  {
+    id: "wc-01",
+    title: "Christmas Scene",
+    category: "Watercolor",
+    src: "/porto-eryca/1.jpg",
+    description: "Watercolor: wet-on-wet glow & soft edges.",
+  },
+  {
+    id: "dc-01",
+    title: "Self Potrait",
+    category: "3D Crafting",
+    src: "/porto-eryca/4.jpg",
+    description: "3D craft: stylized form, matte clay render.",
+  },
+  {
+    id: "ac-06",
+    title: "Commission",
+    category: "Acrylic",
+    src: "/porto-eryca/acy6.jpg",
+    description: "Cat by Tesla Paint",
+  },
+  {
+    id: "sk-01",
+    title: "Gesture Study",
+    category: "Sketch",
+    src: "/porto-eryca/sket1.jpg",
+    description: "Sketch: 60s gesture lines & proportions.",
+  },
+  {
+    id: "wc-03",
+    title: "A blue eye blooming on paper.",
+    category: "Watercolor",
+    src: "/porto-eryca/wate2.jpg",
+    description:
+      "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette.",
+  },
 ];
 
 export default function GalleryPage({
@@ -54,7 +91,9 @@ export default function GalleryPage({
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">All Artworks</h1>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">
+                All Artworks
+              </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
@@ -67,14 +106,19 @@ export default function GalleryPage({
                 placeholder="Search title…"
                 className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
-              {activeCat !== "All" && <input type="hidden" name="cat" value={activeCat} />}
+              {activeCat !== "All" && (
+                <input type="hidden" name="cat" value={activeCat} />
+              )}
             </form>
           </div>
 
           {/* Filter Pills */}
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
-              const href = cat === "All" ? "/gallery" : `/gallery?cat=${encodeURIComponent(cat)}`;
+              const href =
+                cat === "All"
+                  ? "/gallery"
+                  : `/gallery?cat=${encodeURIComponent(cat)}`;
               const isActive = activeCat === cat;
               return (
                 <Link
@@ -99,7 +143,8 @@ export default function GalleryPage({
       <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus pencarian.
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
+            pencarian.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -119,7 +164,9 @@ export default function GalleryPage({
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">{item.description}</p>
+                    <p className="mt-1 text-xs opacity-90">
+                      {item.description}
+                    </p>
                     <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                       {item.category}
                     </span>
@@ -129,7 +176,9 @@ export default function GalleryPage({
                 {/* meta bawah (opsional) */}
                 <div className="flex items-center justify-between px-4 py-3">
                   <div>
-                    <h3 className="text-base font-medium text-[#3b2f22]">{item.title}</h3>
+                    <h3 className="text-base font-medium text-[#3b2f22]">
+                      {item.title}
+                    </h3>
                     <p className="text-xs text-[#7a6f62]">{item.category}</p>
                   </div>
                 </div>

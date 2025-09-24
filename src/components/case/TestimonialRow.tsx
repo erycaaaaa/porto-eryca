@@ -26,7 +26,9 @@ export default function TestimonialRow({
         )}
         <blockquote className="text-neutral-800">“{quote}”</blockquote>
       </div>
-      <figcaption className="mt-3 text-sm text-neutral-600">— {author}</figcaption>
+      <figcaption className="mt-3 text-sm text-neutral-600">
+        — {author}
+      </figcaption>
     </figure>
   );
 }

@@ -3,7 +3,7 @@ import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import TwoColSection from "@/components/case/TwoColSect";
 import { BiLogoPlayStore } from "react-icons/bi";
-import { SiPandas,SiGooglecolab } from "react-icons/si";
+import { SiPandas, SiGooglecolab } from "react-icons/si";
 import { FaPython, FaFileExcel, FaGithub, FaFileWord } from "react-icons/fa";
 
 export default function Page() {
@@ -35,54 +35,56 @@ export default function Page() {
         loading="eager"
         className="h-full w-full object-cover rounded-2xl border"
       />
-        {/* LOGOS */}
-        <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
-          <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-             <li className="flex items-center justify-center text-4xl">
-               <FaGithub title="GitHub" />
-             </li>
-            <li className="flex items-center justify-center text-4xl">
-              <FaPython title="Python" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <SiGooglecolab title="GoogleCollab" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <BiLogoPlayStore title="LogoPlayStore" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <FaFileWord title="FaFileWord" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <SiPandas title="SiPandas" />
-            </li>  
-            <li className="flex items-center justify-center text-4xl">
-              < FaFileExcel title=" FaFileExcel" />
-            </li>  
-          </ul>
-        </section>
-        
+      {/* LOGOS */}
+      <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
+        <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+          <li className="flex items-center justify-center text-4xl">
+            <FaGithub title="GitHub" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <FaPython title="Python" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <SiGooglecolab title="GoogleCollab" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <BiLogoPlayStore title="LogoPlayStore" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <FaFileWord title="FaFileWord" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <SiPandas title="SiPandas" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <FaFileExcel title=" FaFileExcel" />
+          </li>
+        </ul>
+      </section>
+
       {/* ABOUT PAPER */}
       <div className="mt-15">
         <CaseSection id="about" title="About the Research">
           <p>
-            Studi ini merupakan penelitian akademik yang dipublikasikan dalam Jurnal
-            Muara Sains, Teknologi, Kedokteran, dan Ilmu Kesehatan (JMSTKIK) 2025.
-            Penelitian berfokus pada analisis sentimen ribuan ulasan aplikasi
-            transportasi digital Indonesia, seperti Access by KAI, MyMRTJ, dan
-            MitraDarat. Dengan memanfaatkan kombinasi <b>INSET Lexicon</b>—kamus
-            sentimen bahasa Indonesia—dan algoritma <b>Support Vector Machine (SVM)</b>,
-            penelitian ini bertujuan memberikan kerangka kerja untuk memahami persepsi
-            pengguna dan memperbaiki layanan berbasis data.
+            Studi ini merupakan penelitian akademik yang dipublikasikan dalam
+            Jurnal Muara Sains, Teknologi, Kedokteran, dan Ilmu Kesehatan
+            (JMSTKIK) 2025. Penelitian berfokus pada analisis sentimen ribuan
+            ulasan aplikasi transportasi digital Indonesia, seperti Access by
+            KAI, MyMRTJ, dan MitraDarat. Dengan memanfaatkan kombinasi{" "}
+            <b>INSET Lexicon</b>—kamus sentimen bahasa Indonesia—dan algoritma{" "}
+            <b>Support Vector Machine (SVM)</b>, penelitian ini bertujuan
+            memberikan kerangka kerja untuk memahami persepsi pengguna dan
+            memperbaiki layanan berbasis data.
           </p>
           <p className="mt-4">
-            Latar belakang riset ini adalah tingginya volume ulasan berbahasa Indonesia
-            yang kaya slang dan variasi ejaan, membuat analisis manual sulit dilakukan.
-            Melalui pendekatan berbasis leksikon dan machine learning, penelitian ini
-            mengusulkan pipeline otomatis mulai dari pengumpulan data, pra-pemrosesan,
-            pelabelan sentimen, hingga evaluasi model. Selain kontribusi teknis, studi
-            ini juga berperan dalam menghubungkan data analitik dengan keputusan desain
-            dan pengalaman pengguna di sektor transportasi publik.
+            Latar belakang riset ini adalah tingginya volume ulasan berbahasa
+            Indonesia yang kaya slang dan variasi ejaan, membuat analisis manual
+            sulit dilakukan. Melalui pendekatan berbasis leksikon dan machine
+            learning, penelitian ini mengusulkan pipeline otomatis mulai dari
+            pengumpulan data, pra-pemrosesan, pelabelan sentimen, hingga
+            evaluasi model. Selain kontribusi teknis, studi ini juga berperan
+            dalam menghubungkan data analitik dengan keputusan desain dan
+            pengalaman pengguna di sektor transportasi publik.
           </p>
         </CaseSection>
       </div>
@@ -102,8 +104,9 @@ export default function Page() {
               khusus untuk aplikasi publik transportasi.
             </li>
             <li>
-              Stakeholder memerlukan insight cepat berbasis data untuk meningkatkan
-              performa aplikasi, kualitas pelayanan, dan pengalaman pengguna.
+              Stakeholder memerlukan insight cepat berbasis data untuk
+              meningkatkan performa aplikasi, kualitas pelayanan, dan pengalaman
+              pengguna.
             </li>
           </ul>
         }
@@ -111,16 +114,16 @@ export default function Page() {
         contentRight={
           <ul>
             <li>
-              Pengembangan pipeline analisis sentimen lengkap: scraping → cleaning →
-              labeling → TF-IDF → SVM → evaluasi.
+              Pengembangan pipeline analisis sentimen lengkap: scraping →
+              cleaning → labeling → TF-IDF → SVM → evaluasi.
             </li>
             <li>
-              Integrasi kamus <b>INSET Lexicon</b> untuk akurasi pelabelan yang lebih
-              tinggi pada konteks lokal bahasa Indonesia.
+              Integrasi kamus <b>INSET Lexicon</b> untuk akurasi pelabelan yang
+              lebih tinggi pada konteks lokal bahasa Indonesia.
             </li>
             <li>
-              Visualisasi data dalam bentuk word cloud dan grafik distribusi sentimen
-              untuk mendukung pengambilan keputusan berbasis bukti.
+              Visualisasi data dalam bentuk word cloud dan grafik distribusi
+              sentimen untuk mendukung pengambilan keputusan berbasis bukti.
             </li>
           </ul>
         }
@@ -152,52 +155,53 @@ export default function Page() {
       {/* RESULTS */}
       <CaseSection id="results" title="Key Findings">
         <p>
-          Model SVM memberikan akurasi tertinggi sebesar <b>87%</b> pada ulasan MyMRTJ,
-          diikuti Access by KAI dengan <b>84%</b> dan MitraDarat <b>82%</b>. Kata-kata
-          positif yang mendominasi antara lain “bagus”, “mudah”, dan “baik”,
-          menunjukkan kepuasan pengguna terhadap layanan, sedangkan kata “gagal”,
-          “sulit”, dan “lambat” menyoroti masalah performa aplikasi yang sering
-          dihadapi pengguna.
+          Model SVM memberikan akurasi tertinggi sebesar <b>87%</b> pada ulasan
+          MyMRTJ, diikuti Access by KAI dengan <b>84%</b> dan MitraDarat{" "}
+          <b>82%</b>. Kata-kata positif yang mendominasi antara lain “bagus”,
+          “mudah”, dan “baik”, menunjukkan kepuasan pengguna terhadap layanan,
+          sedangkan kata “gagal”, “sulit”, dan “lambat” menyoroti masalah
+          performa aplikasi yang sering dihadapi pengguna.
         </p>
         <p className="mt-4">
-          Temuan ini memperkuat pentingnya analisis sentimen sebagai alat strategis
-          untuk perbaikan produk. Dengan pipeline ini, tim pengembang dapat secara
-          proaktif memonitor persepsi pengguna, merespons keluhan, dan memprioritaskan
-          perbaikan fitur berdasarkan bukti nyata.
+          Temuan ini memperkuat pentingnya analisis sentimen sebagai alat
+          strategis untuk perbaikan produk. Dengan pipeline ini, tim pengembang
+          dapat secara proaktif memonitor persepsi pengguna, merespons keluhan,
+          dan memprioritaskan perbaikan fitur berdasarkan bukti nyata.
         </p>
       </CaseSection>
 
       {/* IMPACT */}
       <CaseSection id="impact" title="Impact and Significance">
         <p>
-          Penelitian ini tidak hanya berkontribusi pada pengembangan model NLP bahasa
-          Indonesia, tetapi juga menciptakan dampak langsung bagi industri transportasi
-          digital. Insight yang diperoleh membantu tim produk mengidentifikasi titik
-          friksi dalam perjalanan pengguna, memperbaiki stabilitas aplikasi, dan
-          meningkatkan pengalaman belanja tiket transportasi publik.
+          Penelitian ini tidak hanya berkontribusi pada pengembangan model NLP
+          bahasa Indonesia, tetapi juga menciptakan dampak langsung bagi
+          industri transportasi digital. Insight yang diperoleh membantu tim
+          produk mengidentifikasi titik friksi dalam perjalanan pengguna,
+          memperbaiki stabilitas aplikasi, dan meningkatkan pengalaman belanja
+          tiket transportasi publik.
         </p>
         <p className="mt-4">
           Pipeline ini dapat diadaptasi untuk sektor lain seperti e-commerce,
-          perbankan digital, dan layanan publik, memberikan fondasi analitik yang
-          dapat diskalakan. Secara akademik, penelitian ini memperkaya literatur NLP
-          lokal dengan kombinasi pendekatan leksikon dan machine learning untuk
-          bahasa Indonesia.
+          perbankan digital, dan layanan publik, memberikan fondasi analitik
+          yang dapat diskalakan. Secara akademik, penelitian ini memperkaya
+          literatur NLP lokal dengan kombinasi pendekatan leksikon dan machine
+          learning untuk bahasa Indonesia.
         </p>
       </CaseSection>
 
       {/* CONCLUSION */}
       <CaseSection id="conclusion" title="Conclusion & Future Work">
         <p>
-          Dengan menggabungkan <b>INSET Lexicon</b> dan <b>SVM</b>, penelitian ini
-          membuktikan bahwa analisis sentimen berbahasa Indonesia dapat mencapai
-          akurasi tinggi dan memberikan insight praktis. Ke depan, framework ini dapat
-          dikembangkan menjadi analisis berbasis aspek untuk mendeteksi sentimen
-          per-fitur, serta diintegrasikan ke dalam sistem monitoring real-time untuk
-          pengambilan keputusan cepat.
+          Dengan menggabungkan <b>INSET Lexicon</b> dan <b>SVM</b>, penelitian
+          ini membuktikan bahwa analisis sentimen berbahasa Indonesia dapat
+          mencapai akurasi tinggi dan memberikan insight praktis. Ke depan,
+          framework ini dapat dikembangkan menjadi analisis berbasis aspek untuk
+          mendeteksi sentimen per-fitur, serta diintegrasikan ke dalam sistem
+          monitoring real-time untuk pengambilan keputusan cepat.
         </p>
       </CaseSection>
 
-            {/* NEW: PRESENTATION GALLERY (ZOOM) */}
+      {/* NEW: PRESENTATION GALLERY (ZOOM) */}
       <CaseSection id="presentation" title="Conference & Presentation (Zoom)">
         <ul className="grid gap-6 sm:grid-cols-2">
           {/* Card 1 */}
@@ -213,7 +217,8 @@ export default function Page() {
             <div className="p-4">
               <h4 className="font-medium">Presentasi Daring — Sesi 1</h4>
               <p className="mt-1 text-sm text-neutral-600">
-                Pemaparan metode INSET + TF-IDF + SVM dan ringkasan evaluasi model.
+                Pemaparan metode INSET + TF-IDF + SVM dan ringkasan evaluasi
+                model.
               </p>
             </div>
           </li>
@@ -222,7 +227,7 @@ export default function Page() {
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-video w-full">
               <img
-                src="/porto-eryca/peserta-serina.jpg"  /* ganti dengan fotomu */
+                src="/porto-eryca/peserta-serina.jpg" /* ganti dengan fotomu */
                 alt="Presentasi jurnal ilmiah via Zoom — sesi 2"
                 className="h-full w-full object-cover"
                 loading="lazy"
@@ -231,7 +236,7 @@ export default function Page() {
             <div className="p-4">
               <h4 className="font-medium">Sertifikat Peserta</h4>
               <p className="mt-1 text-sm text-neutral-600">
-                Penerimaan Sertifikat Peserta 
+                Penerimaan Sertifikat Peserta
               </p>
             </div>
           </li>

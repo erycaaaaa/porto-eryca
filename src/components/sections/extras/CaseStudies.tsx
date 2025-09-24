@@ -22,7 +22,9 @@ type Category = (typeof CATEGORIES)[number];
 function normalizeCat(v: string | null): Category {
   if (!v) return "All";
   const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-  const match = CATEGORIES.find((c) => c.toLowerCase() === cleaned.toLowerCase());
+  const match = CATEGORIES.find(
+    (c) => c.toLowerCase() === cleaned.toLowerCase()
+  );
   return (match as Category) ?? "All";
 }
 
@@ -122,9 +124,12 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">All Case Studies</h1>
+              <h1 className="font-serif text-3xl text-[#3b2f22]">
+                All Case Studies
+              </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
-                Telusuri semua karya. Filter berdasarkan kategori atau cari judul/keyword.
+                Telusuri semua karya. Filter berdasarkan kategori atau cari
+                judul/keyword.
               </p>
             </div>
 
@@ -214,9 +219,11 @@ export default function CaseStudiesIndex() {
                       </h3>
                       <p className="text-xs text-[#7a6f62]">{item.category}</p>
                     </div>
-                    <span className="text-xs font-medium text-[#5f3d24]">
-                      View →
-                    </span>
+                      <span
+                        className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm"
+                      >
+                        View
+                      </span>
                   </div>
                 </Link>
               </li>

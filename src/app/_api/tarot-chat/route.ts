@@ -5,16 +5,23 @@ type Payload = { prompt?: string; userMessage?: string };
 
 export async function POST(req: Request) {
   try {
-    const { prompt, userMessage }: Payload = await req.json().catch(() => ({} as Payload));
+    const { prompt, userMessage }: Payload = await req
+      .json()
+      .catch(() => ({} as Payload));
 
     // fallback kalau body kosong
     if (!prompt && !userMessage) {
-      return Response.json({ reply: "Server: body request kosong." }, { status: 200 });
+      return Response.json(
+        { reply: "Server: body request kosong." },
+        { status: 200 }
+      );
     }
 
     const API_KEY = process.env.GROQ_API_KEY;
-    const API_URL = process.env.GROQ_API_URL ?? "https://api.groq.com/openai/v1/chat/completions";
-    const MODEL   = process.env.GROQ_MODEL ?? "llama-3.1-8b-instant";
+    const API_URL =
+      process.env.GROQ_API_URL ??
+      "https://api.groq.com/openai/v1/chat/completions";
+    const MODEL = process.env.GROQ_MODEL ?? "llama-3.1-8b-instant";
 
     // Jika belum set API key, balikan dummy supaya UI tidak error
     if (!API_KEY) {
@@ -28,8 +35,14 @@ export async function POST(req: Request) {
     const body = {
       model: MODEL,
       messages: [
-        { role: "system", content: "Anda adalah penafsir tarot profesional. Hangat & membantu." },
-        { role: "user", content: `${prompt ?? ""}\n\nUser: ${userMessage ?? ""}` },
+        {
+          role: "system",
+          content: "Anda adalah penafsir tarot profesional. Hangat & membantu.",
+        },
+        {
+          role: "user",
+          content: `${prompt ?? ""}\n\nUser: ${userMessage ?? ""}`,
+        },
       ],
       temperature: 0.7,
     };
@@ -47,7 +60,10 @@ export async function POST(req: Request) {
     if (!r.ok) {
       const txt = await r.text();
       console.error("Provider error:", r.status, txt);
-      return Response.json({ reply: `Server error (${r.status}): ${txt}` }, { status: 200 });
+      return Response.json(
+        { reply: `Server error (${r.status}): ${txt}` },
+        { status: 200 }
+      );
     }
 
     const data = await r.json();
@@ -60,6 +76,9 @@ export async function POST(req: Request) {
     return Response.json({ reply }, { status: 200 });
   } catch (err) {
     console.error("tarot-chat internal:", err);
-    return Response.json({ reply: "Internal error di server. Coba lagi ya." }, { status: 200 });
+    return Response.json(
+      { reply: "Internal error di server. Coba lagi ya." },
+      { status: 200 }
+    );
   }
 }
