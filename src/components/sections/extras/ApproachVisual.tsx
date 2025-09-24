@@ -4,8 +4,7 @@ import Link from "next/link";
 export const dynamic = "force-static"; // optional
 
 // === Konfigurasi route saat ini ===
-// Ubah jika kamu memindahkan halaman ini.
-const THIS_ROUTE = "/makeup";
+const THIS_ROUTE = "/gallery";
 
 const CATEGORIES = [
   "All",
