@@ -20,20 +20,8 @@ export default function RootLayout({
           <SplashScreen minMs={900} hardTimeoutMs={1800} oncePerSession />
           <Navbar />
           <HashScrollFix />
-
-          <main
-            className={[
-              "overflow-x-hidden",
-              "relative min-h-screen",
-              "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
-              "bg-top bg-cover",
-              "md:bg-fixed md:bg-center md:bg-cover",
-              "text-neutral-900",
-            ].join(" ")}
-          >
-            {children}
-          </main>
-
+          <main className="overflow-x-hidden">{children}</main>
+          
           <Footer />
           <StickySpotify />
         </Providers>

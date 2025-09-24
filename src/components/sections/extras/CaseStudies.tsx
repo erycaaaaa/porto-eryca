@@ -118,7 +118,7 @@ export default function CaseStudiesIndex() {
   }, [activeCat, q]);
 
   return (
-    <main className="min-h-screen bg-[#faf8f3]" id="worked">
+    <main className="min-h-screen bg-[#faf8f3]/10" id="worked">
       {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
         <div className="mx-auto max-w-6xl px-6 py-8">

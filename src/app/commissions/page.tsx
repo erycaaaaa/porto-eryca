@@ -130,7 +130,7 @@ function IntroGate({
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleContinue()}
           placeholder="mis. Eryca"
-          className="mt-2 w-full rounded-xl border border-[#e6cbb4] bg-white/80 px-4 py-3 outline-none focus:border-[#c99a73]"
+          className="mt-2 w-full rounded-xl border border-[#e6cbb4] bg-white/10 px-4 py-3 outline-none focus:border-[#c99a73]"
         />
         {touched && value.trim().length < 2 && (
           <p className="mt-2 text-xs text-rose-600">Minimal 2 huruf ya 😊</p>
