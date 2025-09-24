@@ -12,7 +12,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
       {/* BACKGROUND */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
      <img
-        src="/porto-eryca/bg-baru.png"
+        src="/porto-eryca/bg11.png"
         alt=""
         aria-hidden="true"
         loading="eager"

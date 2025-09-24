@@ -1,13 +1,18 @@
-
+// src/components/layout/SplashScreen.tsx
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type Props = {
+  /** Minimal tampil (ms) sebelum boleh ditutup otomatis/oleh user */
   minMs?: number;
+  /** Batas keras total splash (ms) — akan dipaksa hilang jika lewat */
   hardTimeoutMs?: number;
+  /** Hanya sekali per sessionStorage */
   oncePerSession?: boolean;
-  defaultDurationMs?: number;
+  /** (Alias) Default durasi minimal jika minMs tak diisi */
+  defaultDurationMs?: number; // ← tambahkan ini
+  /** (Alias) Batas keras total jika hardTimeoutMs tak diisi */
   maxTotalMs?: number;
 };
 
@@ -18,79 +23,77 @@ export default function SplashScreen({
   defaultDurationMs,
   maxTotalMs,
 }: Props) {
+  // Resolusi nilai alias vs utama
   const effectiveMin = (minMs ?? defaultDurationMs ?? 700);
   const effectiveHard = (hardTimeoutMs ?? maxTotalMs ?? 1800);
 
- 
-  const [shouldRender, setShouldRender] = useState(true);  
-  const [visible, setVisible] = useState(false);       
+  const [shouldRender, setShouldRender] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   const startedAtRef = useRef(0);
   const closedRef = useRef(false);
   const hardTimerRef = useRef<number | null>(null);
+  const hideTimerRef = useRef<number | null>(null);
 
-  useEffect(() => {
-
+  // Contoh: fungsi “gateFull” dibikin stabil agar lolos ESLint
+  const gateFull = useCallback(() => {
     if (closedRef.current) return;
 
     const already = oncePerSession && sessionStorage.getItem("splash:shown") === "1";
     if (already) {
-
       setShouldRender(false);
       return;
     }
 
-    // Tampilkan overlay (fade in)
-    setVisible(true);
     startedAtRef.current = performance.now();
+    setVisible(true);
 
-    const close = () => {
-      if (closedRef.current) return;
+    // Hard timeout
+    if (hardTimerRef.current) clearTimeout(hardTimerRef.current);
+    hardTimerRef.current = window.setTimeout(() => {
       closedRef.current = true;
+      setVisible(false);
+      setShouldRender(false);
+      if (oncePerSession) sessionStorage.setItem("splash:shown", "1");
+    }, effectiveHard);
+  }, [oncePerSession, effectiveHard]);
 
-      const elapsed = performance.now() - startedAtRef.current;
-      const wait = Math.max(0, effectiveMin - elapsed);
-
-      window.setTimeout(() => {
-        setVisible(false);
-        if (oncePerSession) sessionStorage.setItem("splash:shown", "1");
-        window.setTimeout(() => setShouldRender(false), 320);
-      }, wait);
-    };
-
-    if (document.readyState === "interactive" || document.readyState === "complete") {
-      close();
-    } else {
-      const onReady = () => {
-        document.removeEventListener("readystatechange", onReady);
-        close();
-      };
-      document.addEventListener("readystatechange", onReady);
-    }
-
-    // Hard timeout cadangan
-    hardTimerRef.current = window.setTimeout(close, effectiveHard);
-
+  useEffect(() => {
+    gateFull(); // ← kita panggil fungsi stabil
     return () => {
-      if (hardTimerRef.current) window.clearTimeout(hardTimerRef.current);
+      if (hardTimerRef.current) clearTimeout(hardTimerRef.current);
+      if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     };
-  }, [effectiveMin, effectiveHard, oncePerSession]);
+  }, [gateFull]); // ← deps ditambahkan agar tak ada warning
+
+  // contoh close handler menjaga minimal durasi tampil
+  const close = useCallback(() => {
+    if (closedRef.current) return;
+    const elapsed = performance.now() - startedAtRef.current;
+    const remain = Math.max(0, effectiveMin - elapsed);
+
+    if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+    hideTimerRef.current = window.setTimeout(() => {
+      closedRef.current = true;
+      setVisible(false);
+      setShouldRender(false);
+      if (oncePerSession) sessionStorage.setItem("splash:shown", "1");
+    }, remain);
+  }, [effectiveMin, oncePerSession]);
 
   if (!shouldRender) return null;
 
   return (
     <div
-      aria-hidden
-      className={[
-        "fixed inset-0 z-[9999] grid place-items-center",
-        "bg-[#fff2d6]",
-        "transition-opacity duration-300",
-        visible ? "opacity-100" : "opacity-0 pointer-events-none",
-      ].join(" ")}
+      role="dialog"
+      aria-modal="true"
+      className={`fixed inset-0 z-[9999] grid place-items-center transition-opacity
+                  ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      onClick={close}
     >
-      <div className="flex flex-col items-center gap-4">
-        <Image src="/porto-eryca/logo-web.gif" alt="Logo" width={84} height={84} priority className="drop-shadow" />
-        <p className="text-sm opacity-70">Tunggu Sebentar yaa…</p>
+      <div className="rounded-2xl bg-[#f5f4ef] p-6 shadow-2xl">
+        <Image src="/logo.png" alt="" width={96} height={96} />
+        <p className="mt-3 text-sm text-zinc-700">Loading…</p>
       </div>
     </div>
   );

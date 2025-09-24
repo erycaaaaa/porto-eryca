@@ -35,7 +35,6 @@ type Props = {
 const FULL_WIDTH = 420;
 const RAIL_WIDTH = 80;
 
-// media query helper: true di mobile (<=640px)
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -65,7 +64,7 @@ export default function MobileSidebar({
 
   // ===== router + base path awareness (GitHub Pages) =====
   const router = useRouter();
-  const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // contoh: "/porto-eryca"
+  const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "/porto-eryca";
 
   const resolveHref = useCallback(
     (href: string) => (href.startsWith("/") ? `${BASE}${href}` : href),
@@ -112,7 +111,6 @@ useEffect(() => {
     };
   }, [open]);
 
-  // klik item: kalau di desktop & masih rail → expand dulu, lalu jalankan anchor
   const onAnchor = useCallback<AnchorHandler>(
     (href: string) => (e) => {
       if (!isMobile && !expanded) setExpanded(true);
@@ -121,7 +119,6 @@ useEffect(() => {
     [handleAnchorAction, isMobile, expanded]
   );
 
-  // width animatable (mobile = full screen)
   const width = isMobile ? "100vw" : expanded ? FULL_WIDTH : RAIL_WIDTH;
 
   return (
@@ -233,7 +230,7 @@ useEffect(() => {
                     className="rounded-full border border-[#e8dcb8] bg-white/90 p-1.5 shadow dark:border-[#3b3526] dark:bg-[#18160f]"
                   >
                     <Image
-                      src="/porto-eryca/ikan.gif"
+                      src="/porto-eryca/eryca.gif"
                       alt="Logo"
                       width={24}
                       height={24}
