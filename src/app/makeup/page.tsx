@@ -48,30 +48,39 @@ export default function MakeupPortfolioPage() {
       {/* HERO */}
       <section >
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pt-16 pb-6 sm:pt-20">
-          <div className="relative overflow-hidden rounded-[36px] border border-neutral-200/0 bg-neutral-0">
-            <Image
-              src="/porto-eryca/bg-baru.png"
-              alt="Makeup monochrome hero"
-              fill
-              priority
-              className="object-cover grayscale"
-            />
-            <div className="relative z-10 mx-auto flex min-h-[42vh] max-w-3xl flex-col items-center justify-center p-8 text-center sm:min-h-[56vh]">
-              <h1 className="text-5xl sm:text-6xl leading-tight">
-                <span className="block font-[Great_Vibes] text-4xl sm:text-5xl text-neutral-900 drop-shadow-md">Muse</span>
-                <span className="block font-serif font-bold tracking-wide text-black sm:text-7xl">ERYCA</span>
-              </h1>
-              <p className="mt-4 max-w-xl text-sm italic text-neutral-400">
-                More than a face, <br />
-                I am the canvas where beauty tells its story.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <a href="#services" className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white">Explore Services</a>
-                <a href="#portfolio" className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-800">View Works</a>
-              </div>
-            </div>
-            <div className="pointer-events-none absolute inset-0 rounded-[36px] bg-gradient-to-t from-black/0 via-transparent to-transparent" />
-          </div>
+     <div className="relative overflow-hidden rounded-none">
+  <Image
+    src="/porto-eryca/bg11.png"
+    alt="Makeup monochrome hero"
+    fill   // otomatis full parent
+    className="object-cover"
+    priority
+    unoptimized
+  />
+  
+  {/* Konten hero */}
+  <div className="relative z-10 flex flex-col items-center justify-center h-[80vh] text-center">
+    <h1 className="text-4xl md:text-6xl font-bold">Muse ERYCA</h1>
+    <p className="mt-2 text-neutral-600 dark:text-neutral-300">
+      More than a face,<br/>I am the canvas where beauty tells its story.
+    </p>
+    <div className="mt-6 flex gap-4">
+      <a
+        href="#services"
+        className="rounded-full bg-black text-white px-6 py-3 hover:opacity-90"
+      >
+        Explore Services
+      </a>
+      <a
+        href="#portfolio"
+        className="rounded-full border border-black px-6 py-3 hover:bg-black hover:text-white"
+      >
+        View Works
+      </a>
+    </div>
+  </div>
+</div>
+
         </div>
       </section>
 
