@@ -13,41 +13,50 @@ const PANEL = "rounded-[32px] border border-neutral-200 bg-white shadow-sm";
 
 export default function MakeupPortfolioPage() {
   return (
-    <main
-      id="makeup"
-      className={`
-        relative min-h-screen ${BODY}
-        bg-[radial-gradient(1200px_600px_at_50%_-10%,#ffffff_0%,#fafaf5_60%,#faf8ee_100%),url('/porto-eryca/bg-mua.png')]
-        bg-no-repeat
-        bg-[position:50%_0,50%_130%]
-        bg-[length:100%_600px,1600px_auto]
-      `}
-    >
-      {/* Topbar */}
-      <header className="sticky top-0 z-30 border-b border-neutral-200/00 bg-white/00 backdrop-blur supports-[backdrop-filter]:bg-white/00">
+    <main id="makeup" className={`relative min-h-screen ${BODY}`}>
+      {/* Topbar transparan */}
+      <header className="absolute top-0 left-0 z-30 w-full">
         <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
-          <a href="#makeup" className={`${SERIF} text-xl font-semibold`}>
+          <a
+            href="#makeup"
+            className={`${SERIF} text-xl font-semibold text-white drop-shadow`}
+          >
             Eryca
           </a>
           <ul className="hidden items-center gap-6 text-sm sm:flex">
-            <li><a href="#about" className="hover:underline">About</a></li>
-            <li><a href="#services" className="hover:underline">Services</a></li>
-            <li><a href="#portfolio" className="hover:underline">Portfolio</a></li>
-            <li><a href="#contact" className="hover:underline">Contact</a></li>
+            <li>
+              <a href="#about" className="hover:underline text-white drop-shadow">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#services" className="hover:underline text-white drop-shadow">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio" className="hover:underline text-white drop-shadow">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="hover:underline text-white drop-shadow">
+                Contact
+              </a>
+            </li>
           </ul>
           <a
             href="https://wa.me/6285871154799?text=Hi%20Eryca%2C%20saya%20ingin%20booking%20makeup."
             target="_blank"
-            className="hidden rounded-full px-4 py-2 text-xs font-medium text-black sm:inline-block"
+            className="hidden rounded-full px-4 py-2 text-xs font-medium text-white sm:inline-block drop-shadow"
           >
             Collaboration With Me ^^ →
           </a>
         </nav>
       </header>
 
-      {/* HERO – full header */}
-      <section className="relative h-[70vh] sm:h-[80vh] lg:h-[88vh]">
-        {/* BG image */}
+      {/* HERO – full background image */}
+      <section id="hero" className="relative h-[100vh] w-full">
         <Image
           src="/porto-eryca/bg11.png"
           alt="Makeup monochrome hero"
@@ -57,27 +66,29 @@ export default function MakeupPortfolioPage() {
           unoptimized
         />
 
-        {/* Overlay (opsional biar teks lebih terbaca) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/40" />
+        {/* Overlay opsional */}
+        <div className="absolute inset-0" />
 
         {/* Konten */}
-        <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center">
-          <p className="text-sm tracking-widest text-neutral-700">Muse</p>
-          <h1 className={`${SERIF} mt-1 text-4xl font-bold md:text-6xl`}>ERYCA</h1>
-          <p className={`mt-3 max-w-xl ${MUTED}`}>
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
+          <p className="text-sm tracking-widest">Muse</p>
+          <h1 className={`${SERIF} mt-1 text-4xl font-bold md:text-6xl`}>
+            ERYCA
+          </h1>
+          <p className="mt-3 max-w-xl">
             More than a face,<br />I am the canvas where beauty tells its story.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#services"
-              className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white hover:opacity-90"
+              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:opacity-90"
             >
               Explore Services
             </a>
             <a
               href="#portfolio"
-              className="rounded-full border border-black px-6 py-3 text-sm font-medium text-black hover:bg-black hover:text-white"
+              className="rounded-full border border-white px-6 py-3 text-sm font-medium text-white hover:bg-white hover:text-black"
             >
               View Works
             </a>
