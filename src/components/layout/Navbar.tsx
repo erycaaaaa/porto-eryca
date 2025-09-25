@@ -126,7 +126,7 @@ export default function Navbar() {
       aria-label="Primary"
       className={[
         "sticky top-0 z-50 w-full",
-        "bg-[#3b2f22] text-[#e8e0c2] dark:bg-[#95927573] dark:text-white",
+        "bg-[#5f3d24] text-[#e8e0c2] dark:bg-[#95927573] dark:text-white",
         scrolled
           ? "border-b border-[#e8e0c2]/50 shadow-[0_6px_16px_rgba(0,0,0,0.18)] backdrop-blur"
           : "border-b border-transparent",

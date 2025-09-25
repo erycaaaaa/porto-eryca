@@ -107,7 +107,7 @@ return (
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">
+              <h1 className="font-serif text-3xl text-[#5f3d24]">
                 All Artworks
               </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
@@ -121,7 +121,7 @@ return (
                 name="q"
                 defaultValue={searchParams?.q ?? ""}
                 placeholder="Search title…"
-                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
               {activeCat !== "All" && (
                 <input type="hidden" name="cat" value={activeCat} />
@@ -145,7 +145,7 @@ return (
                     "rounded-full border px-4 py-2 text-sm",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
-                      : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
+                      : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
                   ].join(" ")}
                   aria-pressed={isActive}
                 >
@@ -194,7 +194,7 @@ return (
                 {/* meta bawah (opsional) */}
                 <div className="flex items-center justify-between px-4 py-3">
                   <div>
-                    <h3 className="text-base font-medium text-[#3b2f22]">
+                    <h3 className="text-base font-medium text-[#5f3d24]">
                       {item.title}
                     </h3>
                     <p className="text-xs text-[#7a6f62]">{item.category}</p>

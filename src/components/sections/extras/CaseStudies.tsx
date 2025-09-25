@@ -133,7 +133,7 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">
+              <h1 className="font-serif text-3xl text-[#5f3d24]">
                 All Case Studies
               </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
@@ -148,7 +148,7 @@ export default function CaseStudiesIndex() {
                 name="q"
                 defaultValue={qRaw}
                 placeholder="Search case studies…"
-                className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
               {activeCat !== "All" && (
                 <input type="hidden" name="cat" value={activeCat} />
@@ -176,7 +176,7 @@ export default function CaseStudiesIndex() {
                     "rounded-full border px-4 py-2 text-sm transition",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
-                      : "border-[#e6dccb] bg-white/80 text-[#3b2f22] hover:bg-[#f4efe6]",
+                      : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
                   ].join(" ")}
                 >
                   {cat}
@@ -215,7 +215,7 @@ export default function CaseStudiesIndex() {
                         {item.description}
                       </p>
                       {item.tag && (
-                        <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3] px-3 py-1 text-[10px] tracking-wide">
+                        <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                           {item.tag}
                         </span>
                       )}
@@ -223,7 +223,7 @@ export default function CaseStudiesIndex() {
                   </div>
                   <div className="flex items-center justify-between px-4 py-3">
                     <div>
-                      <h3 className="text-base font-medium text-[#3b2f22]">
+                      <h3 className="text-base font-medium text-[#5f3d24]">
                         {item.title}
                       </h3>
                       <p className="text-xs text-[#7a6f62]">{item.category}</p>

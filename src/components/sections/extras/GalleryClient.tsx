@@ -83,7 +83,7 @@ export default function GalleryClient({
                   "rounded-full border px-4 py-2 text-sm",
                   isActive
                     ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
-                    : "border-[#e6dccb] bg-white text-[#3b2f22] hover:bg-[#f4efe6]",
+                    : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
                 ].join(" ")}
                 aria-pressed={isActive}
               >
@@ -98,7 +98,7 @@ export default function GalleryClient({
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search title…"
-            className="w-full rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+            className="w-full rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
           />
         </div>
       </div>
@@ -137,7 +137,7 @@ export default function GalleryClient({
                 </div>
                 <div className="flex items-center justify-between px-4 py-3">
                   <div>
-                    <h3 className="text-base font-medium text-[#3b2f22]">
+                    <h3 className="text-base font-medium text-[#5f3d24]">
                       {item.title}
                     </h3>
                     <p className="text-xs text-[#7a6f62]">{item.category}</p>

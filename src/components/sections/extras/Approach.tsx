@@ -152,7 +152,7 @@ export default function Approach() {
       <div className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-12 px-6 md:grid-cols-12">
         {/* Card kiri */}
         <div className="md:col-span-6 lg:col-span-7">
-          <div className="w-full overflow-hidden rounded-[28px] border border-neutral-200 bg-white/0 p-6 shadow-lg md:p-8">
+          <div className="w-full overflow-hidden rounded-[18px] border border-neutral-200 bg-white/90 p-6 shadow-lg md:p-8">
             {/* slider */}
             <ImageSlider
               images={[

@@ -1,126 +1,141 @@
-// src/app/gallery/page.tsx
 import Image from "next/image";
 import Link from "next/link";
 
-export const dynamic = "force-static"; // optional
-
-// Route halaman saat ini
-const THIS_ROUTE = "/cs-parable"; // Ganti sesuai route halaman studi kasus
-
+/* =========================
+   KATEGORI & TIPE DATA
+   ========================= */
 const CATEGORIES = [
   "All",
-  "Acrylic",
-  "Watercolor",
-  "3D Crafting",
-  "Poster",
-  "Sketch",
-  "Design",
+  "Case Studies",
+  "Sentiment Analysis",
+  "UI/UX",
+  "Front-End",
+  "Research",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
+
+// Normalisasi kategori dari URL
+const normalizeCat = (v: unknown): Category => {
+  if (typeof v !== "string") return "All";
+  const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
+  const match = (CATEGORIES as readonly string[]).find(
+    (c) => c.toLowerCase() === cleaned.toLowerCase()
+  );
+  return (match as Category) ?? "All";
+};
 
 type Item = {
   id: string;
   title: string;
   category: Exclude<Category, "All">;
   src: string;
+  href: string;
   alt?: string;
   description: string;
+  tag?: string;
 };
 
-// ganti dengan data asli
+/* =========================
+   DATA STATIC (hardcoded)
+   ========================= */
 const ALL_ITEMS: Item[] = [
   {
-    id: "ac-01",
-    title: "Demon Slayer",
-    category: "Acrylic",
-    src: "/porto-eryca/2.jpg",
+    id: "cs-parable",
+    title: "Parable Floristry",
+    category: "Case Studies",
+    src: "/porto-eryca/w2.jpg",
+    href: "/case-studies/parable-floristry",
+    tag: "Brand & Web",
     description:
-      "Demon Slayer (Kimetsu no Yaiba) tells the story of Tanjiro Kamado, a teenager whose family was slaughtered by demons, and his sister, Nezuko, who was turned into a demon. Tanjiro joins the Demon Slayer Corps to find a cure to turn Nezuko back into a human and to exterminate all demons. Set in Japan during the Taisho era, the anime depicts Tanjiro and his friends battling demons using special breathing techniques.",
+      "Boutique floristry brand site with crisp UX, motion, and editorial storytelling.",
   },
   {
-    id: "wc-01",
-    title: "Christmas Scene",
-    category: "Watercolor",
-    src: "/porto-eryca/1.jpg",
-    description: "Watercolor: wet-on-wet glow & soft edges.",
+    id: "cs-tarumanagara",
+    title: "Tarumanagara Enterprise",
+    category: "Case Studies",
+    src: "/porto-eryca/u00.jpg",
+    href: "/case-studies/tarumanagara-enterprise",
+    tag: "UX Strategy",
+    description: "Vision-led site with clean information flow and scalable IA.",
   },
   {
-    id: "dc-01",
-    title: "Self Potrait",
-    category: "3D Crafting",
-    src: "/porto-eryca/4.jpg",
-    description: "3D craft: stylized form, matte clay render.",
-  },
-  {
-    id: "ac-06",
-    title: "Commission",
-    category: "Acrylic",
-    src: "/porto-eryca/acy6.jpg",
-    description: "Cat by Tesla Paint",
-  },
-  {
-    id: "sk-01",
-    title: "Gesture Study",
-    category: "Sketch",
-    src: "/porto-eryca/sket1.jpg",
-    description: "Sketch: 60s gesture lines & proportions.",
-  },
-  {
-    id: "wc-03",
-    title: "A blue eye blooming on paper.",
-    category: "Watercolor",
-    src: "/porto-eryca/wate2.jpg",
+    id: "cs-eryca",
+    title: "Eryca Portfolio",
+    category: "Front-End",
+    src: "/porto-eryca/w11.jpg",
+    href: "/case-studies/eryca-portfolio",
+    tag: "Design & Front-End",
     description:
-      "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette.",
+      "Personal portfolio yang cepat, jelas, dan crafted—fokus scroll & storytelling.",
+  },
+  {
+    id: "paper-sentiment",
+    title: "Sentiment Analysis Paper",
+    category: "Sentiment Analysis",
+    src: "/porto-eryca/analisa.jpg",
+    href: "/case-studies/Paper-sentiment",
+    tag: "Research & NLP",
+    description:
+      "Research on sentiment classification using NLP & deep learning pipelines.",
+  },
+  {
+    id: "paper-bot",
+    title: "EduBot UI/UX Design",
+    category: "UI/UX",
+    src: "/porto-eryca/edubot.jpg",
+    href: "/case-studies/Paper-bot",
+    tag: "UI/UX • Chatbot",
+    description:
+      "Design system & conversational flow for an educational chatbot.",
   },
 ];
 
-export default function GalleryPage({
+/* =========================
+   PAGE COMPONENT
+   ========================= */
+export default function CaseStudiesIndex({
   searchParams,
 }: {
   searchParams?: { cat?: string; q?: string };
 }) {
-  const activeCat = (searchParams?.cat ?? "All") as Category;
-  const q = (searchParams?.q ?? "").toLowerCase();
+  const activeCat: Category = normalizeCat(searchParams?.cat ?? "All");
+  const qRaw = searchParams?.q ?? "";
+  const q = qRaw.toLowerCase();
 
+  // Filter data berdasarkan kategori & search
   const filtered = ALL_ITEMS.filter((it) => {
     const byCat = activeCat === "All" || it.category === activeCat;
-    const byQ = !q || it.title.toLowerCase().includes(q);
+    const byQ =
+      !q ||
+      it.title.toLowerCase().includes(q) ||
+      it.description.toLowerCase().includes(q) ||
+      (it.tag ?? "").toLowerCase().includes(q);
     return byCat && byQ;
   });
 
   return (
-    <main id="cs-parable" className="relative min-h-screen text-neutral-900">
-      {/* BG image 10% opacity agar konten tetap jelas */}
-      <div
-        aria-hidden
-        className="
-          pointer-events-none absolute inset-0 -z-10
-          bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat
-          bg-top bg-cover md:bg-fixed md:bg-center md:bg-cover
-          opacity-10
-        "
-      />
-
-      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
+    <main className="min-h-screen bg-[#faf8f3]">
+      {/* Header & Controls */}
+      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#3b2f22]">
-                All Artworks
+              <h1 className="font-serif text-3xl text-[#5f3d24]">
+                All Case Studies
               </h1>
               <p className="mt-1 text-sm text-[#5a5246]">
-                Telusuri karya. Filter berdasarkan kategori atau cari judul.
+                Telusuri semua karya. Filter berdasarkan kategori atau cari
+                judul/keyword.
               </p>
             </div>
 
             {/* Search (GET) */}
-            <form className="mt-3 sm:mt-0" action={THIS_ROUTE} method="get">
+            <form className="mt-3 sm:mt-0" action="/case-studies" method="get">
               <input
                 name="q"
-                defaultValue={searchParams?.q ?? ""}
-                placeholder="Search title…"
-                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#3b2f22] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                defaultValue={qRaw}
+                placeholder="Search case studies…"
+                className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
               {activeCat !== "All" && (
                 <input type="hidden" name="cat" value={activeCat} />
@@ -131,11 +146,14 @@ export default function GalleryPage({
           {/* Filter Pills */}
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
-              const href =
-                cat === "All"
-                  ? THIS_ROUTE
-                  : `${THIS_ROUTE}?cat=${encodeURIComponent(cat)}`;
+              const params = new URLSearchParams();
+              if (cat !== "All") params.set("cat", cat);
+              if (qRaw) params.set("q", qRaw);
+              const href = params.toString()
+                ? `/case-studies?${params.toString()}`
+                : "/case-studies";
               const isActive = activeCat === cat;
+
               return (
                 <Link
                   key={cat}
@@ -144,9 +162,8 @@ export default function GalleryPage({
                     "rounded-full border px-4 py-2 text-sm",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
-                      : "border-[#e6dccb] bg-white text-[#3b2f2 2] hover:bg-[#f4efe6]",
+                      : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
                   ].join(" ")}
-                  aria-pressed={isActive}
                 >
                   {cat}
                 </Link>
@@ -156,11 +173,11 @@ export default function GalleryPage({
         </div>
       </header>
 
+      {/* Grid */}
       <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
-            pencarian.
+            Tidak ada hasil untuk filter/pencarian ini.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -169,36 +186,39 @@ export default function GalleryPage({
                 key={item.id}
                 className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
               >
-                {/* Hover fade overlay untuk semua kartu */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={item.src}
-                    alt={item.alt ?? item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                    priority={false}
-                  />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">
-                      {item.description}
-                    </p>
-                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
-                      {item.category}
+                <Link href={item.href} className="block">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={item.alt ?? item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <h3 className="text-base font-semibold">{item.title}</h3>
+                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
+                        {item.description}
+                      </p>
+                      {item.tag && (
+                        <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                          {item.tag}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between px-4 py-3">
+                    <div>
+                      <h3 className="text-base font-medium text-[#5f3d24]">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                    </div>
+                    <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
+                      View
                     </span>
                   </div>
-                </div>
-
-                {/* meta bawah (opsional) */}
-                <div className="flex items-center justify-between px-4 py-3">
-                  <div>
-                    <h3 className="text-base font-medium text-[#3b2f22]">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-[#7a6f62]">{item.category}</p>
-                  </div>
-                </div>
+                </Link>
               </li>
             ))}
           </ul>

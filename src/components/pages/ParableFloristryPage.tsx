@@ -44,7 +44,7 @@ export function ImpactHighlights({
   return (
     <section
       id="impact"
-      className="py-12 bg-gradient-to-r from-[#ffffff17] via-[#3b2f22] to-[#ffffff17]"
+      className="py-12 bg-gradient-to-r from-[#ffffff17] via-[#5f3d24] to-[#ffffff17]"
       aria-labelledby="impact-heading"
     >
       <div className="container mx-auto max-w-7xl px-5">
