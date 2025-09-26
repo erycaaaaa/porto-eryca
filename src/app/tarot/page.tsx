@@ -11,9 +11,7 @@ export default function Page() {
   const heroCards = typed.slice(0, 3).map((c) => c.image);
 
   return (
-    <main
-      className="relative min-h-screen overflow-x-hidden text-white/0"
-    >
+    <main className="relative min-h-screen overflow-x-hidden text-white">
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-center bg-cover md:bg-fixed"
@@ -23,13 +21,9 @@ export default function Page() {
         }}
       />
 
-      {/* NAV */}
       <NavbarTarot />
-
-      {/* HERO */}
       <HeroTarot cards={heroCards} />
 
-      {/* CONTENT */}
       <section id="tarot" className="py-16 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6">
           <TarotClient deck={typed} />

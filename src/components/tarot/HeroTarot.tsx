@@ -19,28 +19,33 @@ export default function HeroTarot({
   const float = (i: number) => ({
     y: [0, -20, 0],
     rotate: [0, i % 2 === 0 ? 6 : -6, 0],
-    transition: {
-      duration: 4 + i,
-      repeat: Infinity,
-      ease: easeInOut,
-    },
+    transition: { duration: 4 + i, repeat: Infinity, ease: easeInOut },
   });
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden text-white/0">
+    // pakai section supaya tidak nested <main>
+    <section className="relative min-h-screen overflow-x-hidden text-white">
+      {/* BG: foto + slight darkening so text pops */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-center bg-cover md:bg-fixed"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(76,29,149,0.88), rgba(49,46,129,0.86), rgba(10,6,32,0.95)), url('/porto-eryca/bg13.png')",
+            "linear-gradient(to bottom, rgba(10,6,32,0.35), rgba(10,6,32,0.75)), url('/porto-eryca/bg13.png')",
         }}
       />
-      <header className="relative h-[90vh] flex flex-col justify-center items-center text-center text-white overflow-hidden bg-gradient-to-b from-purple-900 to-indigo-900">
+
+      <header className="relative h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden">
+        {/* overlay gradients (TRANSPARAN) agar foto tetap terlihat */}
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/60 via-indigo-900/50 to-[#0a0620]/70" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_70%)]" />
+
         <div className="relative z-10 px-6">
           <h1 className="font-serif text-5xl sm:text-6xl mb-4">{title}</h1>
-          <p className="max-w-xl mx-auto text-lg text-purple-200">{subtitle}</p>
+          <p className="max-w-xl mx-auto text-lg text-purple-100/90">
+            {subtitle}
+          </p>
+
           <div className="mt-10 flex justify-center gap-6">
             {cards.slice(0, 3).map((src, i) => (
               <motion.div
@@ -61,9 +66,9 @@ export default function HeroTarot({
             ))}
           </div>
         </div>
+
         <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_100%,rgba(0,0,0,0.35),transparent_60%)]" />
       </header>
-      );
-    </main>
+    </section>
   );
 }
