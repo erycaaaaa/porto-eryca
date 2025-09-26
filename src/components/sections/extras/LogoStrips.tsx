@@ -91,7 +91,7 @@ function IconFor({ label }: { label: string }) {
     <span
       title={label}
       aria-label={label}
-      className="grid h-7 w-7 place-items-center rounded-full border text-[10px] bg-white/70 text-neutral-700"
+      className="grid h-7 w-7 place-items-center rounded-full border text-[10px] bg-white text-neutral-700"
     >
       {label.slice(0, 2).toUpperCase()}
     </span>

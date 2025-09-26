@@ -88,21 +88,18 @@ export default function GalleryPage({
     return byCat && byQ;
   });
 
-return (
-  <main
-    id="illustrations"
-    className="relative min-h-screen text-neutral-900"
-  >
-    <div
-      aria-hidden
-      className="
+  return (
+    <main id="illustrations" className="relative min-h-screen text-neutral-900">
+      <div
+        aria-hidden
+        className="
         pointer-events-none absolute inset-0 -z-10
         bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat
         bg-top bg-cover
         md:bg-fixed md:bg-center md:bg-cover
         opacity-10
       "
-    />
+      />
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">

@@ -1,8 +1,19 @@
+// app/case-studies/page.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 
 /* =========================
-   KATEGORI & TIPE DATA
+   BASE PATH HELPER (untuk bg & <img> biasa)
+   ========================= */
+const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
+const asset = (p: string) => `${BASE}${p.startsWith("/") ? p : `/${p}`}`;
+
+/* =========================
+   KATEGORI
    ========================= */
 const CATEGORIES = [
   "All",
@@ -14,16 +25,18 @@ const CATEGORIES = [
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
-// Normalisasi kategori dari URL
-const normalizeCat = (v: unknown): Category => {
-  if (typeof v !== "string") return "All";
+function normalizeCat(v: string | null): Category {
+  if (!v) return "All";
   const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-  const match = (CATEGORIES as readonly string[]).find(
-    (c) => c.toLowerCase() === cleaned.toLowerCase()
-  );
+  const match = CATEGORIES.find((c) => c.toLowerCase() === cleaned.toLowerCase());
   return (match as Category) ?? "All";
-};
+}
 
+/* =========================
+   DATA (SIMPAN FILE GAMBAR DI /public)
+   NOTE: jangan tulis prefix "/porto-eryca" di src;
+         Next akan auto-prepend basePath saat build/export.
+   ========================= */
 type Item = {
   id: string;
   title: string;
@@ -35,15 +48,12 @@ type Item = {
   tag?: string;
 };
 
-/* =========================
-   DATA STATIC (hardcoded)
-   ========================= */
 const ALL_ITEMS: Item[] = [
   {
     id: "cs-parable",
     title: "Parable Floristry",
     category: "Case Studies",
-    src: "/porto-eryca/w2.jpg",
+    src: "/fajar1.jpg", // ⬅️ letakkan di /public/fajar1.jpg
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
     description:
@@ -53,16 +63,16 @@ const ALL_ITEMS: Item[] = [
     id: "cs-tarumanagara",
     title: "Tarumanagara Enterprise",
     category: "Case Studies",
-    src: "/porto-eryca/u00.jpg",
+    src: "/untarx1.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
     description: "Vision-led site with clean information flow and scalable IA.",
   },
   {
     id: "cs-eryca",
-    title: "Eryca Portfolio",
+    title: "Website Wihara",
     category: "Front-End",
-    src: "/porto-eryca/w11.jpg",
+    src: "/wihara11.jpg",
     href: "/case-studies/eryca-portfolio",
     tag: "Design & Front-End",
     description:
@@ -72,7 +82,7 @@ const ALL_ITEMS: Item[] = [
     id: "paper-sentiment",
     title: "Sentiment Analysis Paper",
     category: "Sentiment Analysis",
-    src: "/porto-eryca/analisa.jpg",
+    src: "/analisa1.jpg",
     href: "/case-studies/Paper-sentiment",
     tag: "Research & NLP",
     description:
@@ -82,7 +92,7 @@ const ALL_ITEMS: Item[] = [
     id: "paper-bot",
     title: "EduBot UI/UX Design",
     category: "UI/UX",
-    src: "/porto-eryca/edubot.jpg",
+    src: "/edu1.jpg",
     href: "/case-studies/Paper-bot",
     tag: "UI/UX • Chatbot",
     description:
@@ -91,75 +101,81 @@ const ALL_ITEMS: Item[] = [
 ];
 
 /* =========================
-   PAGE COMPONENT
+   PAGE INDEX (Client-side Filtering)
    ========================= */
-export default function CaseStudiesIndex({
-  searchParams,
-}: {
-  searchParams?: { cat?: string; q?: string };
-}) {
-  const activeCat: Category = normalizeCat(searchParams?.cat ?? "All");
-  const qRaw = searchParams?.q ?? "";
+export default function CaseStudiesIndex() {
+  const sp = useSearchParams();
+  const catRaw = sp.get("cat");
+  const qRaw = sp.get("q") ?? "";
+
+  const activeCat: Category = normalizeCat(catRaw);
   const q = qRaw.toLowerCase();
 
-  // Filter data berdasarkan kategori & search
-  const filtered = ALL_ITEMS.filter((it) => {
-    const byCat = activeCat === "All" || it.category === activeCat;
-    const byQ =
-      !q ||
-      it.title.toLowerCase().includes(q) ||
-      it.description.toLowerCase().includes(q) ||
-      (it.tag ?? "").toLowerCase().includes(q);
-    return byCat && byQ;
-  });
+  const filtered = useMemo(() => {
+    return ALL_ITEMS.filter((it) => {
+      const byCat = activeCat === "All" || it.category === activeCat;
+      const byQ =
+        !q ||
+        it.title.toLowerCase().includes(q) ||
+        it.description.toLowerCase().includes(q) ||
+        (it.tag ?? "").toLowerCase().includes(q);
+      return byCat && byQ;
+    });
+  }, [activeCat, q]);
 
   return (
-    <main className="min-h-screen bg-[#faf8f3]">
-      {/* Header & Controls */}
-      <header className="border-b border-[#e6dccb] bg-[#fbf8f3]">
+    <main
+      id="worked"
+      className="relative min-h-screen text-neutral-900"
+      style={{
+        backgroundImage: `url(${asset("/case-study.png")})`, // ⬅️ /public/case-study.png
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        backgroundSize: "cover",
+      }}
+    >
+      {/* overlay supaya kontras */}
+      <div className="absolute inset-0 bg-[#faf8f3]/80 pointer-events-none" aria-hidden />
+
+      {/* HEADER */}
+      <header className="relative border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#5f3d24]">
-                All Case Studies
-              </h1>
+              <h1 className="font-serif text-3xl text-[#5f3d24]">All Case Studies</h1>
               <p className="mt-1 text-sm text-[#5a5246]">
-                Telusuri semua karya. Filter berdasarkan kategori atau cari
-                judul/keyword.
+                Telusuri semua karya. Filter berdasarkan kategori atau cari judul/keyword.
               </p>
             </div>
 
-            {/* Search (GET) */}
-            <form className="mt-3 sm:mt-0" action="/case-studies" method="get">
+            {/* SEARCH — action="" agar rel. ke path sekarang (aman basePath) */}
+            <form className="mt-3 sm:mt-0" action="" method="get">
               <input
                 name="q"
                 defaultValue={qRaw}
                 placeholder="Search case studies…"
                 className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
-              {activeCat !== "All" && (
-                <input type="hidden" name="cat" value={activeCat} />
-              )}
+              {activeCat !== "All" && <input type="hidden" name="cat" value={activeCat} />}
             </form>
           </div>
 
-          {/* Filter Pills */}
+          {/* FILTER PILLS */}
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
               const params = new URLSearchParams();
               if (cat !== "All") params.set("cat", cat);
               if (qRaw) params.set("q", qRaw);
-              const href = params.toString()
-                ? `/case-studies?${params.toString()}`
-                : "/case-studies";
+              const href = params.toString() ? `/case-studies?${params.toString()}` : `/case-studies`;
               const isActive = activeCat === cat;
 
               return (
                 <Link
                   key={cat}
                   href={href}
+                  aria-pressed={isActive}
                   className={[
-                    "rounded-full border px-4 py-2 text-sm",
+                    "rounded-full border px-4 py-2 text-sm transition",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
@@ -173,8 +189,8 @@ export default function CaseStudiesIndex({
         </div>
       </header>
 
-      {/* Grid */}
-      <section className="mx-auto max-w-6xl px-6 py-8">
+      {/* GRID */}
+      <section className="relative mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
             Tidak ada hasil untuk filter/pencarian ini.
@@ -184,7 +200,7 @@ export default function CaseStudiesIndex({
             {filtered.map((item) => (
               <li
                 key={item.id}
-                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
+                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white/100 shadow-sm"
               >
                 <Link href={item.href} className="block">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -194,14 +210,13 @@ export default function CaseStudiesIndex({
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                      priority={false}
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <h3 className="text-base font-semibold">{item.title}</h3>
-                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
-                        {item.description}
-                      </p>
+                      <p className="mt-1 text-xs opacity-90 line-clamp-2">{item.description}</p>
                       {item.tag && (
-                        <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                        <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                           {item.tag}
                         </span>
                       )}
@@ -209,9 +224,7 @@ export default function CaseStudiesIndex({
                   </div>
                   <div className="flex items-center justify-between px-4 py-3">
                     <div>
-                      <h3 className="text-base font-medium text-[#5f3d24]">
-                        {item.title}
-                      </h3>
+                      <h3 className="text-base font-medium text-[#5f3d24]">{item.title}</h3>
                       <p className="text-xs text-[#7a6f62]">{item.category}</p>
                     </div>
                     <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">

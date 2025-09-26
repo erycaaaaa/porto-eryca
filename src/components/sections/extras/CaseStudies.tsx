@@ -122,7 +122,7 @@ export default function CaseStudiesIndex() {
       id="worked"
       className={[
         "relative min-h-screen",
-        "bg-[url('/porto-eryca/bg-mua.png')]/40 bg-no-repeat",
+        "bg-[url('/porto-eryca/case-study.png')]/40 bg-no-repeat",
         "bg-top bg-cover",
         "md:bg-fixed md:bg-center md:bg-cover",
         "text-neutral-900",

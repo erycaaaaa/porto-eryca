@@ -12,6 +12,7 @@ const playfair = Playfair_Display({
 });
 const vibes = Great_Vibes({ subsets: ["latin"], weight: ["400"] });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SERIF = "font-serif";
 const BODY = "text-neutral-800";
 const MUTED = "text-neutral-700";

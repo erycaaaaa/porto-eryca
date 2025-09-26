@@ -104,9 +104,8 @@ export default function CaseLayout({
   return (
     <main
       className={[
-  
         "relative min-h-screen",
-        "bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat",
+        "bg-[url('/porto-eryca/case-study.png')] bg-no-repeat",
         "bg-top bg-cover",
         "md:bg-fixed md:bg-center md:bg-cover",
 
