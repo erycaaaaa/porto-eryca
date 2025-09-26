@@ -21,7 +21,9 @@ const CATEGORIES = [
   "Paper",
   "UI/UX",
   "Front-End",
-  "Research",
+  "Game",
+  "Design",
+  "NoteBook",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
@@ -35,7 +37,7 @@ function normalizeCat(v: string | null): Category {
 type Item = {
   id: string;
   title: string;
-  category: Exclude<Category, "All">;
+  categories: Exclude<Category, "All">[]; // ← array
   src: string;
   href: string;
   alt?: string;
@@ -47,7 +49,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "cs-parable",
     title: "Parable Floristry",
-    category: "Case Studies",
+    categories: ["Front-End", "Design", "UI/UX"],
     src: "/porto-eryca/fajar1.jpg", 
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
@@ -57,7 +59,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "cs-tarumanagara",
     title: "Tarumanagara Enterprise",
-    category: "Case Studies",
+    categories: ["Design", "UI/UX"],
     src: "/porto-eryca/untarx1.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
@@ -66,7 +68,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "cs-eryca",
     title: "Website Wihara",
-    category: "Front-End",
+    categories: ["Front-End", "Design", "UI/UX"],
     src: "/porto-eryca/wihara11.jpg",
     href: "/case-studies/eryca-portfolio",
     tag: "Design & Front-End",
@@ -76,7 +78,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "paper-sentiment",
     title: "Sentiment Analysis Paper",
-    category: "Paper",
+    categories: ["Paper"],
     src: "/porto-eryca/analisa1.jpg",
     href: "/case-studies/Paper-sentiment",
     tag: "Research & NLP",
@@ -84,14 +86,24 @@ const ALL_ITEMS: Item[] = [
       "Research on sentiment classification using NLP & deep learning pipelines.",
   },
   {
-    id: "paper-bot",
+    id: "website-bot",
     title: "EduBot UI/UX Design",
-    category: "UI/UX",
+    categories: ["Design", "UI/UX"],
     src: "/porto-eryca/edu1.jpg",
     href: "/case-studies/Paper-bot",
     tag: "UI/UX • Chatbot",
     description:
       "Design system & conversational flow for an educational chatbot.",
+  },
+    {
+    id: "paper-bot-edu",
+    title: "Perancangan Antarmuka Chatbot",
+    categories: ["Paper"],
+    src: "/porto-eryca/analisa2.jpg",
+    href: "/case-studies/Paper-bot/paper-bot",
+    tag: "Research",
+    description:
+      "Perancangan Antarmuka Chatbot Edukatif untuk Sistem Tanya Jawab SDN Kalideres 13 Petang",
   },
 ];
 
@@ -108,7 +120,7 @@ export default function CaseStudiesIndex() {
 
   const filtered = useMemo(() => {
     return ALL_ITEMS.filter((it) => {
-      const byCat = activeCat === "All" || it.category === activeCat;
+      const byCat = activeCat === "All" || it.categories.includes(activeCat);
       const byQ =
         !q ||
         it.title.toLowerCase().includes(q) ||
@@ -220,7 +232,7 @@ export default function CaseStudiesIndex() {
                   <div className="flex items-center justify-between px-4 py-3">
                     <div>
                       <h3 className="text-base font-medium text-[#5f3d24]">{item.title}</h3>
-                      <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                      <p className="text-xs text-[#7a6f62]">{item.categories.join(", ")}</p>
                     </div>
                     <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
                       View
