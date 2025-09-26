@@ -10,6 +10,7 @@ import { useSearchParams } from "next/navigation";
    BASE PATH HELPER (untuk bg & <img> biasa)
    ========================= */
 const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const asset = (p: string) => `${BASE}${p.startsWith("/") ? p : `/${p}`}`;
 
 /* =========================
@@ -105,7 +106,7 @@ const ALL_ITEMS: Item[] = [
     href: "/case-studies/Paper-bot/paper-bot",
     tag: "Research",
     description:
-      "Perancangan Antarmuka Chatbot Edukatif untuk Sistem Tanya Jawab SDN Kalideres 13 Petang",
+      "Perancangan Antarmuka Chatbot Edukatif untuk System Tanya Jawab SDN Kalideres 13 Petang",
   },
 ];
 

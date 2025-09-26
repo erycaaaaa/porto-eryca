@@ -1,4 +1,3 @@
-// src/app/tarot/tarot-client.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -10,9 +9,24 @@ import { TarotButtonLink } from "@/components/case/TarrotButton";
 import { prefix } from "@/utils/prefix";
 
 /* =========================
+   Fallback & helper path
+   ========================= */
+// fallback disimpan di: public/cards/back.jpg
+const FALLBACK_CARD = prefix("/cards/back.jpg");
+
+function resolveCardImagePath(raw?: string) {
+  const v = (raw ?? "").trim();
+  if (!v) return FALLBACK_CARD; // pakai fallback
+  if (/^https?:\/\//i.test(v)) return v; // URL absolut
+  // "cards/x.jpg" -> "/cards/x.jpg" -> basePath-aware
+  return prefix(v.startsWith("/") ? v : `/${v}`);
+}
+
+/* =========================
    Types
    ========================= */
 type Suit = "Major" | "Wands" | "Cups" | "Swords" | "Pentacles";
+
 export type Card = {
   id: string;
   name: string;
@@ -20,7 +34,7 @@ export type Card = {
   index: number;
   upright: string;
   reversed: string;
-  image: string; // contoh di deck.json: "cards/the-magician.jpg" atau "/porto-eryca/the-magician.jpg"
+  image: string; // contoh di deck.json: "cards/the-magician.jpg"
   yesno?: "yes" | "no" | "mixed";
   weight?: number;
   keywords?: string[];
@@ -29,14 +43,13 @@ export type Card = {
   luckyColors?: string[];
   luckyTip?: string;
 };
+
 type DrawnCard = { card: Card; reversed: boolean };
 type SpreadKind = "one" | "three" | "daily" | "yesno";
 
 /* =========================
    Konstanta
    ========================= */
-const FALLBACK_CARD = prefix("/porto-eryca/card-fallback.png"); // pastikan ada file ini
-
 const SPREADS: Record<
   SpreadKind,
   { label: string; size: number; positions: string[] }
@@ -73,8 +86,7 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
 }
 function hashSeed(s: string) {
   let h = 0;
-  for (let i = 0; i < s.length; i++)
-    h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
   return Math.abs(h);
 }
 
@@ -98,19 +110,8 @@ const META: Record<
     luckyColors: ["Putih", "Biru muda"],
     luckyTip: "Coba hal baru, tapi tetap berpijak pada rencana minimal.",
   },
-  // tambahkan meta lain bila perlu...
+  // tambah meta lain jika perlu…
 };
-
-/* =========================
-   Utils path gambar (support basePath)
-   ========================= */
-function resolveCardImagePath(raw: string | undefined) {
-  const v = (raw ?? "").trim();
-  if (!v) return FALLBACK_CARD;
-  if (/^https?:\/\//i.test(v)) return v;            // URL absolut
-  const withSlash = v.startsWith("/") ? v : `/${v}`; // pastikan diawali '/'
-  return prefix(withSlash);                          // tambahkan basePath di PROD
-}
 
 /* =========================
    Komponen utama
@@ -126,9 +127,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
 
   function onDraw() {
     const seedBase =
-      (question.trim().toLowerCase() || new Date().toISOString()) +
-      "|" +
-      spread;
+      (question.trim().toLowerCase() || new Date().toISOString()) + "|" + spread;
     const seed = hashSeed(seedBase);
     const shuffled = seededShuffle(deck, seed);
     const rng = mulberry32(seed ^ 0x9e3779b9);
@@ -227,9 +226,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
               </div>
             ) : (
               <div
-                className={`grid ${
-                  spread === "three" ? "grid-cols-3" : "grid-cols-1"
-                } gap-4`}
+                className={`grid ${spread === "three" ? "grid-cols-3" : "grid-cols-1"} gap-4`}
               >
                 {drawn.map((dc, idx) => (
                   <CardView
@@ -273,25 +270,25 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
 /* =========================
    Item kartu (flip + fallback)
    ========================= */
-function CardView({
-  data,
-  label,
-  reveal,
-  active,
-  onSelect,
-}: {
+type CardViewProps = {
   data: DrawnCard;
   label: string;
   reveal: boolean;
   active: boolean;
   onSelect: () => void;
-}) {
+};
+
+const CardView: React.FC<CardViewProps> = ({
+  data,
+  label,
+  reveal,
+  active,
+  onSelect,
+}) => {
   const [flipped, setFlipped] = useState(false);
   useEffect(() => setFlipped(reveal), [reveal]);
 
-  const initialSrc = resolveCardImagePath(data.card.image);
-  const [imgSrc, setImgSrc] = useState(initialSrc);
-
+  const [imgSrc, setImgSrc] = useState(() => resolveCardImagePath(data.card.image));
   useEffect(() => {
     setImgSrc(resolveCardImagePath(data.card.image));
   }, [data.card.image]);
@@ -299,7 +296,6 @@ function CardView({
   return (
     <div className="w-full">
       <div className="mb-2 text-xs text-neutral-500">{label}</div>
-
       <motion.button
         type="button"
         className={`relative w-full aspect-[2/3] rounded-xl ring-offset-2 ${
@@ -334,17 +330,10 @@ function CardView({
                 src={imgSrc}
                 alt={data.card.name}
                 fill
-                className={`object-cover ${
-                  data.reversed ? "[transform:rotate(180deg)]" : ""
-                }`}
-                sizes="(max-width: 768px) 100vw, 33vw"
                 unoptimized
-                onError={() => {
-                  if (imgSrc !== FALLBACK_CARD) {
-                    console.warn("Gagal load image, pakai fallback:", imgSrc);
-                    setImgSrc(FALLBACK_CARD);
-                  }
-                }}
+                className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                onError={() => setImgSrc(FALLBACK_CARD)}
               />
             </div>
           </motion.div>
@@ -360,7 +349,7 @@ function CardView({
       </p>
     </div>
   );
-}
+};
 
 /* =========================
    Panel kanan
@@ -379,8 +368,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
   const keywords = card.keywords ?? meta.keywords ?? guessKeywords(card, reversed);
   const goodFor = card.goodFor ?? meta.goodFor ?? guessGoodFor(card);
   const cautions = card.cautions ?? meta.cautions ?? guessCautions(card);
-  const luckyColors =
-    card.luckyColors ?? meta.luckyColors ?? guessLuckyColors(card);
+  const luckyColors = card.luckyColors ?? meta.luckyColors ?? guessLuckyColors(card);
   const luckyTip = card.luckyTip ?? meta.luckyTip ?? guessLuckyTip(card);
 
   return (
@@ -391,11 +379,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
             reversed ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
           }`}
         >
-          <span
-            className={`h-2 w-2 rounded-full ${
-              reversed ? "bg-rose-500" : "bg-emerald-500"
-            }`}
-          />
+          <span className={`h-2 w-2 rounded-full ${reversed ? "bg-rose-500" : "bg-emerald-500"}`} />
           {reversed ? "Reversed" : "Upright"}
         </span>
         <h2 className="ml-2 font-semibold">{card.name}</h2>
@@ -404,10 +388,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
       <Section title="Keywords">
         <div className="flex flex-wrap gap-2">
           {keywords.map((k) => (
-            <span
-              key={k}
-              className="inline-block rounded-full bg-violet-100 text-violet-800 text-xs px-3 py-1"
-            >
+            <span key={k} className="inline-block rounded-full bg-violet-100 text-violet-800 text-xs px-3 py-1">
               {k}
             </span>
           ))}
@@ -445,10 +426,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
         <Section title="Lucky Colors">
           <div className="flex flex-wrap gap-2">
             {luckyColors.map((c) => (
-              <span
-                key={c}
-                className="inline-block rounded-full bg-neutral-100 text-neutral-800 text-xs px-3 py-1"
-              >
+              <span key={c} className="inline-block rounded-full bg-neutral-100 text-neutral-800 text-xs px-3 py-1">
                 {c}
               </span>
             ))}
@@ -469,9 +447,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
         <span className="h-4 w-1.5 rounded-full bg-violet-400" />
         <h3 className="text-[15px] font-semibold">{title}</h3>
       </div>
-      <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-        {children}
-      </div>
+      <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">{children}</div>
     </div>
   );
 }
@@ -479,12 +455,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 /* =========================
    Prompt builder & heuristik
    ========================= */
-function buildPrompt(
-  q: string,
-  spread: SpreadKind,
-  cards: DrawnCard[],
-  positions: string[]
-) {
+function buildPrompt(q: string, spread: SpreadKind, cards: DrawnCard[], positions: string[]) {
   const cardsBlock = cards
     .map(
       (c, i) =>
@@ -537,17 +508,13 @@ function guessKeywords(card: Card, reversed: boolean): string[] {
 function guessGoodFor(card: Card): string[] {
   if (card.suit === "Pentacles")
     return ["Menyusun anggaran", "Merapikan aset/ruang kerja", "Rencana finansial", "Rutinitas stabil"];
-  if (card.suit === "Wands")
-    return ["Memulai proyek", "Eksperimen ide", "Networking", "Gerak cepat"];
-  if (card.suit === "Cups")
-    return ["Refleksi perasaan", "Quality time", "Empati", "Kreativitas lembut"];
-  if (card.suit === "Swords")
-    return ["Riset & analisis", "Komunikasi tegas", "Keputusan rasional", "Belajar fokus"];
+  if (card.suit === "Wands") return ["Memulai proyek", "Eksperimen ide", "Networking", "Gerak cepat"];
+  if (card.suit === "Cups") return ["Refleksi perasaan", "Quality time", "Empati", "Kreativitas lembut"];
+  if (card.suit === "Swords") return ["Riset & analisis", "Komunikasi tegas", "Keputusan rasional", "Belajar fokus"];
   return ["Refleksi diri", "Menetapkan niat", "Mencari makna", "Mindfulness"];
 }
 function guessCautions(card: Card): string[] {
-  if (card.suit === "Pentacles")
-    return ["Materialistis", "Defensif", "Perfeksionisme", "Takut perubahan"];
+  if (card.suit === "Pentacles") return ["Materialistis", "Defensif", "Perfeksionisme", "Takut perubahan"];
   if (card.suit === "Wands") return ["Impulsif", "Burnout", "Overcommit", "Tergesa-gesa"];
   if (card.suit === "Cups") return ["Baper berlebihan", "Melarikan diri", "Idealistik"];
   if (card.suit === "Swords") return ["Overthinking", "Kritik tajam", "Kaku"];
