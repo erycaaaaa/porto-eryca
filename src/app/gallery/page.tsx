@@ -120,12 +120,9 @@ export default function GalleryPage() {
   return (
     <main
       id="illustrations"
-      className="
-    relative isolate z-0
-    py-16 md:py-20
-    bg-center bg-cover md:bg-fixed bg-no-repeat
-  "
-      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
+      className="relative min-h-screen text-neutral-900
+             bg-center bg-cover bg-no-repeat md:bg-fixed"
+      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }}
     >
       {/* background */}
       <Image

@@ -89,16 +89,12 @@ export default function GalleryPage({
   });
 
   return (
-    <main id="illustrations" className="relative min-h-screen text-neutral-900">
-      <div
-        aria-hidden
-        className="
-    relative isolate z-0
-    py-16 md:py-20
-    bg-center bg-cover md:bg-fixed bg-no-repeat
-  "
-        style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
-      />
+    <main
+      id="illustrations"
+      className="relative min-h-screen text-neutral-900
+             bg-center bg-cover bg-no-repeat md:bg-fixed"
+      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }}
+    >
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
