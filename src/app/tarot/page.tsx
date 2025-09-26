@@ -36,7 +36,6 @@ export default function Page() {
   );
 }
 
-/** Pastikan path gambar dari deck.json terbaca dari /public (case-sensitive) */
 function normalizeSrc(raw: string) {
   const s = (raw ?? "").trim();
   return s.startsWith("/") || s.startsWith("http") ? s : `/${s}`;
