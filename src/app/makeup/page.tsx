@@ -27,7 +27,7 @@ export default function MakeupPortfolioPage() {
       id="makeup"
       className={`
         relative min-h-screen ${BODY}
-        bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
+        bg-[url('/porto-eryca/bg12.png')] bg-center bg-cover bg-fixed
       `}
     >
       {/* overlay lembut agar teks kebaca */}

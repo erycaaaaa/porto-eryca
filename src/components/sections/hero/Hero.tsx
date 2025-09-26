@@ -19,7 +19,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
       id="home"
       className={`
         relative isolate min-h-svh
-        bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
+        bg-[url('/porto-eryca/bg12.png')] bg-center bg-cover bg-fixed
         grid place-items-center
         text-center px-5
       `}

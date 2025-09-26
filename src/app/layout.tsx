@@ -24,7 +24,7 @@ export default function RootLayout({
             className={[
               "overflow-x-hidden",
               "relative min-h-screen",
-              "bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed",
+              "bg-[url('/porto-eryca/bg12.png')] bg-center bg-cover bg-fixed",
             ].join(" ")}
           >
             {children}
