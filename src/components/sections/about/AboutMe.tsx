@@ -621,7 +621,7 @@ export default function AboutMe() {
       className="
       relative isolate z-0
       py-16 md:py-20
-      bg-[url('/porto-eryca/about-bg.png')] bg-center bg-cover md:bg-fixed bg-no-repeat
+      bg-[url('/porto-eryca/bg-about.png')] bg-center bg-cover md:bg-fixed bg-no-repeat
         "
       style={{ opacity: opacityMV, pointerEvents: pe }}
     >
