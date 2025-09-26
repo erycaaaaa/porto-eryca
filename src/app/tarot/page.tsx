@@ -1,7 +1,7 @@
 // src/app/tarot/page.tsx
 import NavbarTarot from "@/components/tarot/NavbarTarot";
 import HeroTarot from "@/components/tarot/HeroTarot";
-import TarotClient, { Card } from "./tarot-client";
+import TarotClient, { Card } from "@/app/tarot/tarot-client";
 import deck from "@/data/tarot/deck.json" assert { type: "json" };
 
 export const dynamic = "force-static";

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Shuffle, RotateCcw } from "lucide-react";
 import TarotChat from "@/app/tarot/TarotChat";
-import { TarotButtonLink } from "@/components/case/TarrotButton"; // biarkan sesuai nama file-mu
+import { TarotButtonLink } from "@/components/case/TarrotButton";
 import { prefix } from "@/utils/prefix";
 
 /* =========================
@@ -20,7 +20,7 @@ export type Card = {
   index: number;
   upright: string;
   reversed: string;
-  image: string;
+  image: string; // contoh di deck.json: "cards/the-magician.jpg" atau "/porto-eryca/the-magician.jpg"
   yesno?: "yes" | "no" | "mixed";
   weight?: number;
   keywords?: string[];
@@ -35,8 +35,7 @@ type SpreadKind = "one" | "three" | "daily" | "yesno";
 /* =========================
    Konstanta
    ========================= */
-const FALLBACK_CARD = prefix("/porto-eryca/card-fallback.png");
-// ↑ BUAT file ini di public/porto-eryca/card-fallback.png (apa saja).
+const FALLBACK_CARD = prefix("/porto-eryca/card-fallback.png"); // pastikan ada file ini
 
 const SPREADS: Record<
   SpreadKind,
@@ -93,22 +92,13 @@ const META: Record<
   }
 > = {
   "the-fool": {
-    keywords: [
-      "Awal baru",
-      "Spontanitas",
-      "Kepolosan",
-      "Petualangan",
-      "Kebebasan",
-    ],
-    goodFor: [
-      "Memulai proyek baru",
-      "Mengambil peluang segar",
-      "Mengikuti intuisi",
-    ],
+    keywords: ["Awal baru", "Spontanitas", "Kepolosan", "Petualangan", "Kebebasan"],
+    goodFor: ["Memulai proyek baru", "Mengambil peluang segar", "Mengikuti intuisi"],
     cautions: ["Terlalu gegabah", "Kurang perencanaan", "Risiko berlebihan"],
     luckyColors: ["Putih", "Biru muda"],
     luckyTip: "Coba hal baru, tapi tetap berpijak pada rencana minimal.",
   },
+  // tambahkan meta lain bila perlu...
 };
 
 /* =========================
@@ -117,9 +107,9 @@ const META: Record<
 function resolveCardImagePath(raw: string | undefined) {
   const v = (raw ?? "").trim();
   if (!v) return FALLBACK_CARD;
-  if (/^https?:\/\//i.test(v)) return v;
-  const withSlash = v.startsWith("/") ? v : `/${v}`;
-  return prefix(withSlash);
+  if (/^https?:\/\//i.test(v)) return v;            // URL absolut
+  const withSlash = v.startsWith("/") ? v : `/${v}`; // pastikan diawali '/'
+  return prefix(withSlash);                          // tambahkan basePath di PROD
 }
 
 /* =========================
@@ -143,12 +133,10 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
     const shuffled = seededShuffle(deck, seed);
     const rng = mulberry32(seed ^ 0x9e3779b9);
 
-    const picks: DrawnCard[] = shuffled
-      .slice(0, spreadDef.size)
-      .map((card) => ({
-        card,
-        reversed: rng() < 0.45,
-      }));
+    const picks: DrawnCard[] = shuffled.slice(0, spreadDef.size).map((card) => ({
+      card,
+      reversed: rng() < 0.45,
+    }));
 
     setDrawn(picks);
     setActiveIdx(0);
@@ -247,9 +235,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
                   <CardView
                     key={dc.card.id}
                     data={dc}
-                    label={`${idx + 1}. ${
-                      spreadDef.positions[idx] ?? "Posisi"
-                    }`}
+                    label={`${idx + 1}. ${spreadDef.positions[idx] ?? "Posisi"}`}
                     reveal={reveal}
                     active={idx === activeIdx}
                     onSelect={() => setActiveIdx(idx)}
@@ -265,9 +251,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
           <CardInsights selected={active} />
 
           <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-            <h3 className="font-semibold">
-              Prompt untuk AI (copy &amp; paste)
-            </h3>
+            <h3 className="font-semibold">Prompt untuk AI (copy &amp; paste)</h3>
             <textarea
               value={prompt}
               readOnly
@@ -287,7 +271,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
 }
 
 /* =========================
-   Item kartu (flip)
+   Item kartu (flip + fallback)
    ========================= */
 function CardView({
   data,
@@ -305,12 +289,11 @@ function CardView({
   const [flipped, setFlipped] = useState(false);
   useEffect(() => setFlipped(reveal), [reveal]);
 
-  // Normalisasi + prefix + fallback
-  const initialSrc = resolveCardImagePath(String(data.card.image || ""));
+  const initialSrc = resolveCardImagePath(data.card.image);
   const [imgSrc, setImgSrc] = useState(initialSrc);
 
   useEffect(() => {
-    setImgSrc(resolveCardImagePath(String(data.card.image || "")));
+    setImgSrc(resolveCardImagePath(data.card.image));
   }, [data.card.image]);
 
   return (
@@ -327,17 +310,14 @@ function CardView({
           onSelect();
         }}
       >
-        <div
-          className="relative h-full w-full"
-          style={{ perspective: "1000px" }}
-        >
+        <div className="relative h-full w-full" style={{ perspective: "1000px" }}>
           <motion.div
             className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white overflow-hidden"
             animate={{ rotateY: flipped ? 180 : 0 }}
             transition={{ duration: 0.6 }}
             style={{ transformStyle: "preserve-3d", cursor: "pointer" }}
           >
-            {/* FRONT (tertutup) */}
+            {/* FRONT */}
             <div
               className="absolute inset-0 grid place-items-center rounded-xl bg-neutral-100"
               style={{ backfaceVisibility: "hidden" }}
@@ -348,27 +328,21 @@ function CardView({
             {/* BACK (gambar) */}
             <div
               className="absolute inset-0 rounded-xl overflow-hidden"
-              style={{
-                transform: "rotateY(180deg)",
-                backfaceVisibility: "hidden",
-              }}
+              style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
             >
               <Image
                 src={imgSrc}
                 alt={data.card.name}
                 fill
-                unoptimized
                 className={`object-cover ${
                   data.reversed ? "[transform:rotate(180deg)]" : ""
                 }`}
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized
                 onError={() => {
                   if (imgSrc !== FALLBACK_CARD) {
+                    console.warn("Gagal load image, pakai fallback:", imgSrc);
                     setImgSrc(FALLBACK_CARD);
-                  }
-     
-                  if (process.env.NODE_ENV !== "production") {
-                    console.warn("Gagal load image:", imgSrc);
                   }
                 }}
               />
@@ -402,8 +376,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
   const { card, reversed } = selected;
   const meta = META[card.id] ?? {};
 
-  const keywords =
-    card.keywords ?? meta.keywords ?? guessKeywords(card, reversed);
+  const keywords = card.keywords ?? meta.keywords ?? guessKeywords(card, reversed);
   const goodFor = card.goodFor ?? meta.goodFor ?? guessGoodFor(card);
   const cautions = card.cautions ?? meta.cautions ?? guessCautions(card);
   const luckyColors =
@@ -415,9 +388,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
       <div className="flex items-center gap-2 mb-4">
         <span
           className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ${
-            reversed
-              ? "bg-rose-100 text-rose-700"
-              : "bg-emerald-100 text-emerald-700"
+            reversed ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
           }`}
         >
           <span
@@ -491,13 +462,7 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
   );
 }
 
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-4">
       <div className="flex items-center gap-2 mb-2">
@@ -561,8 +526,7 @@ function buildPrompt(
 
 function guessKeywords(card: Card, reversed: boolean): string[] {
   const base: string[] = [];
-  if (card.suit === "Pentacles")
-    base.push("Material", "Practicality", "Grounding");
+  if (card.suit === "Pentacles") base.push("Material", "Practicality", "Grounding");
   if (card.suit === "Cups") base.push("Emotion", "Intuition");
   if (card.suit === "Swords") base.push("Mind", "Clarity");
   if (card.suit === "Wands") base.push("Action", "Passion");
@@ -572,37 +536,20 @@ function guessKeywords(card: Card, reversed: boolean): string[] {
 }
 function guessGoodFor(card: Card): string[] {
   if (card.suit === "Pentacles")
-    return [
-      "Menyusun anggaran",
-      "Merapikan aset/ruang kerja",
-      "Rencana finansial",
-      "Rutinitas stabil",
-    ];
+    return ["Menyusun anggaran", "Merapikan aset/ruang kerja", "Rencana finansial", "Rutinitas stabil"];
   if (card.suit === "Wands")
     return ["Memulai proyek", "Eksperimen ide", "Networking", "Gerak cepat"];
   if (card.suit === "Cups")
-    return [
-      "Refleksi perasaan",
-      "Quality time",
-      "Empati",
-      "Kreativitas lembut",
-    ];
+    return ["Refleksi perasaan", "Quality time", "Empati", "Kreativitas lembut"];
   if (card.suit === "Swords")
-    return [
-      "Riset & analisis",
-      "Komunikasi tegas",
-      "Keputusan rasional",
-      "Belajar fokus",
-    ];
+    return ["Riset & analisis", "Komunikasi tegas", "Keputusan rasional", "Belajar fokus"];
   return ["Refleksi diri", "Menetapkan niat", "Mencari makna", "Mindfulness"];
 }
 function guessCautions(card: Card): string[] {
   if (card.suit === "Pentacles")
     return ["Materialistis", "Defensif", "Perfeksionisme", "Takut perubahan"];
-  if (card.suit === "Wands")
-    return ["Impulsif", "Burnout", "Overcommit", "Tergesa-gesa"];
-  if (card.suit === "Cups")
-    return ["Baper berlebihan", "Melarikan diri", "Idealistik"];
+  if (card.suit === "Wands") return ["Impulsif", "Burnout", "Overcommit", "Tergesa-gesa"];
+  if (card.suit === "Cups") return ["Baper berlebihan", "Melarikan diri", "Idealistik"];
   if (card.suit === "Swords") return ["Overthinking", "Kritik tajam", "Kaku"];
   return ["Dogmatis", "Kontrol berlebihan", "Mengabaikan intuisi"];
 }

@@ -7,7 +7,7 @@
     "upright": "The Fool menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the fool menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the fool terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the fool dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-fool.jpg"
+    "image": "cards/the-fool.jpg"
   },
   {
     "id": "the-magician",
@@ -17,7 +17,7 @@
     "upright": "The Magician menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the magician menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the magician terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the magician dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-magician.jpg"
+    "image": "cards/the-magician.jpg"
   },
   {
     "id": "the-high-priestess",
@@ -27,7 +27,7 @@
     "upright": "The High Priestess menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the high priestess menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the high priestess terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the high priestess dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/the-high-priestess.jpg"
+    "image": "cards/the-high-priestess.jpg"
   },
   {
     "id": "the-empress",
@@ -37,7 +37,7 @@
     "upright": "The Empress menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the empress menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the empress terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the empress dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-empress.jpg"
+    "image": "cards/the-empress.jpg"
   },
   {
     "id": "the-emperor",
@@ -47,7 +47,7 @@
     "upright": "The Emperor menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the emperor menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the emperor terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the emperor dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-emperor.jpg"
+    "image": "cards/the-emperor.jpg"
   },
   {
     "id": "the-hierophant",
@@ -57,7 +57,7 @@
     "upright": "The Hierophant menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the hierophant menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the hierophant terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the hierophant dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/the-hierophant.jpg"
+    "image": "cards/the-hierophant.jpg"
   },
   {
     "id": "the-lovers",
@@ -67,7 +67,7 @@
     "upright": "The Lovers menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the lovers menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the lovers terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the lovers dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/the-lovers.jpg"
+    "image": "cards/the-lovers.jpg"
   },
   {
     "id": "the-chariot",
@@ -77,7 +77,7 @@
     "upright": "The Chariot menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the chariot menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the chariot terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the chariot dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-chariot.jpg"
+    "image": "cards/the-chariot.jpg"
   },
   {
     "id": "strength",
@@ -87,7 +87,7 @@
     "upright": "Strength menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, strength menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika strength terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas strength dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/strength.jpg"
+    "image": "cards/strength.jpg"
   },
   {
     "id": "the-hermit",
@@ -97,7 +97,7 @@
     "upright": "The Hermit menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the hermit menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the hermit terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the hermit dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/the-hermit.jpg"
+    "image": "cards/the-hermit.jpg"
   },
   {
     "id": "wheel-of-fortune",
@@ -107,7 +107,7 @@
     "upright": "Wheel of Fortune menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, wheel of fortune menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika wheel of fortune terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas wheel of fortune dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/wheel-of-fortune.jpg"
+    "image": "cards/wheel-of-fortune.jpg"
   },
   {
     "id": "justice",
@@ -117,7 +117,7 @@
     "upright": "Justice menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, justice menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika justice terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas justice dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/justice.jpg"
+    "image": "cards/justice.jpg"
   },
   {
     "id": "the-hanged-man",
@@ -127,7 +127,7 @@
     "upright": "The Hanged Man menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the hanged man menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the hanged man terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the hanged man dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/the-hanged-man.jpg"
+    "image": "cards/the-hanged-man.jpg"
   },
   {
     "id": "death",
@@ -137,7 +137,7 @@
     "upright": "Death menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, death menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika death terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas death dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/death.jpg"
+    "image": "cards/death.jpg"
   },
   {
     "id": "temperance",
@@ -147,7 +147,7 @@
     "upright": "Temperance menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, temperance menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika temperance terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas temperance dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/temperance.jpg"
+    "image": "cards/temperance.jpg"
   },
   {
     "id": "the-devil",
@@ -157,7 +157,7 @@
     "upright": "The Devil menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the devil menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the devil terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the devil dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/the-devil.jpg"
+    "image": "cards/the-devil.jpg"
   },
   {
     "id": "the-tower",
@@ -167,7 +167,7 @@
     "upright": "The Tower menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the tower menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the tower terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the tower dapat dipulihkan secara bertahap.",
     "yesno": "no",
-    "image": "/the-tower.jpg"
+    "image": "cards/the-tower.jpg"
   },
   {
     "id": "the-star",
@@ -177,7 +177,7 @@
     "upright": "The Star menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the star menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the star terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the star dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-star.jpg"
+    "image": "cards/the-star.jpg"
   },
   {
     "id": "the-moon",
@@ -187,7 +187,7 @@
     "upright": "The Moon menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the moon menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the moon terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the moon dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/the-moon.jpg"
+    "image": "cards/the-moon.jpg"
   },
   {
     "id": "the-sun",
@@ -197,7 +197,7 @@
     "upright": "The Sun menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the sun menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the sun terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the sun dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-sun.jpg"
+    "image": "cards/the-sun.jpg"
   },
   {
     "id": "judgement",
@@ -207,7 +207,7 @@
     "upright": "Judgement menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, judgement menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika judgement terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas judgement dapat dipulihkan secara bertahap.",
     "yesno": "mixed",
-    "image": "/judgement.jpg"
+    "image": "cards/judgement.jpg"
   },
   {
     "id": "the-world",
@@ -217,7 +217,7 @@
     "upright": "The World menandai bab penting dalam perjalanan jiwa: pelajaran arketipal yang menuntun arah dan makna. Ia mengundang refleksi mendalam, menggabungkan simbol, intuisi, dan pengalaman hidup menjadi kompas batin. Dalam posisi tegak, the world menunjukkan kualitas terbaiknya: keterhubungan dengan tujuan, kejernihan niat, dan keberanian untuk melangkah. Pesannya mendorong tindakan yang selaras nilai, seraya mempercayai proses yang berkembang secara alami.",
     "reversed": "Ketika the world terbalik, energi arketipnya terhambat atau disalahpahami. Muncul pola lama, ketakutan, atau ilusi yang mengaburkan pandangan, sehingga keputusan merasa tertahan. Inilah undangan untuk meninjau ulang sikap, melepaskan kendali berlebihan, dan mengakui emosi yang dihindari. Dengan kesadaran lembut serta batas yang sehat, kualitas the world dapat dipulihkan secara bertahap.",
     "yesno": "yes",
-    "image": "/the-world.jpg"
+    "image": "cards/the-world.jpg"
   },
   {
     "id": "ace-of-wands",
@@ -227,7 +227,7 @@
     "upright": "Ace of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Awal baru, potensi murni, benih yang menjanjikan.",
     "reversed": "Terbalik, Ace of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/ace-of-wands.jpg"
+    "image": "cards/ace-of-wands.jpg"
   },
   {
     "id": "two-of-wands",
@@ -237,7 +237,7 @@
     "upright": "Two of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pilihan, dualitas, langkah awal yang seimbang.",
     "reversed": "Terbalik, Two of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/two-of-wands.jpg"
+    "image": "cards/two-of-wands.jpg"
   },
   {
     "id": "three-of-wands",
@@ -247,7 +247,7 @@
     "upright": "Three of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pertumbuhan, kolaborasi, ekspresi yang berkembang.",
     "reversed": "Terbalik, Three of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/three-of-wands.jpg"
+    "image": "cards/three-of-wands.jpg"
   },
   {
     "id": "four-of-wands",
@@ -257,7 +257,7 @@
     "upright": "Four of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Stabilitas, struktur, konsolidasi.",
     "reversed": "Terbalik, Four of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/four-of-wands.jpg"
+    "image": "cards/four-of-wands.jpg"
   },
   {
     "id": "five-of-wands",
@@ -267,7 +267,7 @@
     "upright": "Five of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Tantangan, perubahan, penyesuaian yang tidak nyaman.",
     "reversed": "Terbalik, Five of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/five-of-wands.jpg"
+    "image": "cards/five-of-wands.jpg"
   },
   {
     "id": "six-of-wands",
@@ -277,7 +277,7 @@
     "upright": "Six of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Harmoni, dukungan, aliran yang lebih lancar.",
     "reversed": "Terbalik, Six of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/six-of-wands.jpg"
+    "image": "cards/six-of-wands.jpg"
   },
   {
     "id": "seven-of-wands",
@@ -287,7 +287,7 @@
     "upright": "Seven of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Evaluasi, strategi, keyakinan pribadi.",
     "reversed": "Terbalik, Seven of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/seven-of-wands.jpg"
+    "image": "cards/seven-of-wands.jpg"
   },
   {
     "id": "eight-of-wands",
@@ -297,7 +297,7 @@
     "upright": "Eight of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak maju, disiplin, penguasaan keterampilan.",
     "reversed": "Terbalik, Eight of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/eight-of-wands.jpg"
+    "image": "cards/eight-of-wands.jpg"
   },
   {
     "id": "nine-of-wands",
@@ -307,7 +307,7 @@
     "upright": "Nine of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kulminasi, ketahanan, hampir sampai tujuan.",
     "reversed": "Terbalik, Nine of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/nine-of-wands.jpg"
+    "image": "cards/nine-of-wands.jpg"
   },
   {
     "id": "ten-of-wands",
@@ -317,7 +317,7 @@
     "upright": "Ten of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Puncak siklus, pelepasan, hasil yang terasa.",
     "reversed": "Terbalik, Ten of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/ten-of-wands.jpg"
+    "image": "cards/ten-of-wands.jpg"
   },
   {
     "id": "page-of-wands",
@@ -327,7 +327,7 @@
     "upright": "Page of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pesan, pembelajar, rasa ingin tahu yang segar.",
     "reversed": "Terbalik, Page of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/page-of-wands.jpg"
+    "image": "cards/page-of-wands.jpg"
   },
   {
     "id": "knight-of-wands",
@@ -337,7 +337,7 @@
     "upright": "Knight of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak aktif, pengejaran, dinamika perubahan.",
     "reversed": "Terbalik, Knight of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/knight-of-wands.jpg"
+    "image": "cards/knight-of-wands.jpg"
   },
   {
     "id": "queen-of-wands",
@@ -347,7 +347,7 @@
     "upright": "Queen of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kedewasaan batin, kepekaan, pengaruh halus.",
     "reversed": "Terbalik, Queen of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/queen-of-wands.jpg"
+    "image": "cards/queen-of-wands.jpg"
   },
   {
     "id": "king-of-wands",
@@ -357,7 +357,7 @@
     "upright": "King of Wands menyoroti tema hasrat, energi, aksi, kreativitas. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen api—alam wands yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Otoritas, penguasaan, visi strategis.",
     "reversed": "Terbalik, King of Wands mengisyaratkan distorsi tema hasrat, energi, aksi, kreativitas: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi wands menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/king-of-wands.jpg"
+    "image": "cards/king-of-wands.jpg"
   },
   {
     "id": "ace-of-cups",
@@ -367,7 +367,7 @@
     "upright": "Ace of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Awal baru, potensi murni, benih yang menjanjikan.",
     "reversed": "Terbalik, Ace of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/ace-of-cups.jpg"
+    "image": "cards/ace-of-cups.jpg"
   },
   {
     "id": "two-of-cups",
@@ -377,7 +377,7 @@
     "upright": "Two of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pilihan, dualitas, langkah awal yang seimbang.",
     "reversed": "Terbalik, Two of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/two-of-cups.jpg"
+    "image": "cards/two-of-cups.jpg"
   },
   {
     "id": "three-of-cups",
@@ -387,7 +387,7 @@
     "upright": "Three of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pertumbuhan, kolaborasi, ekspresi yang berkembang.",
     "reversed": "Terbalik, Three of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/three-of-cups.jpg"
+    "image": "cards/three-of-cups.jpg"
   },
   {
     "id": "four-of-cups",
@@ -397,7 +397,7 @@
     "upright": "Four of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Stabilitas, struktur, konsolidasi.",
     "reversed": "Terbalik, Four of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/four-of-cups.jpg"
+    "image": "cards/four-of-cups.jpg"
   },
   {
     "id": "five-of-cups",
@@ -407,7 +407,7 @@
     "upright": "Five of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Tantangan, perubahan, penyesuaian yang tidak nyaman.",
     "reversed": "Terbalik, Five of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/five-of-cups.jpg"
+    "image": "cards/five-of-cups.jpg"
   },
   {
     "id": "six-of-cups",
@@ -417,7 +417,7 @@
     "upright": "Six of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Harmoni, dukungan, aliran yang lebih lancar.",
     "reversed": "Terbalik, Six of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/six-of-cups.jpg"
+    "image": "cards/six-of-cups.jpg"
   },
   {
     "id": "seven-of-cups",
@@ -427,7 +427,7 @@
     "upright": "Seven of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Evaluasi, strategi, keyakinan pribadi.",
     "reversed": "Terbalik, Seven of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/seven-of-cups.jpg"
+    "image": "cards/seven-of-cups.jpg"
   },
   {
     "id": "eight-of-cups",
@@ -437,7 +437,7 @@
     "upright": "Eight of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak maju, disiplin, penguasaan keterampilan.",
     "reversed": "Terbalik, Eight of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/eight-of-cups.jpg"
+    "image": "cards/eight-of-cups.jpg"
   },
   {
     "id": "nine-of-cups",
@@ -447,7 +447,7 @@
     "upright": "Nine of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kulminasi, ketahanan, hampir sampai tujuan.",
     "reversed": "Terbalik, Nine of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/nine-of-cups.jpg"
+    "image": "cards/nine-of-cups.jpg"
   },
   {
     "id": "ten-of-cups",
@@ -457,7 +457,7 @@
     "upright": "Ten of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Puncak siklus, pelepasan, hasil yang terasa.",
     "reversed": "Terbalik, Ten of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/ten-of-cups.jpg"
+    "image": "cards/ten-of-cups.jpg"
   },
   {
     "id": "page-of-cups",
@@ -467,7 +467,7 @@
     "upright": "Page of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pesan, pembelajar, rasa ingin tahu yang segar.",
     "reversed": "Terbalik, Page of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/page-of-cups.jpg"
+    "image": "cards/page-of-cups.jpg"
   },
   {
     "id": "knight-of-cups",
@@ -477,7 +477,7 @@
     "upright": "Knight of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak aktif, pengejaran, dinamika perubahan.",
     "reversed": "Terbalik, Knight of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/knight-of-cups.jpg"
+    "image": "cards/knight-of-cups.jpg"
   },
   {
     "id": "queen-of-cups",
@@ -487,7 +487,7 @@
     "upright": "Queen of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kedewasaan batin, kepekaan, pengaruh halus.",
     "reversed": "Terbalik, Queen of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/queen-of-cups.jpg"
+    "image": "cards/queen-of-cups.jpg"
   },
   {
     "id": "king-of-cups",
@@ -497,7 +497,7 @@
     "upright": "King of Cups menyoroti tema perasaan, hubungan, intuisi, penyembuhan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen air—alam cups yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Otoritas, penguasaan, visi strategis.",
     "reversed": "Terbalik, King of Cups mengisyaratkan distorsi tema perasaan, hubungan, intuisi, penyembuhan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi cups menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/king-of-cups.jpg"
+    "image": "cards/king-of-cups.jpg"
   },
   {
     "id": "ace-of-swords",
@@ -507,7 +507,7 @@
     "upright": "Ace of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Awal baru, potensi murni, benih yang menjanjikan.",
     "reversed": "Terbalik, Ace of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/ace-of-swords.jpg"
+    "image": "cards/ace-of-swords.jpg"
   },
   {
     "id": "two-of-swords",
@@ -517,7 +517,7 @@
     "upright": "Two of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pilihan, dualitas, langkah awal yang seimbang.",
     "reversed": "Terbalik, Two of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/two-of-swords.jpg"
+    "image": "cards/two-of-swords.jpg"
   },
   {
     "id": "three-of-swords",
@@ -527,7 +527,7 @@
     "upright": "Three of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pertumbuhan, kolaborasi, ekspresi yang berkembang.",
     "reversed": "Terbalik, Three of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/three-of-swords.jpg"
+    "image": "cards/three-of-swords.jpg"
   },
   {
     "id": "four-of-swords",
@@ -537,7 +537,7 @@
     "upright": "Four of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Stabilitas, struktur, konsolidasi.",
     "reversed": "Terbalik, Four of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/four-of-swords.jpg"
+    "image": "cards/four-of-swords.jpg"
   },
   {
     "id": "five-of-swords",
@@ -547,7 +547,7 @@
     "upright": "Five of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Tantangan, perubahan, penyesuaian yang tidak nyaman.",
     "reversed": "Terbalik, Five of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/five-of-swords.jpg"
+    "image": "cards/five-of-swords.jpg"
   },
   {
     "id": "six-of-swords",
@@ -557,7 +557,7 @@
     "upright": "Six of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Harmoni, dukungan, aliran yang lebih lancar.",
     "reversed": "Terbalik, Six of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/six-of-swords.jpg"
+    "image": "cards/six-of-swords.jpg"
   },
   {
     "id": "seven-of-swords",
@@ -567,7 +567,7 @@
     "upright": "Seven of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Evaluasi, strategi, keyakinan pribadi.",
     "reversed": "Terbalik, Seven of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/seven-of-swords.jpg"
+    "image": "cards/seven-of-swords.jpg"
   },
   {
     "id": "eight-of-swords",
@@ -577,7 +577,7 @@
     "upright": "Eight of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak maju, disiplin, penguasaan keterampilan.",
     "reversed": "Terbalik, Eight of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/eight-of-swords.jpg"
+    "image": "cards/eight-of-swords.jpg"
   },
   {
     "id": "nine-of-swords",
@@ -587,7 +587,7 @@
     "upright": "Nine of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kulminasi, ketahanan, hampir sampai tujuan.",
     "reversed": "Terbalik, Nine of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/nine-of-swords.jpg"
+    "image": "cards/nine-of-swords.jpg"
   },
   {
     "id": "ten-of-swords",
@@ -597,7 +597,7 @@
     "upright": "Ten of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Puncak siklus, pelepasan, hasil yang terasa.",
     "reversed": "Terbalik, Ten of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/ten-of-swords.jpg"
+    "image": "cards/ten-of-swords.jpg"
   },
   {
     "id": "page-of-swords",
@@ -607,7 +607,7 @@
     "upright": "Page of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pesan, pembelajar, rasa ingin tahu yang segar.",
     "reversed": "Terbalik, Page of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/page-of-swords.jpg"
+    "image": "cards/page-of-swords.jpg"
   },
   {
     "id": "knight-of-swords",
@@ -617,7 +617,7 @@
     "upright": "Knight of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak aktif, pengejaran, dinamika perubahan.",
     "reversed": "Terbalik, Knight of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "no",
-    "image": "/knight-of-swords.jpg"
+    "image": "cards/knight-of-swords.jpg"
   },
   {
     "id": "queen-of-swords",
@@ -627,7 +627,7 @@
     "upright": "Queen of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kedewasaan batin, kepekaan, pengaruh halus.",
     "reversed": "Terbalik, Queen of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/queen-of-swords.jpg"
+    "image": "cards/queen-of-swords.jpg"
   },
   {
     "id": "king-of-swords",
@@ -637,7 +637,7 @@
     "upright": "King of Swords menyoroti tema pikiran, keputusan, konflik, kejelasan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen udara—alam swords yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Otoritas, penguasaan, visi strategis.",
     "reversed": "Terbalik, King of Swords mengisyaratkan distorsi tema pikiran, keputusan, konflik, kejelasan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi swords menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/king-of-swords.jpg"
+    "image": "cards/king-of-swords.jpg"
   },
   {
     "id": "ace-of-pentacles",
@@ -647,7 +647,7 @@
     "upright": "Ace of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Awal baru, potensi murni, benih yang menjanjikan.",
     "reversed": "Terbalik, Ace of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/ace-of-pentacles.jpg"
+    "image": "cards/ace-of-pentacles.jpg"
   },
   {
     "id": "two-of-pentacles",
@@ -657,7 +657,7 @@
     "upright": "Two of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pilihan, dualitas, langkah awal yang seimbang.",
     "reversed": "Terbalik, Two of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/two-of-pentacles.jpg"
+    "image": "cards/two-of-pentacles.jpg"
   },
   {
     "id": "three-of-pentacles",
@@ -667,7 +667,7 @@
     "upright": "Three of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pertumbuhan, kolaborasi, ekspresi yang berkembang.",
     "reversed": "Terbalik, Three of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/three-of-pentacles.jpg"
+    "image": "cards/three-of-pentacles.jpg"
   },
   {
     "id": "four-of-pentacles",
@@ -677,7 +677,7 @@
     "upright": "Four of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Stabilitas, struktur, konsolidasi.",
     "reversed": "Terbalik, Four of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/four-of-pentacles.jpg"
+    "image": "cards/four-of-pentacles.jpg"
   },
   {
     "id": "five-of-pentacles",
@@ -687,7 +687,7 @@
     "upright": "Five of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Tantangan, perubahan, penyesuaian yang tidak nyaman.",
     "reversed": "Terbalik, Five of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/five-of-pentacles.jpg"
+    "image": "cards/five-of-pentacles.jpg"
   },
   {
     "id": "six-of-pentacles",
@@ -697,7 +697,7 @@
     "upright": "Six of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Harmoni, dukungan, aliran yang lebih lancar.",
     "reversed": "Terbalik, Six of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/six-of-pentacles.jpg"
+    "image": "cards/six-of-pentacles.jpg"
   },
   {
     "id": "seven-of-pentacles",
@@ -707,7 +707,7 @@
     "upright": "Seven of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Evaluasi, strategi, keyakinan pribadi.",
     "reversed": "Terbalik, Seven of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/seven-of-pentacles.jpg"
+    "image": "cards/seven-of-pentacles.jpg"
   },
   {
     "id": "eight-of-pentacles",
@@ -717,7 +717,7 @@
     "upright": "Eight of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak maju, disiplin, penguasaan keterampilan.",
     "reversed": "Terbalik, Eight of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/eight-of-pentacles.jpg"
+    "image": "cards/eight-of-pentacles.jpg"
   },
   {
     "id": "nine-of-pentacles",
@@ -727,7 +727,7 @@
     "upright": "Nine of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kulminasi, ketahanan, hampir sampai tujuan.",
     "reversed": "Terbalik, Nine of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/nine-of-pentacles.jpg"
+    "image": "cards/nine-of-pentacles.jpg"
   },
   {
     "id": "ten-of-pentacles",
@@ -737,7 +737,7 @@
     "upright": "Ten of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Puncak siklus, pelepasan, hasil yang terasa.",
     "reversed": "Terbalik, Ten of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/ten-of-pentacles.jpg"
+    "image": "cards/ten-of-pentacles.jpg"
   },
   {
     "id": "page-of-pentacles",
@@ -747,7 +747,7 @@
     "upright": "Page of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Pesan, pembelajar, rasa ingin tahu yang segar.",
     "reversed": "Terbalik, Page of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/page-of-pentacles.jpg"
+    "image": "cards/page-of-pentacles.jpg"
   },
   {
     "id": "knight-of-pentacles",
@@ -757,7 +757,7 @@
     "upright": "Knight of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Gerak aktif, pengejaran, dinamika perubahan.",
     "reversed": "Terbalik, Knight of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "mixed",
-    "image": "/knight-of-pentacles.jpg"
+    "image": "cards/knight-of-pentacles.jpg"
   },
   {
     "id": "queen-of-pentacles",
@@ -767,7 +767,7 @@
     "upright": "Queen of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Kedewasaan batin, kepekaan, pengaruh halus.",
     "reversed": "Terbalik, Queen of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/queen-of-pentacles.jpg"
+    "image": "cards/queen-of-pentacles.jpg"
   },
   {
     "id": "king-of-pentacles",
@@ -777,6 +777,6 @@
     "upright": "King of Pentacles menyoroti tema materi, kerja, kesehatan, ketekunan. Dalam posisi tegak, kartu ini mendorong langkah sadar yang selaras dengan elemen bumi—alam pentacles yang khas. Ada dorongan untuk mengintegrasikan pengalaman, belajar dari tanda-tanda kecil, dan menata ulang prioritas. Hasilnya adalah kemajuan yang bermakna: lebih berdaya, jernih, dan terhubung dengan kebutuhan sejati. Otoritas, penguasaan, visi strategis.",
     "reversed": "Terbalik, King of Pentacles mengisyaratkan distorsi tema materi, kerja, kesehatan, ketekunan: berlebihan atau penyangkalan. Bisa berupa kebiasaan lama, perfeksionisme, atau reaksi impulsif yang melelahkan. Luangkan jeda, perjelas batas, dan pulihkan ritme alami agar energi pentacles menyehatkan kembali. Lewat kesabaran dan kejujuran diri, makna inti kartu ini muncul lebih jernih. Refleksikan motif terdalam dan pulihkan arah dengan niat yang jujur.",
     "yesno": "yes",
-    "image": "/king-of-pentacles.jpg"
+    "image": "cards/king-of-pentacles.jpg"
   }
 ]
