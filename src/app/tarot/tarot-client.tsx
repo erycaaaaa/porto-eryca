@@ -1,3 +1,4 @@
+// src/app/tarot/tarot-client.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -7,9 +8,7 @@ import { Shuffle, RotateCcw } from "lucide-react";
 import TarotChat from "@/app/tarot/TarotChat";
 import { TarotButtonLink } from "@/components/case/TarrotButton";
 
-/* =========================
-   Types
-   ========================= */
+/* =============== Types =============== */
 type Suit = "Major" | "Wands" | "Cups" | "Swords" | "Pentacles";
 export type Card = {
   id: string;
@@ -44,9 +43,7 @@ const SPREADS: Record<
   yesno: { label: "Yes / No", size: 1, positions: ["Energi jawaban"] },
 };
 
-/* =========================
-   Deterministic RNG
-   ========================= */
+/* =============== RNG deterministik =============== */
 function mulberry32(seed: number) {
   return function () {
     let t = (seed += 0x6d2b79f5);
@@ -66,14 +63,11 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
 }
 function hashSeed(s: string) {
   let h = 0;
-  for (let i = 0; i < s.length; i++)
-    h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
   return Math.abs(h);
 }
 
-/* =========================
-   Meta (contoh) – bisa kamu isi bertahap
-   ========================= */
+/* =============== Meta tambahan (opsional) =============== */
 const META: Record<
   string,
   {
@@ -85,198 +79,16 @@ const META: Record<
   }
 > = {
   "the-fool": {
-    keywords: [
-      "Awal baru",
-      "Spontanitas",
-      "Kepolosan",
-      "Petualangan",
-      "Kebebasan",
-    ],
-    goodFor: [
-      "Memulai proyek baru",
-      "Mengambil peluang segar",
-      "Mengikuti intuisi",
-      "Menyalurkan kreativitas",
-      "Perjalanan spontan",
-    ],
-    cautions: [
-      "Terlalu gegabah",
-      "Kurang perencanaan",
-      "Mengabaikan tanggung jawab",
-      "Mengambil risiko berlebihan",
-      "Terlalu polos terhadap orang lain",
-    ],
+    keywords: ["Awal baru", "Spontanitas", "Kepolosan", "Petualangan", "Kebebasan"],
+    goodFor: ["Memulai proyek baru", "Mengambil peluang segar", "Mengikuti intuisi"],
+    cautions: ["Terlalu gegabah", "Kurang perencanaan", "Risiko berlebihan"],
     luckyColors: ["Putih", "Biru muda"],
-    luckyTip:
-      "Beranilah mencoba hal baru, namun tetap berpijak pada kenyataan.",
+    luckyTip: "Coba hal baru, tapi tetap berpijak pada rencana minimal.",
   },
-  "the-magician": {
-    keywords: ["Kekuatan", "Manifestasi", "Fokus", "Kecerdikan", "Aksi"],
-    goodFor: [
-      "Mewujudkan tujuan",
-      "Mengubah ide menjadi aksi",
-      "Menggunakan semua kemampuan",
-      "Menyusun strategi",
-      "Presentasi penting",
-    ],
-    cautions: [
-      "Manipulatif",
-      "Terlalu percaya diri",
-      "Menggunakan kekuatan untuk ego",
-      "Tertipu ilusi sukses cepat",
-      "Kurang disiplin",
-    ],
-    luckyColors: ["Merah", "Emas"],
-    luckyTip:
-      "Gunakan bakatmu untuk kebaikan bersama, bukan hanya untuk ambisi pribadi.",
-  },
-  "the-high-priestess": {
-    keywords: [
-      "Intuisi",
-      "Misteri",
-      "Kebijaksanaan",
-      "Alam bawah sadar",
-      "Rahasia",
-    ],
-    goodFor: [
-      "Meditasi",
-      "Belajar spiritual",
-      "Mengandalkan intuisi",
-      "Mendengarkan suara hati",
-      "Menjaga rahasia",
-    ],
-    cautions: [
-      "Menutup diri berlebihan",
-      "Menyembunyikan informasi penting",
-      "Pasif",
-      "Mengabaikan logika",
-      "Membiarkan misteri jadi alasan stagnan",
-    ],
-    luckyColors: ["Perak", "Indigo"],
-    luckyTip:
-      "Percaya pada suara batinmu; jawaban sering datang dari dalam diri.",
-  },
-  "ace-of-wands": {
-    keywords: [
-      "Inspirasi",
-      "Peluang baru",
-      "Pertumbuhan",
-      "Potensi",
-      "Kreativitas",
-    ],
-    goodFor: [
-      "Memulai usaha kreatif",
-      "Membangun ide segar",
-      "Mengambil tantangan baru",
-      "Menulis, melukis, berkarya",
-      "Membangkitkan motivasi",
-    ],
-    cautions: [
-      "Ide tanpa eksekusi",
-      "Kehilangan momentum",
-      "Impulsif",
-      "Janji berlebihan",
-      "Mudah bosan",
-    ],
-    luckyColors: ["Oranye", "Merah terang"],
-    luckyTip: "Tulis ide-idemu sekarang, jangan biarkan menguap begitu saja.",
-  },
-  "ace-of-cups": {
-    keywords: [
-      "Cinta",
-      "Kasih sayang",
-      "Perasaan baru",
-      "Spiritualitas",
-      "Kreativitas",
-    ],
-    goodFor: [
-      "Memulai hubungan baru",
-      "Menunjukkan kasih sayang",
-      "Penyembuhan emosional",
-      "Ekspresi seni",
-      "Menguatkan empati",
-    ],
-    cautions: [
-      "Terlalu emosional",
-      "Terlalu sensitif",
-      "Mengabaikan logika",
-      "Hubungan terlalu cepat",
-      "Harapan palsu",
-    ],
-    luckyColors: ["Biru muda", "Merah muda"],
-    luckyTip: "Bagikan kasih tanpa syarat, kebahagiaanmu akan berlipat ganda.",
-  },
-  "ace-of-swords": {
-    keywords: ["Kejelasan", "Kebenaran", "Terobosan", "Keadilan", "Ide baru"],
-    goodFor: [
-      "Menulis atau presentasi",
-      "Mengambil keputusan sulit",
-      "Membongkar kebohongan",
-      "Analisis data",
-      "Debat sehat",
-    ],
-    cautions: [
-      "Kata-kata menyakitkan",
-      "Keputusan tergesa",
-      "Overthinking",
-      "Terlalu kaku",
-      "Mengabaikan perasaan",
-    ],
-    luckyColors: ["Biru", "Perak"],
-    luckyTip:
-      "Gunakan logika dan kata-kata dengan hati-hati, bisa menyembuhkan atau melukai.",
-  },
-  "ace-of-pentacles": {
-    keywords: [
-      "Kemakmuran",
-      "Peluang baru",
-      "Manifestasi",
-      "Kelimpahan",
-      "Stabilitas",
-    ],
-    goodFor: [
-      "Memulai investasi",
-      "Proyek bisnis baru",
-      "Menabung jangka panjang",
-      "Mencari pekerjaan",
-      "Membangun pondasi rumah tangga",
-    ],
-    cautions: [
-      "Materialistik",
-      "Terlalu fokus uang",
-      "Mengabaikan kesehatan",
-      "Lupa berbagi",
-      "Kesempatan terlewat",
-    ],
-    luckyColors: ["Hijau", "Emas"],
-    luckyTip:
-      "Bangun pondasi yang kokoh agar panen bisa dinikmati dalam jangka panjang.",
-  },
-  "king-of-pentacles": {
-    keywords: ["Stabilitas", "Keamanan", "Kontrol", "Kecerdikan", "Disiplin"],
-    goodFor: [
-      "Meninjau keuangan dan anggaran",
-      "Mengatur kepemilikan",
-      "Mengamankan rumah atau tempat kerja",
-      "Perencanaan keuangan jangka panjang",
-      "Menghargai apa yang dimiliki",
-    ],
-    cautions: [
-      "Terlalu posesif atau materialistik",
-      "Menolak perubahan/peluang baru",
-      "Menimbun berlebihan",
-      "Keras kepala dan kaku",
-      "Mengabaikan kebutuhan orang lain",
-    ],
-    luckyColors: ["Cokelat", "Emas", "Perunggu"],
-    luckyTip:
-      "Latih rasa syukur atas apa yang kamu miliki. Sisihkan investasi kecil tapi konsisten untuk masa depan.",
-  },
+  // … tambahkan lainnya bila perlu
 };
 
-/* =========================
-   Utama
-   ========================= */
+/* =============== Komponen utama =============== */
 export default function TarotClient({ deck }: { deck: Card[] }) {
   const [spread, setSpread] = useState<SpreadKind>("three");
   const [question, setQuestion] = useState("");
@@ -288,19 +100,15 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
 
   function onDraw() {
     const seedBase =
-      (question.trim().toLowerCase() || new Date().toISOString()) +
-      "|" +
-      spread;
+      (question.trim().toLowerCase() || new Date().toISOString()) + "|" + spread;
     const seed = hashSeed(seedBase);
     const shuffled = seededShuffle(deck, seed);
     const rng = mulberry32(seed ^ 0x9e3779b9);
 
-    const picks: DrawnCard[] = shuffled
-      .slice(0, spreadDef.size)
-      .map((card) => ({
-        card,
-        reversed: rng() < 0.45,
-      }));
+    const picks: DrawnCard[] = shuffled.slice(0, spreadDef.size).map((card) => ({
+      card,
+      reversed: rng() < 0.45,
+    }));
     setDrawn(picks);
     setActiveIdx(0);
     setReveal(true);
@@ -322,9 +130,8 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
   return (
     <div className="relative min-h-screen text-neutral-900 bg-neutral-50">
       <main className="relative mx-auto max-w-6xl px-6 py-10 grid lg:grid-cols-[1.05fr_0.95fr] gap-8">
-        {/* Kolom kiri: control + grid kartu */}
+        {/* kiri: controls + grid */}
         <section className="space-y-6">
-          {/* Controls */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-4">
             <h2 className="font-semibold mb-3">Pengaturan</h2>
 
@@ -382,7 +189,6 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
             </div>
           </div>
 
-          {/* Grid kartu */}
           <div className="rounded-2xl border border-neutral-200 bg-white p-4">
             <h3 className="font-semibold mb-3">Spread: {spreadDef.label}</h3>
 
@@ -400,9 +206,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
                   <CardView
                     key={dc.card.id}
                     data={dc}
-                    label={`${idx + 1}. ${
-                      spreadDef.positions[idx] ?? "Posisi"
-                    }`}
+                    label={`${idx + 1}. ${spreadDef.positions[idx] ?? "Posisi"}`}
                     reveal={reveal}
                     active={idx === activeIdx}
                     onSelect={() => setActiveIdx(idx)}
@@ -413,14 +217,12 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
           </div>
         </section>
 
-        {/* Kolom kanan: Panel detail + prompt + chat */}
+        {/* kanan: detail + prompt + chat */}
         <aside className="space-y-4">
           <CardInsights selected={active} />
 
           <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-            <h3 className="font-semibold">
-              Prompt untuk AI (copy &amp; paste)
-            </h3>
+            <h3 className="font-semibold">Prompt untuk AI (copy &amp; paste)</h3>
             <textarea
               value={prompt}
               readOnly
@@ -439,9 +241,7 @@ export default function TarotClient({ deck }: { deck: Card[] }) {
   );
 }
 
-/* =========================
-   Kartu grid item
-   ========================= */
+/* =============== Item kartu (flip benar) =============== */
 function CardView({
   data,
   label,
@@ -456,13 +256,16 @@ function CardView({
   onSelect: () => void;
 }) {
   const [flipped, setFlipped] = useState(false);
-  useEffect(() => {
-    setFlipped(reveal);
-  }, [reveal]);
+  useEffect(() => setFlipped(reveal), [reveal]);
+
+  // normalisasi src agar selalu dari /public
+  const raw = data.card.image?.trim() ?? "";
+  const src = raw.startsWith("/") || raw.startsWith("http") ? raw : `/${raw}`;
 
   return (
     <div className="w-full">
       <div className="mb-2 text-xs text-neutral-500">{label}</div>
+
       <motion.button
         type="button"
         className={`relative w-full aspect-[2/3] rounded-xl ring-offset-2 ${
@@ -473,29 +276,33 @@ function CardView({
           onSelect();
         }}
       >
-        <div className="relative h-full w-full [perspective:1000px]">
+        <div className="relative h-full w-full" style={{ perspective: "1000px" }}>
           <motion.div
-            className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white [transform-style:preserve-3d] overflow-hidden"
+            className="absolute inset-0 rounded-xl shadow-md border border-neutral-200 bg-white overflow-hidden"
             animate={{ rotateY: flipped ? 180 : 0 }}
             transition={{ duration: 0.6 }}
-            style={{ cursor: "pointer" }}
+            style={{ transformStyle: "preserve-3d", cursor: "pointer" }}
           >
-            <div className="absolute inset-0 grid place-items-center rounded-xl bg-neutral-100 [backface-visibility:hidden]">
+            {/* FRONT */}
+            <div
+              className="absolute inset-0 grid place-items-center rounded-xl bg-neutral-100"
+              style={{ backfaceVisibility: "hidden" }}
+            >
               <span className="text-neutral-500">Klik untuk membuka</span>
             </div>
-            <div className="absolute inset-0 rounded-xl [transform:rotateY(180deg)] overflow-hidden [backface-visibility:hidden]">
+
+            {/* BACK (gambar) */}
+            <div
+              className="absolute inset-0 rounded-xl overflow-hidden"
+              style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
+            >
               <Image
-                src={
-                  data.card.image?.startsWith("/")
-                    ? data.card.image
-                    : `/${data.card.image}`
-                }
+                src={src}
                 alt={data.card.name}
                 fill
-                className={`object-cover ${
-                  data.reversed ? "[transform:rotate(180deg)]" : ""
-                }`}
+                className={`object-cover ${data.reversed ? "[transform:rotate(180deg)]" : ""}`}
                 sizes="(max-width: 768px) 100vw, 33vw"
+                onError={() => console.warn("Gagal load image:", src)}
               />
             </div>
           </motion.div>
@@ -513,9 +320,7 @@ function CardView({
   );
 }
 
-/* =========================
-   Panel detail (kanan) – mirip screenshot
-   ========================= */
+/* =============== Panel kanan =============== */
 function CardInsights({ selected }: { selected?: DrawnCard }) {
   if (!selected) {
     return (
@@ -527,57 +332,42 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
   const { card, reversed } = selected;
   const meta = META[card.id] ?? {};
 
-  const keywords =
-    card.keywords ?? meta.keywords ?? guessKeywords(card, reversed);
+  const keywords = card.keywords ?? meta.keywords ?? guessKeywords(card, reversed);
   const goodFor = card.goodFor ?? meta.goodFor ?? guessGoodFor(card);
   const cautions = card.cautions ?? meta.cautions ?? guessCautions(card);
-  const luckyColors =
-    card.luckyColors ?? meta.luckyColors ?? guessLuckyColors(card);
+  const luckyColors = card.luckyColors ?? meta.luckyColors ?? guessLuckyColors(card);
   const luckyTip = card.luckyTip ?? meta.luckyTip ?? guessLuckyTip(card);
 
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-6">
-      {/* Status (Upright/Reversed) */}
       <div className="flex items-center gap-2 mb-4">
         <span
           className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ${
-            reversed
-              ? "bg-rose-100 text-rose-700"
-              : "bg-emerald-100 text-emerald-700"
+            reversed ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
           }`}
         >
-          <span
-            className={`h-2 w-2 rounded-full ${
-              reversed ? "bg-rose-500" : "bg-emerald-500"
-            }`}
-          />
+          <span className={`h-2 w-2 rounded-full ${reversed ? "bg-rose-500" : "bg-emerald-500"}`} />
           {reversed ? "Reversed" : "Upright"}
         </span>
         <h2 className="ml-2 font-semibold">{card.name}</h2>
       </div>
 
-      {/* Keywords */}
       <Section title="Keywords">
         <div className="flex flex-wrap gap-2">
           {keywords.map((k) => (
-            <span
-              key={k}
-              className="inline-block rounded-full bg-violet-100 text-violet-800 text-xs px-3 py-1"
-            >
+            <span key={k} className="inline-block rounded-full bg-violet-100 text-violet-800 text-xs px-3 py-1">
               {k}
             </span>
           ))}
         </div>
       </Section>
 
-      {/* Daily Fortune Reading */}
       <Section title="Daily Fortune Reading">
         <p className="text-sm text-neutral-700 leading-relaxed">
           {reversed ? card.reversed : card.upright}
         </p>
       </Section>
 
-      {/* Action Guide */}
       <Section title="Today's Action Guide">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
@@ -599,15 +389,11 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
         </div>
       </Section>
 
-      {/* Lucky */}
       <div className="grid sm:grid-cols-2 gap-4 mt-2">
         <Section title="Lucky Colors">
           <div className="flex flex-wrap gap-2">
             {luckyColors.map((c) => (
-              <span
-                key={c}
-                className="inline-block rounded-full bg-neutral-100 text-neutral-800 text-xs px-3 py-1"
-              >
+              <span key={c} className="inline-block rounded-full bg-neutral-100 text-neutral-800 text-xs px-3 py-1">
                 {c}
               </span>
             ))}
@@ -621,35 +407,20 @@ function CardInsights({ selected }: { selected?: DrawnCard }) {
   );
 }
 
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-4">
       <div className="flex items-center gap-2 mb-2">
         <span className="h-4 w-1.5 rounded-full bg-violet-400" />
         <h3 className="text-[15px] font-semibold">{title}</h3>
       </div>
-      <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">
-        {children}
-      </div>
+      <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-4">{children}</div>
     </div>
   );
 }
 
-/* =========================
-   Prompt builder
-   ========================= */
-function buildPrompt(
-  q: string,
-  spread: SpreadKind,
-  cards: DrawnCard[],
-  positions: string[]
-) {
+/* =============== Prompt builder & heuristik =============== */
+function buildPrompt(q: string, spread: SpreadKind, cards: DrawnCard[], positions: string[]) {
   const cardsBlock = cards
     .map(
       (c, i) =>
@@ -689,13 +460,9 @@ function buildPrompt(
   return base;
 }
 
-/* =========================
-   Fallback heuristics
-   ========================= */
 function guessKeywords(card: Card, reversed: boolean): string[] {
   const base: string[] = [];
-  if (card.suit === "Pentacles")
-    base.push("Material", "Practicality", "Grounding");
+  if (card.suit === "Pentacles") base.push("Material", "Practicality", "Grounding");
   if (card.suit === "Cups") base.push("Emotion", "Intuition");
   if (card.suit === "Swords") base.push("Mind", "Clarity");
   if (card.suit === "Wands") base.push("Action", "Passion");
@@ -705,47 +472,16 @@ function guessKeywords(card: Card, reversed: boolean): string[] {
 }
 function guessGoodFor(card: Card): string[] {
   if (card.suit === "Pentacles")
-    return [
-      "Menyusun anggaran",
-      "Merapikan aset/ruang kerja",
-      "Rencana finansial jangka panjang",
-      "Rutinitas sehat dan stabil",
-    ];
-  if (card.suit === "Wands")
-    return [
-      "Memulai proyek",
-      "Eksperimen ide",
-      "Networking aktif",
-      "Gerak cepat",
-    ];
-  if (card.suit === "Cups")
-    return [
-      "Refleksi perasaan",
-      "Quality time",
-      "Empati & dukungan",
-      "Kreativitas lembut",
-    ];
-  if (card.suit === "Swords")
-    return [
-      "Riset & analisis",
-      "Komunikasi tegas",
-      "Keputusan rasional",
-      "Belajar fokus",
-    ];
+    return ["Menyusun anggaran", "Merapikan aset/ruang kerja", "Rencana finansial", "Rutinitas stabil"];
+  if (card.suit === "Wands") return ["Memulai proyek", "Eksperimen ide", "Networking", "Gerak cepat"];
+  if (card.suit === "Cups") return ["Refleksi perasaan", "Quality time", "Empati", "Kreativitas lembut"];
+  if (card.suit === "Swords") return ["Riset & analisis", "Komunikasi tegas", "Keputusan rasional", "Belajar fokus"];
   return ["Refleksi diri", "Menetapkan niat", "Mencari makna", "Mindfulness"];
 }
 function guessCautions(card: Card): string[] {
-  if (card.suit === "Pentacles")
-    return [
-      "Materialistis",
-      "Terlalu defensif",
-      "Perfeksionisme",
-      "Takut perubahan",
-    ];
-  if (card.suit === "Wands")
-    return ["Impulsif", "Burnout", "Overcommit", "Tergesa-gesa"];
-  if (card.suit === "Cups")
-    return ["Baper berlebihan", "Melarikan diri", "Idealistik"];
+  if (card.suit === "Pentacles") return ["Materialistis", "Defensif", "Perfeksionisme", "Takut perubahan"];
+  if (card.suit === "Wands") return ["Impulsif", "Burnout", "Overcommit", "Tergesa-gesa"];
+  if (card.suit === "Cups") return ["Baper berlebihan", "Melarikan diri", "Idealistik"];
   if (card.suit === "Swords") return ["Overthinking", "Kritik tajam", "Kaku"];
   return ["Dogmatis", "Kontrol berlebihan", "Mengabaikan intuisi"];
 }

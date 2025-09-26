@@ -1,17 +1,20 @@
-// src/app/tarot/page.tsx  (SERVER)
+// src/app/tarot/page.tsx
 import NavbarTarot from "@/components/tarot/NavbarTarot";
 import HeroTarot from "@/components/tarot/HeroTarot";
-import TarotClient, { Card } from "@/app/tarot/tarot-client";
+import TarotClient, { Card } from "./tarot-client";
 import deck from "@/data/tarot/deck.json" assert { type: "json" };
 
 export const dynamic = "force-static";
 
 export default function Page() {
   const typed = deck as Card[];
-  const heroCards = typed.slice(0, 3).map((c) => c.image);
+
+  // ambil 3 gambar pertama untuk hero (dinormalisasi ke path /public)
+  const heroCards = typed.slice(0, 3).map((c) => normalizeSrc(c.image));
 
   return (
     <main className="relative min-h-screen overflow-x-hidden text-white">
+      {/* Background + overlay */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-center bg-cover md:bg-fixed"
@@ -31,4 +34,10 @@ export default function Page() {
       </section>
     </main>
   );
+}
+
+/** Pastikan path gambar dari deck.json terbaca dari /public (case-sensitive) */
+function normalizeSrc(raw: string) {
+  const s = (raw ?? "").trim();
+  return s.startsWith("/") || s.startsWith("http") ? s : `/${s}`;
 }
