@@ -133,10 +133,10 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#5f3d24]">
+              <h1 className="font-serif text-3xl text-black">
                 All Artworks
               </h1>
-              <p className="mt-1 text-sm text-[#5a5246]">
+              <p className="mt-1 text-sm text-black/70">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>

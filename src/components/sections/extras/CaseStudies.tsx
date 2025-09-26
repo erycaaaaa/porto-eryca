@@ -12,7 +12,7 @@ import { useSearchParams } from "next/navigation";
 const CATEGORIES = [
   "All",
   "Case Studies",
-  "Sentiment Analysis",
+  "Paper",
   "UI/UX",
   "Front-End",
   "Research",
@@ -75,7 +75,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "paper-sentiment",
     title: "Sentiment Analysis Paper",
-    category: "Sentiment Analysis",
+    category: "Paper",
     src: "/porto-eryca/analisa1.jpg",
     href: "/case-studies/Paper-sentiment",
     tag: "Research & NLP",
@@ -133,10 +133,10 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#5f3d24]">
+              <h1 className="font-serif text-3xl text-black">
                 All Case Studies
               </h1>
-              <p className="mt-1 text-sm text-[#5a5246]">
+              <p className="mt-1 text-sm text-black/70">
                 Telusuri semua karya. Filter berdasarkan kategori atau cari
                 judul/keyword.
               </p>

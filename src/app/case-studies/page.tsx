@@ -18,7 +18,7 @@ const asset = (p: string) => `${BASE}${p.startsWith("/") ? p : `/${p}`}`;
 const CATEGORIES = [
   "All",
   "Case Studies",
-  "Sentiment Analysis",
+  "Paper",
   "UI/UX",
   "Front-End",
   "Research",
@@ -32,11 +32,6 @@ function normalizeCat(v: string | null): Category {
   return (match as Category) ?? "All";
 }
 
-/* =========================
-   DATA (SIMPAN FILE GAMBAR DI /public)
-   NOTE: jangan tulis prefix "/porto-eryca" di src;
-         Next akan auto-prepend basePath saat build/export.
-   ========================= */
 type Item = {
   id: string;
   title: string;
@@ -53,7 +48,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-parable",
     title: "Parable Floristry",
     category: "Case Studies",
-    src: "/fajar1.jpg", // ⬅️ letakkan di /public/fajar1.jpg
+    src: "/porto-eryca/fajar1.jpg", 
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
     description:
@@ -63,7 +58,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-tarumanagara",
     title: "Tarumanagara Enterprise",
     category: "Case Studies",
-    src: "/untarx1.jpg",
+    src: "/porto-eryca/untarx1.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
     description: "Vision-led site with clean information flow and scalable IA.",
@@ -72,7 +67,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-eryca",
     title: "Website Wihara",
     category: "Front-End",
-    src: "/wihara11.jpg",
+    src: "/porto-eryca/wihara11.jpg",
     href: "/case-studies/eryca-portfolio",
     tag: "Design & Front-End",
     description:
@@ -81,8 +76,8 @@ const ALL_ITEMS: Item[] = [
   {
     id: "paper-sentiment",
     title: "Sentiment Analysis Paper",
-    category: "Sentiment Analysis",
-    src: "/analisa1.jpg",
+    category: "Paper",
+    src: "/porto-eryca/analisa1.jpg",
     href: "/case-studies/Paper-sentiment",
     tag: "Research & NLP",
     description:
@@ -92,7 +87,7 @@ const ALL_ITEMS: Item[] = [
     id: "paper-bot",
     title: "EduBot UI/UX Design",
     category: "UI/UX",
-    src: "/edu1.jpg",
+    src: "/porto-eryca/edu1.jpg",
     href: "/case-studies/Paper-bot",
     tag: "UI/UX • Chatbot",
     description:
@@ -128,7 +123,7 @@ export default function CaseStudiesIndex() {
       id="worked"
       className="relative min-h-screen text-neutral-900"
       style={{
-        backgroundImage: `url(${asset("/case-study.png")})`, // ⬅️ /public/case-study.png
+        backgroundImage: `url(${asset("/porto-eryca/case-study.png")})`, 
         backgroundRepeat: "no-repeat",
         backgroundPosition: "top center",
         backgroundSize: "cover",
@@ -142,8 +137,8 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#5f3d24]">All Case Studies</h1>
-              <p className="mt-1 text-sm text-[#5a5246]">
+              <h1 className="font-serif text-3xl text-black">All Case Studies</h1>
+              <p className="mt-1 text-sm text-black/70">
                 Telusuri semua karya. Filter berdasarkan kategori atau cari judul/keyword.
               </p>
             </div>
