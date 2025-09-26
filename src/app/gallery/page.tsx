@@ -118,7 +118,15 @@ export default function GalleryPage() {
   }, [active, q]);
 
   return (
-    <main id="illustrations" className="relative min-h-screen bg-[#faf8f3]">
+    <main
+      id="illustrations"
+      className="
+    relative isolate z-0
+    py-16 md:py-20
+    bg-center bg-cover md:bg-fixed bg-no-repeat
+  "
+      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
+    >
       {/* background */}
       <Image
         src="/porto-eryca/case-study.png"
@@ -133,9 +141,7 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-black">
-                All Artworks
-              </h1>
+              <h1 className="font-serif text-3xl text-black">All Artworks</h1>
               <p className="mt-1 text-sm text-black/70">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>

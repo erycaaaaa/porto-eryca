@@ -93,12 +93,11 @@ export default function GalleryPage({
       <div
         aria-hidden
         className="
-        pointer-events-none absolute inset-0 -z-10
-        bg-[url('/porto-eryca/bg-mua.png')] bg-no-repeat
-        bg-top bg-cover
-        md:bg-fixed md:bg-center md:bg-cover
-        opacity-10
-      "
+    relative isolate z-0
+    py-16 md:py-20
+    bg-center bg-cover md:bg-fixed bg-no-repeat
+  "
+        style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
       />
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">

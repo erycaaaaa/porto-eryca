@@ -29,7 +29,7 @@ export default function Page() {
       <img
         alt="EduBuddy Chatbot edukatif untuk SDN Kalideres 13 Petang"
         title="EduBuddy UI/UX"
-        src="/porto-eryca/analisa1.jpg" 
+        src="/porto-eryca/analisa2.jpg" 
         loading="eager"
         className="h-full w-full object-cover rounded-2xl border"
       />

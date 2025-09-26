@@ -94,7 +94,7 @@ const ALL_ITEMS: Item[] = [
     description:
       "Design system & conversational flow for an educational chatbot.",
   },
-    {
+  {
     id: "paper-bot-edu",
     title: "Perancangan Antarmuka Chatbot",
     categories: ["Paper"],
@@ -132,14 +132,19 @@ export default function CaseStudiesIndex() {
   return (
     <main
       id="worked"
-      className={[
-        "relative min-h-screen",
-        "bg-[url('/porto-eryca/case-study.png')]/40 bg-no-repeat",
-        "bg-top bg-cover",
-        "md:bg-fixed md:bg-center md:bg-cover",
-        "text-neutral-900",
-      ].join(" ")}
+      className="
+    relative isolate z-0
+    py-16 md:py-20
+    bg-center bg-cover md:bg-fixed bg-no-repeat
+  "
+      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
     >
+      {/* overlay kontras */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10
+                  bg-white/0"
+      />
       {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
@@ -238,7 +243,9 @@ export default function CaseStudiesIndex() {
                       <h3 className="text-base font-medium text-[#5f3d24]">
                         {item.title}
                       </h3>
-                      <p className="text-xs text-[#7a6f62]">{item.categories.join(", ")}</p>
+                      <p className="text-xs text-[#7a6f62]">
+                        {item.categories.join(", ")}
+                      </p>
                     </div>
                     <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
                       View

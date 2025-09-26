@@ -30,7 +30,9 @@ type Category = (typeof CATEGORIES)[number];
 function normalizeCat(v: string | null): Category {
   if (!v) return "All";
   const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
-  const match = CATEGORIES.find((c) => c.toLowerCase() === cleaned.toLowerCase());
+  const match = CATEGORIES.find(
+    (c) => c.toLowerCase() === cleaned.toLowerCase()
+  );
   return (match as Category) ?? "All";
 }
 
@@ -50,7 +52,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-parable",
     title: "Parable Floristry",
     categories: ["Front-End", "Design", "UI/UX"],
-    src: "/porto-eryca/fajar1.jpg", 
+    src: "/porto-eryca/fajar1.jpg",
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
     description:
@@ -95,7 +97,7 @@ const ALL_ITEMS: Item[] = [
     description:
       "Design system & conversational flow for an educational chatbot.",
   },
-    {
+  {
     id: "paper-bot-edu",
     title: "Perancangan Antarmuka Chatbot",
     categories: ["Paper"],
@@ -133,25 +135,30 @@ export default function CaseStudiesIndex() {
   return (
     <main
       id="worked"
-      className="relative min-h-screen text-neutral-900"
-      style={{
-        backgroundImage: `url(${asset("/porto-eryca/case-study.png")})`, 
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "top center",
-        backgroundSize: "cover",
-      }}
+      className="
+    relative isolate z-0
+    py-16 md:py-20
+    bg-center bg-cover md:bg-fixed bg-no-repeat
+  "
+      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
     >
       {/* overlay supaya kontras */}
-      <div className="absolute inset-0 bg-[#faf8f3]/80 pointer-events-none" aria-hidden />
+      <div
+        className="absolute inset-0 bg-[#faf8f3]/80 pointer-events-none"
+        aria-hidden
+      />
 
       {/* HEADER */}
       <header className="relative border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-black">All Case Studies</h1>
+              <h1 className="font-serif text-3xl text-black">
+                All Case Studies
+              </h1>
               <p className="mt-1 text-sm text-black/70">
-                Telusuri semua karya. Filter berdasarkan kategori atau cari judul/keyword.
+                Telusuri semua karya. Filter berdasarkan kategori atau cari
+                judul/keyword.
               </p>
             </div>
 
@@ -163,7 +170,9 @@ export default function CaseStudiesIndex() {
                 placeholder="Search case studies…"
                 className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
-              {activeCat !== "All" && <input type="hidden" name="cat" value={activeCat} />}
+              {activeCat !== "All" && (
+                <input type="hidden" name="cat" value={activeCat} />
+              )}
             </form>
           </div>
 
@@ -173,7 +182,9 @@ export default function CaseStudiesIndex() {
               const params = new URLSearchParams();
               if (cat !== "All") params.set("cat", cat);
               if (qRaw) params.set("q", qRaw);
-              const href = params.toString() ? `/case-studies?${params.toString()}` : `/case-studies`;
+              const href = params.toString()
+                ? `/case-studies?${params.toString()}`
+                : `/case-studies`;
               const isActive = activeCat === cat;
 
               return (
@@ -221,7 +232,9 @@ export default function CaseStudiesIndex() {
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <h3 className="text-base font-semibold">{item.title}</h3>
-                      <p className="mt-1 text-xs opacity-90 line-clamp-2">{item.description}</p>
+                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
+                        {item.description}
+                      </p>
                       {item.tag && (
                         <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
                           {item.tag}
@@ -231,8 +244,12 @@ export default function CaseStudiesIndex() {
                   </div>
                   <div className="flex items-center justify-between px-4 py-3">
                     <div>
-                      <h3 className="text-base font-medium text-[#5f3d24]">{item.title}</h3>
-                      <p className="text-xs text-[#7a6f62]">{item.categories.join(", ")}</p>
+                      <h3 className="text-base font-medium text-[#5f3d24]">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-[#7a6f62]">
+                        {item.categories.join(", ")}
+                      </p>
                     </div>
                     <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
                       View
