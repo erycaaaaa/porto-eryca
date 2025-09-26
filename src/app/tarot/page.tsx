@@ -11,14 +11,30 @@ export default function Page() {
   const heroCards = typed.slice(0, 3).map((c) => c.image);
 
   return (
-    <div className="bg-gradient-to-b from-purple-900 via-indigo-900 to-[#0a0620] text-white min-h-screen">
+    <main
+      className="relative min-h-screen overflow-x-hidden text-white/0"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-center bg-cover md:bg-fixed"
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom, rgba(76,29,149,0.88), rgba(49,46,129,0.86), rgba(10,6,32,0.95)), url('/porto-eryca/bg13.png')",
+        }}
+      />
+
+      {/* NAV */}
       <NavbarTarot />
+
+      {/* HERO */}
       <HeroTarot cards={heroCards} />
-      <section id="tarot" className="py-16">
+
+      {/* CONTENT */}
+      <section id="tarot" className="py-16 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6">
           <TarotClient deck={typed} />
         </div>
       </section>
-    </div>
+    </main>
   );
 }
