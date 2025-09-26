@@ -14,7 +14,7 @@ export default function Page() {
         year: "2025",
         tag: "UI/UX • Research • Community Service",
         duration: "3 bulan",
-        role: "Product Designer • Front-End • Facilitator",
+        role: "Product Designer • UI/UX ",
         tools: ["Figma", "Auto-Layout & Variants", "Design Tokens", "Prototyping", "Usability Test"],
       }}
       quickFacts={[
