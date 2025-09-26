@@ -4,7 +4,7 @@ import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "600", "700"], // pilih yang kamu pakai
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -18,20 +18,19 @@ export default function Hero({ name, subtitle }: HeroProps) {
     <main
       id="home"
       className={`
-        relative isolate min-h-screen 
+        relative isolate min-h-svh
         bg-[url('/porto-eryca/bg11.png')] bg-center bg-cover bg-fixed
-        flex flex-col items-center justify-center
+        grid place-items-center
         text-center px-5
       `}
     >
       {/* CONTENT */}
-      <div className="relative max-w-7xl">
-        <h1
-          className={`${playfair.className} mt-2 leading-tight tracking-tight text-3xl sm:text-4xl md:text-5xl text-black/70 drop-shadow-md`}
-        >
+      <div className="relative z-10 mx-auto max-w-3xl -translate-y-[2cm]">
+        <p className="text-sm tracking-widest opacity-80">Portfolio 2025</p>
+        <h1 className={`${playfair.className} opacity-60 mt-1 text-4xl font-bold md:text-6xl`}>
           {name}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-black/60 text-base sm:text-lg">
+        <p className="mt-4 mx-auto max-w-xl opacity-90">
           {subtitle}
         </p>
       </div>

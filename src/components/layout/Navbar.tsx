@@ -132,7 +132,7 @@ export default function Navbar() {
           : "border-b border-transparent",
       ].join(" ")}
     >
-      <div className="mx-auto w-full max-w-[90rem] px-[5vw]">
+       <div className="mx-auto w-full max-w-[90rem] pl-[5vw] md:pr-[calc(5vw+2.5cm)]">
         {/* DESKTOP */}
         <div className="hidden md:grid h-20 grid-cols-[auto_1fr_8rem_1fr] items-center gap-x-6">
           {/* Burger */}

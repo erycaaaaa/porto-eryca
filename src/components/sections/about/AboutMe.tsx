@@ -618,9 +618,19 @@ export default function AboutMe() {
     <motion.section
       ref={sectionRef}
       id="about"
-      className="relative z-0 py-16 md:py-20"
+      className="
+      relative isolate z-0
+      py-16 md:py-20
+      bg-[url('/porto-eryca/about-bg.png')] bg-center bg-cover md:bg-fixed bg-no-repeat
+        "
       style={{ opacity: opacityMV, pointerEvents: pe }}
     >
+      {/* overlay kontras */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10
+                  bg-white/0"
+      />
       {/* Background blob */}
       <motion.div
         aria-hidden
