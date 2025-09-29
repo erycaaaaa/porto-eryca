@@ -5,13 +5,13 @@ import { motion, easeInOut } from "framer-motion";
 import Image from "next/image";
 
 export default function HeroTarot({
-  title = "Whispers of the Cards",
-  subtitle = "Di balik setiap gambar, terdapat kisah hening tentang keberanian, cinta, dan kebijaksanaan untuk ditafsirkan.",
-  cards = ["/cards/the-fool.jpg", "/the-lovers.jpg", "/cards/queen-of-swords.jpg"], 
+  title = "Play with me",
+  subtitle = " Ayo bermain bersama-sama, jika ada permainan yang ingin ditambahkan jangan lupa untuk tuliskan di ShareBox yaa",
+  games = ["/games/the-fool.jpg", "/games/queen-of-swords.jpg"], 
 }: {
   title?: string;
   subtitle?: string;
-  cards?: string[];
+  games?: string[];
 }) {
   const float = (i: number) => ({
     y: [0, -20, 0],
@@ -24,10 +24,11 @@ export default function HeroTarot({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_70%)]" />
       <div className="relative z-10 px-6">
         <h1 className="font-serif text-5xl sm:text-6xl mb-4">{title}</h1>
-        <p className="max-w-xl mx-auto text-lg text-purple-200">{subtitle}</p>
+        <p className="max-w-xl mx-auto text-lg text-white-200
+        ">{subtitle}</p>
 
         <div className="mt-10 flex justify-center gap-6">
-          {cards.slice(0, 3).map((src, i) => (
+          {games.slice(0, 3).map((src, i) => (
             <motion.div
               key={`${src}-${i}`}
               animate={float(i)}
@@ -37,7 +38,7 @@ export default function HeroTarot({
             >
               <Image
                 src={src}
-                alt={`card-${i}`}
+                alt={`game-${i}`}
                 fill
                 className="object-cover"
                 priority={i === 1}

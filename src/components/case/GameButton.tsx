@@ -4,12 +4,12 @@ import Link from "next/link";
 
 type Props = { className?: string };
 
-export function TarotButtonLink({ className = "" }: Props) {
+export function GameButtonLink({ className = "" }: Props) {
   return (
     <Link
-      href="/tarot"
+      href="/game"
       className={
-        "group relative flex items-center justify-center w-[100px] h-[100px] rounded-full bg-white/60 text-6xl hover:bg-white/80 transition cursor-pointer " +
+        "group relative flex items-center bottom-[620px] left-5 justify-center w-[24px] h-[34px] rounded-full bg-white/60 text-6xl hover:bg-white/80 transition cursor-pointer " +
         className
       }
     >
@@ -38,42 +38,17 @@ export function TarotButtonLink({ className = "" }: Props) {
         className="absolute bottom-[18%] right-[14%] w-2 h-2 rounded-full bg-white shadow animate-pulse"
       />
 
-      {/* Segitiga bintang kuning */}
-      <span
-        aria-hidden
-        className="absolute -top-4 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-yellow-300 shadow-lg shadow-yellow-300 animate-pulse"
-      />
-      <span
-        aria-hidden
-        className="absolute bottom-2 -left-4 w-3 h-3 rounded-full bg-yellow-300 shadow-lg shadow-yellow-300 animate-pulse"
-      />
-      <span
-        aria-hidden
-        className="absolute bottom-2 -right-4 w-3 h-3 rounded-full bg-yellow-300 shadow-lg shadow-yellow-300 animate-pulse"
-      />
-
-      {/* “glint” berputar tipis */}
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-full opacity-30 mix-blend-screen
-                   [background:conic-gradient(from_0deg,transparent_0_30%,white_40%,transparent_50%)]
-                   animate-spin"
-      />
-      {/* “glint” berputar tipis */}
-      <span
-        aria-hidden
-        className="absolute inset-0 rounded-full opacity-30 mix-blend-screen
-                   [background:conic-gradient(from_190deg,transparent_0_10%,yellow_50%,transparent_70%)]
-                   animate-spin"
-      />
 
       {/* ICON */}
-      <span className="select-none">🔮</span>
+      <span className="select-none  w-[14px] h-[34px] "
+      >👩🏻‍💻
+
+      </span>
 
       {/* Tooltip */}
       <span
         className="
-          pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3
+          pointer-events-none absolute bottom-full top-[-10] left-1/2 -translate-x-2/2 mb-3
           whitespace-nowrap rounded-[10px] 
           px-0 py-0 text-sm text-black
           opacity-0 translate-y-0
@@ -84,7 +59,7 @@ export function TarotButtonLink({ className = "" }: Props) {
         role="tooltip"
         aria-hidden="true"
       >
-        Mau Baca Tarot?
+        Ayo Main!
       </span>
     </Link>
   );
