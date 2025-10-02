@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BrandsLogo from "@/components/case/BrandsLogo";
 
 export const dynamic = "force-static"; // optional
 
@@ -196,6 +197,7 @@ export default function GalleryPage({
             ))}
           </ul>
         )}
+           <BrandsLogo />
       </section>
     </main>
   );
