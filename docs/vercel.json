@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/porto-eryca",    "destination": "/" },
+    { "source": "/porto-eryca/",   "destination": "/" },
+    { "source": "/porto-eryca/(.*)","destination": "/$1" }
+  ]
+}
