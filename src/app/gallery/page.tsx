@@ -78,6 +78,20 @@ const ALL_ITEMS: Item[] = [
     src: "/porto-eryca/wate2.jpg",
     description: "Cobalt iris on warm ochre—breathing on textured paper.",
   },
+  {
+    id: "sk-02",
+    title: "Carry the Lily, Carry the Thought",
+    category: "Sketch",
+    src: "/porto-eryca/sketsotter.jpg",
+    description: "An otter cradles an oversized lily—tenderness scaled into weight. Rather than grasping, it accompanies. The drawing asks whether wisdom is strength to carry, or the tact to hold without tearing what is delicate.",
+  },
+    {
+    id: "pt-01",
+    title: "Ojo Nganti Ilang Disawang",
+    category: "Poster",
+    src: "/porto-eryca/poster-budaya.jpg",
+    description: "Budaya tidak diwarisi, ia dirawat—dengan dipraktikkan, bukan sekadar disawang.",
+  },
 ];
 
 /* =========================
