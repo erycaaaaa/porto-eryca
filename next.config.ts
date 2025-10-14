@@ -1,11 +1,12 @@
-const isProd = process.env.NODE_ENV === "production";
-const repo = "porto-eryca";
+const isGH = process.env.GH_PAGES === 'true'; 
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  images: { unoptimized: true },
-  basePath: isProd ? `/${repo}` : "",
-  assetPrefix: isProd ? `/${repo}/` : "",
+  ...(isGH && {
+    output: 'export',               
+    basePath: '/porto-eryca',      
+    assetPrefix: '/porto-eryca/',
+    images: { unoptimized: true },   
+  }),
 };
-
 export default nextConfig;

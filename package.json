@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && node -e \"const fs=require('fs');fs.rmSync('docs',{recursive:true,force:true});fs.renameSync('.next/static','docs');fs.writeFileSync('docs/.nojekyll','');\"",
+    "build": "next build",
     "start": "next start",
+    "build:gh": "cross-env GH_PAGES=true next build && node -e \"const fs=require('fs');fs.rmSync('docs',{recursive:true,force:true});fs.renameSync('out','docs');fs.writeFileSync('docs/.nojekyll','');\"",
     "lint": "next lint --dir src",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix --cache"
   },
