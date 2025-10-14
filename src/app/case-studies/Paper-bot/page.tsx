@@ -92,7 +92,7 @@ export default function Page() {
 
       {/* ⬇️ PKM MOMENTS — 2 foto */}
       <CaseSection id="pkm" title="PKM Moments">
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {/* Card 1 */}
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">

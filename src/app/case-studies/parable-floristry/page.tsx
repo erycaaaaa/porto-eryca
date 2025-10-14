@@ -39,7 +39,7 @@ export default function Page() {
         tagline="Affordable boutique bouquets from Pasar Rawa Belong — crafted with a warm editorial touch."
         siteUrl="https://erycaaaaa.github.io/toko-bunga-fajar/"
         figmaUrl="https://embed.figma.com/design/B7aozMLHyu5r81GO0MhkVg/TOKO-BUNGA-FAJAR---ERYCA?node-id=0-1&embed-host=share"
-        poster="/porto-eryca/faja1.jpg"
+        poster="/porto-eryca/potobunga.png"
       />
 
       {/* LOGOS */}
@@ -136,7 +136,6 @@ export default function Page() {
             "Motion & aksesibilitas (focus ring, contrast)",
           ],
         }}
-        // variant="buttons" // aktifkan kalau kamu sudah buat varian tombol
       />
 
       {/* UI SOLUTION — kartu ringkas */}

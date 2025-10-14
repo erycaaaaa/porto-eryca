@@ -68,6 +68,7 @@ import ApproachSlider from "@/components/sections/extras/Approach";
 import ExternalLogoStrip from "@/components/sections/extras/LogoStrips";
 import Testimonial from "@/components/sections/extras/Testimonials";
 import CaseStudiesSection from "@/components/sections/extras/CaseStudies";
+import ApproachVisual from "@/components/sections/extras/ApproachVisual";
 import Hero from "@/components/sections/hero/Hero";
 
 export default function ParableFloristryPage() {
@@ -79,7 +80,6 @@ export default function ParableFloristryPage() {
         <AboutMeAnimated />
         <ExternalLogoStrip />
         <ApproachSlider />
-
         <Section
           variant="services"
           services={[
@@ -90,8 +90,10 @@ export default function ParableFloristryPage() {
           ]}
           title="What I do at a glance"
         />
-        <Testimonial />
         <CaseStudiesSection />
+        <ApproachVisual />
+        <Testimonial />
+         
       </main>
     </div>
   );

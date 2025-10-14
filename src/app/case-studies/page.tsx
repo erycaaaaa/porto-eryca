@@ -6,16 +6,11 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 
-/* =========================
-   BASE PATH HELPER (untuk bg & <img> biasa)
-   ========================= */
+/* ===== BASE PATH HELPER ===== */
 const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const asset = (p: string) => `${BASE}${p.startsWith("/") ? p : `/${p}`}`;
 
-/* =========================
-   KATEGORI
-   ========================= */
+/* ===== KATEGORI ===== */
 const CATEGORIES = [
   "All",
   "Case Studies",
@@ -37,12 +32,13 @@ function normalizeCat(v: string | null): Category {
   return (match as Category) ?? "All";
 }
 
+/* ===== DATA ===== */
 type Item = {
   id: string;
   title: string;
-  categories: Exclude<Category, "All">[]; // ← array
+  categories: Exclude<Category, "All">[];
   src: string;
-  href: string;
+  href?: string; // ← boleh kosong
   alt?: string;
   description: string;
   tag?: string;
@@ -52,7 +48,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "cs-parable",
     title: "Parable Floristry",
-    categories: ["Front-End", "Design", "UI/UX"],
+    categories: ["Case Studies"],
     src: "/porto-eryca/fajar1.jpg",
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
@@ -62,7 +58,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "cs-tarumanagara",
     title: "Tarumanagara Enterprise",
-    categories: ["Design", "UI/UX"],
+    categories: ["Case Studies"],
     src: "/porto-eryca/untarx1.jpg",
     href: "/case-studies/tarumanagara-enterprise",
     tag: "UX Strategy",
@@ -71,7 +67,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "cs-eryca",
     title: "Website Wihara",
-    categories: ["Front-End", "Design", "UI/UX"],
+    categories: ["Front-End"],
     src: "/porto-eryca/wihara11.jpg",
     href: "/case-studies/eryca-portfolio",
     tag: "Design & Front-End",
@@ -83,7 +79,7 @@ const ALL_ITEMS: Item[] = [
     title: "Sentiment Analysis Paper",
     categories: ["Paper"],
     src: "/porto-eryca/analisa1.jpg",
-    href: "/case-studies/Paper-sentiment",
+    href: "/Paper-sentiment",
     tag: "Research & NLP",
     description:
       "Research on sentiment classification using NLP & deep learning pipelines.",
@@ -91,7 +87,7 @@ const ALL_ITEMS: Item[] = [
   {
     id: "website-bot",
     title: "EduBot UI/UX Design",
-    categories: ["Design", "UI/UX"],
+    categories: ["UI/UX"],
     src: "/porto-eryca/edu1.jpg",
     href: "/case-studies/Paper-bot",
     tag: "UI/UX • Chatbot",
@@ -103,16 +99,57 @@ const ALL_ITEMS: Item[] = [
     title: "Perancangan Antarmuka Chatbot",
     categories: ["Paper"],
     src: "/porto-eryca/analisa2.jpg",
-    href: "/case-studies/Paper-bot/paper-bot",
+    href: "/case-studies/Paper-UI",
     tag: "Research",
     description:
-      "Perancangan Antarmuka Chatbot Edukatif untuk System Tanya Jawab SDN Kalideres 13 Petang",
+      "Perancangan Antarmuka Chatbot Edukatif untuk Sistem Tanya Jawab SDN Kalideres 13 Petang",
+  },
+    {
+    id: "poster-psikologi",
+    title: "Perancangan Poster Psikologi",
+    categories: ["Design"],
+    src: "/porto-eryca/poster-psikologi.jpg",
+    tag: "Design",
+    description: "Perancangan Poster Psikologi - Peta Jalan Karir di Ekonomi AI",
+  },
+  {
+    id: "poster-DKV",
+    title: "Perancangan Poster Event",
+    categories: ["Design"],
+    src: "/porto-eryca/poster-dkv.jpg",
+    tag: "Design",
+    description: "Perancangan Poster Event - Animal",
   },
 ];
 
-/* =========================
-   PAGE INDEX (Client-side Filtering)
-   ========================= */
+function MaybeLink({
+  href,
+  className,
+  children,
+  ...rest
+}: React.HTMLAttributes<HTMLElement> & {
+  href?: string;
+  children: React.ReactNode;
+}) {
+  if (href) {
+    // Only pass anchor props to Link
+    const anchorProps = rest as React.HTMLAttributes<HTMLAnchorElement>;
+    return (
+      <Link href={href} className={className} {...anchorProps}>
+        {children}
+      </Link>
+    );
+  } else {
+    const divProps = rest as React.HTMLAttributes<HTMLDivElement>;
+    return (
+      <div className={className} {...divProps}>
+        {children}
+      </div>
+    );
+  }
+}
+
+/* ===== PAGE ===== */
 export default function CaseStudiesIndex() {
   const sp = useSearchParams();
   const catRaw = sp.get("cat");
@@ -123,7 +160,9 @@ export default function CaseStudiesIndex() {
 
   const filtered = useMemo(() => {
     return ALL_ITEMS.filter((it) => {
-      const byCat = activeCat === "All" || it.categories.includes(activeCat);
+      const byCat =
+        activeCat === "All" ||
+        it.categories.includes(activeCat as Exclude<Category, "All">); // guard
       const byQ =
         !q ||
         it.title.toLowerCase().includes(q) ||
@@ -136,17 +175,15 @@ export default function CaseStudiesIndex() {
   return (
     <main
       id="worked"
-      className="
-    relative isolate z-0
-    py-16 md:py-20
-    bg-center bg-cover md:bg-fixed bg-no-repeat
-  "
-      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }} // ← pastikan nama file benar!
+      className="relative isolate z-0 py-16 md:py-20 bg-center bg-cover md:bg-fixed bg-no-repeat"
+      style={{
+        backgroundImage: `url('${asset("/porto-eryca/bg-about.png")}')`,
+      }} 
     >
-      {/* overlay supaya kontras */}
+   
       <div
-        className="absolute inset-0 bg-[#faf8f3]/80 pointer-events-none"
         aria-hidden
+        className="absolute inset-0 -z-10 bg-[#faf8f3]/80 pointer-events-none"
       />
 
       {/* HEADER */}
@@ -163,7 +200,7 @@ export default function CaseStudiesIndex() {
               </p>
             </div>
 
-            {/* SEARCH — action="" agar rel. ke path sekarang (aman basePath) */}
+            {/* SEARCH */}
             <form className="mt-3 sm:mt-0" action="" method="get">
               <input
                 name="q"
@@ -183,7 +220,7 @@ export default function CaseStudiesIndex() {
               const params = new URLSearchParams();
               if (cat !== "All") params.set("cat", cat);
               if (qRaw) params.set("q", qRaw);
-              const href = params.toString()
+              const pillHref = params.toString()
                 ? `/case-studies?${params.toString()}`
                 : `/case-studies`;
               const isActive = activeCat === cat;
@@ -191,7 +228,7 @@ export default function CaseStudiesIndex() {
               return (
                 <Link
                   key={cat}
-                  href={href}
+                  href={pillHref}
                   aria-pressed={isActive}
                   className={[
                     "rounded-full border px-4 py-2 text-sm transition",
@@ -221,7 +258,8 @@ export default function CaseStudiesIndex() {
                 key={item.id}
                 className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white/100 shadow-sm"
               >
-                <Link href={item.href} className="block">
+          
+                <MaybeLink href={item.href} className="block">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                       src={item.src}
@@ -229,7 +267,6 @@ export default function CaseStudiesIndex() {
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                      priority={false}
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <h3 className="text-base font-semibold">{item.title}</h3>
@@ -253,10 +290,10 @@ export default function CaseStudiesIndex() {
                       </p>
                     </div>
                     <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
-                      View
+                      {item.href ? "View" : "Details"}
                     </span>
                   </div>
-                </Link>
+                </MaybeLink>
               </li>
             ))}
           </ul>
