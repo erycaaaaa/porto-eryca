@@ -2,9 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import BrandsLogo from "@/components/case/BrandsLogo";
 
-export const dynamic = "force-static"; // optional
+export const dynamic = "force-static"; 
 
-// === Konfigurasi route saat ini ===
 const THIS_ROUTE = "/gallery";
 
 const CATEGORIES = [
@@ -14,7 +13,6 @@ const CATEGORIES = [
   "3D Crafting",
   "Poster",
   "Sketch",
-  "Design",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
@@ -27,7 +25,6 @@ type Item = {
   description: string;
 };
 
-// ganti dengan data asli
 const ALL_ITEMS: Item[] = [
   {
     id: "ac-01",
@@ -42,7 +39,7 @@ const ALL_ITEMS: Item[] = [
     title: "Christmas Scene",
     category: "Watercolor",
     src: "/porto-eryca/1.jpg",
-    description: "Watercolor: wet-on-wet glow & soft edges.",
+    description: "Watercolor: wet on wet glow & soft edges.",
   },
   {
     id: "dc-01",
@@ -60,10 +57,10 @@ const ALL_ITEMS: Item[] = [
   },
   {
     id: "sk-01",
-    title: "Gesture Study",
+    title: "Where Questions Pierce the Veil",
     category: "Sketch",
     src: "/porto-eryca/sket1.jpg",
-    description: "Sketch: 60s gesture lines & proportions.",
+    description: "The bow is the mind. The string is discipline. The arrow is a question. Draw with doubt and courage, aim with attention, release with humility so it pierces not bodies, but the fog of our assumptions.",
   },
   {
     id: "wc-03",
@@ -71,7 +68,7 @@ const ALL_ITEMS: Item[] = [
     category: "Watercolor",
     src: "/porto-eryca/wate2.jpg",
     description:
-      "A watercolor study of a blue eye—cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette.",
+      "A watercolor study of a blue eye cool cobalt iris against a warm ochre glow, crisp brow and lashes, all breathing on textured paper beside a well-used palette.",
   },
 ];
 

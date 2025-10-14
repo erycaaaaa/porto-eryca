@@ -18,7 +18,6 @@ const CATEGORIES = [
   "3D Crafting",
   "Poster",
   "Sketch",
-  "Design",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
@@ -41,14 +40,14 @@ const ALL_ITEMS: Item[] = [
     category: "Acrylic",
     src: "/porto-eryca/2.jpg",
     description:
-      "Tanjiro & Nezuko. Acrylic fanart—Taisho vibes & breathing forms.",
+      "Tanjiro & Nezuko. Acrylic fanart Taisho vibes & breathing forms.",
   },
   {
     id: "wc-01",
     title: "Christmas Scene",
     category: "Watercolor",
     src: "/porto-eryca/1.jpg",
-    description: "Watercolor: wet-on-wet glow & soft edges.",
+    description: "Watercolor: wet on wet glow & soft edges.",
   },
   {
     id: "dc-01",
@@ -66,31 +65,31 @@ const ALL_ITEMS: Item[] = [
   },
   {
     id: "sk-01",
-    title: "Gesture Study",
+    title: "Where Questions Pierce the Veil",
     category: "Sketch",
     src: "/porto-eryca/sket1.jpg",
-    description: "60s gesture lines & proportions.",
+    description: "The bow is the mind. The string is discipline. The arrow is a question. Draw with doubt and courage, aim with attention, release with humility—so it pierces not bodies, but the fog of our assumptions.",
   },
   {
     id: "wc-03",
     title: "A blue eye blooming on paper.",
     category: "Watercolor",
     src: "/porto-eryca/wate2.jpg",
-    description: "Cobalt iris on warm ochre—breathing on textured paper.",
+    description: "Cobalt iris on warm ochre breathing on textured paper.",
   },
   {
     id: "sk-02",
     title: "Carry the Lily, Carry the Thought",
     category: "Sketch",
     src: "/porto-eryca/sketsotter.jpg",
-    description: "An otter cradles an oversized lily—tenderness scaled into weight. Rather than grasping, it accompanies. The drawing asks whether wisdom is strength to carry, or the tact to hold without tearing what is delicate.",
+    description: "An otter cradles an oversized lily tenderness scaled into weight. Rather than grasping, it accompanies. The drawing asks whether wisdom is strength to carry, or the tact to hold without tearing what is delicate.",
   },
     {
     id: "pt-01",
     title: "Ojo Nganti Ilang Disawang",
     category: "Poster",
     src: "/porto-eryca/poster-budaya.jpg",
-    description: "Budaya tidak diwarisi, ia dirawat—dengan dipraktikkan, bukan sekadar disawang.",
+    description: "Budaya tidak diwarisi, ia dirawat dengan dipraktikkan, bukan sekadar disawang.",
   },
 ];
 
@@ -109,7 +108,6 @@ export default function GalleryPage() {
   const [active, setActive] = useState<Category>(catFromURL);
   const [q, setQ] = useState(qFromURL);
 
-  // sinkronkan state -> URL (tetap di /gallery, tidak pindah halaman lain)
   useEffect(() => {
     const params = new URLSearchParams(sp.toString());
     if (active === "All") params.delete("cat");
