@@ -779,13 +779,12 @@ export default function AboutMe() {
                 dark:bg-[#bba46b] dark:text-black
               "
               >
-                <Download className="h-4 w-4" /> {/* ← ganti icon */}
+                <Download className="h-4 w-4" />
                 Download CV
               </motion.a>
             </motion.div>
           </motion.div>
-
-          {/* Kanan: CV yang sudah dipisahkan sebagai sub‑komponen */}
+          
           <ResumeCV email={email} skills={skills} experiences={experiences} />
         </div>
       </div>

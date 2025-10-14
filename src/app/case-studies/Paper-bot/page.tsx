@@ -3,7 +3,6 @@ import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import ProtoAndFeatures from "@/components/case/ProtoAndFeatures";
 import Image from "next/image";
 import { FaFigma } from "react-icons/fa";
-
 export default function Page() {
   return (
     <CaseLayout
@@ -150,6 +149,24 @@ export default function Page() {
               <h4 className="font-medium">HKI Desain Antarmuka</h4>
               <p className="mt-1 text-sm text-neutral-600">
                 HKI Pengembangan Antarmuka ChatBot EduBuddy
+              </p>
+            </div>
+          </li>
+            {/* Card 4 */}
+          <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src="/porto-eryca/bukubot.jpg"
+                alt="buku panduan edubot"
+                fill
+                className="object-cover"
+                sizes="(min-width:1024px) 50vw, 100vw"
+              />
+            </div>
+            <div className="p-4">
+              <h4 className="font-medium">Buku Panduan EduBuddyBot</h4>
+              <p className="mt-1 text-sm text-neutral-600">
+                Buku Panduan Penggunaan EduBuddyBot untuk Sekolah
               </p>
             </div>
           </li>

@@ -336,8 +336,8 @@ export default function MobileSidebar({
                 {/* CTA */}
                 <div className="mt-4 grid gap-2">
                   <a
-                    href="/Curriculum Vitae  - Eryca Dhamma Shanty.pdf"
-                    download="Eryca-Dhamma-Shanty-CV.pdf"
+                    href="/CV-ErycaDhammaShanty.pdf"
+                    download="CV-ErycaDhammaShanty.pdf"
                     className="
                       inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
                       bg-[#6f5d33] text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/40

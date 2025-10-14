@@ -48,8 +48,7 @@ export default function Page() {
               <SiGooglecolab title="GoogleCollab" />
             </li>
             <li className="flex items-center justify-center text-4xl">
-              <BiLogoPlayStore title="GoogleCollab" />
-              <BiLogoPlayStore title="LogoPlayStore" />
+              <BiLogoPlayStore title="GooglePlayStore" />
             </li>
             <li className="flex items-center justify-center text-4xl">
               <FaFileWord title="FaFileWord" />
