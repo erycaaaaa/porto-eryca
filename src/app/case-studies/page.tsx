@@ -125,7 +125,7 @@ const ALL_ITEMS: Item[] = [
     id: "Front-End-DKV",
     title: "Portfolio Website Me",
     categories: ["Front-End"],
-    src: "/porto-eryca/por.jpg",
+    src: "/porto-eryca/po1.jpg",
     href: "/case-studies/portfolio",
     tag: "Front-End",
     description:

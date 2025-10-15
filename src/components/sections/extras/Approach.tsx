@@ -155,11 +155,11 @@ export default function Approach() {
             {/* slider */}
             <ImageSlider
               images={[
+                { src: "/porto-eryca/por.jpg", alt: "tutorial deploy portfolio" },
                 { src: "/porto-eryca/un.jpg", alt: "UntarX system overview" },
                 { src: "/porto-eryca/ed.jpg", alt: "Education module UI" },
                 { src: "/porto-eryca/wihara11.jpg", alt: "wihara" },
                 { src: "/porto-eryca/min.jpg", alt: "Education module UI" },
-                { src: "/porto-eryca/por.jpg", alt: "tutorial deploy portfolio" },
               ]}
             />
 
