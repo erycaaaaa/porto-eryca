@@ -104,13 +104,14 @@ const ALL_ITEMS: Item[] = [
     description:
       "Perancangan Antarmuka Chatbot Edukatif untuk Sistem Tanya Jawab SDN Kalideres 13 Petang",
   },
-    {
+  {
     id: "poster-psikologi",
     title: "Perancangan Poster Psikologi",
     categories: ["Design"],
     src: "/porto-eryca/poster-psikologi.jpg",
     tag: "Design",
-    description: "Perancangan Poster Psikologi - Peta Jalan Karir di Ekonomi AI",
+    description:
+      "Perancangan Poster Psikologi - Peta Jalan Karir di Ekonomi AI",
   },
   {
     id: "poster-DKV",
@@ -119,6 +120,16 @@ const ALL_ITEMS: Item[] = [
     src: "/porto-eryca/poster-dkv.jpg",
     tag: "Design",
     description: "Perancangan Poster Event - Animal",
+  },
+  {
+    id: "Front-End-DKV",
+    title: "Portfolio Website Me",
+    categories: ["Front-End"],
+    src: "/porto-eryca/por.jpg",
+    href: "/case-studies/portfolio",
+    tag: "Front-End",
+    description:
+      "Merancang dan membangun website portfolio pribadi menggunakan typeScript, Next.js, dan Tailwind CSS.",
   },
 ];
 
@@ -178,9 +189,8 @@ export default function CaseStudiesIndex() {
       className="relative isolate z-0 py-16 md:py-20 bg-center bg-cover md:bg-fixed bg-no-repeat"
       style={{
         backgroundImage: `url('${asset("/porto-eryca/bg-about.png")}')`,
-      }} 
+      }}
     >
-   
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[#faf8f3]/80 pointer-events-none"
@@ -258,7 +268,6 @@ export default function CaseStudiesIndex() {
                 key={item.id}
                 className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white/100 shadow-sm"
               >
-          
                 <MaybeLink href={item.href} className="block">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image

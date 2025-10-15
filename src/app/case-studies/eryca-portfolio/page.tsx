@@ -4,7 +4,13 @@ import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TwoColSection from "@/components/case/TwoColSect";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import RoleStrip from "@/components/case/RoleStrip";
-import { FaHtml5, FaCss3Alt, FaGithub, FaBootstrap } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNetlify,
+} from "react-icons/si";
 
 export default function Page() {
   return (
@@ -17,10 +23,8 @@ export default function Page() {
         tag: "Design & Front-End",
         duration: "ongoing",
         role: "Product Designer • Front-End",
-        tools: ["Boostraps5", "HTML", "CSS", "JS"],
+        tools: ["Boostraps5", "HTML", "CSS", "JS", "Netlify"], // + Netlify
       }}
-      // coverImage="/porto-eryca/mock-portfolio.jpg"
-      prototypeUrl="https://www.figma.com/proto/your-eryca"
     >
       {/* LOGOS */}
       <section className="mt-8 mx-auto max-w-6xl px-6 pb-6">
@@ -28,16 +32,38 @@ export default function Page() {
           <li className="flex items-center justify-center text-4xl">
             <FaGithub title="GitHub" />
           </li>
-          <li className="flex items-center justify-center text-4xl text-sky-500">
-            <FaHtml5 title="HTML" />
+          <li className="flex items-center justify-center text-4xl">
+            <SiNextdotjs title="Next.js" />
           </li>
-          <li className="flex items-center justify-center text-4xl text-pink-500">
-            <FaCss3Alt title="CSS" />
+          <li className="flex items-center justify-center text-4xl text-[#3178C6]">
+            <SiTypescript title="TypeScript" />
           </li>
-          <li className="flex items-center justify-center text-4xl text-pink-500">
-            <FaBootstrap title="Bootstraps5" />
+          <li className="flex items-center justify-center text-4xl text-[#06B6D4]">
+            <SiTailwindcss title="Tailwind CSS" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <a
+              href="https://wihara-chatra-dhammapanno.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Buka situs live di Netlify"
+              className="text-[#00C7B7] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#00C7B7]/40 rounded-md"
+            >
+              <SiNetlify title="Netlify (Live)" />
+            </a>
           </li>
         </ul>
+      </section>
+      {/* HERO (img biasa) */}
+      <section className="mx-auto max-w-6xl px-6 mt-8">
+        {/* HERO IMAGE */}
+        <img
+          alt="Analisis Sentimen Ulasan Aplikasi Transportasi"
+          title="sentiment analysis"
+          src="/porto-eryca/analisa1.jpg"
+          loading="eager"
+          className="h-full w-full object-cover rounded-2xl border"
+        />
       </section>
 
       {/* ABOUT — lebar */}
@@ -73,24 +99,12 @@ export default function Page() {
               konfirmasi via WhatsApp/SMS.
             </li>
             <li>
-              <strong>Notifikasi Ringan</strong> — pilihan pengingat lewat
-              email/WhatsApp/Telegram.
-            </li>
-            <li>
               <strong>Peta & Arah</strong> — link peta, titik kumpul, dan
               catatan transport.
             </li>
             <li>
               <strong>Kontak & Donasi</strong> — nomor admin, kanal tanya-jawab,
               dan QRIS/rek. donasi.
-            </li>
-            <li>
-              <strong>Aksesibilitas</strong> — font besar, kontras baik, mode
-              gelap, bahasa Indonesia/daerah.
-            </li>
-            <li>
-              <strong>Ramah Jaringan Lambat</strong> — gambar terkompresi,
-              halaman ringan, cache (PWA).
             </li>
           </ul>
         </div>
@@ -113,7 +127,6 @@ export default function Page() {
         contentRight={
           <ol className="list-decimal pl-5 space-y-1">
             <li>Website ringan sebagai pusat informasi & event vihara.</li>
-            <li>Kalender terintegrasi + pengingat (WA/Telegram/email).</li>
             <li>Pendaftaran online, pengumuman cepat, peta & kontak admin.</li>
           </ol>
         }

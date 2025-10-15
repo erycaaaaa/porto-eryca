@@ -102,7 +102,6 @@ const PROGRAMMING_SET = new Set([
 
 function toCategorized(skills: SkillsProp) {
   if (!Array.isArray(skills)) {
-    // sudah kategori – tetap normalisasi nama agar rapi
     const norm = (arr: string[]) => [...new Set(arr.map(normalize))];
     return {
       design: norm(skills.design),
@@ -437,7 +436,6 @@ function ResumePage2({
 
 /** ---- Wrapper CV ---- **/
 function ResumeCV({ email, skills, experiences }: ResumeCVProps) {
-  // Pager state (lokal untuk CV)
   const TOTAL_PAGES = 2;
   const [page, setPage] = React.useState(0);
   const [dir, setDir] = React.useState(0);
@@ -550,7 +548,6 @@ export default function AboutMe() {
     mass: 0.25,
   });
 
-  // Kedekatan kursor → opacity
   const dist = useMotionValue<number>(9999);
   const [pointerCoarse, setPointerCoarse] = useState(false);
   useEffect(() => {
@@ -682,7 +679,6 @@ export default function AboutMe() {
 
         {/* Grid 2 kolom */}
         <div className="grid items-start gap-8 md:gap-12 md:grid-cols-12">
-          {/* Kiri: foto + sapaan */}
           <motion.div
             variants={revealContainer}
             initial="hidden"
@@ -722,7 +718,6 @@ export default function AboutMe() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              {/* GIF naga: absolute, di kanan-atas, tidak menangkap pointer, z-index rendah */}
               <motion.img
                 src="/porto-eryca/naga1.gif"
                 alt="Wave animation"
@@ -736,7 +731,6 @@ export default function AboutMe() {
                 }
               />
 
-              {/* teks hey + deskripsi: naikkan z-index dan beri padding top & right agar tidak tertutup GIF */}
               <motion.div
                 className="relative z-10 text-center"
                 initial={{ opacity: 0, y: 10 }}
@@ -770,8 +764,8 @@ export default function AboutMe() {
             <motion.div variants={item} className="flex flex-wrap gap-2 pt-1">
               <motion.a
                 whileTap={{ scale: 0.98 }}
-                href="/cv/Eryca-Dhamma-Shanty-CV.pdf"
-                download="Eryca-Dhamma-Shanty-CV.pdf"
+                href="/CV-ErycaDhammaShanty.pdf"
+                download="CV-ErycaDhammaShanty.pdf"
                 aria-label="Download CV"
                 className="
                 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
@@ -784,7 +778,7 @@ export default function AboutMe() {
               </motion.a>
             </motion.div>
           </motion.div>
-          
+
           <ResumeCV email={email} skills={skills} experiences={experiences} />
         </div>
       </div>

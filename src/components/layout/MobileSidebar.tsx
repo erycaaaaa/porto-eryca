@@ -35,7 +35,6 @@ type Props = {
 const FULL_WIDTH = 420;
 const RAIL_WIDTH = 80;
 
-// media query helper: true di mobile (<=640px)
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -65,7 +64,7 @@ export default function MobileSidebar({
 
   // ===== router + base path awareness (GitHub Pages) =====
   const router = useRouter();
-  const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // contoh: "/porto-eryca"
+  const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
   const resolveHref = useCallback(
     (href: string) => (href.startsWith("/") ? `${BASE}${href}` : href),
@@ -111,7 +110,7 @@ export default function MobileSidebar({
     };
   }, [open]);
 
-  // klik item: kalau di desktop & masih rail → expand dulu, lalu jalankan anchor
+
   const onAnchor = useCallback<AnchorHandler>(
     (href: string) => (e) => {
       if (!isMobile && !expanded) setExpanded(true);
@@ -127,7 +126,7 @@ export default function MobileSidebar({
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop super-tinggi supaya ngalahin elemen fixed lain */}
+          {/* Backdrop */}
           <motion.button
             aria-label="Close menu"
             className="fixed inset-0 z-[10000] bg-black/40 backdrop-blur-sm touch-none"
@@ -143,7 +142,6 @@ export default function MobileSidebar({
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
-            // mobile: geser ke kanan untuk menutup
             drag={isMobile ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.06}
@@ -168,7 +166,7 @@ export default function MobileSidebar({
             exit={{ x: 24, opacity: 0 }}
             transition={{ type: "spring", stiffness: 320, damping: 30 }}
           >
-            {/* RAIL (disembunyikan di mobile) */}
+   
             {!isMobile && (
               <div className="flex h-full w-[72px] flex-col items-center gap-2 border-r border-[#e8dcb8]/60 p-2 dark:border-[#2a2519]">
                 <button
@@ -284,7 +282,6 @@ export default function MobileSidebar({
                     Works
                   </Item>
 
-                  {/* Makeup ke route /makeup (bukan anchor) */}
                   <li>
                     <a
                       href={resolveHref("/makeup")}
@@ -338,6 +335,7 @@ export default function MobileSidebar({
                   <a
                     href="/CV-ErycaDhammaShanty.pdf"
                     download="CV-ErycaDhammaShanty.pdf"
+                    aria-label="Download CV"
                     className="
                       inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
                       bg-[#6f5d33] text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/40
@@ -525,7 +523,6 @@ function Item({
   );
 }
 
-/* Tombol di rail (desktop) */
 function RailButton({
   children,
   title,
