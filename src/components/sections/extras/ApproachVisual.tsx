@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BrandsLogo from "@/components/case/BrandsLogo";
 
-export const dynamic = "force-static"; 
+export const dynamic = "force-static";
 
 const THIS_ROUTE = "/gallery";
 
@@ -27,12 +27,19 @@ type Item = {
 
 const ALL_ITEMS: Item[] = [
   {
-    id: "ac-01",
-    title: "Demon Slayer",
-    category: "Acrylic",
-    src: "/porto-eryca/2.jpg",
+    id: "sk-02",
+    title: "Carry the Lily, Carry the Thought",
+    category: "Sketch",
+    src: "/porto-eryca/sketsotter.jpg",
     description:
-      "Demon Slayer (Kimetsu no Yaiba) tells the story of Tanjiro Kamado, a teenager whose family was slaughtered by demons, and his sister, Nezuko, who was turned into a demon. Tanjiro joins the Demon Slayer Corps to find a cure to turn Nezuko back into a human and to exterminate all demons. Set in Japan during the Taisho era, the anime depicts Tanjiro and his friends battling demons using special breathing techniques.",
+      "An otter cradles an oversized lily tenderness scaled into weight. Rather than grasping, it accompanies. The drawing asks whether wisdom is strength to carry, or the tact to hold without tearing what is delicate.",
+  },
+  {
+    id: "pt-01",
+    title: "Ojo Nganti Ilang Disawang",
+    category: "Poster",
+    src: "/porto-eryca/poster-budaya.jpg",
+    description: "Budaya tidak diwarisi, ia dirawat dengan dipraktikkan.",
   },
   {
     id: "wc-01",
@@ -48,19 +55,14 @@ const ALL_ITEMS: Item[] = [
     src: "/porto-eryca/4.jpg",
     description: "3D craft: stylized form, matte clay render.",
   },
-  {
-    id: "ac-06",
-    title: "Commission",
-    category: "Acrylic",
-    src: "/porto-eryca/acy6.jpg",
-    description: "Cat by Tesla Paint",
-  },
+
   {
     id: "sk-01",
     title: "Where Questions Pierce the Veil",
     category: "Sketch",
     src: "/porto-eryca/sket1.jpg",
-    description: "The bow is the mind. The string is discipline. The arrow is a question. Draw with doubt and courage, aim with attention, release with humility so it pierces not bodies, but the fog of our assumptions.",
+    description:
+      "The bow is the mind. The string is discipline. The arrow is a question. Draw with doubt and courage, aim with attention, release with humility so it pierces not bodies, but the fog of our assumptions.",
   },
   {
     id: "wc-03",
@@ -194,7 +196,7 @@ export default function GalleryPage({
             ))}
           </ul>
         )}
-           <BrandsLogo />
+        <BrandsLogo />
       </section>
     </main>
   );
