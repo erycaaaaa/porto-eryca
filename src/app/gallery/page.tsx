@@ -89,7 +89,14 @@ const ALL_ITEMS: Item[] = [
     title: "Ojo Nganti Ilang Disawang",
     category: "Poster",
     src: "/porto-eryca/poster-budaya.jpg",
-    description: "Budaya tidak diwarisi, ia dirawat dengan dipraktikkan, bukan sekadar disawang.",
+    description: "Budaya tidak diwarisi, ia dirawat dengan dipraktikkan.",
+  },
+      {
+    id: "sk-03",
+    title: "The Flower that Blooms in Adversity",
+    category: "Sketch",
+    src: "/porto-eryca/sketkelinci.jpg",
+    description: "A rabbit stands with a flower hat that blooms in adversity.",
   },
 ];
 
