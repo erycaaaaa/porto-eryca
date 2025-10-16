@@ -1,17 +1,37 @@
 import React from "react";
-import { SiFigma, SiGithub, SiNextdotjs, SiReact, SiTailwindcss, SiTypescript, SiVercel } from "react-icons/si";
+import {
+  SiFigma,
+  SiGithub,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si";
 
 // Small UI primitives
 function Container({ children }: { children: React.ReactNode }) {
   return <div className="mx-auto w-full max-w-6xl px-6">{children}</div>;
 }
 
-function Section({ id, title, children }: { id?: string; title: string; children: React.ReactNode }) {
+function Section({
+  id,
+  title,
+  children,
+}: {
+  id?: string;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <section id={id} className="scroll-mt-24 py-10 md:py-14">
       <Container>
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">{title}</h2>
-        <div className="text-base leading-relaxed text-zinc-700">{children}</div>
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+          {title}
+        </h2>
+        <div className="text-base leading-relaxed text-zinc-700">
+          {children}
+        </div>
       </Container>
     </section>
   );
@@ -25,10 +45,18 @@ function Badge({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ToolBadge({ icon: Icon, label }: { icon: React.ElementType; label: string }) {
+function ToolBadge({
+  icon: Icon,
+  label,
+}: {
+  icon: React.ElementType;
+  label: string;
+}) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-zinc-200 bg-white p-3 shadow-sm">
-      <span className="text-2xl"><Icon /></span>
+      <span className="text-2xl">
+        <Icon />
+      </span>
       <span className="font-medium">{label}</span>
     </div>
   );
@@ -42,7 +70,15 @@ function Code({ children }: { children: React.ReactNode }) {
   );
 }
 
-function StepCard({ order, title, children }: { order: number; title: string; children: React.ReactNode }) {
+function StepCard({
+  order,
+  title,
+  children,
+}: {
+  order: number;
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="relative rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
       <span className="absolute -top-3 -left-3 grid size-8 place-items-center rounded-full bg-zinc-900 text-white text-sm font-semibold shadow">
@@ -71,15 +107,31 @@ export default function PortfolioTutorialPage() {
             </div>
 
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-              Portfolio Tutorial: <span className="bg-gradient-to-r from-zinc-900 to-zinc-600 bg-clip-text text-transparent">Wireframe, Prototype, Front‑End, Deploy</span>
+              Portfolio Tutorial:{" "}
+              <span className="bg-gradient-to-r from-zinc-900 to-zinc-600 bg-clip-text text-transparent">
+                Wireframe, Prototype, Front‑End, Deploy
+              </span>
             </h1>
             <p className="mt-4 max-w-3xl text-zinc-700">
-              Panduan ringkas namun lengkap untuk merancang portofolio dari nol: mulai dari sketsa di Figma, membuat prototipe UI/UX, membangun front‑end dengan Next.js + TypeScript + Tailwind, hingga publikasi ke Vercel.
+              Panduan ringkas namun lengkap untuk merancang portofolio dari nol:
+              mulai dari sketsa di Figma, membuat prototipe UI/UX, membangun
+              front‑end dengan Next.js + TypeScript + Tailwind, hingga publikasi
+              ke Vercel.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#steps" className="rounded-xl bg-zinc-900 px-5 py-2.5 text-white shadow hover:bg-zinc-800">Mulai Langkah</a>
-              <a href="#repo" className="rounded-xl border border-zinc-300 bg-white px-5 py-2.5 hover:bg-zinc-50">Lihat Contoh Kode</a>
+              <a
+                href="#steps"
+                className="rounded-xl bg-zinc-900 px-5 py-2.5 text-white shadow hover:bg-zinc-800"
+              >
+                Mulai Langkah
+              </a>
+              <a
+                href="#repo"
+                className="rounded-xl border border-zinc-300 bg-white px-5 py-2.5 hover:bg-zinc-50"
+              >
+                Lihat Contoh Kode
+              </a>
             </div>
 
             {/* Tools Row */}
@@ -93,14 +145,28 @@ export default function PortfolioTutorialPage() {
             </div>
 
             <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-zinc-600">
-              <div className="rounded-lg border border-zinc-200 bg-white p-3">Deploy target: <strong className="text-zinc-900">Vercel</strong> <span className="inline-block align-middle ml-2 text-xl"><SiVercel /></span></div>
-              <div className="rounded-lg border border-zinc-200 bg-white p-3">Output: <strong className="text-zinc-900">Next.js App Router</strong>, Type‑safe</div>
-              <div className="rounded-lg border border-zinc-200 bg-white p-3">Style: <strong className="text-zinc-900">Tailwind utility‑first</strong></div>
+              <div className="rounded-lg border border-zinc-200 bg-white p-3">
+                Deploy target: <strong className="text-zinc-900">Vercel</strong>{" "}
+                <span className="inline-block align-middle ml-2 text-xl">
+                  <SiVercel />
+                </span>
+              </div>
+              <div className="rounded-lg border border-zinc-200 bg-white p-3">
+                Output:{" "}
+                <strong className="text-zinc-900">Next.js App Router</strong>,
+                Type‑safe
+              </div>
+              <div className="rounded-lg border border-zinc-200 bg-white p-3">
+                Style:{" "}
+                <strong className="text-zinc-900">
+                  Tailwind utility‑first
+                </strong>
+              </div>
             </div>
           </div>
         </Container>
       </section>
-{/* HERO (img biasa) */}
+      {/* HERO (img biasa) */}
       <section className="mx-auto max-w-6xl px-6 mt-8">
         {/* HERO IMAGE */}
         <img
@@ -111,26 +177,47 @@ export default function PortfolioTutorialPage() {
         />
       </section>
       {/* OVERVIEW */}
-      <Section id="overview" title="Ringkasan Alur">
+      <Section
+        id="overview"
+        title="Tahap Pertama Merancang dan Membuat Project Portfolio"
+      >
         <ol className="grid gap-4 md:grid-cols-2">
-          <StepCard order={1} title="Rancang Wireframe (Figma)">
+          <StepCard order={1} title="Riset & Sketsa (Blueprint)">
             <ul>
-              <li>Tentukan tujuan halaman: Hero, About, Projects, Contact.</li>
-              <li>Atur grid/layout, sketsa low‑fidelity untuk fokus struktur.</li>
-              <li>Buat komponen dasar: Navbar, Card, Footer.</li>
+              <li>
+                1. Mengumpulkan informasi apa yang mau dimasukkan dalam portfolio
+              </li>
+              <li>
+                2. Mengumpulkan referensi desain yang sesuai dengan gaya yang diinginkan.
+              </li>
+              <li>3. Merancang Blueprint (sketsa kasar)</li>
             </ul>
           </StepCard>
-          <StepCard order={2} title="Prototype UI/UX (Figma)">
+          <StepCard order={2} title="Rancang Wireframe (Figma)">
             <ul>
-              <li>Naikkan fidelity: tipografi, warna (tokens), states & hover.</li>
-              <li>Tambahkan flow interaksi (On click → Navigate, Variants).</li>
-              <li>Uji klik cepat ke 3–5 orang, catat friksi lalu iterate.</li>
+              <li>1. Tentukan tujuan halaman: Hero, About, Projects, Contact.</li>
+              <li>
+                2. Atur grid/layout, sketsa low‑fidelity untuk fokus struktur.
+              </li>
+              <li>3. Membagi kedalam 3 bagian besar : Navbar, Body, Footer</li>
+              <li>4. Membuat Component Reuseable : Card, Button, Input, Logo</li>
             </ul>
           </StepCard>
-          <StepCard order={3} title="Setup Repo (GitHub)">
+          <StepCard order={3} title="Membuat Prototype UI/UX (Figma)">
             <ul>
-              <li>Init repo, buat branch <code>feat/initial-ui</code>.</li>
-              <li>Aktifkan GitHub Actions (optional) untuk lint/test.</li>
+              <li>
+                1. Naikkan fidelity: tipografi, warna (tokens), states & hover.
+              </li>
+              <li>2. Tambahkan flow interaksi (On click → Navigate, Variants).</li>
+              <li>3. Uji klik cepat ke 3–5 orang, catat friksi lalu iterate.</li>
+            </ul>
+          </StepCard>
+          <StepCard order={4} title="Setup Repo (GitHub)">
+            <ul>
+              <li>
+                1. Init repo, buat branch <code>feat/initial-ui</code>.
+              </li>
+              <li>2. Aktifkan GitHub Actions (optional) untuk lint/test.</li>
             </ul>
             <Code>{`git init
 git add -A
@@ -140,22 +227,28 @@ git commit -m "chore: init"
  git remote add origin https://github.com/USER/REPO.git
  git push -u origin main`}</Code>
           </StepCard>
-          <StepCard order={4} title="Scaffold Next.js + TypeScript + Tailwind">
+          <StepCard order={5} title="Scaffold Next.js + TypeScript + Tailwind">
             <p>Gunakan App Router + TypeScript + Tailwind.</p>
             <Code>{`npx create-next-app@latest portfolio \
   --ts --tailwind --eslint --app --src-dir --import-alias "@/*"`}</Code>
             <ul>
-              <li>Jalankan dev: <code>npm run dev</code> (default <code>http://localhost:3000</code>).</li>
-              <li>Tambahkan react-icons (opsional): <code>npm i react-icons</code>.</li>
+              <li>
+                1. Jalankan dev: <code>npm run dev</code> (default{" "}
+                <code>http://localhost:3000</code>).
+              </li>
+              <li>
+              2. Tambahkan react-icons (opsional): <code>npm i react-icons</code>
+                .
+              </li>
             </ul>
           </StepCard>
         </ol>
       </Section>
 
       {/* IMPLEMENTATION */}
-      <Section id="steps" title="Implementasi Front‑End (Contoh Struktur)">
+      <Section id="steps" title="Tahap Kedua Implementasi FrontEnd">
         <div className="grid gap-4 md:grid-cols-2">
-          <StepCard order={5} title="Struktur Folder & Komponen">
+          <StepCard order={6} title="Struktur Folder & Komponen">
             <Code>{`src/
   app/
     layout.tsx   // root layout, font, metadata
@@ -166,42 +259,62 @@ git commit -m "chore: init"
     sections/ProjectGrid.tsx
     sections/Contact.tsx`}</Code>
             <ul>
-              <li>Gunakan komponen kecil, reusable, dan typed props.</li>
-              <li>Pastikan aksesibilitas: semantic HTML, <code>aria-*</code>, focus ring.</li>
+              <li>1. Gunakan komponen kecil, reusable, dan typed props.</li>
+              <li>
+                2. Pastikan aksesibilitas: semantic HTML, <code>aria-*</code>,
+                focus ring.
+              </li>
             </ul>
           </StepCard>
 
-          <StepCard order={6} title="Tailwind & Design Tokens">
+          <StepCard order={7} title="Tailwind & Design Tokens">
             <ul>
-              <li>Konfigurasi warna/spacing di <code>tailwind.config.ts</code>.</li>
-              <li>Gunakan utility patterns: container, grid, aspect‑video.</li>
-              <li>Tambahkan <code>hover</code>, <code>focus</code>, <code>motion-safe</code> untuk interaksi.</li>
+              <li>
+                1. Konfigurasi warna/spacing di <code>tailwind.config.ts</code>.
+              </li>
+              <li>2. Gunakan utility patterns: container, grid, aspect‑video.</li>
+              <li>
+                3. Tambahkan <code>hover</code>, <code>focus</code>,{" "}
+                <code>motion-safe</code> untuk interaksi.
+              </li>
             </ul>
           </StepCard>
 
-          <StepCard order={7} title="SEO & Performance Dasar">
+          <StepCard order={8} title="SEO & Performance Dasar">
             <ul>
-              <li>Isi <code>metadata</code> di <code>layout.tsx</code> (title, description, og:image).</li>
-              <li>Optimalkan gambar (<code>&lt;Image /&gt;</code>), preload font, gunakan <code>font-display: swap</code>.</li>
-              <li>Hindari CLS: set width/height atau gunakan <code>fill</code> + container fixed aspect.</li>
+              <li>
+                1. Isi <code>metadata</code> di <code>layout.tsx</code> (title,
+                description, og:image).
+              </li>
+              <li>
+                2. Optimalkan gambar (<code>&lt;Image /&gt;</code>), preload font,
+                gunakan <code>font-display: swap</code>.
+              </li>
+              <li>
+                3. Hindari CLS: set width/height atau gunakan <code>fill</code> +
+                container fixed aspect.
+              </li>
             </ul>
           </StepCard>
 
-          <StepCard order={8} title="Deploy ke Vercel">
+          <StepCard order={9} title="Tahap Ketiga Deploy ke Vercel atau Github Pages">
             <ul>
-              <li>Push ke GitHub → Import Project di Vercel.</li>
-              <li>Pilih framework: <strong>Next.js</strong>, set environment (jika ada).</li>
-              <li>Auto Preview Deploy untuk setiap PR/branch.</li>
-              <li>Set Custom Domain → aktifkan HTTPS (otomatis).</li>
+              <li>1. Push ke GitHub → Import Project di Vercel.</li>
+              <li>
+                2. Pilih framework: <strong>Next.js</strong>, set environment (jika
+                ada).
+              </li>
+              <li>3. Auto Preview Deploy untuk setiap PR/branch.</li>
+              <li>4. Set Custom Domain → aktifkan HTTPS (otomatis).</li>
             </ul>
           </StepCard>
         </div>
       </Section>
 
       {/* REPO & SNIPPETS */}
-      <Section id="repo" title="Snippet Cepat Yang Berguna">
+      <Section id="repo" title="Bonus: Contoh Kode & Snippets">
         <div className="grid gap-4 md:grid-cols-2">
-          <StepCard order={9} title="Komponen Button (Contoh Tailwind)">
+          <StepCard order={1} title="Komponen Button (Contoh Tailwind)">
             <Code>{`type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "ghost" };
 
 export function Button({ variant = "primary", className = "", ...props }: ButtonProps) {
@@ -214,7 +327,7 @@ export function Button({ variant = "primary", className = "", ...props }: Button
 }`}</Code>
           </StepCard>
 
-          <StepCard order={10} title="Section Hero (Contoh)">
+          <StepCard order={2} title="Section Hero (Contoh)">
             <Code>{`export function Hero() {
   return (
     <section className="py-16">
@@ -236,12 +349,30 @@ export function Button({ variant = "primary", className = "", ...props }: Button
       {/* CHECKLIST */}
       <Section id="checklist" title="Checklist Go‑Live">
         <ul className="grid gap-3 md:grid-cols-2">
-          <li className="rounded-xl border border-zinc-200 bg-white p-3"><input type="checkbox" className="mr-2" />mengerti</li>
-          <li className="rounded-xl border border-zinc-200 bg-white p-3"><input type="checkbox" className="mr-2" />paham</li>
-          <li className="rounded-xl border border-zinc-200 bg-white p-3"><input type="checkbox" className="mr-2" />sangat paham</li>
-          <li className="rounded-xl border border-zinc-200 bg-white p-3"><input type="checkbox" className="mr-2" />wow</li>
-          <li className="rounded-xl border border-zinc-200 bg-white p-3"><input type="checkbox" className="mr-2" />keren</li>
-          <li className="rounded-xl border border-zinc-200 bg-white p-3"><input type="checkbox" className="mr-2" />luar biasa</li>
+          <li className="rounded-xl border border-zinc-200 bg-white p-3">
+            <input type="checkbox" className="mr-2" />
+            mengerti
+          </li>
+          <li className="rounded-xl border border-zinc-200 bg-white p-3">
+            <input type="checkbox" className="mr-2" />
+            paham
+          </li>
+          <li className="rounded-xl border border-zinc-200 bg-white p-3">
+            <input type="checkbox" className="mr-2" />
+            sangat paham
+          </li>
+          <li className="rounded-xl border border-zinc-200 bg-white p-3">
+            <input type="checkbox" className="mr-2" />
+            wow
+          </li>
+          <li className="rounded-xl border border-zinc-200 bg-white p-3">
+            <input type="checkbox" className="mr-2" />
+            keren
+          </li>
+          <li className="rounded-xl border border-zinc-200 bg-white p-3">
+            <input type="checkbox" className="mr-2" />
+            luar biasa
+          </li>
         </ul>
       </Section>
 
@@ -249,16 +380,32 @@ export function Button({ variant = "primary", className = "", ...props }: Button
       <Section id="faq" title="FAQ Singkat">
         <div className="space-y-4">
           <details className="rounded-xl border border-zinc-200 bg-white p-4">
-            <summary className="cursor-pointer font-semibold">Kenapa Next.js + TypeScript + Tailwind?</summary>
-            <p className="mt-2">Kombinasi ini cepat, aman (type‑safe), dan produktif. Tailwind mempercepat styling, TypeScript mencegah bug, Next.js memberi routing & optimasi built‑in.</p>
+            <summary className="cursor-pointer font-semibold">
+              Kenapa Next.js + TypeScript + Tailwind?
+            </summary>
+            <p className="mt-2">
+              Kombinasi ini cepat, aman (type‑safe), dan produktif. Tailwind
+              mempercepat styling, TypeScript mencegah bug, Next.js memberi
+              routing & optimasi built‑in.
+            </p>
           </details>
           <details className="rounded-xl border border-zinc-200 bg-white p-4">
-            <summary className="cursor-pointer font-semibold">Apakah perlu React terpisah?</summary>
-            <p className="mt-2">Next.js sudah di atas React. Kamu tetap menulis komponen React, namun dengan fitur extra (routing, server components, API routes).</p>
+            <summary className="cursor-pointer font-semibold">
+              Apakah perlu React terpisah?
+            </summary>
+            <p className="mt-2">
+              Next.js sudah di atas React. Kamu tetap menulis komponen React,
+              namun dengan fitur extra (routing, server components, API routes).
+            </p>
           </details>
           <details className="rounded-xl border border-zinc-200 bg-white p-4">
-            <summary className="cursor-pointer font-semibold">Apa alternatif Vercel?</summary>
-            <p className="mt-2">Untuk static export bisa GitHub Pages. Namun untuk fitur Next.js lengkap (ISR/Edge/Server Actions), Vercel paling mulus.</p>
+            <summary className="cursor-pointer font-semibold">
+              Apa alternatif Vercel?
+            </summary>
+            <p className="mt-2">
+              Untuk static export bisa GitHub Pages. Namun untuk fitur Next.js
+              lengkap (ISR/Edge/Server Actions), Vercel paling mulus.
+            </p>
           </details>
         </div>
       </Section>
@@ -268,8 +415,13 @@ export function Button({ variant = "primary", className = "", ...props }: Button
         <Container>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h3 className="text-xl font-semibold">Ayo Publish Website Pertamamu</h3>
-              <p className="text-zinc-600">Push ke GitHub lalu Import ke Vercel uwalaaaa Go‑Live dalam hitungan detikkkk</p>
+              <h3 className="text-xl font-semibold">
+                Ayo Publish Website Pertamamu
+              </h3>
+              <p className="text-zinc-600">
+                Push ke GitHub lalu Import ke Vercel uwalaaaa Go‑Live dalam
+                hitungan detikkkk
+              </p>
             </div>
             <div className="flex gap-3">
               <a

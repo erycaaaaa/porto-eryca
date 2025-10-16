@@ -31,7 +31,7 @@ export default function Page() {
         { label: "Lighthouse Perf", value: "95+" },
         { label: "Conversion CTAs", value: "↑ 22%" },
       ]}
-      resumeHref="/resume-eryca.pdf"
+      resumeHref="/katalog-bunga.pdf"
     >
       {/* HERO WEBSITE */}
       <SiteHero
@@ -162,6 +162,16 @@ export default function Page() {
           {
             title: "Pay Online & Share Details",
             description: <>Pembayaran populer + share detail…</>,
+          },
+          {
+            title: "Katalog Bunga (Bergambar)",
+            description: (
+              <>
+                Katalog digital interaktif lengkap dengan harga & deskripsi.
+                Scan QR di bawah atau klik tombol untuk membuka katalog.
+              </>
+            ),
+            image: "/assets/features/katalog-bunga.jpg",
           },
         ]}
       />

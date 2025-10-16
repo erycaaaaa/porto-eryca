@@ -75,7 +75,7 @@ export default function ParableFloristryPage() {
   return (
     <div className="min-h-screen bg-[#f5f4ef] text-black">
       <main>
-        <Hero name="ERYCA" subtitle="GRAPHIC DESIGNER" />
+        <Hero name="ERYCA DHAMMA SHANTY" subtitle="Manusia Super 1998" />
         <IntroCardsAnimated />
         <AboutMeAnimated />
         <ExternalLogoStrip />
