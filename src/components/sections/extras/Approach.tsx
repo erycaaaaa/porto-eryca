@@ -158,7 +158,7 @@ export default function Approach() {
                 { src: "/porto-eryca/po3.jpg", alt: "tutorial deploy portfolio" },
                 { src: "/porto-eryca/un.jpg", alt: "UntarX system overview" },
                 { src: "/porto-eryca/ed.jpg", alt: "Education module UI" },
-                { src: "/porto-eryca/wihara11.jpg", alt: "wihara" },
+                { src: "/porto-eryca/wihara-mini.jpg", alt: "wihara" },
                 { src: "/porto-eryca/min.jpg", alt: "Education module UI" },
               ]}
             />

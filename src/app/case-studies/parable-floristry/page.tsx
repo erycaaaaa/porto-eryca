@@ -27,16 +27,14 @@ export default function Page() {
       }}
       quickFacts={[
         { label: "Screens", value: "24" },
-        { label: "Components", value: "18+" },
-        { label: "Lighthouse Perf", value: "95+" },
-        { label: "Conversion CTAs", value: "↑ 22%" },
       ]}
-      resumeHref="/katalog-bunga.pdf"
+      resumeHref="porto-eryca/katalog-bunga.pdf"
     >
       {/* HERO WEBSITE */}
       <SiteHero
         title="Toko Bunga Fajar"
         tagline="Affordable boutique bouquets from Pasar Rawa Belong — crafted with a warm editorial touch."
+        catalogUrl="https://simplebooklet.com/katalogtokobungafajar"
         siteUrl="https://erycaaaaa.github.io/toko-bunga-fajar/"
         figmaUrl="https://embed.figma.com/design/B7aozMLHyu5r81GO0MhkVg/TOKO-BUNGA-FAJAR---ERYCA?node-id=0-1&embed-host=share"
         poster="/porto-eryca/potobunga.png"

@@ -5,6 +5,7 @@ export default function SiteHero({
   title,
   tagline,
   siteUrl,
+  catalogUrl,
   figmaUrl,
   poster,
   imagePosition = "right",
@@ -12,6 +13,7 @@ export default function SiteHero({
   title: string;
   tagline?: string;
   siteUrl?: string;
+  catalogUrl?: string;
   figmaUrl?: string;
   poster: string;
   imagePosition?: "left" | "right";
@@ -54,6 +56,16 @@ export default function SiteHero({
                 className="rounded-xl border px-4 py-2 text-sm font-medium hover:bg-neutral-50"
               >
                 View Figma
+              </a>
+            )}
+            {catalogUrl && (
+              <a
+                href={catalogUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border px-4 py-2 text-sm font-medium hover:bg-neutral-50"
+              >
+                View Katalog
               </a>
             )}
           </div>
