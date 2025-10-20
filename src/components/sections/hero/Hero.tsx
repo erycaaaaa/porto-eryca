@@ -36,7 +36,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
       </div>
 
       {/* GRADIENT OVERLAY KE BAGIAN BAWAH */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#f5f4ef] to-transparent" />
+      {/* <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#f5f4ef] to-transparent" /> */}
     </main>
   );
 }
