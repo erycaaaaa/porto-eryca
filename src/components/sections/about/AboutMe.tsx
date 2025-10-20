@@ -782,7 +782,7 @@ export default function AboutMe() {
               <motion.a
                 whileTap={{ scale: 0.98 }}
                 href="/CV-ErycaDhammaShanty.pdf"
-                download="CV-ErycaDhammaShanty.pdf"
+                download="/CV-ErycaDhammaShanty.pdf"
                 aria-label="Download CV"
                 className="
                 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
