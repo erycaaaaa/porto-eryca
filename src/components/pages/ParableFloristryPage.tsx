@@ -73,7 +73,7 @@ import Hero from "@/components/sections/hero/Hero";
 
 export default function ParableFloristryPage() {
   return (
-    <div className="min-h-screen bg-[#f5f4ef]/0 text-black">
+    <div className="min-h-screen bg-[#f5f4ef]/30 text-black">
       <main>
         <Hero name="ERYCA DHAMMA SHANTY" subtitle="UI/UX & Frontend Enthusiast" />
         <IntroCardsAnimated />
