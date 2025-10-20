@@ -260,7 +260,7 @@ function ResumePage1({ email }: { email: string }) {
                 — Universitas Tarumanagara
               </p>
               <p className="text-neutral-600">
-                Aug 2023 — Present · Expected Jul 2026 · 
+                Aug 2023 — Present · Expected Jul 2026 ·
               </p>
               <p className="text-neutral-600">2023 — present</p>
             </div>

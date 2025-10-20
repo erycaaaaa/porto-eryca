@@ -17,7 +17,6 @@ const CATEGORIES = [
   "Paper",
   "UI/UX",
   "Front-End",
-  "Game",
   "Design",
   "NoteBook",
   "Games",
@@ -50,7 +49,7 @@ const ALL_ITEMS: Item[] = [
     id: "cs-parable",
     title: "Parable Floristry",
     categories: ["Case Studies"],
-    src: "/porto-eryca/fajar1.jpg",
+    src: "/porto-eryca/fajar2.jpg",
     href: "/case-studies/parable-floristry",
     tag: "Brand & Web",
     description:

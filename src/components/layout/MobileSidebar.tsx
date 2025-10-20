@@ -110,7 +110,6 @@ export default function MobileSidebar({
     };
   }, [open]);
 
-
   const onAnchor = useCallback<AnchorHandler>(
     (href: string) => (e) => {
       if (!isMobile && !expanded) setExpanded(true);
@@ -166,7 +165,6 @@ export default function MobileSidebar({
             exit={{ x: 24, opacity: 0 }}
             transition={{ type: "spring", stiffness: 320, damping: 30 }}
           >
-   
             {!isMobile && (
               <div className="flex h-full w-[72px] flex-col items-center gap-2 border-r border-[#e8dcb8]/60 p-2 dark:border-[#2a2519]">
                 <button
