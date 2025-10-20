@@ -20,6 +20,7 @@ const CATEGORIES = [
   "Game",
   "Design",
   "NoteBook",
+  "Games",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
@@ -130,6 +131,15 @@ const ALL_ITEMS: Item[] = [
     tag: "Front-End",
     description:
       "Merancang dan membangun website portfolio pribadi menggunakan typeScript, Next.js, dan Tailwind CSS.",
+  },
+   {
+    id: "game-minnie",
+    title: "Perancangan Game Unity Minnie Game",
+    categories: ["Games"],
+    src: "/porto-eryca/min.jpg",
+    tag: "Games",
+    description:
+      "Perancangan Games Unity Minnie Game Mid Semester Mobile Programming.",
   },
 ];
 

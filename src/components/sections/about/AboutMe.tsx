@@ -67,24 +67,22 @@ type ResumeCVProps = {
 
 /** ---- Normalisasi & Klasifikasi ---- **/
 const aliasMap: Record<string, string> = {
-  Ps: "Photoshop",
-  Ai: "Illustrator",
-  Pr: "Premiere Pro",
-  Ae: "After Effects",
+  Ai: "Adobe Illustrator",
+  Ae: "Adobe After Effects",
   JS: "JavaScript",
 };
 const normalize = (s: string) => aliasMap[s] ?? s;
 
 const DESIGN_SET = new Set([
   "Figma",
-  "Photoshop",
   "Illustrator",
-  "Premiere Pro",
-  "After Effects",
-  "Ps",
-  "Ai",
-  "Pr",
+  "Adobe After Effects",
   "Ae",
+  "Adobe After Effects",
+  "Adobe Fresco",
+  "Adobe Illustrator",
+  "Notion",
+  "Canva",
 ]);
 
 const PROGRAMMING_SET = new Set([
@@ -96,7 +94,6 @@ const PROGRAMMING_SET = new Set([
   "Next.js",
   "Tailwind",
   "Python",
-  "Git",
   "GitHub",
 ]);
 
@@ -220,7 +217,7 @@ function ResumePage1({ email }: { email: string }) {
             <p className="text-xl md:text-2xl font-semibold text-neutral-900 sm:col-span-2">
               Eryca Dhamma Shanty
             </p>
-            <p>Jakarta, Indonesia</p>
+            <p>Jakarta Barat, Indonesia</p>
             <p className="sm:col-span-2">
               <a
                 href={`mailto:${email}`}
@@ -258,9 +255,12 @@ function ResumePage1({ email }: { email: string }) {
             <div>
               <p>
                 <span className="font-medium">
-                  B.Sc. in Informatics Engineering
+                  B.Sc. Candidate, Informatics Engineering
                 </span>{" "}
                 — Universitas Tarumanagara
+              </p>
+              <p className="text-neutral-600">
+                Aug 2023 — Present · Expected Jul 2026 · 
               </p>
               <p className="text-neutral-600">2023 — present</p>
             </div>
@@ -590,25 +590,42 @@ export default function AboutMe() {
   const email = "eryca847@gmail.com";
   const skills = [
     "Figma",
-    "Ps",
-    "Ai",
-    "Pr",
+    "Illustrator",
+    "Adobe After Effects",
     "Ae",
+    "Adobe After Effects",
+    "Adobe Fresco",
+    "Adobe Illustrator",
+    "Notion",
+    "Canva",
+
     "HTML",
     "CSS",
     "JavaScript",
+    "TypeScript",
     "React",
     "Next.js",
+    "Tailwind",
     "Python",
+    "GitHub",
+
+    "Google Colab",
+    "Candy Crush Saga",
   ];
+
   const experiences: [string, string][] = [
-    ["Freelance Art Commissions", "2019 — present"],
+    ["On Going Projects — Monastery Website (Vercel)", "Oct 2025"],
+    ["Mini Projects — Fajar Aster Shop (GitHub Pages)", "Oct 2025"],
+    ["Second Author & UI/UX — PKM-CSR 2025 (Proceedings)", "Oct 24, 2025"],
+    ["HKI Illustrator & Cover Designer — “Vicara Guidebook”", "11 Jul 2025"],
     [
-      "UI/UX Intern, Tarumanagara Enterprise",
-      "May 2025 — Aug 27, 2025 · 4 months",
+      "UI/UX Intern — Tarumanagara Enterprise",
+      "Apr 28 — Jul 25, 2025 · 4 months",
     ],
-    ["Mini Projects", "2024 — 2025"],
-    ["Junior Member, Public Relations (DPM FTI)", "2025"],
+    ["First Author — SERINA IX UNTAR 2025 (Proceedings)", "Jun 11, 2025"],
+    ["Junior Member — DPM-FTI UNTAR (Publications/PR)", "Nov 2024 — May 2025"],
+    ["PKM Implementation Assistant — EduBuddy (UNTAR)", "Apr 2025"],
+    ["Volunteer — Capable Craft (Booth & Sales), Ashta District 8", "Feb 2025"],
   ];
 
   return (
@@ -741,7 +758,7 @@ export default function AboutMe() {
                   Hi there,
                 </h3>
                 <p className="mt-1 mr-7 text-sm md:text-[15px] text-neutral-700 max-w-xl mx-auto">
-                  4th-semester Informatics Engineering student specializing in
+                  5th-semester Informatics Engineering student Enthusiast in
                   UI/UX design, front-end development, and digital illustration.
                 </p>
               </motion.div>
