@@ -1,5 +1,6 @@
 // src/app/components/sections/intro/IntroCardsAnimated.tsx
 "use client";
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   motion,
@@ -50,7 +51,7 @@ export default function IntroCardsAnimated() {
       {
         icon: "🧰",
         title: "Skills & ArtWork",
-        desc: "Gallery artwork painting many techique, tradisional,digital,watercolor,and acrylic, guache",
+        desc: "Gallery artwork painting many technique: traditional, digital, watercolor, acrylic, and gouache.",
         cta: "See Art Work",
         href: "#illustrations",
       },
@@ -88,7 +89,7 @@ export default function IntroCardsAnimated() {
     },
   };
 
-  // parallax
+  // Parallax halus saat scroll
   const { scrollY } = useScroll();
   const lastY = useRef(0);
   const dir = useMotionValue(0);
@@ -108,16 +109,21 @@ export default function IntroCardsAnimated() {
   return (
     <section className="relative z-10 -mt-10 px-4 sm:px-6">
       <div className="mx-auto max-w-6xl rounded-[24px] bg-[#fffdf8]/70 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] md:p-10">
-        <h2 className="mb-8 text-center font-serif leading-tight text-2xl sm:text-3xl md:text-4xl text-[#4c3e1f]">
+        <h2 className="mb-6 sm:mb-8 text-center font-serif leading-tight text-2xl sm:text-3xl md:text-4xl text-[#4c3e1f]">
           Thoughtful visuals & experiences that tell stories.
         </h2>
 
+        {/* VERTIKAL: 1 kolom (mobile), 2 (md), 3 (lg) */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
+          className="
+            grid grid-cols-1 auto-rows-fr
+            gap-4 sm:gap-6
+            md:grid-cols-2 lg:grid-cols-3
+          "
         >
           {items.map((it, idx) => (
             <TiltCard
@@ -182,11 +188,17 @@ function TiltCard({
   const mult = [0.95, 1.1, 1.0][idx % 3];
   const yScroll = useTransform(yDir, (v) => v * mult);
 
+  // Tooltip id + teks 
+  const tooltipId = `intro-tt-${idx}`;
+  const actionWord = isCoarse ? "Ketuk" : "⭐ Klik";
+  const hintText = `${actionWord} untuk membuka ${item.title}`;
+
   return (
     <motion.a
       ref={ref}
       href={item.href}
       aria-label={`${item.title} — ${item.cta}`}
+      aria-describedby={tooltipId}
       variants={variants}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
@@ -199,16 +211,19 @@ function TiltCard({
         y: yScroll,
         transformPerspective: 900,
       }}
-      className="group relative rounded-2xl p-[1.2px] bg-gradient-to-tr from-[#d6c8a3]/50 via-[#f3e9c8] to-[#fffdf8] shadow-md hover:shadow-lg"
+      className="
+        w-full
+        group relative rounded-2xl p-[1.2px]
+        bg-gradient-to-tr from-[#d6c8a3]/50 via-[#f3e9c8] to-[#fffdf8]
+        shadow-md hover:shadow-lg
+      "
     >
       <div
         className="
-        relative h-full 
-        rounded-[15px] 
-        shadow-lg shadow-black/10 
-        bg-[#fffdf8]/50 
-        p-5 sm:p-6
-      "
+          relative h-full rounded-[15px]
+          shadow-lg shadow-black/20 bg-[#fffdf8]/50
+          p-5 sm:p-6
+        "
       >
         <div className="relative z-10 flex h-full flex-col justify-between text-[#4c3e1f]">
           <div>
@@ -226,6 +241,25 @@ function TiltCard({
             {item.cta}
           </span>
         </div>
+
+        {/* TOOLTIP visual*/}
+        <span
+          id={tooltipId}
+          role="tooltip"
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute -top-2 left-2/2 -translate-x-2/2 -translate-y-full
+            whitespace-nowrap rounded-full bg-black/45 px-2.5 py-1
+            text-[8px] text-white
+            opacity-0 transition-opacity duration-200
+            group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100
+            shadow-md
+            motion-reduce:transition-none
+          "
+        >
+          {hintText}
+        </span>
       </div>
     </motion.a>
   );

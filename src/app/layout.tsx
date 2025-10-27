@@ -31,10 +31,22 @@ export default function RootLayout({
             {children}
           </main>
 
-          <Footer />
+         
           <StickySpotify />
           <Analytics />
         </Providers>
+          <Footer
+          brandName="Eryca"
+          brandLogoSrc="/porto-eryca/eryca.gif"  
+          brandHref="/"
+          socials={{
+            github: "https://github.com/erycaaaaa",
+            instagram: "https://www.instagram.com/erycadhm/",
+            linkedin: "https://www.linkedin.com/in/eryca-dhamma-shanty-8a530a352",
+            email: "eryca847@gmail.com", // atau pakai Gmail compose URL
+          }}
+    
+        />
       </body>
     </html>
   );

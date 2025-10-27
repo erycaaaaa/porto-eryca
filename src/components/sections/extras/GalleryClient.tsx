@@ -45,7 +45,6 @@ export default function GalleryClient({
   const [active, setActive] = useState<Category>(catFromURL);
   const [q, setQ] = useState(qFromURL);
 
-  // sinkronkan state -> URL (tetap di /gallery)
   useEffect(() => {
     const params = new URLSearchParams(sp.toString());
     if (active === "All") params.delete("cat");
@@ -70,38 +69,38 @@ export default function GalleryClient({
   return (
     <>
       {/* Controls */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-        <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((cat) => {
-            const isActive = active === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActive(cat)}
-                className={[
-                  "rounded-full border px-4 py-2 text-sm",
-                  isActive
-                    ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
-                    : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
-                ].join(" ")}
-                aria-pressed={isActive}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
+    <div
+  className="
+    mt-4 -mx-6 px-6
+    flex gap-2 overflow-x-auto scroll-smooth
+    [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
+  "
+>
+  {CATEGORIES.map((cat) => {
+  
+    return (
+      <button
+        key={cat}
+        type="button"
+        onClick={() => setActive(cat)}
+  
+        className={[
+          // ukuran responsif
+          "shrink-0 whitespace-nowrap rounded-full border leading-tight select-none",
+          "text-xs sm:text-sm",              // font lebih kecil di mobile
+          "px-3 py-1.5 sm:px-4 sm:py-2",     // padding lebih kecil di mobile
+          // fokus/aksesibilitas
+          "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5f3d24]/40",
+          // state
+       
+        ].join(" ")}
+      >
+        {cat}
+      </button>
+    );
+  })}
+</div>
 
-        <div className="relative w-full sm:w-64">
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Search title…"
-            className="w-full rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
-          />
-        </div>
-      </div>
 
       {/* Grid */}
       <section className="mt-5">

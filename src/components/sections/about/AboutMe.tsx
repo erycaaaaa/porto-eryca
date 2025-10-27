@@ -708,7 +708,9 @@ export default function AboutMe() {
               style={{ y: yImg, rotate: rImg }}
               whileHover={{ y: -6, scale: 1.02, rotate: 1 }}
               transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              className="relative mx-auto w-56 md:w-64 aspect-[4/5] overflow-hidden rounded-[24px] bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+              className="group relative mx-auto w-56 md:w-64 aspect-[4/5] overflow-hidden rounded-[24px] bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+              tabIndex={0}
+              aria-describedby="hello-tt"
             >
               <img
                 src="/porto-eryca/mee.gif"
@@ -716,6 +718,7 @@ export default function AboutMe() {
                 className="h-full w-full object-cover"
                 loading="lazy"
               />
+
               <motion.div
                 className="absolute left-3 top-3 rounded-full bg-neutral-900/85 px-2 py-1 text-[10px] font-medium text-white"
                 animate={prefersReduced ? undefined : { y: [0, -2, 0] }}
@@ -727,6 +730,23 @@ export default function AboutMe() {
               >
                 available
               </motion.div>
+
+              {/* Tooltip sederhana */}
+              <span
+                id="hello-tt"
+                role="tooltip"
+                aria-hidden="true"
+                className="
+      pointer-events-none
+      absolute bottom-3 left-1/2 -translate-x-1/2
+      whitespace-nowrap rounded-full bg-black/75 px-2.5 py-1
+      text-[11px] text-white shadow-md
+      opacity-0 transition-opacity duration-200
+      group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100
+    "
+              >
+                HaaAalooO 👋
+              </span>
             </motion.div>
 
             <motion.div
@@ -777,22 +797,42 @@ export default function AboutMe() {
                 </span>
               </motion.blockquote>
             </motion.div>
-
             <motion.div variants={item} className="flex flex-wrap gap-2 pt-1">
-              <motion.a
-                whileTap={{ scale: 0.98 }}
-                href="/CV-ErycaDhammaShanty.pdf"
-                download="/CV-ErycaDhammaShanty.pdf"
-                aria-label="Download CV"
-                className="
-                inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
-                bg-[#6f5d33] text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/40
-                dark:bg-[#bba46b] dark:text-black
-              "
-              >
-                <Download className="h-4 w-4" />
-                Download CV
-              </motion.a>
+              <div className="relative inline-block group">
+                <motion.a
+                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.02 }}
+                  href="/CV-ErycaDhammaShanty.pdf"
+                  download="CV-ErycaDhammaShanty.pdf" // <-- cukup nama file
+                  aria-label="Download CV"
+                  aria-describedby="dl-cv-tt"
+                  className="
+        inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium
+        bg-[#6f5d33] text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6f5d33]/40
+        dark:bg-[#bba46b] dark:text-black
+      "
+                >
+                  <Download className="h-4 w-4" />
+                  Download CV
+                </motion.a>
+
+                {/* Tooltip */}
+                <span
+                  id="dl-cv-tt"
+                  role="tooltip"
+                  aria-hidden="true"
+                  className="
+        pointer-events-none
+        absolute left-2/2 top-full -translate-x-1/1 translate-y-2
+        whitespace-nowrap rounded-full bg-black/35 px-2.5 py-1
+        text-[7px] text-white shadow-md
+        opacity-0 transition-opacity duration-200
+        group-hover:opacity-100 group-focus-within:opacity-100
+      "
+                >
+                  klik untuk mengunduh CV
+                </span>
+              </div>
             </motion.div>
           </motion.div>
 

@@ -55,7 +55,7 @@ export default function Approach() {
         onTouchEnd={onTouchEnd}
       >
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-white/50">
-           <Image
+          <Image
             src={images[idx].src}
             alt={images[idx].alt}
             fill
@@ -143,7 +143,7 @@ export default function Approach() {
           Mini Project
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-neutral-600">
-          Showcasing clean, usable, and scalable design work — from research to
+          Showcasing clean, usable, and scalable design work from research to
           polished handoff.
         </p>
       </div>
@@ -155,38 +155,42 @@ export default function Approach() {
             {/* slider */}
             <ImageSlider
               images={[
-                { src: "/porto-eryca/po3.jpg", alt: "tutorial deploy portfolio" },
+                {
+                  src: "/porto-eryca/po3.jpg",
+                  alt: "tutorial deploy portfolio",
+                },
                 { src: "/porto-eryca/wihara-mini.jpg", alt: "wihara" },
                 { src: "/porto-eryca/fajar1.jpg", alt: "Toko-Bunga-Fajar" },
                 { src: "/porto-eryca/min.jpg", alt: "Education module UI" },
                 { src: "/porto-eryca/un.jpg", alt: "UntarX system overview" },
               ]}
             />
-
-            
           </div>
         </div>
 
         {/* Konten kanan */}
         <div className="md:col-span-6 lg:col-span-5">
           <h3 className="font-serif text-3xl md:text-4xl leading-tight text-brand-brown">
-            Design + handoff in one flow
+            Handoff in one flow
           </h3>
           <p className="mt-4 leading-relaxed text-neutral-700">
-            From journey maps and wireframes to production-ready specs, we help
-            teams move smoothly from concept to implementation.
+            From wireframes to production ready, help teams move smoothly from
+            concept to implementation.
           </p>
 
           {/* Primary button */}
-          <a
-            href="#footer"
-            className="mt-6 inline-flex rounded-full px-6 py-2.5 text-sm font-medium text-white 
-           bg-gradient-to-r from-[#a66b3f] via-[#8f623e] to-[#6e482c]
-           shadow-md hover:shadow-lg hover:from-[#b97a4d] hover:to-[#5a3b25]
-           transition-all duration-200"
-          >
-            Open to Collaboration
-          </a>
+         <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=eryca847@gmail.com&su=Open%20to%20Creative%20Collaboration&body=Halo%20Eryca%2C%20🖐🏻%0A%0ASaya%20tertarik%20untuk%20berkolaborasi%20denganmu%20dalam%20proyek%20kreatif.%20Berikut%20sedikit%20tentang%20ide%20atau%20kolaborasi%20yang%20saya%20bayangkan%3A%0A%0A%5Bisi%20pesan%20di%20sini%5D%0A%0ATerima%20kasih!"
+  target="_blank" rel="noreferrer"
+  className="mt-6 inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-medium text-white
+             bg-gradient-to-r from-[#9f663c] via-[#8f623e] to-[#6e482c]
+             shadow-md hover:shadow-lg hover:from-[#b97a4d] hover:to-[#5a3b25]
+             transition-all duration-200
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8f623e]/40"
+>
+  Open to Collaboration
+</a>
+
         </div>
       </div>
     </section>

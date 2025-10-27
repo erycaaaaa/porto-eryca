@@ -55,7 +55,6 @@ const ALL_ITEMS: Item[] = [
     src: "/porto-eryca/4.jpg",
     description: "3D craft: stylized form, matte clay render.",
   },
-
   {
     id: "sk-01",
     title: "Where Questions Pierce the Veil",
@@ -74,6 +73,7 @@ const ALL_ITEMS: Item[] = [
   },
 ];
 
+/* ===== PAGE ===== */
 export default function GalleryPage({
   searchParams,
 }: {
@@ -91,29 +91,31 @@ export default function GalleryPage({
   return (
     <main
       id="illustrations"
-      className="relative min-h-screen text-neutral-900
-             bg-center bg-cover bg-no-repeat md:bg-fixed"
+      className="relative text-neutral-900 bg-center bg-cover bg-no-repeat md:bg-fixed"
       style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }}
     >
+      {/* HEADER */}
       <header className="border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-[#000000]">
-                All Artworks
-              </h1>
-              <p className="mt-1 text-sm text-[#000000]/70">
+              <h1 className="font-serif text-3xl text-black">All Artworks</h1>
+              <p className="mt-1 text-sm text-black/70">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>
 
             {/* Search (GET) */}
-            <form className="mt-3 sm:mt-0" action={THIS_ROUTE} method="get">
+            <form className="mt-3 sm:mt-0" action="" method="get">
+              <label htmlFor="q" className="sr-only">
+                Search title
+              </label>
               <input
+                id="q"
                 name="q"
                 defaultValue={searchParams?.q ?? ""}
                 placeholder="Search title…"
-                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                className="w-72 rounded-b-md border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
               {activeCat !== "All" && (
                 <input type="hidden" name="cat" value={activeCat} />
@@ -121,8 +123,15 @@ export default function GalleryPage({
             </form>
           </div>
 
-          {/* Filter Pills */}
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div
+            className="
+              mt-5 -mx-6 px-6
+              flex gap-2 overflow-x-auto
+              [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
+            "
+            role="tablist"
+            aria-label="Filter categories"
+          >
             {CATEGORIES.map((cat) => {
               const href =
                 cat === "All"
@@ -134,7 +143,7 @@ export default function GalleryPage({
                   key={cat}
                   href={href}
                   className={[
-                    "rounded-full border px-4 py-2 text-sm",
+                    "rounded-full border px-3 py-2 text-sm transition",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
@@ -149,6 +158,7 @@ export default function GalleryPage({
         </div>
       </header>
 
+      {/* GRID */}
       <section className="mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
@@ -156,25 +166,33 @@ export default function GalleryPage({
             pencarian.
           </p>
         ) : (
-          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul
+            className="
+              grid grid-cols-4 gap-2         
+              sm:grid-cols-2 sm:gap-4         
+              lg:grid-cols-3 lg:gap-6     
+            "
+          >
             {filtered.map((item) => (
               <li
                 key={item.id}
-                className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
+                className="group overflow-hidden rounded-2xl border border-[#e6dccb] bg-white shadow-sm"
               >
-                {/* Hover fade overlay untuk semua kartu */}
+                {/* Gambar + overlay */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={item.src}
                     alt={item.alt ?? item.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    /* 2 kolom mobile ≈ 50vw per item */
+                    sizes="(max-width:640px) 50vw, (max-width:1024px) 50vw, 33vw"
                     priority={false}
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  {/* Overlay: sembunyikan di mobile (tak ada hover), tampil ≥sm */}
+                  <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">
+                    <p className="mt-1 text-xs opacity-90 line-clamp-2">
                       {item.description}
                     </p>
                     <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
@@ -183,20 +201,22 @@ export default function GalleryPage({
                   </div>
                 </div>
 
-                {/* meta bawah (opsional) */}
-                <div className="flex items-center justify-between px-4 py-3">
+                {/* Meta bawah: ringkas di mobile */}
+                <div className="flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3">
                   <div>
-                    <h3 className="text-base font-medium text-[#5f3d24]">
+                    <h3 className="text-[12px] font-medium text-[#5f3d24] sm:text-base">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                    <p className="hidden md:block text-[11px] text-[#7a6f62]">
+                      {item.category}
+                    </p>
                   </div>
                 </div>
               </li>
             ))}
           </ul>
         )}
-        <BrandsLogo />
+        <BrandsLogo className="mt-10" />
       </section>
     </main>
   );

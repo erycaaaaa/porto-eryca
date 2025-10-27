@@ -4,13 +4,8 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-
-// optional: biar aman untuk next export (GitHub Pages)
 export const dynamic = "force-static";
 
-/* =========================
-   KATEGORI KHUSUS GALLERY
-   ========================= */
 const CATEGORIES = [
   "All",
   "Acrylic",
@@ -21,9 +16,6 @@ const CATEGORIES = [
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
-/* =========================
-   DATA GALLERY
-   ========================= */
 type Item = {
   id: string;
   title: string;
@@ -100,15 +92,11 @@ const ALL_ITEMS: Item[] = [
   },
 ];
 
-/* =========================
-   PAGE (client filtering)
-   ========================= */
+
 export default function GalleryPage() {
   const sp = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-
-  // baca dari URL saat pertama kali render
   const catFromURL = (sp.get("cat") as Category) || "All";
   const qFromURL = sp.get("q") || "";
 
@@ -139,7 +127,7 @@ export default function GalleryPage() {
   return (
     <main
       id="illustrations"
-      className="relative min-h-screen text-neutral-900
+      className="relative  text-neutral-900
              bg-center bg-cover bg-no-repeat md:bg-fixed"
       style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }}
     >
@@ -169,7 +157,7 @@ export default function GalleryPage() {
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Search title…"
-                className="w-64 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+                className="w-72 rounded-b-md border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24]"
                 aria-label="Search artworks"
               />
             </div>
