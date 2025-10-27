@@ -69,38 +69,34 @@ export default function GalleryClient({
   return (
     <>
       {/* Controls */}
-    <div
-  className="
+      <div
+        className="
     mt-4 -mx-6 px-6
     flex gap-2 overflow-x-auto scroll-smooth
     [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
   "
->
-  {CATEGORIES.map((cat) => {
-  
-    return (
-      <button
-        key={cat}
-        type="button"
-        onClick={() => setActive(cat)}
-  
-        className={[
-          // ukuran responsif
-          "shrink-0 whitespace-nowrap rounded-full border leading-tight select-none",
-          "text-xs sm:text-sm",              // font lebih kecil di mobile
-          "px-3 py-1.5 sm:px-4 sm:py-2",     // padding lebih kecil di mobile
-          // fokus/aksesibilitas
-          "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5f3d24]/40",
-          // state
-       
-        ].join(" ")}
       >
-        {cat}
-      </button>
-    );
-  })}
-</div>
-
+        {CATEGORIES.map((cat) => {
+          return (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setActive(cat)}
+              className={[
+                // ukuran responsif
+                "shrink-0 whitespace-nowrap rounded-full border leading-tight select-none",
+                "text-xs sm:text-sm", // font lebih kecil di mobile
+                "px-3 py-1.5 sm:px-4 sm:py-2", // padding lebih kecil di mobile
+                // fokus/aksesibilitas
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5f3d24]/40",
+                // state
+              ].join(" ")}
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
 
       {/* Grid */}
       <section className="mt-5">
@@ -126,10 +122,19 @@ export default function GalleryClient({
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">
+                    <p className="hidden md:block text-[clamp(10px,1.8vw,12px)] text-[#7a6f62]">
                       {item.description}
                     </p>
-                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                    <span
+                      className="
+  hidden sm:inline-flex
+  text-[clamp(10px,1.8vw,12px)]
+  rounded-md bg-[#4c3e1f]
+  px-[clamp(8px,2vw,12px)]
+  py-[clamp(6px,1.6vw,8px)]
+  font-medium text-white shadow-sm
+"
+                    >
                       {item.category}
                     </span>
                   </div>

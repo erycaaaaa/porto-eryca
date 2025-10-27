@@ -210,13 +210,12 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-black">
-                All Case Studies
-              </h1>
-              <p className="mt-1 text-sm text-black/70">
-                Telusuri semua karya. Filter berdasarkan kategori atau cari
-                judul/keyword.
-              </p>
+              <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">
+  All Case Studies
+</h1>
+             <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
+ Telusuri karya. Filter berdasarkan kategori atau cari judul.
+</p>
             </div>
 
             {/* SEARCH */}

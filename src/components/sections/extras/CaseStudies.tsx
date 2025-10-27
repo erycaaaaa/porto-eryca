@@ -206,13 +206,12 @@ export default function CaseStudiesIndex() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-black">
-                All Case Studies
-              </h1>
-              <p className="mt-1 text-sm text-black/70">
-                Telusuri semua karya. Filter berdasarkan kategori atau cari
-                judul/keyword.
-              </p>
+              <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">
+  All Case Studies
+</h1>
+             <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
+Telusuri karya. Filter berdasarkan kategori atau cari judul.
+</p>
             </div>
 
             {/* SEARCH */}
@@ -221,8 +220,8 @@ export default function CaseStudiesIndex() {
                 name="q"
                 defaultValue={qRaw}
                 placeholder="Search case studies…"
-                className="w-72 rounded-b-md  border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
-              />
+                   className="w-72 rounded-b-md border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"/>
+
               {activeCat !== "All" && (
                 <input type="hidden" name="cat" value={activeCat} />
               )}
@@ -254,7 +253,10 @@ export default function CaseStudiesIndex() {
                   href={pillHref}
                   aria-pressed={isActive}
                   className={[
-                    "rounded-full border px-3 py-2 text-sm transition",
+                    "text-[clamp(10px,2.6vw,14px)]",
+                    "px-[clamp(8px,2vw,12px)]",
+                    "py-[clamp(6px,1.6vw,8px)]",
+                    "rounded-full border transition whitespace-nowrap",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
@@ -299,13 +301,24 @@ export default function CaseStudiesIndex() {
                     />
                     {/* Overlay: sembunyikan di mobile (tak ada hover), tampil ≥sm */}
                     <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <h3 className="text-base font-semibold">{item.title}</h3>
-                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
-                        {item.description}
+                      <h3 className="text-[clamp(11px,2.5vw,16px)] font-medium text-[#5f3d24] sm:text-base">
+                        {item.title}
+                      </h3>
+                      <p className="hidden md:block text-[clamp(10px,1.8vw,12px)] text-[#7a6f62]">
+                        {item.categories.join(", ")}
                       </p>
                       {item.tag && (
-                        <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
-                          {item.tag}
+                        <span
+                          className="
+  hidden sm:inline-flex
+  text-[clamp(10px,1.8vw,12px)]
+  rounded-md bg-[#4c3e1f]
+  px-[clamp(8px,2vw,12px)]
+  py-[clamp(6px,1.6vw,8px)]
+  font-medium text-white shadow-sm
+"
+                        >
+                          {item.href ? "View" : "Details"}
                         </span>
                       )}
                     </div>

@@ -145,8 +145,8 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-black">All Artworks</h1>
-              <p className="mt-1 text-sm text-black/70">
+        <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">All Artworks</h1>
+        <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>
@@ -174,7 +174,12 @@ export default function GalleryPage() {
                   onClick={() => setActive(cat)}
                   aria-pressed={isActive}
                   className={[
-                    "rounded-full border px-4 py-2 text-sm transition",
+  
+    "text-[clamp(10px,2.6vw,14px)]",
+    "px-[clamp(8px,2vw,12px)]",
+    "py-[clamp(6px,1.6vw,8px)]",
+ 
+    "rounded-full border transition whitespace-nowrap",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
@@ -213,10 +218,16 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-1 text-xs opacity-90">
-                      {item.description}
+                   <p className="hidden md:block text-[clamp(10px,1.8vw,12px)] text-[#7a6f62]">              {item.description}
                     </p>
-                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                  <span className="
+  hidden sm:inline-flex
+  text-[clamp(10px,1.8vw,12px)]
+  rounded-md bg-[#4c3e1f]
+  px-[clamp(8px,2vw,12px)]
+  py-[clamp(6px,1.6vw,8px)]
+  font-medium text-white shadow-sm
+">
                       {item.category}
                     </span>
                   </div>

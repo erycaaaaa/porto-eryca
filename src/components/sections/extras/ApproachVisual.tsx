@@ -99,8 +99,8 @@ export default function GalleryPage({
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl text-black">All Artworks</h1>
-              <p className="mt-1 text-sm text-black/70">
+            <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">All Artworks</h1>
+           <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>
@@ -143,7 +143,11 @@ export default function GalleryPage({
                   key={cat}
                   href={href}
                   className={[
-                    "rounded-full border px-3 py-2 text-sm transition",
+
+    "text-[clamp(10px,2.6vw,14px)]",
+    "px-[clamp(8px,2vw,12px)]",
+    "py-[clamp(6px,1.6vw,8px)]",
+    "rounded-full border transition whitespace-nowrap",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
@@ -195,7 +199,14 @@ export default function GalleryPage({
                     <p className="mt-1 text-xs opacity-90 line-clamp-2">
                       {item.description}
                     </p>
-                    <span className="mt-2 rounded-full border border-[#e6dccb]/60 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                  <span className="
+  hidden sm:inline-flex
+  text-[clamp(10px,1.8vw,12px)]
+  rounded-md bg-[#4c3e1f]
+  px-[clamp(8px,2vw,12px)]
+  py-[clamp(6px,1.6vw,8px)]
+  font-medium text-white shadow-sm
+">
                       {item.category}
                     </span>
                   </div>
