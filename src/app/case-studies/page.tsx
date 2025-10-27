@@ -306,9 +306,7 @@ export default function CaseStudiesIndex() {
                         {item.categories.join(", ")}
                       </p>
                     </div>
-                    <span className="inline-flex rounded-md bg-[#4c3e1f] px-3 py-1.5 text-xs font-medium text-white shadow-sm">
-                      {item.href ? "View" : "Details"}
-                    </span>
+                   
                   </div>
                 </MaybeLink>
               </li>

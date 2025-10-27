@@ -299,7 +299,7 @@ Telusuri karya. Filter berdasarkan kategori atau cari judul.
                       sizes="(max-width:640px) 25vw, (max-width:1024px) 50vw, 33vw"
                       priority={false}
                     />
-                    {/* Overlay: sembunyikan di mobile (tak ada hover), tampil ≥sm */}
+              
                     <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <h3 className="text-[clamp(11px,2.5vw,16px)] font-medium text-[#5f3d24] sm:text-base">
                         {item.title}
@@ -309,16 +309,19 @@ Telusuri karya. Filter berdasarkan kategori atau cari judul.
                       </p>
                       {item.tag && (
                         <span
-                          className="
-  hidden sm:inline-flex
-  text-[clamp(10px,1.8vw,12px)]
-  rounded-md bg-[#4c3e1f]
-  px-[clamp(8px,2vw,12px)]
-  py-[clamp(6px,1.6vw,8px)]
-  font-medium text-white shadow-sm
-"
+                          className="font-medium text-white/0"
+
+//                           className="
+//   hidden sm:inline-flex
+//   text-[clamp(10px,1.8vw,12px)]
+//   rounded-md bg-[#4c3e1f]
+//   px-[clamp(8px,2vw,12px)]
+//   py-[clamp(6px,1.6vw,8px)]
+//   font-medium text-white shadow-sm
+// "
                         >
-                          {item.href ? "View" : "Details"}
+                         
+                          {item.tag}
                         </span>
                       )}
                     </div>
