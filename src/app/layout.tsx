@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   description: "Creator • UI/UX • Front-End",
   icons: {
     icon: [
-      { url: "/logo-web.gif", type: "image/gif" },
-      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/porto-eryca/logo-web.gif", type: "image/gif" },
+      { url: "/porto-eryca/logo-web.gif", sizes: "32x32", type: "image/gif" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/porto-eryca/logo-web.gif", sizes: "180x180", type: "image/gif" },
     ],
   },
   themeColor: [
