@@ -11,24 +11,22 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://erycaaaaa.github.io/porto-eryca"),
-  title: {
-    default: "Eryca Dhamma S",
-    template: "%s • Eryca",
-  },
+  title: { default: "Eryca Dhamma S", template: "%s • Eryca" },
   description: "Creator • UI/UX • Front-End",
-  icons: {
-    icon: [
-      { url: "/porto-eryca/logo-web.gif", type: "image/gif" },
-      { url: "/porto-eryca/logo-web.gif", sizes: "32x32", type: "image/gif" },
-    ],
-    apple: [
-      { url: "/porto-eryca/logo-web.gif", sizes: "180x180", type: "image/gif" },
-    ],
-  },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f5f4ef" },
     { media: "(prefers-color-scheme: dark)", color: "#0b0b0c" },
   ],
+  icons: {
+  icon: [
+    { url: "/porto-eryca/logo-pp.svg", sizes: "32x32", type: "image/png" }, // fallback wajib
+    { url: "/porto-eryca/logo-web.gif", type: "image/gif" },                 // opsional (tidak semua browser)
+  ],
+  apple: [
+    { url: "/porto-eryca/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  ],
+},
+
 };
 
 export default function RootLayout({
