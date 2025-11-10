@@ -6,7 +6,30 @@ import StickySpotify from "@/components/sections/media/StickySpotify";
 import SplashScreen from "@/components/layout/SplashScreen";
 import Providers from "./providers";
 import HashScrollFix from "@/components/system/HashScrollFix";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://erycaaaaa.github.io/porto-eryca"),
+  title: {
+    default: "Eryca Dhamma S",
+    template: "%s • Eryca",
+  },
+  description: "Creator • UI/UX • Front-End",
+  icons: {
+    icon: [
+      { url: "/logo-web.gif", type: "image/gif" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f4ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0c" },
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -31,21 +54,21 @@ export default function RootLayout({
             {children}
           </main>
 
-         
           <StickySpotify />
           <Analytics />
         </Providers>
-          <Footer
+
+        <Footer
           brandName="Eryca"
-          brandLogoSrc="/porto-eryca/eryca.gif"  
+          brandLogoSrc="/porto-eryca/eryca.gif"
           brandHref="/"
           socials={{
             github: "https://github.com/erycaaaaa",
             instagram: "https://www.instagram.com/erycadhm/",
-            linkedin: "https://www.linkedin.com/in/eryca-dhamma-shanty-8a530a352",
-            email: "eryca847@gmail.com", // atau pakai Gmail compose URL
+            linkedin:
+              "https://www.linkedin.com/in/eryca-dhamma-shanty-8a530a352",
+            email: "eryca847@gmail.com",
           }}
-    
         />
       </body>
     </html>
