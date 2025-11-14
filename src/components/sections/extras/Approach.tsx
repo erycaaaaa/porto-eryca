@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 export default function Approach() {
+  
   /** ---------- Accessible Image Slider ---------- **/
   function ImageSlider({
     images,
@@ -13,8 +14,6 @@ export default function Approach() {
   }) {
     const [idx, setIdx] = useState(0);
     const len = images.length;
-
-    // wrap index dengan dependensi 'len'
     const wrap = useCallback((n: number) => (n + len) % len, [len]);
 
     // touch swipe

@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 /* ===== BASE PATH HELPER ===== */
 const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
@@ -38,7 +38,7 @@ type Item = {
   title: string;
   categories: Exclude<Category, "All">[];
   src: string;
-  href?: string; // ← boleh kosong
+  href?: string;
   alt?: string;
   description: string;
   tag?: string;
@@ -154,22 +154,22 @@ function MaybeLink({
   if (href) {
     const anchorProps = rest as React.HTMLAttributes<HTMLAnchorElement>;
     return (
-      <Link href={href} className={className} {...anchorProps}>
+      <Link href={href} className={className} scroll={false} {...anchorProps}>
         {children}
       </Link>
     );
-  } else {
-    const divProps = rest as React.HTMLAttributes<HTMLDivElement>;
-    return (
-      <div className={className} {...divProps}>
-        {children}
-      </div>
-    );
   }
+  const divProps = rest as React.HTMLAttributes<HTMLDivElement>;
+  return (
+    <div className={className} {...divProps}>
+      {children}
+    </div>
+  );
 }
 
 /* ===== PAGE ===== */
 export default function CaseStudiesIndex() {
+  const router = useRouter();
   const sp = useSearchParams();
   const catRaw = sp.get("cat");
   const qRaw = sp.get("q") ?? "";
@@ -177,16 +177,19 @@ export default function CaseStudiesIndex() {
   const activeCat: Category = normalizeCat(catRaw);
   const q = qRaw.toLowerCase();
 
+  /* ===== FILTERED DATA ===== */
   const filtered = useMemo(() => {
     return ALL_ITEMS.filter((it) => {
       const byCat =
         activeCat === "All" ||
-        it.categories.includes(activeCat as Exclude<Category, "All">); // guard
+        it.categories.includes(activeCat as Exclude<Category, "All">);
+
       const byQ =
         !q ||
         it.title.toLowerCase().includes(q) ||
         it.description.toLowerCase().includes(q) ||
         (it.tag ?? "").toLowerCase().includes(q);
+
       return byCat && byQ;
     });
   }, [activeCat, q]);
@@ -217,17 +220,30 @@ export default function CaseStudiesIndex() {
               </p>
             </div>
 
-            {/* SEARCH */}
-            <form className="mt-3 sm:mt-0" action="" method="get">
+            {/* SEARCH - now client-side */}
+            <form
+              className="mt-3 sm:mt-0"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const qv = (form.elements.namedItem("q") as HTMLInputElement)
+                  .value;
+
+                const params = new URLSearchParams();
+                if (qv) params.set("q", qv);
+                if (activeCat !== "All") params.set("cat", activeCat);
+
+                router.replace(`/case-studies?${params.toString()}`, {
+                  scroll: false,
+                });
+              }}
+            >
               <input
                 name="q"
                 defaultValue={qRaw}
                 placeholder="Search case studies…"
                 className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
               />
-              {activeCat !== "All" && (
-                <input type="hidden" name="cat" value={activeCat} />
-              )}
             </form>
           </div>
 
@@ -237,16 +253,18 @@ export default function CaseStudiesIndex() {
               const params = new URLSearchParams();
               if (cat !== "All") params.set("cat", cat);
               if (qRaw) params.set("q", qRaw);
+
               const pillHref = params.toString()
                 ? `/case-studies?${params.toString()}`
                 : `/case-studies`;
+
               const isActive = activeCat === cat;
 
               return (
                 <Link
                   key={cat}
                   href={pillHref}
-                  aria-pressed={isActive}
+                  scroll={false}
                   className={[
                     "rounded-full border px-4 py-2 text-sm transition",
                     isActive
@@ -291,7 +309,8 @@ export default function CaseStudiesIndex() {
                         {item.description}
                       </p>
                       {item.tag && (
-                        <span      className="
+                        <span
+                          className="
   hidden sm:inline-flex
   text-[clamp(10px,1.8vw,12px)]
   rounded-md bg-[#4c3e1f]
@@ -299,17 +318,18 @@ export default function CaseStudiesIndex() {
   py-[clamp(6px,1.6vw,8px)]
   font-medium text-white shadow-sm
 "
-                    >
+                        >
                           {item.tag}
                         </span>
                       )}
                     </div>
                   </div>
-               <div className="flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3">
-                  <div>
-                    <h3 className="text-[12px] font-medium text-[#5f3d24] sm:text-base">
-                      {item.title}
-                    </h3>
+
+                  <div className="flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3">
+                    <div>
+                      <h3 className="text-[12px] font-medium text-[#5f3d24] sm:text-base">
+                        {item.title}
+                      </h3>
                       <p className="text-xs text-[#7a6f62]">
                         {item.categories.join(", ")}
                       </p>

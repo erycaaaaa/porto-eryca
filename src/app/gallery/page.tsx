@@ -1,11 +1,14 @@
-// src/app/gallery/page.tsx
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-export const dynamic = "force-static";
+import { useMemo } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 
+/* ===== BASE PATH (opsional jika kamu pakai basePath di next.config.js) ===== */
+const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
+const asset = (p: string) => `${BASE}${p.startsWith("/") ? p : `/${p}`}`;
+
+/* ===== KATEGORI GALERI ===== */
 const CATEGORIES = [
   "All",
   "Acrylic",
@@ -14,8 +17,19 @@ const CATEGORIES = [
   "Poster",
   "Sketch",
 ] as const;
+
 type Category = (typeof CATEGORIES)[number];
 
+function normalizeCat(v: string | null): Category {
+  if (!v) return "All";
+  const cleaned = decodeURIComponent(v).replace(/\+/g, " ").trim();
+  const match = CATEGORIES.find(
+    (c) => c.toLowerCase() === cleaned.toLowerCase()
+  );
+  return (match as Category) ?? "All";
+}
+
+/* ===== DATA GALLERY ===== */
 type Item = {
   id: string;
   title: string;
@@ -60,7 +74,8 @@ const ALL_ITEMS: Item[] = [
     title: "Where Questions Pierce the Veil",
     category: "Sketch",
     src: "/porto-eryca/sket1.jpg",
-    description: "The bow is the mind. The string is discipline. The arrow is a question. Draw with doubt and courage, aim with attention, release with humility—so it pierces not bodies, but the fog of our assumptions.",
+    description:
+      "The bow is the mind. The string is discipline. The arrow is a question.",
   },
   {
     id: "wc-03",
@@ -74,16 +89,17 @@ const ALL_ITEMS: Item[] = [
     title: "Carry the Lily, Carry the Thought",
     category: "Sketch",
     src: "/porto-eryca/sketsotter.jpg",
-    description: "An otter cradles an oversized lily tenderness scaled into weight. Rather than grasping, it accompanies. The drawing asks whether wisdom is strength to carry, or the tact to hold without tearing what is delicate.",
+    description:
+      "An otter cradles an oversized lily—tenderness scaled into weight.",
   },
-    {
+  {
     id: "pt-01",
     title: "Ojo Nganti Ilang Disawang",
     category: "Poster",
     src: "/porto-eryca/poster-budaya.jpg",
     description: "Budaya tidak diwarisi, ia dirawat dengan dipraktikkan.",
   },
-      {
+  {
     id: "sk-03",
     title: "The Flower that Blooms in Adversity",
     category: "Sketch",
@@ -92,94 +108,117 @@ const ALL_ITEMS: Item[] = [
   },
 ];
 
+/* ===== MAYBE LINK (gallery tidak punya detail, jadi selalu div) ===== */
+function MaybeLink({
+  className,
+  children,
+  ...rest
+}: React.HTMLAttributes<HTMLElement> & {
+  children: React.ReactNode;
+}) {
+  const divProps = rest as React.HTMLAttributes<HTMLDivElement>;
+  return (
+    <div className={className} {...divProps}>
+      {children}
+    </div>
+  );
+}
 
+/* ===== PAGE ===== */
 export default function GalleryPage() {
-  const sp = useSearchParams();
   const router = useRouter();
-  const pathname = usePathname();
-  const catFromURL = (sp.get("cat") as Category) || "All";
-  const qFromURL = sp.get("q") || "";
+  const sp = useSearchParams();
 
-  const [active, setActive] = useState<Category>(catFromURL);
-  const [q, setQ] = useState(qFromURL);
+  const catRaw = sp.get("cat");
+  const qRaw = sp.get("q") ?? "";
 
-  useEffect(() => {
-    const params = new URLSearchParams(sp.toString());
-    if (active === "All") params.delete("cat");
-    else params.set("cat", active);
-    if (q.trim()) params.set("q", q.trim());
-    else params.delete("q");
-    const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, q]);
+  const activeCat: Category = normalizeCat(catRaw);
+  const q = qRaw.toLowerCase();
 
+  /* ===== FILTER DATA ===== */
   const filtered = useMemo(() => {
-    const a = active.toLowerCase().trim();
-    const query = q.toLowerCase().trim();
     return ALL_ITEMS.filter((it) => {
-      const byCat = a === "all" ? true : it.category.toLowerCase().trim() === a;
-      const byQ = query ? it.title.toLowerCase().includes(query) : true;
+      const byCat = activeCat === "All" || it.category === activeCat;
+      const byQ =
+        !q ||
+        it.title.toLowerCase().includes(q) ||
+        it.description.toLowerCase().includes(q);
       return byCat && byQ;
     });
-  }, [active, q]);
+  }, [activeCat, q]);
 
   return (
     <main
-      id="illustrations"
-      className="relative  text-neutral-900
-             bg-center bg-cover bg-no-repeat md:bg-fixed"
-      style={{ backgroundImage: "url('/porto-eryca/bg-about.png')" }}
+      id="gallery"
+      className="relative isolate py-16 md:py-20 bg-center bg-cover md:bg-fixed bg-no-repeat"
+      style={{
+        backgroundImage: `url('${asset("/porto-eryca/bg-about.png")}')`,
+      }}
     >
-      {/* background */}
-      <Image
-        src="/porto-eryca/case-study.png"
-        alt=""
-        fill
-        priority
+      <div
         aria-hidden
-        className="object-cover -z-10"
+        className="absolute inset-0 -z-10 bg-[#faf8f3]/80 pointer-events-none"
       />
+
       {/* HEADER */}
-      <header className="border-b border-[#e6dccb]/10 bg-[#fbf8f3]/10">
+      <header className="relative border-b border-[#e6dccb] bg-[#fbf8f3]/0">
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-        <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">All Artworks</h1>
-        <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
+              <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">
+                All Artworks
+              </h1>
+              <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
                 Telusuri karya. Filter berdasarkan kategori atau cari judul.
               </p>
             </div>
 
-            {/* SEARCH box (state, bukan form GET) */}
-            <div className="mt-3 sm:mt-0">
+            {/* SEARCH */}
+            <form
+              className="mt-3 sm:mt-0"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const qv = (form.elements.namedItem("q") as HTMLInputElement)
+                  .value;
+
+                const params = new URLSearchParams();
+                if (qv) params.set("q", qv);
+                if (activeCat !== "All") params.set("cat", activeCat);
+
+                router.replace(`/gallery?${params.toString()}`, {
+                  scroll: false,
+                });
+              }}
+            >
               <input
-                value={q}
-                onChange={(e) => setQ(e.target.value)}
-                placeholder="Search title…"
-                className="w-72 rounded-b-md border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24]"
-                aria-label="Search artworks"
+                name="q"
+                defaultValue={qRaw}
+                placeholder="Search artworks…"
+                className="w-72 rounded-lg border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] placeholder:text-[#9a8f7e] outline-none focus:ring-2 focus:ring-[#d7c4a5]"
               />
-            </div>
+            </form>
           </div>
 
-          {/* FILTER PILLS (BUTTON, bukan Link) */}
+          {/* FILTER PILLS */}
           <div className="mt-5 flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
-              const isActive = active === cat;
+              const params = new URLSearchParams();
+              if (cat !== "All") params.set("cat", cat);
+              if (qRaw) params.set("q", qRaw);
+
+              const pillHref = params.toString()
+                ? `/gallery?${params.toString()}`
+                : `/gallery`;
+
+              const isActive = activeCat === cat;
+
               return (
                 <button
                   key={cat}
-                  type="button"
-                  onClick={() => setActive(cat)}
-                  aria-pressed={isActive}
+                  onClick={() => router.replace(pillHref, { scroll: false })}
                   className={[
-  
-    "text-[clamp(10px,2.6vw,14px)]",
-    "px-[clamp(8px,2vw,12px)]",
-    "py-[clamp(6px,1.6vw,8px)]",
- 
-    "rounded-full border transition whitespace-nowrap",
+                    "rounded-full border px-4 py-2 text-sm transition",
                     isActive
                       ? "border-[#5f3d24] bg-[#5f3d24] text-[#f8e6c9] shadow"
                       : "border-[#e6dccb] bg-white text-[#5f3d24] hover:bg-[#f4efe6]",
@@ -207,39 +246,39 @@ export default function GalleryPage() {
                 key={item.id}
                 className="group overflow-hidden rounded-xl border border-[#e6dccb] bg-white shadow-sm"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={item.src}
-                    alt={item.alt ?? item.title}
-                    fill
-                    priority={false}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                  />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <h3 className="text-base font-semibold">{item.title}</h3>
-                   <p className="hidden md:block text-[clamp(10px,1.8vw,12px)] text-[#7a6f62]">              {item.description}
-                    </p>
-                  <span className="
-  hidden sm:inline-flex
-  text-[clamp(10px,1.8vw,12px)]
-  rounded-md bg-[#4c3e1f]
-  px-[clamp(8px,2vw,12px)]
-  py-[clamp(6px,1.6vw,8px)]
-  font-medium text-white shadow-sm
-">
-                      {item.category}
-                    </span>
+                <MaybeLink className="block">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={item.alt ?? item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    />
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <h3 className="text-base font-semibold">{item.title}</h3>
+                      <p className="mt-1 text-xs opacity-90 line-clamp-2">
+                        {item.description}
+                      </p>
+
+                      <span className="hidden sm:inline-flex text-xs rounded-md bg-[#4c3e1f] px-3 py-1 mt-2 text-white shadow-sm">
+                        {item.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center justify-between px-4 py-3">
-                  <div>
-                    <h3 className="text-base font-medium text-[#5f3d24]">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-[#7a6f62]">{item.category}</p>
+
+                  {/* Card footer */}
+                  <div className="flex items-center justify-between px-4 py-3">
+                    <div>
+                      <h3 className="text-base font-medium text-[#5f3d24]">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-[#7a6f62]">{item.category}</p>
+                    </div>
                   </div>
-                </div>
+                </MaybeLink>
               </li>
             ))}
           </ul>
