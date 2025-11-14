@@ -7,7 +7,7 @@ import SplashScreen from "@/components/layout/SplashScreen";
 import Providers from "./providers";
 import HashScrollFix from "@/components/system/HashScrollFix";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next"; // ⬅️ Tambahan penting
+import { SpeedInsights } from "@vercel/speed-insights/next"; 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -56,7 +56,7 @@ export default function RootLayout({
           <StickySpotify />
 
           <Analytics />
-          <SpeedInsights /> {/* ⬅️ Tambahan disini, posisi paling tepat */}
+          <SpeedInsights />
 
         </Providers>
 
