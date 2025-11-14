@@ -7,6 +7,7 @@ import SplashScreen from "@/components/layout/SplashScreen";
 import Providers from "./providers";
 import HashScrollFix from "@/components/system/HashScrollFix";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"; // ⬅️ Tambahan penting
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,15 +19,14 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "#0b0b0c" },
   ],
   icons: {
-  icon: [
-    { url: "/porto-eryca/logo-pp.svg", sizes: "32x32", type: "image/png" }, // fallback wajib
-    { url: "/porto-eryca/logo-web.gif", type: "image/gif" },                 // opsional (tidak semua browser)
-  ],
-  apple: [
-    { url: "/porto-eryca/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-  ],
-},
-
+    icon: [
+      { url: "/porto-eryca/logo-pp.svg", sizes: "32x32", type: "image/png" },
+      { url: "/porto-eryca/logo-web.gif", type: "image/gif" },
+    ],
+    apple: [
+      { url: "/porto-eryca/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -42,6 +42,7 @@ export default function RootLayout({
           <SplashScreen minMs={900} hardTimeoutMs={1800} oncePerSession />
           <Navbar />
           <HashScrollFix />
+          
           <main
             className={[
               "overflow-x-hidden",
@@ -53,7 +54,10 @@ export default function RootLayout({
           </main>
 
           <StickySpotify />
+
           <Analytics />
+          <SpeedInsights /> {/* ⬅️ Tambahan disini, posisi paling tepat */}
+
         </Providers>
 
         <Footer
