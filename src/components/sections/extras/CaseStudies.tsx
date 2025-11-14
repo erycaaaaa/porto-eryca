@@ -3,8 +3,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useState, useEffect } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
 const asset = (p: string) => `${BASE}${p.startsWith("/") ? p : `/${p}`}`;
@@ -168,11 +168,21 @@ function MaybeLink({
 /* ===== PAGE ===== */
 export default function CaseStudiesIndex() {
   const sp = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  
   const catRaw = sp.get("cat");
   const qRaw = sp.get("q") ?? "";
 
+  const [searchValue, setSearchValue] = useState(qRaw);
   const activeCat: Category = normalizeCat(catRaw);
-  const q = qRaw.toLowerCase();
+
+  // Sync search input with URL
+  useEffect(() => {
+    setSearchValue(qRaw);
+  }, [qRaw]);
+
+  const q = searchValue.toLowerCase();
 
   const filtered = useMemo(() => {
     return ALL_ITEMS.filter((it) => {
@@ -187,6 +197,23 @@ export default function CaseStudiesIndex() {
       return byCat && byQ;
     });
   }, [activeCat, q]);
+
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setSearchValue(newValue);
+    
+    // Update URL without refresh
+    const params = new URLSearchParams();
+    if (activeCat !== "All") params.set("cat", activeCat);
+    if (newValue) params.set("q", newValue);
+    
+    const newUrl = params.toString() 
+      ? `${pathname}?${params.toString()}` 
+      : pathname;
+    
+    router.replace(newUrl, { scroll: false });
+  };
 
   return (
     <main
@@ -207,25 +234,23 @@ export default function CaseStudiesIndex() {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">
-  All Case Studies
-</h1>
-             <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
-Telusuri karya. Filter berdasarkan kategori atau cari judul.
-</p>
+                All Case Studies
+              </h1>
+              <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
+                Telusuri karya. Filter berdasarkan kategori atau cari judul.
+              </p>
             </div>
 
-            {/* SEARCH */}
-            <form className="mt-3 sm:mt-0" action="" method="get">
+            {/* SEARCH - No form, direct input */}
+            <div className="mt-3 sm:mt-0">
               <input
-                name="q"
-                defaultValue={qRaw}
+                type="text"
+                value={searchValue}
+                onChange={handleSearchChange}
                 placeholder="Search case studies…"
-                   className="w-72 rounded-b-md border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"/>
-
-              {activeCat !== "All" && (
-                <input type="hidden" name="cat" value={activeCat} />
-              )}
-            </form>
+                className="w-72 rounded-b-md border border-[#e6dccb] bg-white px-3 py-2 text-sm text-[#5f3d24] outline-none placeholder:text-[#9a8f7e] focus:ring-2 focus:ring-[#d7c4a5]"
+              />
+            </div>
           </div>
 
           {/* FILTER PILLS */}
@@ -241,7 +266,7 @@ Telusuri karya. Filter berdasarkan kategori atau cari judul.
             {CATEGORIES.map((cat) => {
               const params = new URLSearchParams();
               if (cat !== "All") params.set("cat", cat);
-              if (qRaw) params.set("q", qRaw);
+              if (searchValue) params.set("q", searchValue);
               const pillHref = params.toString()
                 ? `/case-studies?${params.toString()}`
                 : `/case-studies`;
@@ -300,34 +325,21 @@ Telusuri karya. Filter berdasarkan kategori atau cari judul.
                       priority={false}
                     />
               
-                    <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-black/45 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <h3 className="text-[clamp(11px,2.5vw,16px)] font-medium text-[#5f3d24] sm:text-base">
+                    <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-black/50 px-4 text-center text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <h3 className="text-base font-semibold mb-2">
                         {item.title}
                       </h3>
-                      <p className="hidden md:block text-[clamp(10px,1.8vw,12px)] text-[#7a6f62]">
-                        {item.categories.join(", ")}
+                      <p className="hidden md:block text-sm text-white/90 mb-3 line-clamp-3">
+                        {item.description}
                       </p>
                       {item.tag && (
-                        <span
-                          className="font-medium text-white/0"
-
-//                           className="
-//   hidden sm:inline-flex
-//   text-[clamp(10px,1.8vw,12px)]
-//   rounded-md bg-[#4c3e1f]
-//   px-[clamp(8px,2vw,12px)]
-//   py-[clamp(6px,1.6vw,8px)]
-//   font-medium text-white shadow-sm
-// "
-                        >
-                         
+                        <span className="text-xs rounded-md bg-[#4c3e1f] px-3 py-1.5 font-medium text-white shadow-sm">
                           {item.tag}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  {/* Meta: ringkas di mobile supaya muat 4 kolom */}
                   <div className="flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3">
                     <div>
                       <h3 className="text-[11px] font-medium text-[#5f3d24] sm:text-base">

@@ -131,7 +131,7 @@ const ALL_ITEMS: Item[] = [
     description:
       "Merancang dan membangun website portfolio pribadi menggunakan typeScript, Next.js, dan Tailwind CSS.",
   },
-   {
+  {
     id: "game-minnie",
     title: "Perancangan Game Unity Minnie Game",
     categories: ["Games"],
@@ -152,7 +152,6 @@ function MaybeLink({
   children: React.ReactNode;
 }) {
   if (href) {
-    // Only pass anchor props to Link
     const anchorProps = rest as React.HTMLAttributes<HTMLAnchorElement>;
     return (
       <Link href={href} className={className} {...anchorProps}>
@@ -211,11 +210,11 @@ export default function CaseStudiesIndex() {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h1 className="font-serif text-[clamp(20px,4vw,30px)] text-black">
-  All Case Studies
-</h1>
-             <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
- Telusuri karya. Filter berdasarkan kategori atau cari judul.
-</p>
+                All Case Studies
+              </h1>
+              <p className="mt-1 text-[clamp(12px,2.6vw,14px)] text-black/70">
+                Telusuri karya. Filter berdasarkan kategori atau cari judul.
+              </p>
             </div>
 
             {/* SEARCH */}
@@ -267,7 +266,8 @@ export default function CaseStudiesIndex() {
       <section className="relative mx-auto max-w-6xl px-6 py-8">
         {filtered.length === 0 ? (
           <p className="rounded-md border border-dashed border-[#decfb6] bg-[#fffdf8] p-6 text-sm text-[#6b6256]">
-            Tidak ada hasil untuk filter/pencarian ini.
+            Tidak ada karya untuk filter ini. Coba kategori lain atau hapus
+            pencarian.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -291,22 +291,29 @@ export default function CaseStudiesIndex() {
                         {item.description}
                       </p>
                       {item.tag && (
-                        <span className="mt-2 rounded-full border border-[#e6dccb]/100 bg-[#fbf8f3]/10 px-3 py-1 text-[10px] tracking-wide">
+                        <span      className="
+  hidden sm:inline-flex
+  text-[clamp(10px,1.8vw,12px)]
+  rounded-md bg-[#4c3e1f]
+  px-[clamp(8px,2vw,12px)]
+  py-[clamp(6px,1.6vw,8px)]
+  font-medium text-white shadow-sm
+"
+                    >
                           {item.tag}
                         </span>
                       )}
                     </div>
                   </div>
-                  <div className="flex items-center justify-between px-4 py-3">
-                    <div>
-                      <h3 className="text-base font-medium text-[#5f3d24]">
-                        {item.title}
-                      </h3>
+               <div className="flex items-center justify-between px-2 py-2 sm:px-4 sm:py-3">
+                  <div>
+                    <h3 className="text-[12px] font-medium text-[#5f3d24] sm:text-base">
+                      {item.title}
+                    </h3>
                       <p className="text-xs text-[#7a6f62]">
                         {item.categories.join(", ")}
                       </p>
                     </div>
-                   
                   </div>
                 </MaybeLink>
               </li>

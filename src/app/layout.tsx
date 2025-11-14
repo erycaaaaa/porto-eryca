@@ -10,7 +10,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://erycaaaaa.github.io/porto-eryca"),
+  metadataBase: new URL("https://portfolio-erycadhamma.vercel.app/"),
   title: { default: "Eryca Dhamma S", template: "%s • Eryca" },
   description: "Creator • UI/UX • Front-End",
   themeColor: [
