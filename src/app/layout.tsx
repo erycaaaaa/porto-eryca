@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     icon: "/porto-eryca/logo-pp.svg",
     apple: "/porto-eryca/apple-touch-icon.png",
   },
+    verification: {
+    google: "9EzdfqNBwWzuZE-fC0BJL1PdeUYQaPXxtTQlSd00LCU",
+  },
 };
 
 export default function RootLayout({
