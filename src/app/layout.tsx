@@ -14,12 +14,15 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-erycadhamma.vercel.app"),
+
   title: {
     default: "Eryca Dhamma Shanty | Portfolio",
     template: "%s | Eryca Dhamma Shanty",
   },
+
   description:
     "Eryca Dhamma Shanty is an Informatics Engineering student focusing on UI/UX, Front-End Development, Quality Assurance, and NLP.",
+
   keywords: [
     "Eryca Dhamma Shanty",
     "Eryca Dhamma",
@@ -29,12 +32,37 @@ export const metadata: Metadata = {
     "NLP",
     "Portfolio Eryca",
   ],
-  icons: {
-    icon: "/porto-eryca/logo-pp.svg",
-    apple: "/porto-eryca/apple-touch-icon.png",
-  },
-    verification: {
+
+icons: {
+  icon: [
+    { url: "/favicon.ico", sizes: "any" },
+    { url: "/porto-eryca/logo-pp.svg", type: "image/svg+xml" },
+  ],
+  apple: "/apple-touch-icon.png",
+},
+
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f4ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+  ],
+
+  verification: {
     google: "9EzdfqNBwWzuZE-fC0BJL1PdeUYQaPXxtTQlSd00LCU",
+  },
+
+  other: {
+    "script:ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Eryca Dhamma Shanty",
+      url: "https://portfolio-erycadhamma.vercel.app",
+      sameAs: [
+        "https://github.com/erycaaaaa",
+        "https://www.instagram.com/erycadhm/",
+        "https://www.linkedin.com/in/eryca-dhamma-shanty-8a530a352",
+      ],
+      jobTitle: "Informatics Engineering Student",
+    }),
   },
 };
 
@@ -49,19 +77,16 @@ export default function RootLayout({
         <Providers>
           <div id="top" />
 
-          {/* UI Components */}
           <SplashScreen minMs={900} hardTimeoutMs={1800} oncePerSession />
           <Navbar />
           <HashScrollFix />
 
-          {/* Main Content */}
           <main className="relative min-h-screen overflow-x-hidden bg-[url('/porto-eryca/bg12.png')] bg-cover bg-fixed bg-center">
             {children}
           </main>
 
           <StickySpotify />
 
-          {/* Analytics */}
           <Analytics />
           <SpeedInsights />
         </Providers>
