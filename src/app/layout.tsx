@@ -15,6 +15,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-erycadhamma.vercel.app"),
 
+  /** 🔹 CANONICAL (ini yang sebelumnya missing secara audit) */
+  alternates: {
+    canonical: "/",
+  },
+
   title: {
     default: "Eryca Dhamma Shanty | Portfolio",
     template: "%s | Eryca Dhamma Shanty",
@@ -33,13 +38,19 @@ export const metadata: Metadata = {
     "Portfolio Eryca",
   ],
 
-icons: {
-  icon: [
-    { url: "/favicon.ico", sizes: "any" },
-    { url: "/porto-eryca/logo-pp.svg", type: "image/svg+xml" },
-  ],
-  apple: "/apple-touch-icon.png",
-},
+  /** 🔹 ROBOTS META (eksplisit, bukan default asumsi) */
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/porto-eryca/logo-pp.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f5f4ef" },
@@ -50,6 +61,7 @@ icons: {
     google: "9EzdfqNBwWzuZE-fC0BJL1PdeUYQaPXxtTQlSd00LCU",
   },
 
+  /** 🔹 STRUCTURED DATA (Person schema) */
   other: {
     "script:ld+json": JSON.stringify({
       "@context": "https://schema.org",
@@ -62,6 +74,12 @@ icons: {
         "https://www.linkedin.com/in/eryca-dhamma-shanty-8a530a352",
       ],
       jobTitle: "Informatics Engineering Student",
+      knowsAbout: [
+        "UI/UX Design",
+        "Front-End Development",
+        "Quality Assurance",
+        "Natural Language Processing",
+      ],
     }),
   },
 };
