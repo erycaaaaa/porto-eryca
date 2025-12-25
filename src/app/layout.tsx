@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import Providers from "./providers";
 import Navbar from "@/components/layout/Navbar";
@@ -12,10 +12,22 @@ import HashScrollFix from "@/components/system/HashScrollFix";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+/* =========================
+   VIEWPORT (BROWSER LEVEL)
+   ========================= */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f4ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+  ],
+};
+
+/* =========================
+   METADATA (DOCUMENT LEVEL)
+   ========================= */
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-erycadhamma.vercel.app"),
 
-  /** 🔹 CANONICAL (ini yang sebelumnya missing secara audit) */
   alternates: {
     canonical: "/",
   },
@@ -34,11 +46,10 @@ export const metadata: Metadata = {
     "UI UX Designer",
     "Front-End Developer",
     "Quality Assurance",
-    "NLP",
+    "Natural Language Processing",
     "Portfolio Eryca",
   ],
 
-  /** 🔹 ROBOTS META (eksplisit, bukan default asumsi) */
   robots: {
     index: true,
     follow: true,
@@ -52,16 +63,10 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f4ef" },
-    { media: "(prefers-color-scheme: dark)", color: "#121212" },
-  ],
-
   verification: {
     google: "9EzdfqNBwWzuZE-fC0BJL1PdeUYQaPXxtTQlSd00LCU",
   },
 
-  /** 🔹 STRUCTURED DATA (Person schema) */
   other: {
     "script:ld+json": JSON.stringify({
       "@context": "https://schema.org",
