@@ -51,7 +51,7 @@ export default function Hero({ name, subtitle }: HeroProps) {
         </div>
 
         {/* MEDIA DISPLAY */}
-        <div className="w-56 md:w-64 h-auto mb-6">
+        <div className="w-40 md:w-48 h-auto mb-4">
           {activeTab === "sketch" ? (
             <div className="shadow-lg rounded-2xl overflow-hidden ring-1 ring-black/5 bg-white">
               <AnimatedSketch />
