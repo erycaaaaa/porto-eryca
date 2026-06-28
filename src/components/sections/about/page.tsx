@@ -30,7 +30,7 @@ const data = {
   },
   meta: {
     role: ["UI/UX Designer", "FrontEnd Dev"],
-    timeline: "Jan - Mar 2025 (8 weeks)",
+    timeline: "Jan - Mar 2026 (8 weeks)",
     team: "2 Designers, 1 PM, 2 Engineers",
     tools: ["Figma", "Next.js", "React", "Tailwind", "Framer Motion"],
   },

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TwoColSection from "@/components/case/TwoColSect";
-import { SiFigma, SiCanva} from "react-icons/si";
+import { SiFigma, SiCanva } from "react-icons/si";
 import { FaFileWord } from "react-icons/fa";
 
 export default function Page() {
@@ -11,7 +11,7 @@ export default function Page() {
         title: "Pengembangan Antarmuka Chatbot Edukatif",
         subtitle:
           "Fokus pengembangan UI/UX berbasis Figma, design system, dan usability untuk adopsi chatbot di sekolah dasar.",
-        year: "2025",
+        year: "2026",
         tag: "UI/UX • Research • Community Service",
         duration: "3 bulan",
         role: "Product Designer • UI/UX ",
@@ -29,7 +29,7 @@ export default function Page() {
       <img
         alt="EduBuddy Chatbot edukatif untuk SDN Kalideres 13 Petang"
         title="EduBuddy UI/UX"
-        src="/porto-eryca/analisa2.jpg" 
+        src="/porto-eryca/analisa2.jpg"
         loading="eager"
         className="h-full w-full object-cover rounded-2xl border"
       />

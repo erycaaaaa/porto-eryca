@@ -11,8 +11,6 @@ import {
 import {
   SiNextdotjs,
   SiFigma,
-  SiAdobeillustrator,
-  SiAdobeaftereffects,
   SiGooglecolab,
   SiTailwindcss,
   SiDart,
@@ -22,6 +20,7 @@ import {
   SiVite,
   SiFramer,
 } from "react-icons/si";
+import { TbBrandAdobeIllustrator, TbBrandAdobeAfterEffect } from "react-icons/tb";
 
 type Props = {
   tools?: string[];
@@ -75,8 +74,8 @@ const ICONS: Record<string, React.ReactNode> = {
   html5: <FaHtml5 size={28} title="HTML5" />,
   css3: <FaCss3Alt size={28} title="CSS3" />,
   dart: <SiDart size={28} title="Dart" />,
-  ai: <SiAdobeillustrator size={28} title="Adobe Illustrator" />,
-  ae: <SiAdobeaftereffects size={28} title="Adobe After Effects" />,
+  ai: <TbBrandAdobeIllustrator size={28} title="Adobe Illustrator" />,
+  ae: <TbBrandAdobeAfterEffect size={28} title="Adobe After Effects" />,
   colab: <SiGooglecolab size={28} title="Google Colab" />,
 };
 

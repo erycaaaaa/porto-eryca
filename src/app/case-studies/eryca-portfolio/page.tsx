@@ -19,7 +19,7 @@ export default function Page() {
         title: "Website Wihara",
         subtitle:
           "Situs informasi vihara yang ringan, jelas, dan selalu terbarui — fokus pada akses mudah dan penyatuan kegiatan.",
-        year: "2025",
+        year: "2026",
         tag: "Design & Front-End",
         duration: "ongoing",
         role: "Product Designer • Front-End",
@@ -55,31 +55,31 @@ export default function Page() {
         </ul>
       </section>
       {/* HERO (img biasa) */}
-{/* HERO (img biasa) */}
-<section className="mx-auto max-w-6xl px-6 mt-8">
-  {/* HERO IMAGE */}
-  <img
-    alt="Website Wihara Chatra Dhammapanno"
-    title="Website Wihara Chatra Dhammapanno"
-    src="/porto-eryca/wihara-mini.jpg"
-    loading="eager"
-    className="h-full w-full object-cover rounded-2xl border"
-  />
+      {/* HERO (img biasa) */}
+      <section className="mx-auto max-w-6xl px-6 mt-8">
+        {/* HERO IMAGE */}
+        <img
+          alt="Website Wihara Chatra Dhammapanno"
+          title="Website Wihara Chatra Dhammapanno"
+          src="/porto-eryca/wihara-mini.jpg"
+          loading="eager"
+          className="h-full w-full object-cover rounded-2xl border"
+        />
 
-  {/* CTA */}
-  <div className="mt-3 text-center">
-    <a
-      href="https://wihara-chatra-dhammapanno.netlify.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Buka situs live di Netlify"
-      title="Buka situs live di Netlify"
-      className="inline-flex items-center gap-2 rounded-b-full border border-[#000000] px-4 py-2 text-sm font-medium text-[#000000] hover:bg-[#ffff]"
-    >
-      View Website
-    </a>
-  </div>
-</section>
+        {/* CTA */}
+        <div className="mt-3 text-center">
+          <a
+            href="https://wihara-chatra-dhammapanno.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Buka situs live di Netlify"
+            title="Buka situs live di Netlify"
+            className="inline-flex items-center gap-2 rounded-b-full border border-[#000000] px-4 py-2 text-sm font-medium text-[#000000] hover:bg-[#ffff]"
+          >
+            View Website
+          </a>
+        </div>
+      </section>
 
 
 

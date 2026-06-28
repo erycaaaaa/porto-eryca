@@ -85,37 +85,6 @@ export default function Approach() {
         </button>
 
         {/* Dots */}
-
-        <Image
-          src={images[idx].src}
-          alt={images[idx].alt}
-          fill
-          sizes="(min-width: 1024px) 960px, 100vw"
-          priority={idx === 0}
-          className="object-contain pointer-events-none select-none"
-        />
-
-        {/* Prev */}
-        <button
-          type="button"
-          onClick={() => setIdx((i) => wrap(i - 1))}
-          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/95 px-4 py-2 shadow ring-1 ring-black/10 hover:bg-neutral-50 z-10"
-          aria-label="Previous slide"
-        >
-          ‹
-        </button>
-
-        {/* Next */}
-        <button
-          type="button"
-          onClick={() => setIdx((i) => wrap(i + 1))}
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/95 px-4 py-2 shadow ring-1 ring-black/10 hover:bg-neutral-50 z-10"
-          aria-label="Next slide"
-        >
-          ›
-        </button>
-
-        {/* Dots */}
         <div className="pointer-events-auto absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2">
           {images.map((_, i) => (
             <button

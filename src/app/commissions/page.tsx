@@ -212,7 +212,7 @@ function StoryCover({ name }: { name: string }) {
             <div className="md:col-span-5">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-black/10 shadow-lg">
                 <Image
-                  src="/images/commission/cover.jpg"
+                  src="/images/commission/cover-nologo.png"
                   alt="Storybook cover artwork"
                   fill
                   className="object-cover"
@@ -285,7 +285,7 @@ function StorySpread() {
           <figure className="md:col-span-6 lg:col-span-7">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-black/10 shadow-lg">
               <Image
-                src="/images/commission/scene-1.jpg"
+                src="/images/commission/scene-nologo.png"
                 alt="Story spread artwork"
                 fill
                 className="object-cover"

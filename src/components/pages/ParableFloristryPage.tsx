@@ -66,18 +66,22 @@ import IntroCardsAnimated from "@/components/sections/about/IntroCards";
 import AboutMeAnimated from "@/components/sections/about/AboutMe";
 import ApproachSlider from "@/components/sections/extras/Approach";
 import ExternalLogoStrip from "@/components/sections/extras/LogoStrips";
+import ExperiencesSection from "@/components/sections/extras/Experiences";
 import Testimonial from "@/components/sections/extras/Testimonials";
 import CaseStudiesSection from "@/components/sections/extras/CaseStudies";
 import ApproachVisual from "@/components/sections/extras/ApproachVisual";
 import Hero from "@/components/sections/hero/Hero";
+import AnimatedLeavesBackground from "@/components/ui/AnimatedLeavesBackground";
 
 export default function ParableFloristryPage() {
   return (
     <div className="min-h-screen bg-[#f5f4ef]/80 text-black">
+      <AnimatedLeavesBackground />
       <main>
         <Hero name="ERYCA DHAMMA SHANTY" subtitle="UI/UX & Frontend Enthusiast" />
         <IntroCardsAnimated />
         <AboutMeAnimated />
+        <ExperiencesSection />
         <ExternalLogoStrip />
         <ApproachSlider />
         <Section

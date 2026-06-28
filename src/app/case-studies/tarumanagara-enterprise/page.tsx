@@ -1,9 +1,6 @@
 import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
-import {
-  SiAdobeaftereffects,
-  SiAdobeillustrator,
-  SiFigma,
-} from "react-icons/si";
+import { SiFigma } from "react-icons/si";
+import { TbBrandAdobeIllustrator, TbBrandAdobeAfterEffect } from "react-icons/tb";
 export default function Page() {
   return (
     <CaseLayout
@@ -28,10 +25,10 @@ export default function Page() {
                     <SiFigma title="Figma" />
                   </li>
                   <li className="flex items-center justify-center text-4xl">
-                    <SiAdobeillustrator title="Adobe Illustrator" />
+                    <TbBrandAdobeIllustrator title="Adobe Illustrator" />
                   </li>
                   <li className="flex items-center justify-center text-4xl">
-                    <SiAdobeaftereffects title="Adobe After Effect" />
+                    <TbBrandAdobeAfterEffect title="Adobe After Effect" />
                   </li>
                 </ul>
               </section>

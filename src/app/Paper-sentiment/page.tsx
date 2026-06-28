@@ -3,7 +3,7 @@ import CaseLayout, { CaseSection } from "@/components/case/CaseLayout";
 import TimelineDuo from "@/components/case/TimelineDuo";
 import TwoColSection from "@/components/case/TwoColSect";
 import { BiLogoPlayStore } from "react-icons/bi";
-import { SiPandas,SiGooglecolab } from "react-icons/si";
+import { SiPandas, SiGooglecolab } from "react-icons/si";
 import { FaPython, FaFileExcel, FaGithub, FaFileWord } from "react-icons/fa";
 
 export default function Page() {
@@ -13,7 +13,7 @@ export default function Page() {
         title: "Sentiment Analysis on Transport Apps",
         subtitle:
           "Academic research: INSET Lexicon, TF-IDF vectorization, and Support Vector Machine classification for Indonesian transport app reviews.",
-        year: "2025",
+        year: "2026",
         tag: "Research • Natural Language Processing ",
         duration: "8 weeks",
         role: "Lead Researcher • Data Engineer • Author",
@@ -23,7 +23,7 @@ export default function Page() {
         { label: "Reviews Analyzed", value: "1,783" },
         { label: "Apps", value: "Access KAI, MyMRTJ, MitraDarat" },
         { label: "Model Accuracy", value: "87% (MyMRTJ)" },
-        { label: "Publication", value: "JMSTKIK Vol. 2025" },
+        { label: "Publication", value: "JMSTKIK Vol. 2026" },
       ]}
       resumeHref="/resume-eryca.pdf"
     >
@@ -35,39 +35,39 @@ export default function Page() {
         loading="eager"
         className="h-full w-full object-cover rounded-2xl border"
       />
-        {/* LOGOS */}
-        <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
-          <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
-             <li className="flex items-center justify-center text-4xl">
-               <FaGithub title="GitHub" />
-             </li>
-            <li className="flex items-center justify-center text-4xl">
-              <FaPython title="Python" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <SiGooglecolab title="GoogleCollab" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <BiLogoPlayStore title="GooglePlayStore" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <FaFileWord title="FaFileWord" />
-            </li>
-            <li className="flex items-center justify-center text-4xl">
-              <SiPandas title="SiPandas" />
-            </li>  
-            <li className="flex items-center justify-center text-4xl">
-              < FaFileExcel title=" FaFileExcel" />
-            </li>  
-          </ul>
-        </section>
-        
+      {/* LOGOS */}
+      <section className="mt-8 mx-auto max-w-7x1 px-7 pb-7">
+        <ul className="flex flex-wrap items-center justify-center gap-12 opacity-80 grayscale hover:grayscale-0 transition">
+          <li className="flex items-center justify-center text-4xl">
+            <FaGithub title="GitHub" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <FaPython title="Python" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <SiGooglecolab title="GoogleCollab" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <BiLogoPlayStore title="GooglePlayStore" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <FaFileWord title="FaFileWord" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            <SiPandas title="SiPandas" />
+          </li>
+          <li className="flex items-center justify-center text-4xl">
+            < FaFileExcel title=" FaFileExcel" />
+          </li>
+        </ul>
+      </section>
+
       {/* ABOUT PAPER */}
       <div className="mt-15">
         <CaseSection id="about" title="About the Research">
           <p>
             Studi ini merupakan penelitian akademik yang dipublikasikan dalam Jurnal
-            Muara Sains, Teknologi, Kedokteran, dan Ilmu Kesehatan (JMSTKIK) 2025.
+            Muara Sains, Teknologi, Kedokteran, dan Ilmu Kesehatan (JMSTKIK) 2026.
             Penelitian berfokus pada analisis sentimen ribuan ulasan aplikasi
             transportasi digital Indonesia, seperti Access by KAI, MyMRTJ, dan
             MitraDarat. Dengan memanfaatkan kombinasi <b>INSET Lexicon</b>—kamus
@@ -197,7 +197,7 @@ export default function Page() {
         </p>
       </CaseSection>
 
-            {/* NEW: PRESENTATION GALLERY (ZOOM) */}
+      {/* NEW: PRESENTATION GALLERY (ZOOM) */}
       <CaseSection id="presentation" title="Conference & Presentation (Zoom)">
         <ul className="grid gap-6 sm:grid-cols-2">
           {/* Card 1 */}
@@ -231,7 +231,7 @@ export default function Page() {
             <div className="p-4">
               <h4 className="font-medium">Sertifikat Peserta</h4>
               <p className="mt-1 text-sm text-neutral-600">
-                Penerimaan Sertifikat Peserta 
+                Penerimaan Sertifikat Peserta
               </p>
             </div>
           </li>

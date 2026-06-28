@@ -55,9 +55,9 @@ const listItem: Variants = {
 type SkillsProp =
   | string[]
   | {
-      design: string[];
-      programming: string[];
-    };
+    design: string[];
+    programming: string[];
+  };
 
 type ResumeCVProps = {
   email: string;
@@ -175,9 +175,8 @@ function ResumeDots({ page, total }: { page: number; total: number }) {
         <span
           key={i}
           aria-hidden
-          className={`h-1.5 rounded-full transition-all ${
-            page === i ? "w-6 bg-neutral-900" : "w-3 bg-neutral-300"
-          }`}
+          className={`h-1.5 rounded-full transition-all ${page === i ? "w-6 bg-neutral-900" : "w-3 bg-neutral-300"
+            }`}
         />
       ))}
     </div>
@@ -614,18 +613,18 @@ export default function AboutMe() {
   ];
 
   const experiences: [string, string][] = [
-    ["On Going Projects — Monastery Website (Vercel)", "Oct 2025"],
-    ["Mini Projects — Fajar Aster Shop (GitHub Pages)", "Oct 2025"],
-    ["Second Author & UI/UX — PKM-CSR 2025 (Proceedings)", "Oct 24, 2025"],
-    ["HKI Illustrator & Cover Designer — “Vicara Guidebook”", "11 Jul 2025"],
+    ["On Going Projects — Monastery Website (Vercel)", "Oct 2026"],
+    ["Mini Projects — Fajar Aster Shop (GitHub Pages)", "Oct 2026"],
+    ["Second Author & UI/UX — PKM-CSR 2026 (Proceedings)", "Oct 24, 2026"],
+    ["HKI Illustrator & Cover Designer — “Vicara Guidebook”", "11 Jul 2026"],
     [
       "UI/UX Intern — Tarumanagara Enterprise",
-      "Apr 28 — Jul 25, 2025 · 4 months",
+      "Apr 28 — Jul 25, 2026 · 4 months",
     ],
-    ["First Author — SERINA IX UNTAR 2025 (Proceedings)", "Jun 11, 2025"],
-    ["Junior Member — DPM-FTI UNTAR (Publications/PR)", "Nov 2024 — May 2025"],
-    ["PKM Implementation Assistant — EduBuddy (UNTAR)", "Apr 2025"],
-    ["Volunteer — Capable Craft (Booth & Sales), Ashta District 8", "Feb 2025"],
+    ["First Author — SERINA IX UNTAR 2026 (Proceedings)", "Jun 11, 2026"],
+    ["Junior Member — DPM-FTI UNTAR (Publications/PR)", "Nov 2024 — May 2026"],
+    ["PKM Implementation Assistant — EduBuddy (UNTAR)", "Apr 2026"],
+    ["Volunteer — Capable Craft (Booth & Sales), Ashta District 8", "Feb 2026"],
   ];
 
   return (

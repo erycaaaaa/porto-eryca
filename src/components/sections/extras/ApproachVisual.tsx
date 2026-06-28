@@ -173,7 +173,7 @@ export default function GalleryPage({
             {filtered.map((item) => (
               <li
                 key={item.id}
-                className="group overflow-hidden rounded-2xl border border-[#e6dccb] bg-white shadow-sm"
+                className="group overflow-hidden rounded-2xl border border-[#e6dccb] bg-[#faf8f3] shadow-sm"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
@@ -184,7 +184,7 @@ export default function GalleryPage({
                     sizes="(max-width:640px) 50vw, (max-width:1024px) 50vw, 33vw"
                   />
 
-                  <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-black/50 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <div className="absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-[#3a2a16]/75 px-4 text-center text-[#f8e6c9] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     <h3 className="text-base font-semibold">{item.title}</h3>
                     <p className="mt-1 text-xs opacity-90 line-clamp-2">
                       {item.description}

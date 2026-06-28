@@ -10,7 +10,7 @@ export default function Page() {
         title: "EduBot UI/UX Design",
         subtitle:
           "Design system & conversational flow for an educational chatbot.",
-        year: "2025",
+        year: "2026",
         tag: "UI/UX • Chatbot",
         duration: "8 weeks",
         role: "Designer • Researcher",
@@ -152,7 +152,7 @@ export default function Page() {
               </p>
             </div>
           </li>
-            {/* Card 4 */}
+          {/* Card 4 */}
           <li className="overflow-hidden rounded-2xl border border-white/60 bg-white/75 backdrop-blur shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="relative aspect-[4/3] w-full">
               <Image
