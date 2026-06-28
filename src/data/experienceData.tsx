@@ -37,19 +37,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     skills: ["Figma", "UI/UX Design", "Usability Testing", "Tailwind CSS"],
     achievements: ["Increased user satisfaction score by 20%."],
   },
-  {
-    id: "work-2",
-    category: "Work",
-    title: "Frontend Developer (Freelance)",
-    subtitle: "Creative Agency X",
-    duration: "Jan 2024 — Mar 2024",
-    description: "Developed responsive landing pages for various client campaigns.",
-    responsibilities: [
-      "Translated Figma designs into pixel-perfect Next.js components.",
-      "Optimized web performance and accessibility.",
-    ],
-    skills: ["Next.js", "React", "TypeScript", "Framer Motion"],
-  },
+
 
   // --- TEACHING EXPERIENCE ---
   {
@@ -66,19 +54,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     ],
     skills: ["HTML", "CSS", "JavaScript", "Mentoring", "Public Speaking"],
   },
-  {
-    id: "teach-2",
-    category: "Teaching",
-    title: "Laboratory Assistant",
-    subtitle: "Computer Graphics Lab",
-    duration: "Feb 2025 — Jun 2025",
-    description: "Guided students through practical lab sessions focusing on rendering and modeling.",
-    responsibilities: [
-      "Prepared lab equipment and software environments.",
-      "Demonstrated complex graphical concepts.",
-    ],
-    skills: ["Computer Graphics", "Leadership", "Technical Troubleshooting"],
-  },
+
 
   // --- ORGANIZATION EXPERIENCE ---
   {
@@ -94,19 +70,6 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     ],
     achievements: ["Grew Instagram following by 15% in 6 months."],
     skills: ["Graphic Design", "Social Media Management", "Copywriting"],
-  },
-  {
-    id: "org-2",
-    category: "Organization",
-    title: "Event Coordinator",
-    subtitle: "Tech Innovation Summit 2024",
-    duration: "Jul 2024 — Oct 2024",
-    description: "Core team member responsible for planning a university-wide tech summit.",
-    responsibilities: [
-      "Coordinated with guest speakers and sponsors.",
-      "Managed event logistics and scheduling.",
-    ],
-    skills: ["Event Planning", "Team Collaboration", "Time Management"],
   },
 
   // --- RESEARCH & INNOVATION ---
